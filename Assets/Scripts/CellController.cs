@@ -6,6 +6,8 @@ using UnityEngine;
 public class CellController : MonoBehaviour
 {
     [SerializeField] private int x, y;
+    private GameObject enemyCell;
+    private GameObject allyCell;
     // Start is called before the first frame update
 
     #region Methods
@@ -42,6 +44,9 @@ public class CellController : MonoBehaviour
         GetComponent<EnemyController>().hasEnemy = true;
         GetComponent<EnemyController>().vida = 1;
     }
+
+    public GameObject isEnemyInCell() {return enemyCell;}
+    public GameObject isAllyInCell() { return allyCell;}
     #endregion
 
 

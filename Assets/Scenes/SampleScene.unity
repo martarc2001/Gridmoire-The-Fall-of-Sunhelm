@@ -187,6 +187,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5398574232523723941, guid: b4efc8d4ecbd37b4fb0229bd39c4ebc9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398574232523723941, guid: b4efc8d4ecbd37b4fb0229bd39c4ebc9, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -1217,6 +1221,10 @@ PrefabInstance:
       value: Player (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5398574232523723941, guid: b4efc8d4ecbd37b4fb0229bd39c4ebc9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398574232523723941, guid: b4efc8d4ecbd37b4fb0229bd39c4ebc9, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -1465,11 +1473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c409de1f1b0b554dbdc5aa39db1b2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {fileID: 3443793134021775027, guid: 442ef95b87f9a4744bca678112ffb971, type: 3}
-  width: 3
-  height: 3
-  anchoCelda: 2.5
-  altoCelda: 2.5
   celdas:
   - {fileID: 847671337}
   - {fileID: 1349634105}

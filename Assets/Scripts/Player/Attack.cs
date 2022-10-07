@@ -7,21 +7,32 @@ public class Attack : MonoBehaviour
     #region Variables
     private GameObject cell; //celda en la que está el personaje
     [SerializeField] private AttackType attackType; //tipo de ataque que va a realizar
-    private float baseDamage; //daño base de los ataques
+    [SerializeField] private Player player;
 
     private GameObject gridManager;
     #endregion
 
     #region Unity Methods
-    
+
+    private void Awake()
+    {
+        player = new Player();
+    }
+
     void Start()
     {
-        baseDamage = 1;
 
         gridManager = GameObject.FindGameObjectWithTag("GridManager");
     }
+
+    private void Update()
+    {
+        Debug.Log("Ataque: " + player.getAttack());
+        Debug.Log("Defensa: " + player.getDefense());
+        Debug.Log("HP: " + player.getHp());
+    }
     #endregion
-   
+
     #region Methods
     /// <summary>
     /// Realiza un ataque dependiendo del valor de attackType
@@ -42,6 +53,9 @@ public class Attack : MonoBehaviour
             case AttackType.grid:
                 gridAttack();
                 break;
+            case AttackType.heal:
+                heal();
+                break;
         }
     }
     #endregion
@@ -58,6 +72,8 @@ public class Attack : MonoBehaviour
     /// </summary>
     /// <param name="cell"></param>
     public void setCell(GameObject cell) { this.cell = cell; }
+
+    public Player getPlayerClass() { return player; }
     #endregion
 
     #region Attacks functions
@@ -66,13 +82,15 @@ public class Attack : MonoBehaviour
     /// </summary>
     private void oneCellAttack()
     {
+        var baseDamage = player.getAttack();
         Debug.Log("Single Attack");
-        var enemyInTheCell = cell.GetComponent<EnemyController>();
+        var enemyInTheCell = cell.GetComponent<CellController>();
 
-        if (enemyInTheCell.hasEnemy)
+        if (enemyInTheCell.isEnemyInCell() != null)
         {
+            var enemy = enemyInTheCell.isEnemyInCell().GetComponent<EnemyController>();
             var percentDamage = Random.Range(0.75f, 1);
-            enemyInTheCell.takeDamage(baseDamage * percentDamage);
+            enemy.takeDamage(baseDamage * percentDamage);
         }
     }
 
@@ -82,17 +100,18 @@ public class Attack : MonoBehaviour
     /// </summary>
     private void rowCellAttack()
     {
-        
+        var baseDamage = player.getAttack();
         var rowCells = gridManager.GetComponent<GridManager>().returnRow(cell);
 
         for(int i = 0; i < rowCells.Length; i++)
         {
-            var enemyInTheCell = rowCells[i].GetComponent<EnemyController>();
-            if (enemyInTheCell.hasEnemy)
+            var enemyInTheCell = rowCells[i].GetComponent<CellController>();
+            if (enemyInTheCell.isEnemyInCell() != null)
             {
+                var enemy = enemyInTheCell.isEnemyInCell().GetComponent<EnemyController>();
                 Debug.Log("Row Attack");
                 var percentDamage = Random.Range(0.45f, 0.7f);
-                enemyInTheCell.takeDamage(baseDamage * percentDamage);
+                enemy.takeDamage(baseDamage * percentDamage);
             }
         }
     }
@@ -103,16 +122,18 @@ public class Attack : MonoBehaviour
     /// </summary>
     private void colCellAttack()
     {
+        var baseDamage = player.getAttack();
         var colCells = gridManager.GetComponent<GridManager>().returnCol(cell);
 
         for (int i = 0; i < colCells.Length; i++)
         {
-            var enemyInTheCell = colCells[i].GetComponent<EnemyController>();
-            if (enemyInTheCell.hasEnemy)
+            var enemyInTheCell = colCells[i].GetComponent<CellController>();
+            if (enemyInTheCell.isEnemyInCell() != null)
             {
+                var enemy = enemyInTheCell.isEnemyInCell().GetComponent<EnemyController>();
                 Debug.Log("Col Attack");
                 var percentDamage = Random.Range(0.45f, 0.7f);
-                enemyInTheCell.takeDamage(baseDamage * percentDamage);
+                enemy.takeDamage(baseDamage * percentDamage);
             }
         }
     }
@@ -123,17 +144,40 @@ public class Attack : MonoBehaviour
     /// </summary>
     private void gridAttack()
     {
+        var baseDamage = player.getAttack();
         var grid = gridManager.GetComponent<GridManager>().returnGrid();
 
         foreach(GameObject cell in grid)
         {
-            var script = cell.GetComponent<EnemyController>();
-            if (script.hasEnemy)
+            var script = cell.GetComponent<CellController>();
+            if (script.isEnemyInCell() != null)
             {
+                var enemy = script.isEnemyInCell().GetComponent<EnemyController>();
                 Debug.Log("Grid Attack");
                 var percentDamage = Random.Range(0.15f, 0.35f);
-                script.takeDamage(baseDamage * percentDamage);
+                enemy.takeDamage(baseDamage * percentDamage);
             }
+        }
+    }
+
+    /// <summary>
+    /// Función para curar vida a todos los aliados
+    /// </summary>
+    private void heal()
+    {
+        var grid = gridManager.GetComponent<GridManager>().returnGrid();
+
+        foreach (GameObject cell in grid)
+        {
+            var script = cell.GetComponent<CellController>();
+            //comprobar si tiene aliado
+            if(script.isAllyInCell() != null)
+            {
+                var ally = script.isAllyInCell().GetComponent<Attack>();
+                var percentHeal = Random.Range(0.15f, 0.35f);
+                ally.getPlayerClass().heal(player.getAttack() * percentHeal);
+            }
+            //si lo tiene sumar vida
         }
     }
     #endregion
@@ -147,5 +191,6 @@ public enum AttackType
     single,
     row,
     col,
-    grid
+    grid,
+    heal
 }
