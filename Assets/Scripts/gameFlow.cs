@@ -9,6 +9,7 @@ public class gameFlow : MonoBehaviour
     public GameObject opciones;
     public Button botonOpciones;
     public Button botonJuego;
+    public Button botonTienda;
     public Button botonCreditos;
 
     public Button volverOpciones;
@@ -36,6 +37,7 @@ public class gameFlow : MonoBehaviour
 
         botonOpciones.enabled = false;
         botonJuego.enabled = false;
+        botonTienda.enabled = false;
         botonCreditos.enabled = false;
     }
 
@@ -47,6 +49,7 @@ public class gameFlow : MonoBehaviour
 
         botonOpciones.enabled = true;
         botonJuego.enabled = true;
+        botonTienda.enabled = true;
         botonCreditos.enabled = true;
     }
 
