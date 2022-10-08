@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class DragObjects : MonoBehaviour
 {
+    #region Variables
     private bool DragActive = false;
     private Vector2 screenPosition;
     private Vector3 worldPosition;
     private DraggableObjects lastDrag;
+    #endregion
 
-    private void Awake()
-    {
-        DraggableObjects[] controllers = FindObjectsOfType<DraggableObjects>();
-        if(controllers.Length > 1)
-        {
-            Destroy(gameObject);
-        }
-        
-    }
-
+    #region Unity Methods
     private void Update()
     {
+        //Si se está arrastrando y se suelta el botón del mouse o se deja de pulsar la pantalla,
+        //se deja de arrastrar
         if(DragActive)
         {
             if((Input.GetMouseButtonUp(0) ||
@@ -32,6 +27,7 @@ public class DragObjects : MonoBehaviour
             }
         }
 
+        //determina la posición del puntero en la pantalla dependiendo del input del mouse o del touch en el móvil
         if (Input.GetMouseButton(0))
         {
             var mousePosition = Input.mousePosition;
@@ -47,6 +43,8 @@ public class DragObjects : MonoBehaviour
 
         worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
 
+        //Si no se está arrastrando, se crea un raycast desde la posición del puntero y si este choca con un objeto, se comprueba si es un objeto arrastrable.
+        //Si lo es, se inicia el arrastre
         if (DragActive)
         {
             DuringDrag();
@@ -65,25 +63,34 @@ public class DragObjects : MonoBehaviour
             }
         }
     }
+    #endregion
 
-    
-
+    #region Metods
+    /// <summary>
+    /// Empieza el arrastre
+    /// </summary>
     void StartDrag()
     {
         lastDrag.GetComponent<DraggableObjects>().setIsDrag(true);
         DragActive = true;
     }
 
+    /// <summary>
+    /// Va cambiando la posición del objeto arrastrado.
+    /// </summary>
     void DuringDrag()
     {
         lastDrag.transform.position = new Vector2(worldPosition.x, worldPosition.y);
     }
 
+    /// <summary>
+    /// Finaliza el arrastre
+    /// </summary>
     void EndDrag()
     {
         lastDrag.GetComponent<DraggableObjects>().setIsDrag(false);
         DragActive = false;
     }
+    #endregion
 
-    
 }
