@@ -41,3 +41,42 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Cuerpo Base
+    uniqueID: 931956011
+    locked: 0
+  - name: "Pelo Atr\xE1s"
+    uniqueID: 431135395
+    locked: 0
+  - name: Ropa
+    uniqueID: 973314251
+    locked: 0
+  - name: "Ojos-Pesta\xF1as"
+    uniqueID: 3758455997
+    locked: 0
+  - name: Ojos-Iris
+    uniqueID: 1229204303
+    locked: 0
+  - name: Ojos-Extra
+    uniqueID: 3171602445
+    locked: 0
+  - name: Ojos-Brillo
+    uniqueID: 3679015309
+    locked: 0
+  - name: Nariz
+    uniqueID: 3595198897
+    locked: 0
+  - name: Extras
+    uniqueID: 2967218909
+    locked: 0
+  - name: Boca
+    uniqueID: 2119707423
+    locked: 0
+  - name: Orejas
+    uniqueID: 2058224945
+    locked: 0
+  - name: Flequillo
+    uniqueID: 859723855
+    locked: 0
+  - name: Cejas
+    uniqueID: 418582577
+    locked: 0
