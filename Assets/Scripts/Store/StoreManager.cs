@@ -6,6 +6,10 @@ public class StoreManager : MonoBehaviour
 {
     [SerializeField] private GameObject character;
 
+    [SerializeField] private GameObject patata;
+
+    [SerializeField] private EjercitoManager em;
+
     [SerializeField] private List<Sprite> flequillos;
     [SerializeField] private List<Sprite> pelos;
     [SerializeField] private List<Sprite> pestañas;
@@ -20,7 +24,7 @@ public class StoreManager : MonoBehaviour
     {
         var newCharacter = Instantiate(character);
 
-        /////// CHARACTER GENERATION ///////
+        /////// CHARACTER CUSTOMIZATION ///////
 
         var newFlequillo = newCharacter.transform.Find("Flequillo").GetComponent<SpriteRenderer>();
         var iFlequillo = Random.Range(0, flequillos.Count);
@@ -75,17 +79,19 @@ public class StoreManager : MonoBehaviour
 
         /////// ATTACK SELECTION ///////
 
-        //var attackType = Random.Range(0, 4);
-        //var attackScript = newCharacter.GetComponent<Attack>();
-        //attackScript.setAttackType((AttackType)attackType);
+        var tipoAtaque = (TipoAtaque)Random.Range(0, 4);
 
-        //var randomAttack = Random.Range(10, 150);
-        //attackScript.getPlayerClass().setAttack(randomAttack);
+        ///// CHARACTER GENERATION /////
 
-        //var randomDefense = Random.Range(10, 150);
-        //attackScript.getPlayerClass().setDeffense(randomDefense);
+        Personaje pers = new Personaje();
 
-        //var randomHP = Random.Range(150, 250);
-        //attackScript.getPlayerClass().setHp(randomHP);
+        pers.SetVida(Random.Range(100,200));
+        pers.SetAtaque(Random.Range(50,100));
+        pers.SetDefensa(Random.Range(50, 100));
+        pers.SetTipoAtaque(tipoAtaque);
+        pers.SetSprite(newCharacter);
+
+        em.AddPersonaje(pers);
+
     }
 }

@@ -12,7 +12,7 @@ public class Personaje
     private TipoAtaque tipoAtaque;
 
     private GameObject sprite;
-
+    
     // GETTERS & SETTERS
 
     public float GetVida() { return this.vida; }
@@ -24,7 +24,7 @@ public class Personaje
     public void SetVida(float vida) { this.vida = vida; }
     public void SetAtaque(float ataque) { this.ataque = ataque; }
     public void SetDefensa(float defensa) { this.defensa = defensa; }
-    public void SetAtaque(TipoAtaque tipoAtaque) { this.tipoAtaque = tipoAtaque; }
+    public void SetTipoAtaque(TipoAtaque tipoAtaque) { this.tipoAtaque = tipoAtaque; }
     public void SetSprite(GameObject sprite) { this.sprite = sprite; }
 }
 
