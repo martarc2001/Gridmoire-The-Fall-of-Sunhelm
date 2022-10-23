@@ -6,9 +6,7 @@ public class StoreManager : MonoBehaviour
 {
     [SerializeField] private GameObject character;
 
-    [SerializeField] private GameObject patata;
-
-    [SerializeField] private EjercitoManager em;
+    private EjercitoManager em;
 
     [SerializeField] private List<Sprite> flequillos;
     [SerializeField] private List<Sprite> pelos;
@@ -19,6 +17,11 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private List<Sprite> extras;
     [SerializeField] private List<Sprite> cejas;
     [SerializeField] private List<Sprite> ropas;
+
+    public void Awake()
+    {
+        DontDestroyOnLoad(em);
+    }
 
     public void generateRandomCharacter()
     {
