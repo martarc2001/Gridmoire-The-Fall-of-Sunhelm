@@ -6,6 +6,7 @@ public class StoreManager : MonoBehaviour
 {
     [SerializeField] private GameObject character;
 
+    [SerializeField] private GameObject ejercito;
     private EjercitoManager em;
 
     [SerializeField] private List<Sprite> flequillos;
@@ -18,9 +19,21 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private List<Sprite> cejas;
     [SerializeField] private List<Sprite> ropas;
 
+    public void Start()
+    {
+        em = ejercito.GetComponent(typeof(EjercitoManager)) as EjercitoManager;
+        DontDestroyOnLoad(em);
+        if (em.GetEjercito().Count != 0)
+        {
+            for (int i = 0; i < em.GetEjercito().Count; i++)
+            {
+                Debug.Log("El personaje " + i + " es de: " + em.GetEjercito()[i].GetTipoAtaque());
+            }
+        }
+    }
     public void Awake()
     {
-        DontDestroyOnLoad(em);
+
     }
 
     public void generateRandomCharacter()
@@ -96,5 +109,6 @@ public class StoreManager : MonoBehaviour
 
         em.AddPersonaje(pers);
 
+        Debug.Log("" + em.GetEjercito().Count + pers.GetTipoAtaque());
     }
 }
