@@ -42,6 +42,7 @@ public class IAManager
                 if (gridEnemigo.GetCeldas()[i, j].IsOccupied())
                 {
                     var accionAleatoria = Random.Range(1, 10);
+
                     if(gridEnemigo.GetCeldas()[i, j].GetPersonaje().GetVida() <= PeorVida && accionAleatoria > FACTOR_ALEATORIEDAD)
                     {
                         objetivo = new int[] {i, j};
@@ -49,8 +50,30 @@ public class IAManager
                 }
             }
         }
-
         return objetivo;
+    }
+
+    public int CompruebaColumn(Grid gridEnemigo)
+    {
+        int columnaObj;
+        int nEnemigos;
+        int mejorColumna;
+
+        for (int i = 0; i < gridEnemigo.GetCeldas().GetLength(1); i++)
+        {
+            nEnemigos = 0;
+            var accionAleatoria = Random.Range(1, 10);
+
+            for (int j = 0; j < gridEnemigo.GetCeldas().GetLength(0); i++)
+            {
+                if (gridEnemigo.GetCeldas()[i, j].IsOccupied())
+                {
+                    nEnemigos++;
+                }
+            }
+
+            if (nEnemigos > )
+        }
     }
 
     public void Atacar(Grid gridEnemigo, Personaje personaje)
