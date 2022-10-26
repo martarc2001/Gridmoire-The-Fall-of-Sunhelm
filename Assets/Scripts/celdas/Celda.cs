@@ -13,6 +13,15 @@ public class Celda
     private Personaje personaje;
     private bool occupied = false;
 
+    // PARAMETERIZED CONSTRUCTOR
+    public Celda() { }
+
+    public Celda(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
     // GETTERS & SETTERS
 
     public int GetX() { return this.x; }
