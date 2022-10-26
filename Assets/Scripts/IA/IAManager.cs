@@ -5,9 +5,23 @@ using UnityEngine;
 public class IAManager
 {
     // ATRIBUTOS
+
     private List<Personaje> ejercito = new List<Personaje>();
     [SerializeField] private readonly int FACTOR_ALEATORIEDAD;
+
+    // CONSTRUCTORS
+
+    public IAManager() {}
+
+    public IAManager(int factor = 2)
+    {
+        this.FACTOR_ALEATORIEDAD = factor;
+    }
+
+
+
     // GETTERS & SETTERS
+
     public List<Personaje> GetEjercito() { return this.ejercito; }
     public void SetEjercito(List<Personaje> ejercito) { this.ejercito = ejercito; }
 
@@ -110,7 +124,7 @@ public class IAManager
         return filaObj;
     }
 
-    public void AtaqueGrid(Grid gridEnemigo, float potencia)
+    public void AtaqueGrid(Grid gridEnemigo)
     {
         for (int i = 0; i < gridEnemigo.GetCeldas().GetLength(0); i++)
         {
@@ -128,7 +142,7 @@ public class IAManager
         }
     }
 
-    public void AtaqueSingle(Grid gridEnemigo, int[] pos, float potencia)
+    public void AtaqueSingle(Grid gridEnemigo, int[] pos)
     {
         gridEnemigo
             .GetCeldas()[pos[0], pos[1]]
@@ -137,7 +151,7 @@ public class IAManager
             gridEnemigo.GetCeldas()[pos[0], pos[1]].GetPersonaje().GetVida() - 10);
     }
 
-    public void AtaqueColumn(Grid gridEnemigo, int col, float potencia)
+    public void AtaqueColumn(Grid gridEnemigo, int col)
     {
         for (int i = 0; i < gridEnemigo.GetCeldas().GetLength(0); i++)
         {
@@ -152,7 +166,7 @@ public class IAManager
         }
     }
 
-    public void AtaqueRow(Grid gridEnemigo, int row, float potencia)
+    public void AtaqueRow(Grid gridEnemigo, int row)
     {
         for (int i = 0; i < gridEnemigo.GetCeldas().GetLength(1); i++)
         {
@@ -167,35 +181,54 @@ public class IAManager
         }
     }
 
-    public void Atacar(Grid gridEnemigo, Personaje personaje)
+    public void Heal(Grid gridAliado)
+    {
+        for (int i = 0; i < gridAliado.GetCeldas().GetLength(0); i++)
+        {
+            for (int j = 0; j < gridAliado.GetCeldas().GetLength(1); j++)
+            {
+                if (gridAliado.GetCeldas()[i, j].IsOccupied())
+                {
+                    gridAliado
+                        .GetCeldas()[i, j]
+                        .GetPersonaje()
+                        .SetVida(
+                        gridAliado.GetCeldas()[i, j].GetPersonaje().GetVida() + 10);
+                }
+            }
+        }
+    }
+
+    public void Atacar(Grid gridAliado, Grid gridEnemigo, Personaje personaje)
     {
         switch (personaje.GetTipoAtaque())
         {
             case TipoAtaque.GRID:
                 // Invocar ataque grid
-                AtaqueGrid(gridEnemigo, personaje.GetAtaque());
+                AtaqueGrid(gridEnemigo);
                 Debug.Log("He atacado en GRID");
                 break;
             case TipoAtaque.SINGLE:
                 int[] celdaObj = CompruebaSingle(gridEnemigo);
                 // Invocar ataque single
-                AtaqueSingle(gridEnemigo, celdaObj, personaje.GetAtaque());
+                AtaqueSingle(gridEnemigo, celdaObj);
                 Debug.Log("He atacado en SINGLE a la casilla: " + celdaObj[0] + ", " + celdaObj[1]);
                 break;
             case TipoAtaque.COLUMN:
                 int columnaObj = CompruebaColumn(gridEnemigo);
                 // Invocar ataque column
-                AtaqueColumn(gridEnemigo, columnaObj, personaje.GetAtaque());
+                AtaqueColumn(gridEnemigo, columnaObj);
                 Debug.Log("He atacado en COLUMN a la columna: " + columnaObj);
                 break;
             case TipoAtaque.ROW:
                 int filaObj = CompruebaRow(gridEnemigo);
-                AtaqueColumn(gridEnemigo, filaObj, personaje.GetAtaque());
+                AtaqueColumn(gridEnemigo, filaObj);
                 // Invocar ataque row
                 Debug.Log("He atacado en ROW a la fila: " + filaObj);
                 break;
             case TipoAtaque.HEAL:
                 // Invocar ataque heal
+                Heal(gridAliado);
                 Debug.Log("He HEALeado");
                 break;
             default:
@@ -203,12 +236,71 @@ public class IAManager
         }
     }
 
-    public void RealizarTurno(Grid gridEnemigo)
+    public int[] BuscaRandom(Grid grid)
+    {
+        int x, y;
+
+        do
+        {
+            x = Random.Range(0, 3);
+            y = Random.Range(0, 3);
+        } while (!grid.GetCeldas()[x, y].IsOccupied());
+
+        return new int[2] { x, y };
+    }
+
+    public void AtacarRandom(Grid gridAliado, Grid gridEnemigo, Personaje personaje)
+    {
+
+        
+
+        switch (personaje.GetTipoAtaque())
+        {
+            case TipoAtaque.GRID:
+                // Invocar ataque grid
+                AtaqueGrid(gridEnemigo);
+                Debug.Log("He atacado RANDOM en GRID");
+                break;
+            case TipoAtaque.SINGLE:
+                int[] objetivoSingle = BuscaRandom(gridEnemigo);
+                // Invocar ataque single
+                AtaqueSingle(gridEnemigo, objetivoSingle);
+                Debug.Log("He atacado RANDOM en SINGLE a la casilla: " + objetivoSingle[0] + ", " + objetivoSingle[1]);
+                break;
+            case TipoAtaque.COLUMN:
+                int[] objetivoColumn = BuscaRandom(gridEnemigo);
+                // Invocar ataque column
+                AtaqueColumn(gridEnemigo, objetivoColumn[1]);
+                Debug.Log("He atacado RANDOM en COLUMN a la columna: " + objetivoColumn[1]);
+                break;
+            case TipoAtaque.ROW:
+                int[] objetivoRow = BuscaRandom(gridEnemigo);
+                AtaqueColumn(gridEnemigo, objetivoRow[0]);
+                // Invocar ataque row
+                Debug.Log("He atacado RANDOM en ROW a la fila: " + objetivoRow[0]);
+                break;
+            case TipoAtaque.HEAL:
+                // Invocar ataque heal
+                Heal(gridAliado);
+                Debug.Log("He HEALeado RANDOM");
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void RealizarTurno(Grid gridAliado, Grid gridEnemigo)
     {
         foreach (Personaje personaje in this.ejercito)
         {
-            // ALEATORIEDAD AQUI
-            Atacar(gridEnemigo, personaje);
+            int factorInteligencia = Random.Range(0, 10);
+            if (factorInteligencia > FACTOR_ALEATORIEDAD)
+            {
+                Atacar(gridAliado, gridEnemigo, personaje);
+            } else
+            {
+                AtacarRandom(gridAliado, gridEnemigo, personaje);
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ public class Grid
 
     public Grid() {}
 
-    public Grid(int m)
+    public Grid(int m = 3)
     {
         this.M = m;
         this.grid = new Celda[m, m];

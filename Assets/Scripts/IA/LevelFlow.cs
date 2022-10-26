@@ -66,7 +66,7 @@ public class LevelFlow : MonoBehaviour
             enemigo.SetVida(100);
             enemigo.SetAtaque(100);
             enemigo.SetDefensa(100);
-            enemigo.SetTipoAtaque((TipoAtaque)Random.Range(0, 4));
+            enemigo.SetTipoAtaque((TipoAtaque)Random.Range(0, 5));
 
             grid.GetCeldas()[x, y].SetPersonaje(enemigo);
             grid.GetCeldas()[x, y].ChangeOccupied();
@@ -89,11 +89,11 @@ public class LevelFlow : MonoBehaviour
         do
         {
             Debug.Log("TURNO PLAYER");
-            player.RealizarTurno(gridIA);
+            player.RealizarTurno(gridPlayer, gridIA);
             if (QuedanMoñecos(gridIA))
             {
                 Debug.Log("TURNO IA");
-                ia.RealizarTurno(gridPlayer);
+                ia.RealizarTurno(gridIA, gridPlayer);
             }
 
         } while (QuedanMoñecos(gridIA) && QuedanMoñecos(gridPlayer));
