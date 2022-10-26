@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StoreManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class StoreManager : MonoBehaviour
 
     //[SerializeField] private GameObject ejercito;
     //private EjercitoManager em;
+    private ListaPlayerSerializable spl = new ListaPlayerSerializable();
 
     [SerializeField] private List<Sprite> flequillos;
     [SerializeField] private List<Sprite> pelos;
@@ -21,15 +23,6 @@ public class StoreManager : MonoBehaviour
 
     public void Start()
     {
-        /*em = ejercito.GetComponent(typeof(EjercitoManager)) as EjercitoManager;
-        DontDestroyOnLoad(em);
-        if (em.GetEjercito().Count != 0)
-        {
-            for (int i = 0; i < em.GetEjercito().Count; i++)
-            {
-                Debug.Log("El personaje " + i + " es de: " + em.GetEjercito()[i].GetTipoAtaque());
-            }
-        }*/
     }
     public void Awake()
     {
@@ -105,10 +98,14 @@ public class StoreManager : MonoBehaviour
         pers.SetAtaque(Random.Range(50,100));
         pers.SetDefensa(Random.Range(50, 100));
         pers.SetTipoAtaque(tipoAtaque);
-        pers.SetSprite(newCharacter);
 
-        GameManager.instance.getEM().AddPersonaje(pers);
+        newCharacter.GetComponent<PlayerController>().setPersonaje(pers);
 
-        Debug.Log("" + GameManager.instance.getEM().GetEjercito().Count );
+        var sp = new SerializablePlayer(iFlequillo,iPelo,iPest,iOrej,iNari,iBoca,iExtra,iCejas,iRopa,RP,GP,BP,RI,GI,BI,pers);
+
+        spl.list.Add(sp);
+
+        PlayerPrefs.SetString("ejercito",JsonUtility.ToJson(spl));
+
     }
 }

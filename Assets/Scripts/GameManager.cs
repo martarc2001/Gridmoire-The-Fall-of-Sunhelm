@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    private EjercitoManager em;
+    [SerializeField] private EjercitoManager em;
 
     public GameManager Instance
     {
@@ -31,13 +32,20 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-
+        
         DontDestroyOnLoad(gameObject);
+        em = GetComponent<EjercitoManager>();
     }
 
     private void Start()
     {
-        em = GetComponent<EjercitoManager>();
+        
+    }
+
+    private void Update()
+    {
+        //if (em.GetEjercito().Count > 0)
+            //Debug.Log(em.GetEjercito()[0]);
     }
 
     public EjercitoManager getEM() { return em; }

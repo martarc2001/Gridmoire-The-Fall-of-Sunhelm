@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EjercitoManager : MonoBehaviour
 {
-    private List<Personaje> personajes = new List<Personaje>();
-
+    private List<GameObject> personajes = new List<GameObject>();
+    
     // GETTERS & SETTERS
 
-    public List<Personaje> GetEjercito() { return this.personajes; }
+    public List<GameObject> GetEjercito() { return this.personajes; }
 
-    public void SetEjercito(List<Personaje> lista) { this.personajes = lista; }
+    public void SetEjercito(List<GameObject> lista) { this.personajes = lista; }
     
     // METODOS
 
-    public void AddPersonaje(Personaje personaje) { this.personajes.Add(personaje); }
+    public void AddPersonaje(GameObject personaje) { this.personajes.Add(personaje); }
 }
