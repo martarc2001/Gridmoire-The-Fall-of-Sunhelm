@@ -6,7 +6,27 @@ public class Grid
 {
     // ATRIBUTOS
 
-    private Celda[,] grid = new Celda[3,3];
+    private int M;
+
+    private Celda[,] grid;
+
+    // CNSTRUCTORS
+
+    public Grid() {}
+
+    public Grid(int m)
+    {
+        this.M = m;
+        this.grid = new Celda[m, m];
+
+        for (int i = 0; i < m; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                this.grid[i, j] = new Celda(i, j);
+            }
+        }
+    }
 
     // GETTERS & SETTERS
 

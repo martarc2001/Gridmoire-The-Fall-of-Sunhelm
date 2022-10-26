@@ -6,8 +6,8 @@ public class LevelFlow : MonoBehaviour
 {
     // atributos
 
-    private Grid gridIA = new Grid();
-    private Grid gridPlayer = new Grid();
+    private Grid gridIA = new Grid(3);
+    private Grid gridPlayer = new Grid(3);
 
     private IAManager ia = new IAManager();
     private IAManager player = new IAManager();
@@ -49,24 +49,6 @@ public class LevelFlow : MonoBehaviour
         return false;
     }
 
-    private void CreaGrids()
-    {
-        Celda[,] nuevoGridIA = new Celda[3, 3];
-        Celda[,] nuevoGridPlayer = new Celda[3, 3];
-
-        for (int i = 0; i < nuevoGridIA.GetLength(0); i++)
-        {
-            for (int j = 0; j < nuevoGridIA.GetLength(1); j++)
-            {
-                nuevoGridIA[i, j] = new Celda(i, j);
-                nuevoGridPlayer[i, j] = new Celda(i, j);
-            }
-        }
-
-        gridIA.SetCeldas(nuevoGridIA);
-        gridPlayer.SetCeldas(nuevoGridPlayer);
-    }
-
     private void rellenarGrid(Grid grid)
     {
         int x, y;
@@ -76,15 +58,15 @@ public class LevelFlow : MonoBehaviour
         {
             do
             {
-                x = Random.Range(0, 2);
-                y = Random.Range(0, 2);
+                x = Random.Range(0, 3);
+                y = Random.Range(0, 3);
             } while ( grid.GetCeldas()[x, y].IsOccupied());
 
             Personaje enemigo = new Personaje();
             enemigo.SetVida(100);
             enemigo.SetAtaque(100);
             enemigo.SetDefensa(100);
-            enemigo.SetTipoAtaque((TipoAtaque)Random.Range(0, 3));
+            enemigo.SetTipoAtaque((TipoAtaque)Random.Range(0, 4));
 
             grid.GetCeldas()[x, y].SetPersonaje(enemigo);
             grid.GetCeldas()[x, y].ChangeOccupied();
@@ -96,9 +78,6 @@ public class LevelFlow : MonoBehaviour
     public void SimulaPartida()
     {
         // Inicialzar grids
-        CreaGrids();
-
-        // Generar partida
         rellenarGrid(gridIA);
         rellenarGrid(gridPlayer);
 
