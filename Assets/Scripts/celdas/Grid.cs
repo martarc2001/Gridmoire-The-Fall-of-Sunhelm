@@ -4,22 +4,34 @@ using UnityEngine;
 
 public class Grid
 {
-    // ATRIBUTOS
     #region Atributos
-    private Celda[,] grid = new Celda[3,3];
+    // ATRIBUTOS
+
+    private int M;
+
+    private Celda[,] grid;
+    
     #endregion
 
     #region Constructor
-    public Grid()
+    // CNSTRUCTORS
+
+    public Grid() {}
+
+    public Grid(int m = 3)
     {
-        for(int i = 0; i < grid.GetLength(0); i++)
+        this.M = m;
+        this.grid = new Celda[m, m];
+
+        for (int i = 0; i < m; i++)
         {
-            for(int j = 0; j< grid.GetLength(1); j++)
+            for (int j = 0; j < m; j++)
             {
-                grid[i,j] = new Celda(i, j);
+                this.grid[i, j] = new Celda(i, j);
             }
         }
     }
+    
     #endregion
 
     // GETTERS & SETTERS
