@@ -39,7 +39,10 @@ public class Celda
 
     public void SetX(int x) { this.x = x; }
     public void SetY(int y) { this.y = y; }
-    public void SetPersonaje(GameObject personaje) { this.personaje = personaje; }
+    public void SetPersonaje(GameObject personaje) 
+    { this.personaje = personaje;
+        Debug.Log(this.personaje);
+    }
     public void ChangeOccupied() { this.occupied = !this.occupied; }
     #endregion
 }

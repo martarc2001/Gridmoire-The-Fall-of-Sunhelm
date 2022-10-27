@@ -27,6 +27,8 @@ public class Grid
     public Celda[,] GetCeldas() { return this.grid; }
 
     public void SetCeldas(Celda[,] grid) { this.grid = grid; }
+
+    public void addCelda(int x, int y, Celda celda) { grid[x, y] = celda; }
     #endregion
     // METODOS
     #region Methods
