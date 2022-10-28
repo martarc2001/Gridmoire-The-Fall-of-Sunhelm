@@ -88,15 +88,15 @@ public class StoreManager : MonoBehaviour
 
         /////// ATTACK SELECTION ///////
 
-        var tipoAtaque = (TipoAtaque)Random.Range(0, 4);
+        var tipoAtaque = (TipoAtaque)Random.Range(0, 5);
 
         ///// CHARACTER GENERATION /////
 
         Personaje pers = new Personaje();
 
-        pers.SetVida(Random.Range(100,200));
-        pers.SetAtaque(Random.Range(50,100));
-        pers.SetDefensa(Random.Range(50, 100));
+        pers.SetVida(Random.Range(14, 40));
+        pers.SetAtaque(Random.Range(4, 16));
+        pers.SetDefensa(Random.Range(2, 10));
         pers.SetTipoAtaque(tipoAtaque);
 
         newCharacter.GetComponent<PlayerController>().setPersonaje(pers);
