@@ -6,17 +6,19 @@ public class GridManager : MonoBehaviour
 {
     private Grid grid = new Grid();
     [SerializeField] private List<CeldaManager> celdas = new List<CeldaManager>();
+    [SerializeField] private GameObject prefabCelda;
 
     private void Awake()
     {
-        grid = new Grid();
+        grid = new Grid(3);
     }
     // Start is called before the first frame update
     void Start()
     {
-        foreach(var celda in celdas)
+        foreach(var celda in grid.GetCeldas())
         {
-            grid.addCelda(celda.getCelda().GetX(), celda.getCelda().GetY(), celda.getCelda());
+            //grid.addCelda(celda.getCelda().GetX(), celda.getCelda().GetY(), celda.getCelda());
+            celda.SetPrefab(prefabCelda);
         }
     }
 

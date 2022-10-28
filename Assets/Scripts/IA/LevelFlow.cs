@@ -37,7 +37,7 @@ public class LevelFlow : MonoBehaviour
         {
             while (y < celdas.GetLength(1))
             {
-                if (celdas[x, y].IsOccupied() && celdas[x, y].GetPersonaje().GetVida() > 0)
+                if (celdas[x, y].IsOccupied() && celdas[x, y].GetPersonaje().GetComponent<PlayerController>().getPersonaje().GetVida() > 0)
                 {
                     return true;
                 }
@@ -68,7 +68,11 @@ public class LevelFlow : MonoBehaviour
             enemigo.SetDefensa(100);
             enemigo.SetTipoAtaque((TipoAtaque)Random.Range(0, 5));
 
-            grid.GetCeldas()[x, y].SetPersonaje(enemigo);
+            GameObject objEnemigo = new GameObject();
+            objEnemigo.AddComponent<PlayerController>();
+            objEnemigo.GetComponent<PlayerController>().setPersonaje(enemigo);
+
+            grid.GetCeldas()[x, y].SetPersonaje(objEnemigo);
             grid.GetCeldas()[x, y].ChangeOccupied();
 
             nEnemigos++;
