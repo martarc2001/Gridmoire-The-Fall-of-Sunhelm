@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class PlanificationManager : MonoBehaviour
 {
     private GameObject playerSelected;
+    [SerializeField] private GameObject canvasParent;
+    private int personajesSeleccionados = 0;
 
     // Update is called once per frame
     void Update()
@@ -22,17 +24,49 @@ public class PlanificationManager : MonoBehaviour
             {
                 foreach(var hit in raycast)
                 {
-                    if (hit.gameObject.CompareTag("Player"))
+                    if (hit.gameObject.CompareTag("Player") && !hit.gameObject.transform.parent.CompareTag("Cell"))
                     {
-                        playerSelected = hit.gameObject;
-                    }else if(hit.gameObject.CompareTag("Cell") && playerSelected != null)
+                        if(hit.gameObject.transform.Find("Character").GetComponent<SeleccionableManager>().isSelectable())
+                            playerSelected = hit.gameObject;
+
+                    }
+                    else if(hit.gameObject.CompareTag("Cell"))
                     {
-                        hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(playerSelected);
-                        var copia = Instantiate(playerSelected, hit.gameObject.transform.position, Quaternion.identity);
-                        copia.gameObject.transform.SetParent(hit.gameObject.transform);
-                    }else if (hit.gameObject.CompareTag("Button"))
-                    {
-                        hit.gameObject.GetComponent<Button>().onClick.Invoke();
+                        if (!hit.gameObject.GetComponent<CeldaManager>().getCelda().IsOccupied())
+                        {
+                            if (playerSelected != null && personajesSeleccionados < 3)
+                            {
+                                hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(playerSelected);
+                                hit.gameObject.GetComponent<CeldaManager>().getCelda().ChangeOccupied();
+                                playerSelected.gameObject.transform.SetParent(hit.gameObject.transform);
+                                playerSelected.gameObject.transform.position = hit.gameObject.transform.position;
+                                playerSelected = null;
+                                personajesSeleccionados++;
+                            }
+                            
+                        }
+                        else
+                        {
+                            if(playerSelected != null)
+                            {
+                                hit.gameObject.GetComponent<CeldaManager>().getCelda()
+                                    .GetPersonaje().transform.SetParent(canvasParent.transform);
+
+                                hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(null);
+                                hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(playerSelected);
+                                playerSelected.gameObject.transform.SetParent(hit.gameObject.transform);
+                                playerSelected.gameObject.transform.position = hit.gameObject.transform.position;
+                                playerSelected = null;
+                            }
+                            else
+                            {
+                                playerSelected = hit.gameObject.GetComponent<CeldaManager>().getCelda().GetPersonaje();
+                                hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(null);
+                                hit.gameObject.GetComponent<CeldaManager>().getCelda().ChangeOccupied();
+                            }
+                            
+                        }
+                        
                     }
                 }
             }

@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 4569214495030577683}
   - component: {fileID: 7053749530791036625}
   - component: {fileID: 1881559917541173252}
+  - component: {fileID: 7390221356590835662}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -254,6 +255,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1db4d72fed12a1d4fa3725d3c4a4fe3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7390221356590835662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893997849916111989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9873f5199ae29f64d876190fb7f82f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2900911814974019073
@@ -1143,7 +1156,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7217979066503497208}
   - component: {fileID: 5580380845497496345}
-  - component: {fileID: 2926221105294564409}
   m_Layer: 0
   m_Name: Ojos
   m_TagString: Untagged
@@ -1182,36 +1194,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8249690956994715618}
   m_CullTransparentMesh: 1
---- !u!114 &2926221105294564409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8249690956994715618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8741489677160746625
 GameObject:
   m_ObjectHideFlags: 0
