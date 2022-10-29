@@ -17,60 +17,67 @@ public class PlanificationManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             var pointer = new PointerEventData(EventSystem.current) { position = Input.mousePosition};
-            var raycast = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(pointer, raycast);
+            inputController(pointer);
+        }else if((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended))
+        {
+            var pointer = new PointerEventData(EventSystem.current) { position = Input.GetTouch(0).position };
+            inputController(pointer);
+        }
+    }
 
-            if(raycast.Count > 0)
+    private void inputController(PointerEventData pointer)
+    {
+        var raycast = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointer, raycast);
+
+        if (raycast.Count > 0)
+        {
+            foreach (var hit in raycast)
             {
-                foreach(var hit in raycast)
+                if (hit.gameObject.CompareTag("Player") && !hit.gameObject.transform.parent.CompareTag("Cell"))
                 {
-                    if (hit.gameObject.CompareTag("Player") && !hit.gameObject.transform.parent.CompareTag("Cell"))
+                    if (hit.gameObject.transform.Find("Character").GetComponent<SeleccionableManager>().isSelectable())
+                        playerSelected = hit.gameObject;
+                }
+                else if (hit.gameObject.CompareTag("Cell"))
+                {
+                    if (!hit.gameObject.GetComponent<CeldaManager>().getCelda().IsOccupied())
                     {
-                        if(hit.gameObject.transform.Find("Character").GetComponent<SeleccionableManager>().isSelectable())
-                            playerSelected = hit.gameObject;
+                        if (playerSelected != null && personajesSeleccionados < 3)
+                        {
+                            hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(playerSelected);
+                            hit.gameObject.GetComponent<CeldaManager>().getCelda().ChangeOccupied();
+                            playerSelected.gameObject.transform.SetParent(hit.gameObject.transform);
+                            playerSelected.gameObject.transform.position = hit.gameObject.transform.position;
+                            playerSelected = null;
+                            personajesSeleccionados++;
+                        }
 
                     }
-                    else if(hit.gameObject.CompareTag("Cell"))
+                    else
                     {
-                        if (!hit.gameObject.GetComponent<CeldaManager>().getCelda().IsOccupied())
+                        if (playerSelected != null)
                         {
-                            if (playerSelected != null && personajesSeleccionados < 3)
-                            {
-                                hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(playerSelected);
-                                hit.gameObject.GetComponent<CeldaManager>().getCelda().ChangeOccupied();
-                                playerSelected.gameObject.transform.SetParent(hit.gameObject.transform);
-                                playerSelected.gameObject.transform.position = hit.gameObject.transform.position;
-                                playerSelected = null;
-                                personajesSeleccionados++;
-                            }
-                            
+                            hit.gameObject.GetComponent<CeldaManager>().getCelda()
+                                .GetPersonaje().transform.SetParent(canvasParent.transform);
+
+                            hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(null);
+                            hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(playerSelected);
+                            playerSelected.gameObject.transform.SetParent(hit.gameObject.transform);
+                            playerSelected.gameObject.transform.position = hit.gameObject.transform.position;
+                            playerSelected = null;
                         }
                         else
                         {
-                            if(playerSelected != null)
-                            {
-                                hit.gameObject.GetComponent<CeldaManager>().getCelda()
-                                    .GetPersonaje().transform.SetParent(canvasParent.transform);
-
-                                hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(null);
-                                hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(playerSelected);
-                                playerSelected.gameObject.transform.SetParent(hit.gameObject.transform);
-                                playerSelected.gameObject.transform.position = hit.gameObject.transform.position;
-                                playerSelected = null;
-                            }
-                            else
-                            {
-                                playerSelected = hit.gameObject.GetComponent<CeldaManager>().getCelda().GetPersonaje();
-                                hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(null);
-                                hit.gameObject.GetComponent<CeldaManager>().getCelda().ChangeOccupied();
-                            }
-                            
+                            playerSelected = hit.gameObject.GetComponent<CeldaManager>().getCelda().GetPersonaje();
+                            hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(null);
+                            hit.gameObject.GetComponent<CeldaManager>().getCelda().ChangeOccupied();
                         }
-                        
+
                     }
+
                 }
             }
-
         }
     }
 }

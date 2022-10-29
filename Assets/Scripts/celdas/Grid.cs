@@ -51,7 +51,7 @@ public class Grid
         var celdas = new Celda[3];
         for(int i = 0; i < grid.GetLength(1); i++)
         {
-            celdas[0] = grid[x,i];
+            celdas[i] = grid[x,i];
         }
 
         return celdas;
@@ -62,7 +62,7 @@ public class Grid
         var celdas = new Celda[3];
         for (int i = 0; i < grid.GetLength(0); i++)
         {
-            celdas[0] = grid[i, y];
+            celdas[i] = grid[i, y];
         }
 
         return celdas;

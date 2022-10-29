@@ -1,58 +1,99 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelFlow : MonoBehaviour
 {
     // atributos
 
-    private Grid gridIA = new Grid(3);
-    private Grid gridPlayer = new Grid(3);
+    //private Grid gridIA = new Grid(3);
+    //private Grid gridPlayer = new Grid(3);
+
+    [SerializeField] private GridManager gridIA;
+    [SerializeField] private GridManager gridPlayer;
 
     private IAManager ia = new IAManager();
-    private IAManager player = new IAManager();
+    private bool initialize = false;
+
+    [SerializeField] private GameObject enemyPrefab;
+
+    private List<PlayerController> ejercitoJugador = new List<PlayerController>();
+    private List<PlayerController> ejercitoEnemigo = new List<PlayerController>();
 
     // getter & setters
 
-    public Grid GetGridIA() { return gridIA; }
-    public Grid GetGridPlayer() { return gridPlayer; }
+    public GridManager GetGridIA() { return gridIA; }
+    public GridManager GetGridPlayer() { return gridPlayer; }
     public IAManager GetIAManager() { return ia; }
-    public IAManager GetIAPlayer() { return player; }
+    public bool isInitialized() { return initialize; }
+    
 
-    public void SetGridIA(Grid gridIA) { this.gridIA = gridIA; }
-    public void SetGridPlayer(Grid gridPlayer) { this.gridPlayer = gridPlayer; }
+    public void SetGridIA(GridManager gridIA) { this.gridIA = gridIA; }
+    public void SetGridPlayer(GridManager gridPlayer) { this.gridPlayer = gridPlayer; }
     public void SetIAManager(IAManager ia) { this.ia = ia; }
-    public void GetIAPlayer(IAManager player) { this.player = player; }
+
 
     // Metodos
-
-    private bool QuedanMoñecos(Grid comprobar)
+    /*private void Start()
     {
-        Celda[,] celdas = comprobar.GetCeldas();
+        SimulaPartida();
+    }*/
 
-        int x = 0;
-        int y = 0;
-
-        while (x < celdas.GetLength(0))
+    private void Update()
+    {
+        if (initialize)
         {
-            while (y < celdas.GetLength(1))
+            if (QuedanPersonajes(ejercitoEnemigo) && QuedanPersonajes(ejercitoJugador))
             {
-                if (celdas[x, y].IsOccupied() && celdas[x, y].GetPersonaje().GetComponent<PlayerController>().getPersonaje().GetVida() > 0)
+                if (GetComponent<BattleController>().getTurnos() < 3)
                 {
-                    return true;
+                    //Debug.Log(GetComponent<BattleController>().getTurnos());
                 }
-                y++;
+                else if (QuedanPersonajes(ejercitoEnemigo))
+                {
+                    ia.RealizarTurno(gridIA.getGridInfo(), gridPlayer.getGridInfo());
+                    GetComponent<BattleController>().resetTurno();
+                }
+
+
             }
-            y = 0;
-            x++;
+            else
+            {
+                SceneManager.LoadScene("Menu");
+            }
         }
-        return false;
+        
+    }
+    private bool QuedanPersonajes(List<PlayerController> comprobar)
+    {
+        var result = false;
+        List<PlayerController> persEliminar = new List<PlayerController>();
+        foreach(var personaje in comprobar)
+        {
+            if(personaje.getPersonaje().GetVida() <= 0)
+            {
+                persEliminar.Add(personaje);
+            }
+            if(personaje.getPersonaje().GetVida() > 0)
+            {
+                result = true;      
+            }
+        }
+
+        foreach(var eliminados in persEliminar)
+        {
+            comprobar.Remove(eliminados);
+            Destroy(eliminados.gameObject);
+        }
+        return result;
     }
 
-    private void rellenarGrid(Grid grid)
+    private void rellenarGrid(GridManager grid)
     {
         int x, y;
         int nEnemigos = 0;
+        Transform celdaTransform = transform;
 
         while (nEnemigos < 3)
         {
@@ -60,21 +101,31 @@ public class LevelFlow : MonoBehaviour
             {
                 x = Random.Range(0, 3);
                 y = Random.Range(0, 3);
-            } while ( grid.GetCeldas()[x, y].IsOccupied());
+            } while ( grid.getGridInfo().GetCeldas()[x, y].IsOccupied());
+
+           foreach(var celda in grid.getCeldas())
+            {
+                if(celda.getCelda().GetX() == x && celda.getCelda().GetY() == y)
+                {
+                    celdaTransform = celda.gameObject.transform;
+                }
+            }
 
             Personaje enemigo = new Personaje();
-            enemigo.SetVida(100);
-            enemigo.SetAtaque(100);
-            enemigo.SetDefensa(100);
+            var vida = Random.Range(10.0f, 100.0f);
+            enemigo.SetVida(10);
+            var ataque = Random.Range(10.0f, 100.0f);
+            enemigo.SetAtaque(ataque);
+            var defensa = Random.Range(10.0f, 100.0f);
+            enemigo.SetDefensa(0);
             enemigo.SetTipoAtaque((TipoAtaque)Random.Range(0, 5));
 
-            GameObject objEnemigo = new GameObject();
-            objEnemigo.AddComponent<PlayerController>();
+            var objEnemigo = Instantiate(enemyPrefab, celdaTransform.position, Quaternion.identity);
             objEnemigo.GetComponent<PlayerController>().setPersonaje(enemigo);
-
-            grid.GetCeldas()[x, y].SetPersonaje(objEnemigo);
-            grid.GetCeldas()[x, y].ChangeOccupied();
-
+            objEnemigo.transform.SetParent(celdaTransform);
+            grid.getGridInfo().GetCeldas()[x, y].SetPersonaje(objEnemigo);
+            grid.getGridInfo().GetCeldas()[x, y].ChangeOccupied();
+            ejercitoEnemigo.Add(objEnemigo.GetComponent<PlayerController>());
             nEnemigos++;
         }
     }
@@ -83,24 +134,15 @@ public class LevelFlow : MonoBehaviour
     {
         // Inicialzar grids
         rellenarGrid(gridIA);
-        rellenarGrid(gridPlayer);
 
-        ia.ConsigueEjercito(gridIA);
-        player.ConsigueEjercito(gridPlayer);
-
-        // Batallar
-        Debug.Log("Empieza la partida.");
-        do
+        foreach(var celda in gridIA.getCeldas())
         {
-            Debug.Log("TURNO PLAYER");
-            player.RealizarTurno(gridPlayer, gridIA);
-            if (QuedanMoñecos(gridIA))
-            {
-                Debug.Log("TURNO IA");
-                ia.RealizarTurno(gridIA, gridPlayer);
-            }
+            Debug.Log(celda.getCelda().IsOccupied());
+        }
 
-        } while (QuedanMoñecos(gridIA) && QuedanMoñecos(gridPlayer));
-        Debug.Log("Se ha terminado la partida.");
+        ia.SetEjercito(ejercitoEnemigo);
+        initialize = true;
     }
+
+    public void addPersonaje(PlayerController add) { ejercitoJugador.Add(add); }
 }
