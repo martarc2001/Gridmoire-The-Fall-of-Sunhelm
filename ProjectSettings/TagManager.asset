@@ -13,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Personaje
   - 
   - 
   - 
@@ -42,4 +42,43 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Cuerpo Base
+    uniqueID: 1445993875
+    locked: 0
+  - name: "Pelo Atr\xE1s"
+    uniqueID: 3608290137
+    locked: 0
+  - name: Ropa
+    uniqueID: 1306115029
+    locked: 0
+  - name: "Ojos - Pesta\xF1a"
+    uniqueID: 478034029
+    locked: 0
+  - name: Ojos - iris
+    uniqueID: 4027358655
+    locked: 0
+  - name: Ojos - Extra
+    uniqueID: 28479405
+    locked: 0
+  - name: Ojos - Brillo
+    uniqueID: 1687402741
+    locked: 0
+  - name: Nariz
+    uniqueID: 1493755613
+    locked: 0
+  - name: Extras
+    uniqueID: 1556680669
+    locked: 0
+  - name: Boca
+    uniqueID: 3736628693
+    locked: 0
+  - name: Orejas
+    uniqueID: 1147545061
+    locked: 0
+  - name: Flequillo
+    uniqueID: 2619220173
+    locked: 0
+  - name: Ceja
+    uniqueID: 4116405517
     locked: 0

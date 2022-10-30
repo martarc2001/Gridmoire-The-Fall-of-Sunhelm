@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Creditos.unity
     guid: 2b81809c3a78bad459d19b00149f6638
   - enabled: 1
-    path: Assets/Scenes/Compritas.unity
+    path: Assets/Scenes/Tienda.unity
     guid: 929d604a45918534cb21f77490d0f61d
   - enabled: 1
     path: Assets/Scenes/Juego.unity
