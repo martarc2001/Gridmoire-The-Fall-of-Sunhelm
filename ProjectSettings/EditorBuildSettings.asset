@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Planificacion.unity
     guid: e3cbddd05a94f1e479c9ce0a5ef3323f
   - enabled: 1
-    path: Assets/Scenes/Final.unity
-    guid: a39bd9942dad1c54ab87d38fd044b372
-  - enabled: 1
     path: Assets/Scenes/Batalla.unity
-    guid: d6c0db0e6fd54f2458f268a46902a346
+    guid: 950f88ee7e7346b4b9a69461ebb567d7
   m_configObjects: {}

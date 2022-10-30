@@ -31,8 +31,6 @@ public class Personaje
     public void SetAtaque(float ataque) { this.ataque = ataque; }
     public void SetDefensa(float defensa) { this.defensa = defensa; }
     public void SetTipoAtaque(TipoAtaque tipoAtaque) { this.tipoAtaque = tipoAtaque; }
-
-    public void takeDamage(float damage) { this.vida -= damage; }
 }
 
 [Serializable]

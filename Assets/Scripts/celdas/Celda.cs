@@ -13,7 +13,7 @@ public class Celda
     private GameObject personaje;
     private bool occupied = false;
 
-    //private GameObject prefab;
+    private GameObject prefab;
     #endregion
 
 
@@ -43,12 +43,12 @@ public class Celda
     public int GetY() { return this.y; }
     public GameObject GetPersonaje() { return this.personaje; }
     public bool IsOccupied() { return this.occupied; }
-    //public GameObject GetPrefab() { return this.prefab; }
+    public GameObject GetPrefab() { return this.prefab; }
 
     public void SetX(int x) { this.x = x; }
     public void SetY(int y) { this.y = y; }
     public void SetPersonaje(GameObject personaje) { this.personaje = personaje; }
     public void ChangeOccupied() { this.occupied = !this.occupied; }
-    //public void SetPrefab(GameObject prefab) { this.prefab = prefab;}
+    public void SetPrefab(GameObject prefab) { this.prefab = prefab; }
     #endregion
 }

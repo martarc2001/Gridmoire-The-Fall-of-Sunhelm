@@ -89,14 +89,6 @@ public class CargarPersonajes : MonoBehaviour
         var newIris = newCharacter.transform.Find("Ojos").transform.Find("Iris").GetComponent<Image>();
         newIris.color = new Color(sp.rp, sp.gi, sp.bi);
 
-        
-        var personaje = new Personaje();
-        personaje.SetAtaque(sp.ataque);
-        personaje.SetDefensa(sp.defensa);
-        personaje.SetVida(sp.vida);
-        personaje.SetTipoAtaque((TipoAtaque)sp.tipoAtaque);
-        newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
-
-
+        newCharacter.GetComponent<PlayerController>().setPersonaje(sp.personaje);
     }
 }
