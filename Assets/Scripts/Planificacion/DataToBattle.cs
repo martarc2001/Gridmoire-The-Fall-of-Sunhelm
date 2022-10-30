@@ -64,10 +64,12 @@ public class DataToBattle : MonoBehaviour
         var gi = newIris.color.g;
         var bi = newIris.color.b;
 
+        
         var person = p.GetComponent<PlayerController>().getPersonaje();
         SerializablePlayer sp = new SerializablePlayer(int.Parse(fn),int.Parse(newPelo),int.Parse(newPestañas),int.Parse(newOrejas)
             ,int.Parse(newNarices),int.Parse(newBoca)
-            ,int.Parse(newExtra),int.Parse(newCejas),int.Parse(ropa),rp,gp,bp,ri,gi,bi,person);
+            ,int.Parse(newExtra),int.Parse(newCejas),int.Parse(ropa),rp,gp,bp,ri,gi,bi,person.GetAtaque(),
+            person.GetDefensa(),person.GetVida(),(int)person.GetTipoAtaque());
 
         lsp.list.Add(sp);
     }

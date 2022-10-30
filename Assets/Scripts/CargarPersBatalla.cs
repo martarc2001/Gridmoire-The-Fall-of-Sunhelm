@@ -8,6 +8,8 @@ public class CargarPersBatalla : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private List<CeldaManager> headPosition;
 
+    [SerializeField] private LevelFlow level;
+
     [SerializeField] private List<Sprite> flequillos;
     [SerializeField] private List<Sprite> pelos;
     [SerializeField] private List<Sprite> pestañas;
@@ -46,7 +48,7 @@ public class CargarPersBatalla : MonoBehaviour
     private void instanciarPersonaje(SerializablePlayer sp, Transform transPos)
     {
         var newCharacter = Instantiate(prefab, transPos.position, Quaternion.identity);
-
+        newCharacter.transform.SetParent(transPos);
         /////// CHARACTER CUSTOMIZATION ///////
 
         var newFlequillo = newCharacter.transform.Find("Flequillo").GetComponent<SpriteRenderer>();
@@ -82,8 +84,14 @@ public class CargarPersBatalla : MonoBehaviour
         var newIris = newCharacter.transform.Find("Ojos").transform.Find("Iris").GetComponent<SpriteRenderer>();
         newIris.color = new Color(sp.rp, sp.gi, sp.bi);
 
-        newCharacter.GetComponent<PlayerController>().setPersonaje(sp.personaje);
+        var personaje = new Personaje();
+        personaje.SetAtaque(sp.ataque);
+        personaje.SetDefensa(sp.defensa);
+        personaje.SetVida(sp.vida);
+        personaje.SetTipoAtaque((TipoAtaque)sp.tipoAtaque);
+        newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
-
+        
+        level.addPersonaje(newCharacter.GetComponent<PlayerController>());
     }
 }
