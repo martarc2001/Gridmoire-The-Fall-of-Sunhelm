@@ -15,12 +15,14 @@ public class GridManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach(var celda in grid.GetCeldas())
+        foreach (var celda in celdas)
         {
-            //grid.addCelda(celda.getCelda().GetX(), celda.getCelda().GetY(), celda.getCelda());
-            celda.SetPrefab(prefabCelda);
+            grid.addCelda(celda.getCelda().GetX(), celda.getCelda().GetY(), celda.getCelda());
+            //celda.SetPrefab(prefabCelda);
         }
     }
 
     public Grid getGridInfo() { return grid; }
+
+    public List<CeldaManager> getCeldas() { return celdas; }
 }

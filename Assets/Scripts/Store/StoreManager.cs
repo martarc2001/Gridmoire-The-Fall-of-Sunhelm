@@ -23,6 +23,12 @@ public class StoreManager : MonoBehaviour
 
     public void Start()
     {
+        string json = PlayerPrefs.GetString("ejercito");
+
+        if (!string.IsNullOrEmpty(json))
+        {
+            spl = JsonUtility.FromJson<ListaPlayerSerializable>(json);
+        }
     }
     public void Awake()
     {
@@ -88,24 +94,27 @@ public class StoreManager : MonoBehaviour
 
         /////// ATTACK SELECTION ///////
 
-        var tipoAtaque = (TipoAtaque)Random.Range(0, 5);
+        var tipoAtaque = (TipoAtaque)Random.Range(0, 4);
 
         ///// CHARACTER GENERATION /////
 
         Personaje pers = new Personaje();
 
-        pers.SetVida(Random.Range(14, 40));
-        pers.SetAtaque(Random.Range(4, 16));
-        pers.SetDefensa(Random.Range(2, 10));
+        pers.SetVida(Random.Range(100,200));
+        pers.SetAtaque(Random.Range(50,100));
+        pers.SetDefensa(Random.Range(50, 100));
         pers.SetTipoAtaque(tipoAtaque);
 
         newCharacter.GetComponent<PlayerController>().setPersonaje(pers);
 
-        var sp = new SerializablePlayer(iFlequillo,iPelo,iPest,iOrej,iNari,iBoca,iExtra,iCejas,iRopa,RP,GP,BP,RI,GI,BI,pers);
+        var sp = new SerializablePlayer(iFlequillo,iPelo,iPest,iOrej,iNari,iBoca,iExtra,iCejas,
+            iRopa,RP,GP,BP,RI,GI,BI,pers.GetAtaque(),pers.GetDefensa(),pers.GetVida(), 
+            (int)pers.GetTipoAtaque());
 
         spl.list.Add(sp);
 
         PlayerPrefs.SetString("ejercito",JsonUtility.ToJson(spl));
+        PlayerPrefs.Save();
 
     }
 }
