@@ -6,7 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     private Personaje personaje;
 
-    
+    private void Start()
+    {
+        personaje = new Personaje();
+    }
 
     public Personaje getPersonaje() { return personaje; }
 

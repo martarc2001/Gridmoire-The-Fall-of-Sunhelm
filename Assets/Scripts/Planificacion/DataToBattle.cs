@@ -8,23 +8,17 @@ public class DataToBattle : MonoBehaviour
 {
     private Grid celdas;
     private ListaPlayerSerializable lsp = new ListaPlayerSerializable();
-    private Celda[] listaCeldas = new Celda[3];
 
     public void putGrid()
     {
         var grid = FindObjectOfType<GridManager>();
 
         celdas = grid.getGridInfo();
-        var i = 0;
+        
         foreach(var celda in celdas.GetCeldas())
         {
             if(celda.GetPersonaje() != null)
-            {
                 addSP(celda.GetPersonaje().GetComponent<RectTransform>().Find("Character").gameObject);
-                listaCeldas[i] = celda;
-                i++;
-            }
-            
         }
         DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene("Batalla");
@@ -32,7 +26,7 @@ public class DataToBattle : MonoBehaviour
 
     public Grid getGrid() { return celdas; }
     public ListaPlayerSerializable getLSP() { return lsp; }
-    public Celda[] getCeldas() { return listaCeldas; }
+
     private void addSP(GameObject p)
     {
         var newFlequillo = p.transform.Find("Flequillo").GetComponent<Image>();
@@ -64,13 +58,12 @@ public class DataToBattle : MonoBehaviour
         var gi = newIris.color.g;
         var bi = newIris.color.b;
 
-        
         var person = p.GetComponent<PlayerController>().getPersonaje();
         SerializablePlayer sp = new SerializablePlayer(int.Parse(fn),int.Parse(newPelo),int.Parse(newPestañas),int.Parse(newOrejas)
             ,int.Parse(newNarices),int.Parse(newBoca)
-            ,int.Parse(newExtra),int.Parse(newCejas),int.Parse(ropa),rp,gp,bp,ri,gi,bi,person.GetAtaque(),
-            person.GetDefensa(),person.GetVida(),(int)person.GetTipoAtaque());
+            ,int.Parse(newExtra),int.Parse(newCejas),int.Parse(ropa),rp,gp,bp,ri,gi,bi,person);
 
+        Debug.Log(int.Parse(fn));
         lsp.list.Add(sp);
     }
 }

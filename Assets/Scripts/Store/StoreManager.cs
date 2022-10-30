@@ -23,12 +23,6 @@ public class StoreManager : MonoBehaviour
 
     public void Start()
     {
-        string json = PlayerPrefs.GetString("ejercito");
-
-        if (!string.IsNullOrEmpty(json))
-        {
-            spl = JsonUtility.FromJson<ListaPlayerSerializable>(json);
-        }
     }
     public void Awake()
     {
@@ -107,14 +101,11 @@ public class StoreManager : MonoBehaviour
 
         newCharacter.GetComponent<PlayerController>().setPersonaje(pers);
 
-        var sp = new SerializablePlayer(iFlequillo,iPelo,iPest,iOrej,iNari,iBoca,iExtra,iCejas,
-            iRopa,RP,GP,BP,RI,GI,BI,pers.GetAtaque(),pers.GetDefensa(),pers.GetVida(), 
-            (int)pers.GetTipoAtaque());
+        var sp = new SerializablePlayer(iFlequillo,iPelo,iPest,iOrej,iNari,iBoca,iExtra,iCejas,iRopa,RP,GP,BP,RI,GI,BI,pers);
 
         spl.list.Add(sp);
 
         PlayerPrefs.SetString("ejercito",JsonUtility.ToJson(spl));
-        PlayerPrefs.Save();
 
     }
 }

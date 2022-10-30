@@ -6,8 +6,6 @@ TagManager:
   tags:
   - Cell
   - Button
-  - CellEnemy
-  - CellPlayer
   layers:
   - Default
   - TransparentFX
