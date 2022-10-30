@@ -18,8 +18,11 @@ public class LevelFlow : MonoBehaviour
 
     [SerializeField] private GameObject enemyPrefab;
 
-    private List<PlayerController> ejercitoJugador = new List<PlayerController>();
-    private List<PlayerController> ejercitoEnemigo = new List<PlayerController>();
+    [SerializeField] private List<PlayerController> ejercitoJugador = new List<PlayerController>();
+    [SerializeField] private List<PlayerController> ejercitoEnemigo = new List<PlayerController>();
+
+    [SerializeField] private List<float> vidasEnemigos = new List<float>();
+    [SerializeField] private List<float> vidasJugador = new List<float>();
 
     // getter & setters
 
@@ -52,15 +55,24 @@ public class LevelFlow : MonoBehaviour
                 }
                 else if (QuedanPersonajes(ejercitoEnemigo))
                 {
-                    ia.RealizarTurno(gridIA.getGridInfo(), gridPlayer.getGridInfo());
+                    foreach (var enemigo in ejercitoEnemigo)
+                    {
+                        vidasEnemigos.Add(enemigo.getPersonaje().GetVida());
+                    }
+                    ia.RealizarTurno(gridIA, gridPlayer);
                     GetComponent<BattleController>().resetTurno();
+                    foreach (var enemigo in ejercitoJugador)
+                    {
+                        vidasJugador.Add(enemigo.getPersonaje().GetVida());
+                    }
                 }
-
+                
 
             }
             else
             {
                 SceneManager.LoadScene("Menu");
+                Destroy(FindObjectOfType<DataToBattle>().gameObject);
             }
         }
         
@@ -113,11 +125,11 @@ public class LevelFlow : MonoBehaviour
 
             Personaje enemigo = new Personaje();
             var vida = Random.Range(10.0f, 100.0f);
-            enemigo.SetVida(10);
+            enemigo.SetVida(vida);
             var ataque = Random.Range(10.0f, 100.0f);
-            enemigo.SetAtaque(ataque);
-            var defensa = Random.Range(10.0f, 100.0f);
-            enemigo.SetDefensa(0);
+            enemigo.SetAtaque(1000);
+            var defensa = Random.Range(10.0f, 50.0f);
+            enemigo.SetDefensa(defensa);
             enemigo.SetTipoAtaque((TipoAtaque)Random.Range(0, 5));
 
             var objEnemigo = Instantiate(enemyPrefab, celdaTransform.position, Quaternion.identity);

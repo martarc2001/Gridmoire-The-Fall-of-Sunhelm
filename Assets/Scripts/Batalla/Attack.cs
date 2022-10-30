@@ -13,52 +13,62 @@ public class Attack : MonoBehaviour
 
     
 
-    public void performAttack(GridManager grid, CeldaManager objetivo)
+    public void performAttack(GridManager grid, Celda objetivo)
     {
-        switch (tipoAtaque)
+        if(objetivo != null && grid != null)
         {
-            case TipoAtaque.SINGLE:
-                singleAttack(objetivo);
-                break;
-            case TipoAtaque.COLUMN:
-                columnAttack(grid, objetivo);
-                break;
-            case TipoAtaque.ROW:
-                rowAttack(grid, objetivo);
-                break;
-            case TipoAtaque.GRID:
-                gridAttack(grid);
-                break;
-            case TipoAtaque.HEAL:
-                healAttack(grid);
-                break;
+            Debug.Log("Atacado");
+            switch (tipoAtaque)
+            {
+                case TipoAtaque.SINGLE:
+                    singleAttack(objetivo);
+                    break;
+                case TipoAtaque.COLUMN:
+                    columnAttack(grid, objetivo);
+                    break;
+                case TipoAtaque.ROW:
+                    rowAttack(grid, objetivo);
+                    break;
+                case TipoAtaque.GRID:
+                    gridAttack(grid);
+                    break;
+                case TipoAtaque.HEAL:
+                    healAttack(grid);
+                    break;
+            }
         }
+        
     }
 
-    private void singleAttack(CeldaManager celda) 
+    public void singleAttack(Celda celda) 
     {
         var damage = GetComponent<PlayerController>().getPersonaje().GetAtaque();
 
-        var enemigo = celda.getCelda().GetPersonaje();
-        if(enemigo != null)
+        
+        if(celda.GetPersonaje() != null)
         {
+            Debug.Log("Atacado");
+            var enemigo = celda.GetPersonaje();
             var defEnemigo = enemigo.GetComponent<PlayerController>().getPersonaje().GetDefensa();
             var damageTotal = damage * Random.Range(0.75f, 1);
             if (damageTotal - defEnemigo > 0)
                 enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal - defEnemigo);
             Debug.Log(enemigo.GetComponent<PlayerController>().getPersonaje().GetVida());
         }
+        
     }
 
-    private void columnAttack(GridManager grid, CeldaManager objetivo) 
+    public void columnAttack(GridManager grid, Celda objetivo) 
     {
+
         var damage = GetComponent<PlayerController>().getPersonaje().GetAtaque();
-        foreach (var celda in grid.getGridInfo().getColumn(objetivo.getCelda().GetY()))
+        Debug.Log(objetivo.GetY());
+        foreach (var celda in grid.getGridInfo().getColumn(objetivo.GetY()))
         {
-            var enemigo = celda.GetPersonaje();
-            Debug.Log(enemigo);
-            if(enemigo != null)
+            if(celda.GetPersonaje() != null)
             {
+                Debug.Log("Atacado");
+                var enemigo = celda.GetPersonaje();
                 var defEnemigo = enemigo.GetComponent<PlayerController>().getPersonaje().GetDefensa();
                 var damageTotal = damage * Random.Range(0.5f, 0.75f);
                 if (damageTotal - defEnemigo > 0)
@@ -69,16 +79,16 @@ public class Attack : MonoBehaviour
         }
     }
 
-    private void rowAttack(GridManager grid, CeldaManager objetivo) 
+    public void rowAttack(GridManager grid, Celda objetivo) 
     {
         var damage = GetComponent<PlayerController>().getPersonaje().GetAtaque();
-        foreach (var celda in grid.getGridInfo().getRow(objetivo.getCelda().GetX()))
+        Debug.Log(objetivo.GetX());
+        foreach (var celda in grid.getGridInfo().getRow(objetivo.GetX()))
         {
-            
-            var enemigo = celda.GetPersonaje();
-            Debug.Log(enemigo);
-            if (enemigo != null)
+            if (celda.GetPersonaje() != null)
             {
+                Debug.Log("Atacado");
+                var enemigo = celda.GetPersonaje();
                 var defEnemigo = enemigo.GetComponent<PlayerController>().getPersonaje().GetDefensa();
                 var damageTotal = damage * Random.Range(0.5f, 0.75f);
                 if (damageTotal - defEnemigo > 0)
@@ -89,14 +99,16 @@ public class Attack : MonoBehaviour
         }
     }
 
-    private void gridAttack(GridManager grid) 
+    public void gridAttack(GridManager grid) 
     {
         var damage = GetComponent<PlayerController>().getPersonaje().GetAtaque();
         foreach (var celda in grid.getGridInfo().GetCeldas())
         {
-            var enemigo = celda.GetPersonaje();
-            if(enemigo != null)
+            
+            if(celda.GetPersonaje() != null)
             {
+                Debug.Log("Atacado");
+                var enemigo = celda.GetPersonaje();
                 var defEnemigo = enemigo.GetComponent<PlayerController>().getPersonaje().GetDefensa();
                 var damageTotal = damage * Random.Range(0.25f, 0.5f);
                 if (damageTotal - defEnemigo > 0)
@@ -107,7 +119,7 @@ public class Attack : MonoBehaviour
         }
     }
 
-    private void healAttack(GridManager grid) 
+    public void healAttack(GridManager grid) 
     {
         var damage = GetComponent<PlayerController>().getPersonaje().GetAtaque();
         foreach (var celda in grid.getGridInfo().GetCeldas())

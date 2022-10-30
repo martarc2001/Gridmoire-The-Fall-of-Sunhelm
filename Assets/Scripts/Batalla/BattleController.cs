@@ -55,7 +55,7 @@ public class BattleController : MonoBehaviour
                     != TipoAtaque.HEAL)
                 {
                     var celda = hit.collider.gameObject.GetComponent<CeldaManager>();
-                    playerSelected.GetComponent<Attack>().performAttack(gridEnemigo, celda);
+                    playerSelected.GetComponent<Attack>().performAttack(gridEnemigo, celda.getCelda());
                     turnosJugados++;
                     Debug.Log("Turno terminado");
                 }
@@ -66,7 +66,7 @@ public class BattleController : MonoBehaviour
                     == TipoAtaque.HEAL)
                 {
                     var celda = hit.collider.gameObject.GetComponent<CeldaManager>();
-                    playerSelected.GetComponent<Attack>().performAttack(gridAliado, celda);
+                    playerSelected.GetComponent<Attack>().performAttack(gridAliado, celda.getCelda());
                     turnosJugados++;
                     Debug.Log("Turno terminado");
                 }
