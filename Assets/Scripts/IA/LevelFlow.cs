@@ -18,7 +18,7 @@ public class LevelFlow : MonoBehaviour
 
     [SerializeField] private GameObject enemyPrefab;
 
-    [SerializeField] private List<PlayerController> ejercitoJugador = new List<PlayerController>();
+    [SerializeField] public List<PlayerController> ejercitoJugador = new List<PlayerController>();
     [SerializeField] private List<PlayerController> ejercitoEnemigo = new List<PlayerController>();
 
     [SerializeField] private List<float> vidasEnemigos = new List<float>();
@@ -49,7 +49,7 @@ public class LevelFlow : MonoBehaviour
         {
             if (QuedanPersonajes(ejercitoEnemigo) && QuedanPersonajes(ejercitoJugador))
             {
-                if (GetComponent<BattleController>().getTurnos() < 3)
+                if (GetComponent<BattleController>().getTurnos() < ejercitoJugador.Count)
                 {
                     //Debug.Log(GetComponent<BattleController>().getTurnos());
                 }

@@ -20,7 +20,7 @@ public class BattleController : MonoBehaviour
     {
         if (GetComponent<LevelFlow>().isInitialized())
         {
-            if (turnosJugados < 3)
+            if (turnosJugados < GetComponent<LevelFlow>().ejercitoJugador.Count)
             {
                 if (Input.GetMouseButtonUp(0))
                 {
