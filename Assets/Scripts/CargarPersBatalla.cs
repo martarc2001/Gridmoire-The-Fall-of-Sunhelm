@@ -8,6 +8,8 @@ public class CargarPersBatalla : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private List<CeldaManager> headPosition;
 
+    [SerializeField] private GridManager gridPlayer;
+
     [SerializeField] private LevelFlow level;
 
     [SerializeField] private List<Sprite> flequillos;
@@ -25,6 +27,8 @@ public class CargarPersBatalla : MonoBehaviour
         grid = FindObjectOfType<DataToBattle>().getLSP();
         var celdas = FindObjectOfType<DataToBattle>().getCeldas();
 
+        
+
         var posSituar = new List<Transform>();
 
         foreach(var celda in celdas)
@@ -41,11 +45,11 @@ public class CargarPersBatalla : MonoBehaviour
 
         for (var i = 0; i < grid.list.Count; i++)
         {
-            instanciarPersonaje(grid.list[i], posSituar[i]);
+            instanciarPersonaje(grid.list[i], posSituar[i], headPosition[i]);
         }
     }
 
-    private void instanciarPersonaje(SerializablePlayer sp, Transform transPos)
+    private void instanciarPersonaje(SerializablePlayer sp, Transform transPos, CeldaManager celda)
     {
         var newCharacter = Instantiate(prefab, transPos.position, Quaternion.identity);
         newCharacter.transform.SetParent(transPos);
@@ -91,6 +95,7 @@ public class CargarPersBatalla : MonoBehaviour
         personaje.SetTipoAtaque((TipoAtaque)sp.tipoAtaque);
         newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
+        gridPlayer.getGridInfo().GetCeldas()[celda.getCelda().GetX(), celda.getCelda().GetY()].SetPersonaje(newCharacter);
         
         level.addPersonaje(newCharacter.GetComponent<PlayerController>());
     }
