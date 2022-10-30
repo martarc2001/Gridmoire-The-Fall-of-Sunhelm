@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pruebas : MonoBehaviour
+public class CargarPersBatalla : MonoBehaviour
 {
     private ListaPlayerSerializable grid;
     [SerializeField] private GameObject prefab;
+    [SerializeField] private List<CeldaManager> headPosition;
+
+    [SerializeField] private LevelFlow level;
 
     [SerializeField] private List<Sprite> flequillos;
     [SerializeField] private List<Sprite> pelos;
@@ -15,21 +18,37 @@ public class Pruebas : MonoBehaviour
     [SerializeField] private List<Sprite> bocas;
     [SerializeField] private List<Sprite> extras;
     [SerializeField] private List<Sprite> cejas;
+    [SerializeField] private List<Sprite> ropas;
 
     private void Start()
     {
         grid = FindObjectOfType<DataToBattle>().getLSP();
+        var celdas = FindObjectOfType<DataToBattle>().getCeldas();
 
-        foreach(var sp in grid.list)
+        var posSituar = new List<Transform>();
+
+        foreach(var celda in celdas)
         {
-            instanciarPersonaje(sp);
+            for(var i = 0; i < headPosition.Count; i++)
+            {
+                if(celda.GetX() == headPosition[i].getCelda().GetX() 
+                    && celda.GetY() == headPosition[i].getCelda().GetY())
+                {
+                    posSituar.Add(headPosition[i].transform);
+                }
+            }
+        }
+
+        for (var i = 0; i < grid.list.Count; i++)
+        {
+            instanciarPersonaje(grid.list[i], posSituar[i]);
         }
     }
 
-    private void instanciarPersonaje(SerializablePlayer sp)
+    private void instanciarPersonaje(SerializablePlayer sp, Transform transPos)
     {
-        var newCharacter = Instantiate(prefab, transform);
-
+        var newCharacter = Instantiate(prefab, transPos.position, Quaternion.identity);
+        newCharacter.transform.SetParent(transPos);
         /////// CHARACTER CUSTOMIZATION ///////
 
         var newFlequillo = newCharacter.transform.Find("Flequillo").GetComponent<SpriteRenderer>();
@@ -56,12 +75,23 @@ public class Pruebas : MonoBehaviour
         var newCejas = newCharacter.transform.Find("Cejas").GetComponent<SpriteRenderer>();
         newCejas.sprite = cejas[sp.cejas-1];
 
+        var ropa = newCharacter.transform.Find("Ropa").GetComponent<SpriteRenderer>();
+        ropa.sprite = ropas[sp.ropa-1];
+
         newFlequillo.color = new Color(sp.rp, sp.gp, sp.bp);
         newPelo.color = new Color(sp.rp, sp.gp, sp.bp);
 
         var newIris = newCharacter.transform.Find("Ojos").transform.Find("Iris").GetComponent<SpriteRenderer>();
         newIris.color = new Color(sp.rp, sp.gi, sp.bi);
 
-        newCharacter.GetComponent<PlayerController>().setPersonaje(sp.personaje);
+        var personaje = new Personaje();
+        personaje.SetAtaque(sp.ataque);
+        personaje.SetDefensa(sp.defensa);
+        personaje.SetVida(sp.vida);
+        personaje.SetTipoAtaque((TipoAtaque)sp.tipoAtaque);
+        newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
+
+        
+        level.addPersonaje(newCharacter.GetComponent<PlayerController>());
     }
 }
