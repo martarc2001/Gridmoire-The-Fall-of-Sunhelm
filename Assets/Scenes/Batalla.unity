@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 622565098}
   m_Layer: 0
   m_Name: GridPlayer
-  m_TagString: Untagged
+  m_TagString: PlayerGrid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -427,6 +427,7 @@ MonoBehaviour:
   - {fileID: 1393609389}
   - {fileID: 1493957386}
   - {fileID: 1634955665}
+  - {fileID: 1107939711}
   - {fileID: 1225290555}
   - {fileID: 20397809}
   - {fileID: 475525588}
@@ -1073,6 +1074,10 @@ MonoBehaviour:
   gridIA: {fileID: 1595833231}
   gridPlayer: {fileID: 622565098}
   enemyPrefab: {fileID: 8221006076319714446, guid: 6436c5b72b087fe46842478fbf59cb66, type: 3}
+  ejercitoJugador: []
+  ejercitoEnemigo: []
+  vidasEnemigos: []
+  vidasJugador: []
 --- !u!1001 &951700435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2368,6 +2373,7 @@ MonoBehaviour:
   - {fileID: 475525588}
   - {fileID: 730075606}
   - {fileID: 1738926668}
+  gridPlayer: {fileID: 622565098}
   level: {fileID: 901621129}
   flequillos:
   - {fileID: 21300000, guid: 52c972249ea18af4d838148008034360, type: 3}

@@ -65,15 +65,16 @@ public class Attack : MonoBehaviour
         Debug.Log(objetivo.GetY());
         foreach (var celda in grid.getGridInfo().getColumn(objetivo.GetY()))
         {
+            Debug.Log(celda.GetPersonaje());
             if(celda.GetPersonaje() != null)
             {
-                Debug.Log("Atacado");
+                //Debug.Log("Atacado");
                 var enemigo = celda.GetPersonaje();
                 var defEnemigo = enemigo.GetComponent<PlayerController>().getPersonaje().GetDefensa();
                 var damageTotal = damage * Random.Range(0.5f, 0.75f);
                 if (damageTotal - defEnemigo > 0)
                     enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal - defEnemigo);
-                Debug.Log(enemigo.GetComponent<PlayerController>().getPersonaje().GetVida());
+                //Debug.Log(enemigo.GetComponent<PlayerController>().getPersonaje().GetVida());
             }
             
         }
@@ -82,18 +83,19 @@ public class Attack : MonoBehaviour
     public void rowAttack(GridManager grid, Celda objetivo) 
     {
         var damage = GetComponent<PlayerController>().getPersonaje().GetAtaque();
-        Debug.Log(objetivo.GetX());
+        
         foreach (var celda in grid.getGridInfo().getRow(objetivo.GetX()))
         {
+            Debug.Log(celda.GetPersonaje());
             if (celda.GetPersonaje() != null)
             {
-                Debug.Log("Atacado");
+                //Debug.Log("Atacado");
                 var enemigo = celda.GetPersonaje();
                 var defEnemigo = enemigo.GetComponent<PlayerController>().getPersonaje().GetDefensa();
                 var damageTotal = damage * Random.Range(0.5f, 0.75f);
                 if (damageTotal - defEnemigo > 0)
                     enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal - defEnemigo);
-                Debug.Log(enemigo.GetComponent<PlayerController>().getPersonaje().GetVida());
+                //Debug.Log(enemigo.GetComponent<PlayerController>().getPersonaje().GetVida());
             }
             
         }
@@ -107,13 +109,13 @@ public class Attack : MonoBehaviour
             
             if(celda.GetPersonaje() != null)
             {
-                Debug.Log("Atacado");
+                //Debug.Log("Atacado");
                 var enemigo = celda.GetPersonaje();
                 var defEnemigo = enemigo.GetComponent<PlayerController>().getPersonaje().GetDefensa();
                 var damageTotal = damage * Random.Range(0.25f, 0.5f);
                 if (damageTotal - defEnemigo > 0)
                     enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal - defEnemigo);
-                Debug.Log(enemigo.GetComponent<PlayerController>().getPersonaje().GetVida());
+                //Debug.Log(enemigo.GetComponent<PlayerController>().getPersonaje().GetVida());
             }
             
         }

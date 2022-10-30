@@ -55,6 +55,7 @@ public class LevelFlow : MonoBehaviour
                 }
                 else if (QuedanPersonajes(ejercitoEnemigo))
                 {
+                    
                     foreach (var enemigo in ejercitoEnemigo)
                     {
                         vidasEnemigos.Add(enemigo.getPersonaje().GetVida());
@@ -147,10 +148,9 @@ public class LevelFlow : MonoBehaviour
         // Inicialzar grids
         rellenarGrid(gridIA);
 
-        foreach(var celda in gridIA.getCeldas())
-        {
-            Debug.Log(celda.getCelda().IsOccupied());
-        }
+        gridPlayer = GameObject.FindGameObjectWithTag("PlayerGrid").GetComponent<GridManager>();
+
+        
 
         ia.SetEjercito(ejercitoEnemigo);
         initialize = true;
