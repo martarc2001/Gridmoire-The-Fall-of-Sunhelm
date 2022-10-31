@@ -72,7 +72,7 @@ public class LevelFlow : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("Menu");
+                SceneManager.LoadScene("Final");
                 Destroy(FindObjectOfType<DataToBattle>().gameObject);
             }
         }
