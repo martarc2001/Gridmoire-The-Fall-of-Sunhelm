@@ -128,7 +128,7 @@ public class LevelFlow : MonoBehaviour
             var vida = Random.Range(10.0f, 100.0f);
             enemigo.SetVida(vida);
             var ataque = Random.Range(10.0f, 100.0f);
-            enemigo.SetAtaque(1000);
+            enemigo.SetAtaque(ataque);
             var defensa = Random.Range(10.0f, 50.0f);
             enemigo.SetDefensa(defensa);
             enemigo.SetTipoAtaque((TipoAtaque)Random.Range(0, 5));
