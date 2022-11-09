@@ -136,6 +136,25 @@ public class LevelFlow : MonoBehaviour
             var objEnemigo = Instantiate(enemyPrefab, celdaTransform.position, Quaternion.identity);
             objEnemigo.GetComponent<PlayerController>().setPersonaje(enemigo);
             objEnemigo.transform.SetParent(celdaTransform);
+            var at = objEnemigo.transform.Find("Ataque").GetComponent<SpriteRenderer>();
+            switch (enemigo.GetTipoAtaque())
+            {
+                case TipoAtaque.SINGLE:
+                    at.color = Color.red;
+                    break;
+                case TipoAtaque.ROW:
+                    at.color = Color.blue;
+                    break;
+                case TipoAtaque.COLUMN:
+                    at.color = Color.yellow;
+                    break;
+                case TipoAtaque.GRID:
+                    at.color = Color.black;
+                    break;
+                case TipoAtaque.HEAL:
+                    at.color = Color.green;
+                    break;
+            }
             grid.getGridInfo().GetCeldas()[x, y].SetPersonaje(objEnemigo);
             grid.getGridInfo().GetCeldas()[x, y].ChangeOccupied();
             ejercitoEnemigo.Add(objEnemigo.GetComponent<PlayerController>());
