@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Cell
+  - Button
+  - CellPlayer
+  - CellEnemy
+  - PlayerGrid
   layers:
   - Default
   - TransparentFX
@@ -11,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Personaje
   - 
   - 
   - 
@@ -42,41 +47,41 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Cuerpo Base
-    uniqueID: 931956011
+    uniqueID: 1445993875
     locked: 0
   - name: "Pelo Atr\xE1s"
-    uniqueID: 431135395
+    uniqueID: 3608290137
     locked: 0
   - name: Ropa
-    uniqueID: 973314251
+    uniqueID: 1306115029
     locked: 0
-  - name: "Ojos-Pesta\xF1as"
-    uniqueID: 3758455997
+  - name: "Ojos - Pesta\xF1a"
+    uniqueID: 478034029
     locked: 0
-  - name: Ojos-Iris
-    uniqueID: 1229204303
+  - name: Ojos - iris
+    uniqueID: 4027358655
     locked: 0
-  - name: Ojos-Extra
-    uniqueID: 3171602445
+  - name: Ojos - Extra
+    uniqueID: 28479405
     locked: 0
-  - name: Ojos-Brillo
-    uniqueID: 3679015309
+  - name: Ojos - Brillo
+    uniqueID: 1687402741
     locked: 0
   - name: Nariz
-    uniqueID: 3595198897
+    uniqueID: 1493755613
     locked: 0
   - name: Extras
-    uniqueID: 2967218909
+    uniqueID: 1556680669
     locked: 0
   - name: Boca
-    uniqueID: 2119707423
+    uniqueID: 3736628693
     locked: 0
   - name: Orejas
-    uniqueID: 2058224945
+    uniqueID: 1147545061
     locked: 0
   - name: Flequillo
-    uniqueID: 859723855
+    uniqueID: 2619220173
     locked: 0
-  - name: Cejas
-    uniqueID: 418582577
+  - name: Ceja
+    uniqueID: 4116405517
     locked: 0
