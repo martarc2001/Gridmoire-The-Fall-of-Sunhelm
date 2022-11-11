@@ -11,6 +11,10 @@ public class StoreManager : MonoBehaviour
     //private EjercitoManager em;
     private ListaPlayerSerializable spl = new ListaPlayerSerializable();
 
+    private Rareza newRareza;
+
+    [SerializeField] private List<string> nombres;
+    [SerializeField] private List<string> titulos;
     [SerializeField] private List<Sprite> flequillos;
     [SerializeField] private List<Sprite> pelos;
     [SerializeField] private List<Sprite> pestañas;
@@ -32,7 +36,7 @@ public class StoreManager : MonoBehaviour
     }
     public void Awake()
     {
-
+        newRareza = Rareza.COMUN;
     }
 
     public void generateRandomCharacter()
@@ -40,6 +44,11 @@ public class StoreManager : MonoBehaviour
         var newCharacter = Instantiate(character);
 
         /////// CHARACTER CUSTOMIZATION ///////
+
+        
+        string newNombre = nombres[Random.Range(0, nombres.Count)];
+        string newTitulo = titulos[Random.Range(0, titulos.Count)];
+        string newNombrePersonaje = newNombre + " " + newTitulo;
 
         var newFlequillo = newCharacter.transform.Find("Flequillo").GetComponent<SpriteRenderer>();
         var iFlequillo = Random.Range(0, flequillos.Count);
@@ -98,14 +107,11 @@ public class StoreManager : MonoBehaviour
 
         ///// CHARACTER GENERATION /////
 
-        Personaje pers = new Personaje();
-
-        pers.SetVida(Random.Range(100,200));
-        pers.SetAtaque(Random.Range(50,100));
-        pers.SetDefensa(Random.Range(50, 100));
-        pers.SetTipoAtaque(tipoAtaque);
+        Personaje pers = new Personaje(newNombrePersonaje, tipoAtaque, this.newRareza);
 
         newCharacter.GetComponent<PlayerController>().setPersonaje(pers);
+
+        Debug.Log(newCharacter.GetComponent<PlayerController>().getPersonaje().GetNombre());
 
         var sp = new SerializablePlayer(iFlequillo,iPelo,iPest,iOrej,iNari,iBoca,iExtra,iCejas,
             iRopa,RP,GP,BP,RI,GI,BI,pers.GetAtaque(),pers.GetDefensa(),pers.GetVida(), 

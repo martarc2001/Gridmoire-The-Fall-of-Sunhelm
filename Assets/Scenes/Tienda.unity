@@ -2099,6 +2099,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 8221006076319714446, guid: 8075378eae6b16447807cf38319afce9, type: 3}
+  nombres:
+  - Bezha
+  - Dramus
+  - Drustel
+  - Londolf
+  - Alastor
+  - Fropy
+  - Egalyn
+  - Pazinho
+  - Fondofo
+  - Arqhuar
+  titulos:
+  - Lame sapos
+  - La furia oriental
+  - "Sangre drag\xF3n"
+  - El gallo
+  - "La so\xF1adora"
+  - "Pr\xEDncipe de Ar\xF4s"
+  - Princesa de Eremont
+  - Cejo fruncido
+  - Cara cortada
+  - El concurrente
   flequillos:
   - {fileID: 21300000, guid: 52c972249ea18af4d838148008034360, type: 3}
   - {fileID: 21300000, guid: 28d8bf7681b3f344db7d04780c0538a2, type: 3}
