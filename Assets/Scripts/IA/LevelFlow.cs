@@ -24,6 +24,8 @@ public class LevelFlow : MonoBehaviour
     [SerializeField] private List<float> vidasEnemigos = new List<float>();
     [SerializeField] private List<float> vidasJugador = new List<float>();
 
+    private DataToBattle datosBatalla;
+
     // getter & setters
 
     public GridManager GetGridIA() { return gridIA; }
@@ -38,10 +40,10 @@ public class LevelFlow : MonoBehaviour
 
 
     // Metodos
-    /*private void Start()
+    private void Start()
     {
-        SimulaPartida();
-    }*/
+        
+    }
 
     private void Update()
     {
@@ -107,7 +109,8 @@ public class LevelFlow : MonoBehaviour
         int x, y;
         int nEnemigos = 0;
         Transform celdaTransform = transform;
-
+        datosBatalla = FindObjectOfType<DataToBattle>();
+        
         while (nEnemigos < 3)
         {
             do
@@ -123,38 +126,9 @@ public class LevelFlow : MonoBehaviour
                     celdaTransform = celda.gameObject.transform;
                 }
             }
-
-            Personaje enemigo = new Personaje();
-            var vida = Random.Range(10.0f, 100.0f);
-            enemigo.SetVida(vida);
-            var ataque = Random.Range(10.0f, 100.0f);
-            enemigo.SetAtaque(ataque);
-            var defensa = Random.Range(10.0f, 50.0f);
-            enemigo.SetDefensa(defensa);
-            enemigo.SetTipoAtaque((TipoAtaque)Random.Range(0, 5));
-
-            var objEnemigo = Instantiate(enemyPrefab, celdaTransform.position, Quaternion.identity);
-            objEnemigo.GetComponent<PlayerController>().setPersonaje(enemigo);
+            var objEnemigo = Instantiate(datosBatalla.getEnemigos()[nEnemigos], celdaTransform.position, Quaternion.identity);
             objEnemigo.transform.SetParent(celdaTransform);
-            var at = objEnemigo.transform.Find("Ataque").GetComponent<SpriteRenderer>();
-            switch (enemigo.GetTipoAtaque())
-            {
-                case TipoAtaque.SINGLE:
-                    at.color = Color.red;
-                    break;
-                case TipoAtaque.ROW:
-                    at.color = Color.blue;
-                    break;
-                case TipoAtaque.COLUMN:
-                    at.color = Color.yellow;
-                    break;
-                case TipoAtaque.GRID:
-                    at.color = Color.black;
-                    break;
-                case TipoAtaque.HEAL:
-                    at.color = Color.green;
-                    break;
-            }
+            objEnemigo.GetComponent<Enemigo>().crearEnemigo();
             grid.getGridInfo().GetCeldas()[x, y].SetPersonaje(objEnemigo);
             grid.getGridInfo().GetCeldas()[x, y].ChangeOccupied();
             ejercitoEnemigo.Add(objEnemigo.GetComponent<PlayerController>());
@@ -164,6 +138,8 @@ public class LevelFlow : MonoBehaviour
 
     public void SimulaPartida()
     {
+        
+
         // Inicialzar grids
         rellenarGrid(gridIA);
 

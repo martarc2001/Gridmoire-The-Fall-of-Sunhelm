@@ -9,6 +9,7 @@ public class DataToBattle : MonoBehaviour
     private Grid celdas;
     private ListaPlayerSerializable lsp = new ListaPlayerSerializable();
     private Celda[] listaCeldas = new Celda[3];
+    [SerializeField] private List<GameObject> enemigosNivel;
 
     public void putGrid()
     {
@@ -33,6 +34,8 @@ public class DataToBattle : MonoBehaviour
     public Grid getGrid() { return celdas; }
     public ListaPlayerSerializable getLSP() { return lsp; }
     public Celda[] getCeldas() { return listaCeldas; }
+
+    public List<GameObject> getEnemigos() { return enemigosNivel; }
     private void addSP(GameObject p)
     {
         var newFlequillo = p.transform.Find("Flequillo").GetComponent<Image>();
