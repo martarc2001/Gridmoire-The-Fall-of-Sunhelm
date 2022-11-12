@@ -12,6 +12,11 @@ public class StoreManager : MonoBehaviour
     private GameObject lastCreated;
     private ListaPlayerSerializable spl = new ListaPlayerSerializable();
 
+    private Rareza newRareza;
+
+    [SerializeField] private List<string> nombres;
+    [SerializeField] private List<string> titulos;
+
     [SerializeField] private List<Sprite> flequillos;
     [SerializeField] private List<Sprite> pelos;
     [SerializeField] private List<Sprite> pestañas;
@@ -33,7 +38,7 @@ public class StoreManager : MonoBehaviour
     }
     public void Awake()
     {
-
+        newRareza = Rareza.COMUN;
     }
 
     public void generateRandomCharacter()
@@ -43,6 +48,10 @@ public class StoreManager : MonoBehaviour
             Destroy(lastCreated);
         }
         var newCharacter = Instantiate(character);
+
+        string newNombre = nombres[Random.Range(0, nombres.Count)];
+        string newTitulo = titulos[Random.Range(0, titulos.Count)];
+        string newNombrePersonaje = newNombre + " " + newTitulo;
 
         /////// CHARACTER CUSTOMIZATION ///////
 
@@ -103,12 +112,7 @@ public class StoreManager : MonoBehaviour
 
         ///// CHARACTER GENERATION /////
 
-        Personaje pers = new Personaje();
-
-        pers.SetVida(Random.Range(100,200));
-        pers.SetAtaque(Random.Range(50,100));
-        pers.SetDefensa(Random.Range(50, 100));
-        pers.SetTipoAtaque(tipoAtaque);
+        Personaje pers = new Personaje(newNombrePersonaje, tipoAtaque, this.newRareza);
 
         newCharacter.GetComponent<PlayerController>().setPersonaje(pers);
 
