@@ -76,6 +76,7 @@ public class PlanificationManager : MonoBehaviour
                             playerSelected = hit.gameObject.GetComponent<CeldaManager>().getCelda().GetPersonaje();
                             hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(null);
                             hit.gameObject.GetComponent<CeldaManager>().getCelda().ChangeOccupied();
+                            dataBattle.removeCelda(hit.gameObject.GetComponent<CeldaManager>());
                         }
 
                     }

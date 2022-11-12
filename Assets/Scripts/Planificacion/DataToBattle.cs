@@ -37,6 +37,8 @@ public class DataToBattle : MonoBehaviour
     public List<GameObject> getEnemigos() { return enemigosNivel; }
 
     public void addCelda(CeldaManager celda) { listCeldas.Add(celda); }
+
+    public void removeCelda(CeldaManager celda) { listCeldas.Remove(celda); }
     private void addSP(GameObject p)
     {
         Debug.Log("Añadir personaje: " + p);
