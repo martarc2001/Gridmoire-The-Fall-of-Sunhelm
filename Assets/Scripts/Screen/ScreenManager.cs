@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ScreenManager : MonoBehaviour
 {
-    public void SetFullScreen(bool isActive)
+    public void SetFullScreen()
     {
-        Screen.fullScreen = isActive;
+        Screen.fullScreen = !Screen.fullScreen;
     }
 }

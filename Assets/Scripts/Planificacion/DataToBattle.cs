@@ -6,38 +6,40 @@ using UnityEngine.UI;
 
 public class DataToBattle : MonoBehaviour
 {
-    private Grid celdas;
     private ListaPlayerSerializable lsp = new ListaPlayerSerializable();
     private Celda[] listaCeldas = new Celda[3];
     [SerializeField] private List<GameObject> enemigosNivel;
+    private List<CeldaManager> listCeldas = new List<CeldaManager>();
 
     public void putGrid()
     {
-        var grid = FindObjectOfType<GridManager>();
-
-        celdas = grid.getGridInfo();
         var i = 0;
-        foreach(var celda in celdas.GetCeldas())
+
+        foreach (var celda in listCeldas)
         {
-            if(celda.GetPersonaje() != null)
+            if(celda.getCelda().GetPersonaje() != null)
             {
-                addSP(celda.GetPersonaje().GetComponent<RectTransform>().Find("Character").gameObject);
-                listaCeldas[i] = celda;
+                Debug.Log("Hay casillas con personajes");
+                addSP(celda.getCelda().GetPersonaje().GetComponent<RectTransform>().Find("Character").gameObject);
+                listaCeldas[i] = celda.getCelda();
                 i++;
             }
             
         }
+
         DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene("Batalla");
     }
 
-    public Grid getGrid() { return celdas; }
     public ListaPlayerSerializable getLSP() { return lsp; }
     public Celda[] getCeldas() { return listaCeldas; }
 
     public List<GameObject> getEnemigos() { return enemigosNivel; }
+
+    public void addCelda(CeldaManager celda) { listCeldas.Add(celda); }
     private void addSP(GameObject p)
     {
+        Debug.Log("Añadir personaje: " + p);
         var newFlequillo = p.transform.Find("Flequillo").GetComponent<Image>();
         var fn = newFlequillo.sprite.name;
 

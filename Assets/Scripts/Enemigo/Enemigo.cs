@@ -34,9 +34,9 @@ public class Enemigo : MonoBehaviour
 
     private void crearPerro() 
     {
-        var ataque = Random.Range(10, 25);
-        var defensa = Random.Range(10, 25);
-        var hp = Random.Range(100, 250);
+        var ataque = Random.Range(2, 7);
+        var defensa = Random.Range(1, 6);
+        var hp = Random.Range(5, 15);
         var tipoAtaque = Random.Range(0, 2);
 
         enemigo.SetAtaque(ataque);
@@ -51,9 +51,9 @@ public class Enemigo : MonoBehaviour
 
     private void crearMurcielago() 
     {
-        var ataque = Random.Range(15, 40);
-        var defensa = Random.Range(15, 40);
-        var hp = Random.Range(150, 350);
+        var ataque = Random.Range(3, 8);
+        var defensa = Random.Range(2, 8);
+        var hp = Random.Range(5, 20);
         var tipoAtaque = Random.Range(1, 3);
 
         enemigo.SetAtaque(ataque);
@@ -68,9 +68,9 @@ public class Enemigo : MonoBehaviour
 
     private void crearGoblin() 
     {
-        var ataque = Random.Range(15, 55);
-        var defensa = Random.Range(15, 55);
-        var hp = Random.Range(100, 450);
+        var ataque = Random.Range(5, 10);
+        var defensa = Random.Range(4, 8);
+        var hp = Random.Range(10, 25);
         var tipoAtaque = Random.Range(0, 3);
 
         enemigo.SetAtaque(ataque);
@@ -85,9 +85,9 @@ public class Enemigo : MonoBehaviour
 
     private void crearDemonioHembra() 
     {
-        var ataque = Random.Range(40, 100);
-        var defensa = Random.Range(40, 100);
-        var hp = Random.Range(300, 650);
+        var ataque = Random.Range(8, 20);
+        var defensa = Random.Range(8, 15);
+        var hp = Random.Range(15, 30);
         var tipoAtaque = Random.Range(0, 5);
 
         enemigo.SetAtaque(ataque);
@@ -102,9 +102,9 @@ public class Enemigo : MonoBehaviour
 
     private void crearDemonioMacho() 
     {
-        var ataque = Random.Range(40, 100);
-        var defensa = Random.Range(40, 100);
-        var hp = Random.Range(300, 650);
+        var ataque = Random.Range(8, 20);
+        var defensa = Random.Range(8, 15);
+        var hp = Random.Range(15, 30);
         var tipoAtaque = Random.Range(0, 5);
 
         enemigo.SetAtaque(ataque);

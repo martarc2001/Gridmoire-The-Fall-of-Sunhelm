@@ -1795,6 +1795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasParent: {fileID: 1649428663}
+  dataBattle: {fileID: 464156422}
 --- !u!4 &1238200907
 Transform:
   m_ObjectHideFlags: 0

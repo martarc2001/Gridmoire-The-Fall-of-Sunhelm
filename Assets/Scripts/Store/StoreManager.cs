@@ -9,6 +9,7 @@ public class StoreManager : MonoBehaviour
 
     //[SerializeField] private GameObject ejercito;
     //private EjercitoManager em;
+    private GameObject lastCreated;
     private ListaPlayerSerializable spl = new ListaPlayerSerializable();
 
     [SerializeField] private List<Sprite> flequillos;
@@ -37,6 +38,10 @@ public class StoreManager : MonoBehaviour
 
     public void generateRandomCharacter()
     {
+        if(lastCreated != null)
+        {
+            Destroy(lastCreated);
+        }
         var newCharacter = Instantiate(character);
 
         /////// CHARACTER CUSTOMIZATION ///////
@@ -106,6 +111,29 @@ public class StoreManager : MonoBehaviour
         pers.SetTipoAtaque(tipoAtaque);
 
         newCharacter.GetComponent<PlayerController>().setPersonaje(pers);
+
+        var ataque = newCharacter.transform.Find("Ataque").GetComponent<SpriteRenderer>();
+
+        switch (tipoAtaque)
+        {
+            case TipoAtaque.SINGLE:
+                ataque.color = Color.red;
+                break;
+            case TipoAtaque.ROW:
+                ataque.color = Color.blue;
+                break;
+            case TipoAtaque.COLUMN:
+                ataque.color = Color.yellow;
+                break;
+            case TipoAtaque.GRID:
+                ataque.color = Color.black;
+                break;
+            case TipoAtaque.HEAL:
+                ataque.color = Color.green;
+                break;
+        }
+
+        lastCreated = newCharacter;
 
         var sp = new SerializablePlayer(iFlequillo,iPelo,iPest,iOrej,iNari,iBoca,iExtra,iCejas,
             iRopa,RP,GP,BP,RI,GI,BI,pers.GetAtaque(),pers.GetDefensa(),pers.GetVida(), 

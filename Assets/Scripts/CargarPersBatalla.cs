@@ -27,7 +27,7 @@ public class CargarPersBatalla : MonoBehaviour
         grid = FindObjectOfType<DataToBattle>().getLSP();
         var celdas = FindObjectOfType<DataToBattle>().getCeldas();
 
-        Debug.Log(grid.list[0]);
+        Debug.Log(grid.list.Count);
 
         var posSituar = new List<Transform>();
 
