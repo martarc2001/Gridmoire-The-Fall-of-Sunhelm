@@ -18,7 +18,7 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private List<string> titulos;
     [SerializeField] private List<Sprite> flequillos;
     [SerializeField] private List<Sprite> pelos;
-    [SerializeField] private List<Sprite> pesta�as;
+    [SerializeField] private List<Sprite> pestanha;
     [SerializeField] private List<Sprite> orejas;
     [SerializeField] private List<Sprite> narices;
     [SerializeField] private List<Sprite> bocas;
@@ -54,10 +54,6 @@ public class StoreManager : MonoBehaviour
 
         /////// CHARACTER CUSTOMIZATION ///////
 
-        
-        string newNombre = nombres[Random.Range(0, nombres.Count)];
-        string newTitulo = titulos[Random.Range(0, titulos.Count)];
-        string newNombrePersonaje = newNombre + " " + newTitulo;
 
         var newFlequillo = newCharacter.transform.Find("Flequillo").GetComponent<SpriteRenderer>();
         var iFlequillo = Random.Range(0, flequillos.Count);
@@ -67,9 +63,9 @@ public class StoreManager : MonoBehaviour
         var iPelo = Random.Range(0, pelos.Count);
         newPelo.sprite = pelos[iPelo];
 
-        var newPesta�as = newCharacter.transform.Find("Pesta�as").GetComponent<SpriteRenderer>();
-        var iPest = Random.Range(0, pesta�as.Count);
-        newPesta�as.sprite = pesta�as[iPest];
+        var newPestanhas = newCharacter.transform.Find("Pesta�as").GetComponent<SpriteRenderer>();
+        var iPest = Random.Range(0, pestanha.Count);
+        newPestanhas.sprite = pestanha[iPest];
 
         var newOrejas = newCharacter.transform.Find("Orejas").GetComponent<SpriteRenderer>();
         var iOrej = Random.Range(0, orejas.Count);
