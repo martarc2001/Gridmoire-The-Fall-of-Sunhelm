@@ -59,6 +59,8 @@ public class BattleController : MonoBehaviour
                     turnosJugados++;
                     Debug.Log("Turno terminado");
                 }
+
+
             }else if (hit.collider.CompareTag("CellPlayer"))
             {
                 if(playerSelected != null 

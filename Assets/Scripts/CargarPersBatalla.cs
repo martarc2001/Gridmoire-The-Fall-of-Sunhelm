@@ -95,6 +95,27 @@ public class CargarPersBatalla : MonoBehaviour
         personaje.SetTipoAtaque((TipoAtaque)sp.tipoAtaque);
         newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
+        var ataque = newCharacter.transform.Find("Ataque").GetComponent<SpriteRenderer>();
+
+        switch (sp.tipoAtaque)
+        {
+            case (int)TipoAtaque.SINGLE:
+                ataque.color = Color.red;
+                break;
+            case (int)TipoAtaque.ROW:
+                ataque.color = Color.blue;
+                break;
+            case (int)TipoAtaque.COLUMN:
+                ataque.color = Color.yellow;
+                break;
+            case (int)TipoAtaque.GRID:
+                ataque.color = Color.black;
+                break;
+            case (int)TipoAtaque.HEAL:
+                ataque.color = Color.green;
+                break;
+        }
+
         gridPlayer.getGridInfo().GetCeldas()[celda.getCelda().GetX(), celda.getCelda().GetY()].SetPersonaje(newCharacter);
         
         level.addPersonaje(newCharacter.GetComponent<PlayerController>());
