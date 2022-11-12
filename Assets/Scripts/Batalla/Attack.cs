@@ -89,13 +89,11 @@ public class Attack : MonoBehaviour
             Debug.Log(celda.GetPersonaje());
             if (celda.GetPersonaje() != null)
             {
-                //Debug.Log("Atacado");
                 var enemigo = celda.GetPersonaje();
                 var defEnemigo = enemigo.GetComponent<PlayerController>().getPersonaje().GetDefensa();
                 var damageTotal = damage * Random.Range(0.5f, 0.75f);
                 if (damageTotal - defEnemigo > 0)
                     enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal - defEnemigo);
-                //Debug.Log(enemigo.GetComponent<PlayerController>().getPersonaje().GetVida());
             }
             
         }

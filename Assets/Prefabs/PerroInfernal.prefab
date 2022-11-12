@@ -1221,8 +1221,9 @@ GameObject:
   - component: {fileID: 3024729195308907560}
   - component: {fileID: 392956062913241774}
   - component: {fileID: -7231324462142910952}
+  - component: {fileID: -8396518441942325042}
   m_Layer: 0
-  m_Name: Character 1
+  m_Name: PerroInfernal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1279,3 +1280,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35dba76851513b147961344aa85db10c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8396518441942325042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221006076319714446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 141fe41848a80554ea2096c2c98ce4f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoEnemigo: 0
+  playerController: {fileID: 392956062913241774}

@@ -10,6 +10,7 @@ public class PlanificationManager : MonoBehaviour
     private GameObject playerSelected;
     [SerializeField] private GameObject canvasParent;
     private int personajesSeleccionados = 0;
+    [SerializeField] DataToBattle dataBattle;
 
     // Update is called once per frame
     void Update()
@@ -18,7 +19,7 @@ public class PlanificationManager : MonoBehaviour
         {
             var pointer = new PointerEventData(EventSystem.current) { position = Input.mousePosition};
             inputController(pointer);
-        }else if((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended))
+        }else if((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
             var pointer = new PointerEventData(EventSystem.current) { position = Input.GetTouch(0).position };
             inputController(pointer);
@@ -51,6 +52,8 @@ public class PlanificationManager : MonoBehaviour
                             playerSelected.gameObject.transform.position = hit.gameObject.transform.position;
                             playerSelected = null;
                             personajesSeleccionados++;
+
+                            dataBattle.addCelda(hit.gameObject.GetComponent<CeldaManager>());
                         }
 
                     }
@@ -73,6 +76,7 @@ public class PlanificationManager : MonoBehaviour
                             playerSelected = hit.gameObject.GetComponent<CeldaManager>().getCelda().GetPersonaje();
                             hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(null);
                             hit.gameObject.GetComponent<CeldaManager>().getCelda().ChangeOccupied();
+                            dataBattle.removeCelda(hit.gameObject.GetComponent<CeldaManager>());
                         }
 
                     }

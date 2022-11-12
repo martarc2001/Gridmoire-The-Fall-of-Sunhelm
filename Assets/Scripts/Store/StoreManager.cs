@@ -9,6 +9,7 @@ public class StoreManager : MonoBehaviour
 
     //[SerializeField] private GameObject ejercito;
     //private EjercitoManager em;
+    private GameObject lastCreated;
     private ListaPlayerSerializable spl = new ListaPlayerSerializable();
 
     private Rareza newRareza;
@@ -17,7 +18,7 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private List<string> titulos;
     [SerializeField] private List<Sprite> flequillos;
     [SerializeField] private List<Sprite> pelos;
-    [SerializeField] private List<Sprite> pestañas;
+    [SerializeField] private List<Sprite> pestaï¿½as;
     [SerializeField] private List<Sprite> orejas;
     [SerializeField] private List<Sprite> narices;
     [SerializeField] private List<Sprite> bocas;
@@ -41,7 +42,15 @@ public class StoreManager : MonoBehaviour
 
     public void generateRandomCharacter()
     {
+        if(lastCreated != null)
+        {
+            Destroy(lastCreated);
+        }
         var newCharacter = Instantiate(character);
+
+        string newNombre = nombres[Random.Range(0, nombres.Count)];
+        string newTitulo = titulos[Random.Range(0, titulos.Count)];
+        string newNombrePersonaje = newNombre + " " + newTitulo;
 
         /////// CHARACTER CUSTOMIZATION ///////
 
@@ -58,9 +67,9 @@ public class StoreManager : MonoBehaviour
         var iPelo = Random.Range(0, pelos.Count);
         newPelo.sprite = pelos[iPelo];
 
-        var newPestañas = newCharacter.transform.Find("Pestañas").GetComponent<SpriteRenderer>();
-        var iPest = Random.Range(0, pestañas.Count);
-        newPestañas.sprite = pestañas[iPest];
+        var newPestaï¿½as = newCharacter.transform.Find("Pestaï¿½as").GetComponent<SpriteRenderer>();
+        var iPest = Random.Range(0, pestaï¿½as.Count);
+        newPestaï¿½as.sprite = pestaï¿½as[iPest];
 
         var newOrejas = newCharacter.transform.Find("Orejas").GetComponent<SpriteRenderer>();
         var iOrej = Random.Range(0, orejas.Count);
@@ -112,6 +121,29 @@ public class StoreManager : MonoBehaviour
         newCharacter.GetComponent<PlayerController>().setPersonaje(pers);
 
         Debug.Log(newCharacter.GetComponent<PlayerController>().getPersonaje().GetNombre());
+        var ataque = newCharacter.transform.Find("Ataque").GetComponent<SpriteRenderer>();
+
+        switch (tipoAtaque)
+        {
+            case TipoAtaque.SINGLE:
+                ataque.color = Color.red;
+                break;
+            case TipoAtaque.ROW:
+                ataque.color = Color.blue;
+                break;
+            case TipoAtaque.COLUMN:
+                ataque.color = Color.yellow;
+                break;
+            case TipoAtaque.GRID:
+                ataque.color = Color.black;
+                break;
+            case TipoAtaque.HEAL:
+                ataque.color = Color.green;
+                break;
+        }
+
+        lastCreated = newCharacter;
+
 
         var sp = new SerializablePlayer(iFlequillo,iPelo,iPest,iOrej,iNari,iBoca,iExtra,iCejas,
             iRopa,RP,GP,BP,RI,GI,BI,pers.GetAtaque(),pers.GetDefensa(),pers.GetVida(), 
