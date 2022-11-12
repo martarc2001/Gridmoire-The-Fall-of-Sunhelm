@@ -28,7 +28,7 @@ public class StoreManager : MonoBehaviour
 
     public void Start()
     {
-        string json = PlayerPrefs.GetString("ejercito");
+        string json = PlayerPrefs.GetString("commons");
 
         if (!string.IsNullOrEmpty(json))
         {
@@ -38,6 +38,43 @@ public class StoreManager : MonoBehaviour
     public void Awake()
     {
         newRareza = Rareza.COMUN;
+    }
+
+    public void changeRareness(string rareness)
+    {
+        switch (rareness)
+        {
+            case "Comun":
+                newRareza = Rareza.COMUN;
+                spl.list.Clear();
+                var com = PlayerPrefs.GetString("commons");
+
+                if (!string.IsNullOrEmpty(com))
+                {
+                    spl = JsonUtility.FromJson<ListaPlayerSerializable>(com);
+                }
+                break;
+            case "Raro":
+                newRareza = Rareza.RARO;
+                spl.list.Clear();
+                var rar = PlayerPrefs.GetString("rares");
+
+                if (!string.IsNullOrEmpty(rar))
+                {
+                    spl = JsonUtility.FromJson<ListaPlayerSerializable>(rar);
+                }
+                break;
+            case "SuperRaro":
+                newRareza = Rareza.SUPER_RARO;
+                spl.list.Clear();
+                var ur = PlayerPrefs.GetString("superRares");
+
+                if (!string.IsNullOrEmpty(ur))
+                {
+                    spl = JsonUtility.FromJson<ListaPlayerSerializable>(ur);
+                }
+                break;
+        }
     }
 
     public void generateRandomCharacter()
@@ -147,8 +184,23 @@ public class StoreManager : MonoBehaviour
 
         spl.list.Add(sp);
 
-        PlayerPrefs.SetString("ejercito",JsonUtility.ToJson(spl));
-        PlayerPrefs.Save();
+        switch (newRareza)
+        {
+            case Rareza.COMUN:
+                PlayerPrefs.SetString("commons", JsonUtility.ToJson(spl));
+                PlayerPrefs.Save();
+                break;
+            case Rareza.RARO:
+                PlayerPrefs.SetString("rares", JsonUtility.ToJson(spl));
+                PlayerPrefs.Save();
+                break;
+            case Rareza.SUPER_RARO:
+                PlayerPrefs.SetString("superRares", JsonUtility.ToJson(spl));
+                PlayerPrefs.Save();
+                break;
+            
+    }
+        
 
     }
 }
