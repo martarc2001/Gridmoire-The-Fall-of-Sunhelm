@@ -76,7 +76,7 @@ public class DataToBattle : MonoBehaviour
         SerializablePlayer sp = new SerializablePlayer(int.Parse(fn),int.Parse(newPelo),int.Parse(newPestañas),int.Parse(newOrejas)
             ,int.Parse(newNarices),int.Parse(newBoca)
             ,int.Parse(newExtra),int.Parse(newCejas),int.Parse(ropa),rp,gp,bp,ri,gi,bi,person.GetAtaque(),
-            person.GetDefensa(),person.GetVida(),(int)person.GetTipoAtaque());
+            person.GetDefensa(),person.GetVida(),(int)person.GetTipoAtaque(),person.GetNombre(),(int)person.GetRareza());
 
         lsp.list.Add(sp);
     }

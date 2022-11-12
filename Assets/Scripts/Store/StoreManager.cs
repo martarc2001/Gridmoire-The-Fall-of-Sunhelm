@@ -63,7 +63,7 @@ public class StoreManager : MonoBehaviour
         var iPelo = Random.Range(0, pelos.Count);
         newPelo.sprite = pelos[iPelo];
 
-        var newPestanhas = newCharacter.transform.Find("Pesta�as").GetComponent<SpriteRenderer>();
+        var newPestanhas = newCharacter.transform.Find("Pestañas").GetComponent<SpriteRenderer>();
         var iPest = Random.Range(0, pestanha.Count);
         newPestanhas.sprite = pestanha[iPest];
 
@@ -108,7 +108,7 @@ public class StoreManager : MonoBehaviour
 
         /////// ATTACK SELECTION ///////
 
-        var tipoAtaque = (TipoAtaque)Random.Range(0, 4);
+        var tipoAtaque = (TipoAtaque)Random.Range(0, 5);
 
         ///// CHARACTER GENERATION /////
 
@@ -143,7 +143,7 @@ public class StoreManager : MonoBehaviour
 
         var sp = new SerializablePlayer(iFlequillo,iPelo,iPest,iOrej,iNari,iBoca,iExtra,iCejas,
             iRopa,RP,GP,BP,RI,GI,BI,pers.GetAtaque(),pers.GetDefensa(),pers.GetVida(), 
-            (int)pers.GetTipoAtaque());
+            (int)pers.GetTipoAtaque(),pers.GetNombre(),(int)pers.GetRareza());
 
         spl.list.Add(sp);
 

@@ -92,7 +92,7 @@ public class BattleController : MonoBehaviour
                         playerSelected.GetComponent<Attack>().performAttack(gridEnemigo, cellSelected.getCelda());
                         turnosJugados++;
                         seleccionables.Add(playerSelected.GetComponent<SeleccionableManager>());
-                        playerSelected.GetComponent<SeleccionableManager>().changeSelectable();
+                        playerSelected.GetComponent<SeleccionableManager>().notSelectable();
                         playerSelected = null;
                         cellSelected = null;
                         resetResalto();
@@ -133,7 +133,7 @@ public class BattleController : MonoBehaviour
         turnosJugados = 0; 
         foreach(var personaje in seleccionables)
         {
-            personaje.changeSelectable();
+            personaje.canSelectable();
         }
     }
 

@@ -95,6 +95,8 @@ public class CargarPersonajes : MonoBehaviour
         personaje.SetDefensa(sp.defensa);
         personaje.SetVida(sp.vida);
         personaje.SetTipoAtaque((TipoAtaque)sp.tipoAtaque);
+        personaje.SetRareza((Rareza)sp.rareza);
+        personaje.SetNombre(sp.nombre);
         newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
 

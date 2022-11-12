@@ -193,21 +193,9 @@ public class IAManager
 
     public void RealizarTurno(GridManager gridAliado, GridManager gridEnemigo)
     {
-
-        foreach(var celda in gridEnemigo.getGridInfo().GetCeldas())
-        {
-            Debug.Log("Celda: " + celda.GetPersonaje());
-        }
         foreach (var personaje in this.ejercito)
         {
-            int factorInteligencia = Random.Range(0, 10);
-            if (factorInteligencia > FACTOR_ALEATORIEDAD)
-            {
-                Atacar(gridAliado, gridEnemigo, personaje);
-            } else
-            {
-                AtacarRandom(gridAliado, gridEnemigo, personaje);
-            }
+            Atacar(gridAliado, gridEnemigo, personaje);
         }
     }
 }
