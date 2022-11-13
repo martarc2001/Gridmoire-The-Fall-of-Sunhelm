@@ -25,6 +25,7 @@ public class BattleController : MonoBehaviour
         {
             if (turnosJugados < GetComponent<LevelFlow>().ejercitoJugador.Count)
             {
+
                 if (Input.GetMouseButtonUp(0))
                 {
                     var pointer = Input.mousePosition;
@@ -114,13 +115,22 @@ public class BattleController : MonoBehaviour
                     == TipoAtaque.HEAL && cellSelected==null)
                 {
                     var celda = hit.collider.gameObject.GetComponent<CeldaManager>();
-                    
+                    cellSelected = hit.collider.gameObject.GetComponent<CeldaManager>();
+                    foreach (var cell in gridAliado.getCeldas())
+                    {
+                        cell.GetComponent<SpriteRenderer>().color = Color.green;
+                    }
                 }
 
                 else if (cellSelected != null)
                 {
                     playerSelected.GetComponent<Attack>().performAttack(gridAliado, cellSelected.getCelda());
                     turnosJugados++;
+                    seleccionables.Add(playerSelected.GetComponent<SeleccionableManager>());
+                    playerSelected.GetComponent<SeleccionableManager>().notSelectable();
+                    playerSelected = null;
+                    cellSelected = null;
+                    resetResalto();
                 }
             }
         }

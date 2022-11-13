@@ -24,19 +24,7 @@ public class CargarPersonajes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string json = PlayerPrefs.GetString("commons");
-
-        if (!string.IsNullOrEmpty(json))
-        {
-            lsp = JsonUtility.FromJson<ListaPlayerSerializable>(json);
-
-            foreach (var p in lsp.list)
-            {
-                instanciarPersonaje(p);
-            }
-        }
-
-        
+        changeRareness("Comun");
 
     }
 

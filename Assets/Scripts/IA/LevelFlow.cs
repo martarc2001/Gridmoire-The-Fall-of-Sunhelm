@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,12 +20,15 @@ public class LevelFlow : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
 
     [SerializeField] public List<PlayerController> ejercitoJugador = new List<PlayerController>();
-    [SerializeField] private List<PlayerController> ejercitoEnemigo = new List<PlayerController>();
+    [SerializeField] private List<EnemigoController> ejercitoEnemigo = new List<EnemigoController>();
 
     [SerializeField] private List<float> vidasEnemigos = new List<float>();
     [SerializeField] private List<float> vidasJugador = new List<float>();
 
+    [SerializeField] private TextMeshProUGUI textoTurno;
+
     private DataToBattle datosBatalla;
+    private bool finCo = false;
 
     // getter & setters
 
@@ -38,7 +42,6 @@ public class LevelFlow : MonoBehaviour
     public void SetGridPlayer(GridManager gridPlayer) { this.gridPlayer = gridPlayer; }
     public void SetIAManager(IAManager ia) { this.ia = ia; }
 
-
     // Metodos
     private void Start()
     {
@@ -49,25 +52,28 @@ public class LevelFlow : MonoBehaviour
     {
         if (initialize)
         {
-            if (QuedanPersonajes(ejercitoEnemigo) && QuedanPersonajes(ejercitoJugador))
+            if (QuedanEnemigos(ejercitoEnemigo) && QuedanAliados(ejercitoJugador))
             {
                 if (GetComponent<BattleController>().getTurnos() < ejercitoJugador.Count)
                 {
                     //Debug.Log(GetComponent<BattleController>().getTurnos());
-                }
-                else if (QuedanPersonajes(ejercitoEnemigo))
-                {
                     
+                }
+                else if (QuedanEnemigos(ejercitoEnemigo))
+                {
                     foreach (var enemigo in ejercitoEnemigo)
                     {
-                        vidasEnemigos.Add(enemigo.getPersonaje().GetVida());
+                        vidasEnemigos.Add(enemigo.getEnemigo().GetVida());
                     }
-                    ia.RealizarTurno(gridIA, gridPlayer);
-                    GetComponent<BattleController>().resetTurno();
+
+                    ia.RealizarTurno(gridIA,gridPlayer,textoTurno);
+
                     foreach (var enemigo in ejercitoJugador)
                     {
                         vidasJugador.Add(enemigo.getPersonaje().GetVida());
                     }
+                    GetComponent<BattleController>().resetTurno();
+
                 }
                 
 
@@ -80,7 +86,8 @@ public class LevelFlow : MonoBehaviour
         }
         
     }
-    private bool QuedanPersonajes(List<PlayerController> comprobar)
+
+    private bool QuedanAliados(List<PlayerController> comprobar)
     {
         var result = false;
         List<PlayerController> persEliminar = new List<PlayerController>();
@@ -97,6 +104,30 @@ public class LevelFlow : MonoBehaviour
         }
 
         foreach(var eliminados in persEliminar)
+        {
+            comprobar.Remove(eliminados);
+            Destroy(eliminados.gameObject);
+        }
+        return result;
+    }
+
+    private bool QuedanEnemigos(List<EnemigoController> comprobar)
+    {
+        var result = false;
+        List<EnemigoController> persEliminar = new List<EnemigoController>();
+        foreach (var personaje in comprobar)
+        {
+            if (personaje.getEnemigo().GetVida() <= 0)
+            {
+                persEliminar.Add(personaje);
+            }
+            if (personaje.getEnemigo().GetVida() > 0)
+            {
+                result = true;
+            }
+        }
+
+        foreach (var eliminados in persEliminar)
         {
             comprobar.Remove(eliminados);
             Destroy(eliminados.gameObject);
@@ -128,10 +159,10 @@ public class LevelFlow : MonoBehaviour
             }
             var objEnemigo = Instantiate(datosBatalla.getEnemigos()[nEnemigos], celdaTransform.position, Quaternion.identity);
             objEnemigo.transform.SetParent(celdaTransform);
-            objEnemigo.GetComponent<Enemigo>().crearEnemigo();
+            objEnemigo.GetComponent<EnemigoController>().crearEnemigo();
             grid.getGridInfo().GetCeldas()[x, y].SetPersonaje(objEnemigo);
             grid.getGridInfo().GetCeldas()[x, y].ChangeOccupied();
-            ejercitoEnemigo.Add(objEnemigo.GetComponent<PlayerController>());
+            ejercitoEnemigo.Add(objEnemigo.GetComponent<EnemigoController>());
             nEnemigos++;
         }
     }

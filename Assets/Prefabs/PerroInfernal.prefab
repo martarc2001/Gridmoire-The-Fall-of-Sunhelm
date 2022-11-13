@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1515043139208777639}
   - component: {fileID: 3542381380152616097}
   m_Layer: 0
-  m_Name: CUERPO BASE
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,9 +177,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3024729195308907560}
-  - component: {fileID: 392956062913241774}
-  - component: {fileID: -7231324462142910952}
-  - component: {fileID: -8396518441942325042}
+  - component: {fileID: 7543977862976488686}
+  - component: {fileID: 6318033521183066827}
   m_Layer: 0
   m_Name: PerroInfernal
   m_TagString: Untagged
@@ -204,7 +203,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &392956062913241774
+--- !u!114 &7543977862976488686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,32 +212,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8221006076319714446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1db4d72fed12a1d4fa3725d3c4a4fe3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-7231324462142910952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8221006076319714446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35dba76851513b147961344aa85db10c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-8396518441942325042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8221006076319714446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 141fe41848a80554ea2096c2c98ce4f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 309e8344b5f395944b49ff291f79f16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tipoEnemigo: 0
-  playerController: {fileID: 392956062913241774}
+--- !u!114 &6318033521183066827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221006076319714446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0272b45971ded748996cfe15ac41fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
