@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -26,18 +27,14 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private List<Sprite> cejas;
     [SerializeField] private List<Sprite> ropas;
 
+    [SerializeField] private TextMeshProUGUI textoNoDinero;
     public void Start()
     {
-        string json = PlayerPrefs.GetString("commons");
-
-        if (!string.IsNullOrEmpty(json))
-        {
-            spl = JsonUtility.FromJson<ListaPlayerSerializable>(json);
-        }
     }
     public void Awake()
     {
         newRareza = Rareza.COMUN;
+        changeRareness("Comun");
     }
 
     public void changeRareness(string rareness)
@@ -77,12 +74,53 @@ public class StoreManager : MonoBehaviour
         }
     }
 
-    public void generateRandomCharacter()
+    public void comprarPersonaje()
     {
-        if(lastCreated != null)
+        if (lastCreated != null)
         {
             Destroy(lastCreated);
         }
+        textoNoDinero.text = "";
+
+        switch (newRareza)
+        {
+            case Rareza.COMUN:
+                if(GameManager.instance.getDineroJugador() >= 150)
+                {
+                    generateRandomCharacter();
+                }
+                else
+                {
+                    textoNoDinero.text = "No tienes suficiente dinero";
+                }
+                break;
+            case Rareza.RARO:
+                if (GameManager.instance.getDineroJugador() >= 500)
+                {
+                    generateRandomCharacter();
+                }
+                else
+                {
+                    textoNoDinero.text = "No tienes suficiente dinero";
+                }
+                break;
+            case Rareza.SUPER_RARO:
+                if (GameManager.instance.getDineroJugador() >= 1500)
+                {
+                    generateRandomCharacter();
+                }
+                else
+                {
+                    textoNoDinero.text = "No tienes suficiente dinero";
+                }
+                break;
+        }
+    }
+
+    public void generateRandomCharacter()
+    {
+
+        
         var newCharacter = Instantiate(character);
 
         string newNombre = nombres[Random.Range(0, nombres.Count)];
@@ -187,20 +225,23 @@ public class StoreManager : MonoBehaviour
         switch (newRareza)
         {
             case Rareza.COMUN:
+                GameManager.instance.restarDinero(150);
                 PlayerPrefs.SetString("commons", JsonUtility.ToJson(spl));
                 PlayerPrefs.Save();
                 break;
             case Rareza.RARO:
+                GameManager.instance.restarDinero(500);
                 PlayerPrefs.SetString("rares", JsonUtility.ToJson(spl));
                 PlayerPrefs.Save();
                 break;
             case Rareza.SUPER_RARO:
+                GameManager.instance.restarDinero(1500);
                 PlayerPrefs.SetString("superRares", JsonUtility.ToJson(spl));
                 PlayerPrefs.Save();
                 break;
-            
-    }
-        
+        }
+
+        PlayerPrefs.SetInt("Dinero", GameManager.instance.getDineroJugador());
 
     }
 }
