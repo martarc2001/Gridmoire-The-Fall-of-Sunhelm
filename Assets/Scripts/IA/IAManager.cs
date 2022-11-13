@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -216,12 +217,12 @@ public class IAManager
             texto.SetText("Turno Enemigos");
             personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.blue;
             resaltarAtaque(gridAliado, gridEnemigo, personaje);
-            await Task.Delay(500);
+            await UniTask.Delay(500);
             Atacar(gridAliado, gridEnemigo, personaje);
-            await Task.Delay(500);
+            await UniTask.Delay(500);
             resetResalto(gridAliado, gridEnemigo);
             personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.gray;
-            await Task.Delay(250);
+            await UniTask.Delay(500);
         }
         texto.SetText("Turno Jugador");
         resetEnemigos();
