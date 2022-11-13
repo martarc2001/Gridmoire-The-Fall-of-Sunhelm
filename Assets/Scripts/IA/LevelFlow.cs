@@ -80,8 +80,17 @@ public class LevelFlow : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("Final");
-                Destroy(FindObjectOfType<DataToBattle>().gameObject);
+                if (QuedanAliados(ejercitoJugador))
+                {
+                    SceneManager.LoadScene("Win");
+                    Destroy(FindObjectOfType<DataToBattle>().gameObject);
+                }
+                else
+                {
+                    SceneManager.LoadScene("GameOver");
+                    Destroy(FindObjectOfType<DataToBattle>().gameObject);
+                }
+                
             }
         }
         
