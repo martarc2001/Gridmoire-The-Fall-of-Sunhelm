@@ -38,15 +38,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if(PlayerPrefs.GetInt("PrimeraVez") == 0)
+        if (PlayerPrefs.HasKey("PrimeraVez") == false)
         {
             PlayerPrefs.SetInt("PrimeraVez", 1);
+            dineroJugador = 1500;
+            PlayerPrefs.SetInt("Dinero", dineroJugador);
+            PlayerPrefs.Save();
         }
         else
         {
             dineroJugador = PlayerPrefs.GetInt("Dinero");
+
         }
-        
     }
 
     private void Update()

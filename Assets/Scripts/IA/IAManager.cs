@@ -36,21 +36,33 @@ public class IAManager
         Celda objetivo = new Celda();
         float PeorVida = Mathf.Infinity;
 
-        for (int i = 0; i < gridEnemigo.getGridInfo().GetCeldas().GetLength(0); i++)
+
+        foreach(var cell in gridEnemigo.getCeldas())
+        {
+            Debug.Log(cell.getCelda().IsOccupied());
+            if (cell.getCelda().IsOccupied())
+            {
+                if(cell.getCelda().GetPersonaje().GetComponent<PlayerController>().getPersonaje().GetVida() <= PeorVida)
+                {
+                    objetivo = cell.getCelda();
+                    Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
+                }
+            }
+        }
+        /*for (int i = 0; i < gridEnemigo.getGridInfo().GetCeldas().GetLength(0); i++)
         {
             for (int j = 0; j < gridEnemigo.getGridInfo().GetCeldas().GetLength(1); j++)
             {
                 if (gridEnemigo.getGridInfo().GetCeldas()[i, j].IsOccupied())
                 {
-                    var accionAleatoria = Random.Range(1, 10);
-
                     if(gridEnemigo.getGridInfo().GetCeldas()[i, j].GetPersonaje().GetComponent<PlayerController>().getPersonaje().GetVida() <= PeorVida)
                     {
                         objetivo = gridEnemigo.getGridInfo().GetCeldas()[i, j];
+                        Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
                     }
                 }
             }
-        }
+        }*/
         return objetivo;
     }
 
@@ -77,6 +89,7 @@ public class IAManager
             {
                 mejorColumna = nEnemigos;
                 columnaObj = j;
+                Debug.Log("Celda seleccionada: " + columnaObj);
             }
         }
 
@@ -106,6 +119,7 @@ public class IAManager
             {
                 mejorFila = nEnemigos;
                 filaObj = i;
+                Debug.Log("Celda seleccionada: " + filaObj);
             }
         }
 
@@ -120,12 +134,18 @@ public class IAManager
                 personaje.GetComponent<EnemyAttack>().gridAttack(gridEnemigo);
                 break;
             case TipoAtaque.SINGLE:
+                if(celdaObj.GetPersonaje() == null)
+                    celdaObj = CompruebaSingle(gridEnemigo);
                 personaje.GetComponent<EnemyAttack>().singleAttack(celdaObj);
                 break;
             case TipoAtaque.COLUMN:
+                if (celdaObj.GetPersonaje() == null)
+                    celdaObj = new Celda(0, CompruebaColumn(gridEnemigo));
                 personaje.GetComponent<EnemyAttack>().columnAttack(gridEnemigo, gridEnemigo.getGridInfo().GetCeldas()[0, celdaObj.GetY()]);
                 break;
             case TipoAtaque.ROW:
+                if (celdaObj.GetPersonaje() == null)
+                    celdaObj = new Celda(CompruebaRow(gridEnemigo), 0);
                 personaje.GetComponent<EnemyAttack>().rowAttack(gridEnemigo, gridEnemigo.getGridInfo().GetCeldas()[celdaObj.GetX(), 0]);
                 break;
             case TipoAtaque.HEAL:
@@ -232,7 +252,6 @@ public class IAManager
     {
         foreach(var personaje in this.ejercito)
         {
-            Debug.Log("Lo intento,eh");
             personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.white;
         }
     }

@@ -217,7 +217,7 @@ public class StoreManager : MonoBehaviour
 
 
         var sp = new SerializablePlayer(iFlequillo,iPelo,iPest,iOrej,iNari,iBoca,iExtra,iCejas,
-            iRopa,RP,GP,BP,RI,GI,BI,pers.GetAtaque(),pers.GetDefensa(),pers.GetVida(), 
+            iRopa,RP,GP,BP,RI,GI,BI,pers.GetAtaque(),pers.GetDefensa(),pers.GetVida(),pers.getVidaMax(), 
             (int)pers.GetTipoAtaque(),pers.GetNombre(),(int)pers.GetRareza());
 
         spl.list.Add(sp);
@@ -227,21 +227,20 @@ public class StoreManager : MonoBehaviour
             case Rareza.COMUN:
                 GameManager.instance.restarDinero(150);
                 PlayerPrefs.SetString("commons", JsonUtility.ToJson(spl));
-                PlayerPrefs.Save();
                 break;
             case Rareza.RARO:
                 GameManager.instance.restarDinero(500);
                 PlayerPrefs.SetString("rares", JsonUtility.ToJson(spl));
-                PlayerPrefs.Save();
                 break;
             case Rareza.SUPER_RARO:
                 GameManager.instance.restarDinero(1500);
                 PlayerPrefs.SetString("superRares", JsonUtility.ToJson(spl));
-                PlayerPrefs.Save();
+                
                 break;
         }
 
         PlayerPrefs.SetInt("Dinero", GameManager.instance.getDineroJugador());
+        PlayerPrefs.Save();
 
     }
 }

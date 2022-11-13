@@ -16,6 +16,9 @@ public class Personaje
     private float vida;
 
     [SerializeField]
+    private float vidaMax;
+
+    [SerializeField]
     private float ataque;
 
     [SerializeField]
@@ -49,16 +52,19 @@ public class Personaje
                 this.vida = UnityEngine.Random.Range(14,26);
                 this.ataque = UnityEngine.Random.Range(4, 6);
                 this.defensa = UnityEngine.Random.Range(2, 5);
+                this.vidaMax = this.vida;
                 break;
             case Rareza.RARO:
                 this.vida = UnityEngine.Random.Range(20, 31);
                 this.ataque = UnityEngine.Random.Range(10, 14);
                 this.defensa = UnityEngine.Random.Range(5, 8);
+                this.vidaMax = this.vida;
                 break;
             case Rareza.SUPER_RARO:
                 this.vida = UnityEngine.Random.Range(25, 41);
                 this.ataque = UnityEngine.Random.Range(12, 17);
                 this.defensa = UnityEngine.Random.Range(7, 11);
+                this.vidaMax = this.vida;
                 break;
             default:
                 break;
@@ -80,6 +86,7 @@ public class Personaje
 
     public string GetNombre() { return this.nombre; }
     public float GetVida() { return this.vida; }
+    public float getVidaMax() { return this.vidaMax; }
     public float GetAtaque() { return this.ataque; }
     public float GetDefensa() { return this.defensa; }
     public TipoAtaque GetTipoAtaque() { return this.tipoAtaque; }
@@ -99,10 +106,23 @@ public class Personaje
     public void SetXp(int xp) { this.xp = xp; }
     public void SetXpSubida(int xpSubida) { this.xpSubida = xpSubida; }
     public void SetXpSubidaPrev(int xpSubidaPrev) { this.xpSubidaPrev = xpSubidaPrev; }
+    public void setVidaMax(float vidaMax) { this.vidaMax = vidaMax; }
 
     // METODOS
 
     public void takeDamage(float damage) { this.vida -= damage; }
+
+    public void curar(float cura)
+    {
+        if(vida+cura > vidaMax)
+        {
+            vida = vidaMax;
+        }
+        else
+        {
+            vida += cura;
+        }
+    }
 
     private void SubirNivel()
     {
@@ -114,16 +134,19 @@ public class Personaje
                 this.vida += UnityEngine.Random.Range(3, 6);
                 this.ataque += UnityEngine.Random.Range(2, 5);
                 this.defensa += UnityEngine.Random.Range(1, 3);
+                this.vidaMax = this.vida;
                 break;
             case Rareza.RARO:
                 this.vida += UnityEngine.Random.Range(5, 8);
                 this.ataque += UnityEngine.Random.Range(3, 6);
                 this.defensa += UnityEngine.Random.Range(2, 4);
+                this.vidaMax = this.vida;
                 break;
             case Rareza.SUPER_RARO:
                 this.vida += UnityEngine.Random.Range(6, 11);
                 this.ataque += UnityEngine.Random.Range(5, 8);
                 this.defensa += UnityEngine.Random.Range(3, 6);
+                this.vidaMax = this.vida;
                 break;
             default:
                 break;

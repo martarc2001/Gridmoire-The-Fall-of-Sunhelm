@@ -28,7 +28,10 @@ public class LevelFlow : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textoTurno;
 
     private DataToBattle datosBatalla;
-    private bool finCo = false;
+
+    [SerializeField] private CargarPersBatalla datosCargados;
+
+    [SerializeField] private List<VidaEnemigosUI> vidaEnemigos;
 
     // getter & setters
 
@@ -66,7 +69,7 @@ public class LevelFlow : MonoBehaviour
                         vidasEnemigos.Add(enemigo.getEnemigo().GetVida());
                     }
 
-                    ia.RealizarTurno(gridIA,gridPlayer,textoTurno);
+                    ia.RealizarTurno(gridIA, gridPlayer, textoTurno);
 
                     foreach (var enemigo in ejercitoJugador)
                     {
@@ -150,6 +153,7 @@ public class LevelFlow : MonoBehaviour
         int nEnemigos = 0;
         Transform celdaTransform = transform;
         datosBatalla = FindObjectOfType<DataToBattle>();
+        Celda cell = new Celda();
         
         while (nEnemigos < 3)
         {
@@ -164,15 +168,27 @@ public class LevelFlow : MonoBehaviour
                 if(celda.getCelda().GetX() == x && celda.getCelda().GetY() == y)
                 {
                     celdaTransform = celda.gameObject.transform;
+                    cell = celda.getCelda();
                 }
             }
             var objEnemigo = Instantiate(datosBatalla.getEnemigos()[nEnemigos], celdaTransform.position, Quaternion.identity);
             objEnemigo.transform.SetParent(celdaTransform);
+            objEnemigo.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
             objEnemigo.GetComponent<EnemigoController>().crearEnemigo();
             grid.getGridInfo().GetCeldas()[x, y].SetPersonaje(objEnemigo);
             grid.getGridInfo().GetCeldas()[x, y].ChangeOccupied();
             ejercitoEnemigo.Add(objEnemigo.GetComponent<EnemigoController>());
             nEnemigos++;
+
+            foreach(var barra in vidaEnemigos)
+            {
+                var celdita = barra.GetCelda().getCelda();
+                if(celdita.GetX() == cell.GetX() && celdita.GetY() == cell.GetY())
+                {
+                    barra.setPlayer(objEnemigo.GetComponent<EnemigoController>());
+                    barra.activar();
+                }
+            }
         }
     }
 
@@ -183,13 +199,14 @@ public class LevelFlow : MonoBehaviour
         // Inicialzar grids
         rellenarGrid(gridIA);
 
-        gridPlayer = GameObject.FindGameObjectWithTag("PlayerGrid").GetComponent<GridManager>();
+        //gridPlayer = GameObject.FindGameObjectWithTag("PlayerGrid").GetComponent<GridManager>();
 
-        
+        gridPlayer = datosCargados.GetGridManager();
 
         ia.SetEjercito(ejercitoEnemigo);
         initialize = true;
     }
+
 
     public void addPersonaje(PlayerController add) { ejercitoJugador.Add(add); }
 }

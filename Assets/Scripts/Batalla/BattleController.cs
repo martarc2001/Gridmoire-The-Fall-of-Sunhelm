@@ -46,6 +46,7 @@ public class BattleController : MonoBehaviour
 
     private void inputController(Vector3 position)
     {
+        
         var pos = Camera.main.ScreenToWorldPoint(position);
         RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
         if (hit.collider != null)
@@ -175,6 +176,9 @@ public class BattleController : MonoBehaviour
             }
             indice++;
         }
+        keyDic = 0;
+        colores.Clear();
+        seleccionables.Clear();
     }
 
     private void resaltarSingle(CeldaManager celda) 

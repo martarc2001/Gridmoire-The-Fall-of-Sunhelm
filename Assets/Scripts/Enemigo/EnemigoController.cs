@@ -44,6 +44,7 @@ public class EnemigoController : MonoBehaviour
         enemigo.SetAtaque(ataque);
         enemigo.SetDefensa(defensa);
         enemigo.SetVida(hp);
+        enemigo.SetVidaMax(hp);
         enemigo.SetTipoAtaque((TipoAtaque)tipoAtaque);
 
 
@@ -60,6 +61,7 @@ public class EnemigoController : MonoBehaviour
         enemigo.SetAtaque(ataque);
         enemigo.SetDefensa(defensa);
         enemigo.SetVida(hp);
+        enemigo.SetVidaMax(hp);
         enemigo.SetTipoAtaque((TipoAtaque)tipoAtaque);
 
         changeColorAttack(tipoAtaque);
@@ -75,6 +77,7 @@ public class EnemigoController : MonoBehaviour
         enemigo.SetAtaque(ataque);
         enemigo.SetDefensa(defensa);
         enemigo.SetVida(hp);
+        enemigo.SetVidaMax(hp);
         enemigo.SetTipoAtaque((TipoAtaque)tipoAtaque);
 
         changeColorAttack(tipoAtaque);
@@ -90,6 +93,7 @@ public class EnemigoController : MonoBehaviour
         enemigo.SetAtaque(ataque);
         enemigo.SetDefensa(defensa);
         enemigo.SetVida(hp);
+        enemigo.SetVidaMax(hp);
         enemigo.SetTipoAtaque((TipoAtaque)tipoAtaque);
 
         changeColorAttack(tipoAtaque);
@@ -105,6 +109,7 @@ public class EnemigoController : MonoBehaviour
         enemigo.SetAtaque(ataque);
         enemigo.SetDefensa(defensa);
         enemigo.SetVida(hp);
+        enemigo.SetVidaMax(hp);
         enemigo.SetTipoAtaque((TipoAtaque)tipoAtaque);
 
         changeColorAttack(tipoAtaque);
