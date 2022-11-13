@@ -214,7 +214,7 @@ public class IAManager
         foreach (var personaje in this.ejercito)
         {
             texto.SetText("Turno Enemigos");
-            personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.green;
+            personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.blue;
             resaltarAtaque(gridAliado, gridEnemigo, personaje);
             await Task.Delay(500);
             Atacar(gridAliado, gridEnemigo, personaje);
