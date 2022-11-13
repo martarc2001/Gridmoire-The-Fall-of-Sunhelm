@@ -1636,6 +1636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee321b1556bb196428199c5ffe816468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cellSelected: {fileID: 0}
 --- !u!4 &901621128
 Transform:
   m_ObjectHideFlags: 0
@@ -2335,6 +2336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1247739414}
   - component: {fileID: 1247739415}
+  - component: {fileID: 1247739416}
   m_Layer: 5
   m_Name: Toggle FS
   m_TagString: Untagged
@@ -2411,10 +2413,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1247739416}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
         m_MethodName: SetFullScreen
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2424,6 +2426,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!114 &1247739416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247739413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce7a1e66f34d034199da43810e31bb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1325080283
 GameObject:
   m_ObjectHideFlags: 0
@@ -3997,11 +4011,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 336a42f79a94ef44abf60a1f6686eb75, type: 3}
---- !u!1 &1800960884 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8422784410418175784, guid: 336a42f79a94ef44abf60a1f6686eb75, type: 3}
-  m_PrefabInstance: {fileID: 1800960883}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1814791260
 GameObject:
   m_ObjectHideFlags: 0
@@ -4256,7 +4265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba34f7d4eb0e31249b638c936c00b706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  opciones: {fileID: 1800960884}
+  mainMixer: {fileID: 24100000, guid: 2cdae63a47a93a64a993aac549705f29, type: 2}
+  opciones: {fileID: 20927809}
   botones:
   - {fileID: 721850200}
 --- !u!4 &1939591540
