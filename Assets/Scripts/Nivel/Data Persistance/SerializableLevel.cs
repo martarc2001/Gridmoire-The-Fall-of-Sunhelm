@@ -17,14 +17,15 @@ public class SerializableLevel
     private string nombre;
     private Estado estado;
 
-    private List<Personaje> enemigos; // en un furturo será de la clase enemigo
+    private List<SerializablePlayer> enemigos; // en un furturo será de la clase enemigo
 
     private int monedas;
     private int xp;
 
+
     public SerializableLevel() { }
 
-    public SerializableLevel(int id, string nombre, Estado estado, List<Personaje> enemigos, int monedas, int xp)
+    public SerializableLevel(int id, string nombre, Estado estado, List<SerializablePlayer> enemigos, int monedas, int xp)
     {
         this.id = id;
         this.nombre = nombre;
@@ -33,4 +34,6 @@ public class SerializableLevel
         this.monedas = monedas;
         this.xp = xp;
     }
+
+    public string GetNombre() { return this.nombre; }
 }

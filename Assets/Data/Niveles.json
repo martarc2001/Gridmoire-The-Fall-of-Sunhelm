@@ -1,0 +1,29 @@
+{
+    "list": 
+    [
+        {
+            "id": 1,
+            "nombre": "Patata",
+            "estado": "NO_JUGADO",
+            "enemigos": [],
+            "monedas": 30,
+            "xp": 30
+        },
+        {
+            "id": 1,
+            "nombre": "Zanahoria",
+            "estado": "BLOQUEADO",
+            "enemigos": [],
+            "monedas": 20,
+            "xp": 20
+        },
+        {
+            "id": 1,
+            "nombre": "Puerro",
+            "estado": "JUGADO",
+            "enemigos": [],
+            "monedas": 10,
+            "xp": 10
+        }
+    ]
+}

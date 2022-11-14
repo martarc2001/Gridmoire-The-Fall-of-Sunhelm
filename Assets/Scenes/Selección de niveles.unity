@@ -320,6 +320,8 @@ GameObject:
   m_Component:
   - component: {fileID: 720785730}
   - component: {fileID: 720785729}
+  - component: {fileID: 720785732}
+  - component: {fileID: 720785731}
   m_Layer: 0
   m_Name: LevelsManager
   m_TagString: Untagged
@@ -354,6 +356,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &720785731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720785728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23574d8d90a22a47aa7c8283ca3c274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  llsPrefab: {fileID: 0}
+  ids: 
+  nombres: []
+  estados: 
+  monedas: 
+  experiencias: 
+--- !u!114 &720785732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720785728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb3334ac737578b4585576da7a88de2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1147292968
 GameObject:
   m_ObjectHideFlags: 0
