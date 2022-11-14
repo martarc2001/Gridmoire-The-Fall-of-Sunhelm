@@ -22,33 +22,53 @@ public class CargarPersBatalla : MonoBehaviour
     [SerializeField] private List<Sprite> cejas;
     [SerializeField] private List<Sprite> ropas;
 
+    [SerializeField] private List<LifeUI> listaVidas;
     private void Start()
     {
         grid = FindObjectOfType<DataToBattle>().getLSP();
         var celdas = FindObjectOfType<DataToBattle>().getCeldas();
 
-        Debug.Log(grid.list.Count);
-
         var posSituar = new List<Transform>();
+
 
         foreach(var celda in celdas)
         {
             for(var i = 0; i < headPosition.Count; i++)
             {
-                if(celda.GetX() == headPosition[i].getCelda().GetX() 
-                    && celda.GetY() == headPosition[i].getCelda().GetY())
+                if(celda.getCelda().GetX() == headPosition[i].getCelda().GetX() 
+                    && celda.getCelda().GetY() == headPosition[i].getCelda().GetY())
                 {
                     posSituar.Add(headPosition[i].transform);
                 }
             }
+
+            
         }
 
         for (var i = 0; i < grid.list.Count; i++)
         {
-            instanciarPersonaje(grid.list[i], posSituar[i], headPosition[i]);
+            instanciarPersonaje(grid.list[i], posSituar[i], celdas[i]);
+        }
+
+        foreach(var celda in gridPlayer.getCeldas())
+        {
+            foreach (var barra in listaVidas)
+            {
+                var cell = barra.GetCelda().getCelda();
+                if (cell.GetX() == celda.getCelda().GetX() && cell.GetY() == celda.getCelda().GetY())
+                {
+                    if(celda.getCelda().GetPersonaje() != null)
+                    {
+                        barra.setPlayer(celda.getCelda().GetPersonaje().GetComponent<PlayerController>());
+                        barra.activar();
+                    }
+                    
+                }
+            }
         }
     }
 
+    public GridManager GetGridManager() { return gridPlayer; }
     private void instanciarPersonaje(SerializablePlayer sp, Transform transPos, CeldaManager celda)
     {
         var newCharacter = Instantiate(prefab, transPos.position, Quaternion.identity);
@@ -92,6 +112,7 @@ public class CargarPersBatalla : MonoBehaviour
         personaje.SetAtaque(sp.ataque);
         personaje.SetDefensa(sp.defensa);
         personaje.SetVida(sp.vida);
+        personaje.setVidaMax(sp.vidaMax);
         personaje.SetTipoAtaque((TipoAtaque)sp.tipoAtaque);
         newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
@@ -116,7 +137,11 @@ public class CargarPersBatalla : MonoBehaviour
                 break;
         }
 
+        newCharacter.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+
         gridPlayer.getGridInfo().GetCeldas()[celda.getCelda().GetX(), celda.getCelda().GetY()].SetPersonaje(newCharacter);
+        gridPlayer.getGridInfo().GetCeldas()[celda.getCelda().GetX(), celda.getCelda().GetY()].NowOccupied();
+
         
         level.addPersonaje(newCharacter.GetComponent<PlayerController>());
     }

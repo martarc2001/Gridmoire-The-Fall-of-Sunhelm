@@ -12,8 +12,10 @@ public class BattleController : MonoBehaviour
     private List<SeleccionableManager> seleccionables = new List<SeleccionableManager>();
 
     private int turnosJugados=0;
-    [SerializeField] private CeldaManager cellSelected;
 
+    private Dictionary<int, List<Color>> colores = new Dictionary<int, List<Color>>();
+    [SerializeField] private CeldaManager cellSelected;
+    int keyDic = 0;
     private void Start()
     {
         gridEnemigo = GetComponent<LevelFlow>().GetGridIA();
@@ -25,6 +27,7 @@ public class BattleController : MonoBehaviour
         {
             if (turnosJugados < GetComponent<LevelFlow>().ejercitoJugador.Count)
             {
+
                 if (Input.GetMouseButtonUp(0))
                 {
                     var pointer = Input.mousePosition;
@@ -43,6 +46,7 @@ public class BattleController : MonoBehaviour
 
     private void inputController(Vector3 position)
     {
+        
         var pos = Camera.main.ScreenToWorldPoint(position);
         RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
         if (hit.collider != null)
@@ -52,6 +56,16 @@ public class BattleController : MonoBehaviour
                 if (hit.collider.gameObject.GetComponent<SeleccionableManager>().isSelectable())
                 {
                     playerSelected = hit.collider.gameObject;
+                    var listacolores = new List<Color>();
+                    foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
+                    {
+                        
+                        listacolores.Add(sprite.color);
+                        if (!sprite.transform.name.Equals("Ataque"))
+                            sprite.color = Color.blue;
+                    }
+                    colores.Add(keyDic, listacolores);
+                    keyDic++;
                 }
                 else
                 {
@@ -93,6 +107,11 @@ public class BattleController : MonoBehaviour
                         turnosJugados++;
                         seleccionables.Add(playerSelected.GetComponent<SeleccionableManager>());
                         playerSelected.GetComponent<SeleccionableManager>().notSelectable();
+
+                        foreach(var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
+                        {
+                            sprite.color = Color.gray;
+                        }
                         playerSelected = null;
                         cellSelected = null;
                         resetResalto();
@@ -114,13 +133,26 @@ public class BattleController : MonoBehaviour
                     == TipoAtaque.HEAL && cellSelected==null)
                 {
                     var celda = hit.collider.gameObject.GetComponent<CeldaManager>();
-                    
+                    cellSelected = hit.collider.gameObject.GetComponent<CeldaManager>();
+                    foreach (var cell in gridAliado.getCeldas())
+                    {
+                        cell.GetComponent<SpriteRenderer>().color = Color.green;
+                    }
                 }
 
                 else if (cellSelected != null)
                 {
                     playerSelected.GetComponent<Attack>().performAttack(gridAliado, cellSelected.getCelda());
                     turnosJugados++;
+                    seleccionables.Add(playerSelected.GetComponent<SeleccionableManager>());
+                    playerSelected.GetComponent<SeleccionableManager>().notSelectable();
+                    foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
+                    {
+                        sprite.color = Color.gray;
+                    }
+                    playerSelected = null;
+                    cellSelected = null;
+                    resetResalto();
                 }
             }
         }
@@ -130,11 +162,23 @@ public class BattleController : MonoBehaviour
 
     public void resetTurno() 
     { 
-        turnosJugados = 0; 
+        turnosJugados = 0;
+        var indice = 0;
         foreach(var personaje in seleccionables)
         {
             personaje.canSelectable();
+            var indiceColores = 0;
+            var lista = colores[indice];
+            foreach(var sprite in personaje.GetComponentsInChildren<SpriteRenderer>())
+            {
+                sprite.color = lista[indiceColores];
+                indiceColores++;
+            }
+            indice++;
         }
+        keyDic = 0;
+        colores.Clear();
+        seleccionables.Clear();
     }
 
     private void resaltarSingle(CeldaManager celda) 

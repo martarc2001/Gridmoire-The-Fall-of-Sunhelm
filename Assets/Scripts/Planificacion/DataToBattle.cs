@@ -19,7 +19,6 @@ public class DataToBattle : MonoBehaviour
         {
             if(celda.getCelda().GetPersonaje() != null)
             {
-                Debug.Log("Hay casillas con personajes");
                 addSP(celda.getCelda().GetPersonaje().GetComponent<RectTransform>().Find("Character").gameObject);
                 listaCeldas[i] = celda.getCelda();
                 i++;
@@ -27,21 +26,29 @@ public class DataToBattle : MonoBehaviour
             
         }
 
+        foreach(var celda in listaCeldas)
+        {
+            //Debug.Log("Celda [" + celda.GetX() + "," + celda.GetY() + "]: " + celda.IsOccupied());
+        }
+
         DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene("Batalla");
     }
 
     public ListaPlayerSerializable getLSP() { return lsp; }
-    public Celda[] getCeldas() { return listaCeldas; }
+    public List<CeldaManager> getCeldas() { return listCeldas; }
 
     public List<GameObject> getEnemigos() { return enemigosNivel; }
 
-    public void addCelda(CeldaManager celda) { listCeldas.Add(celda); }
+    public void addCelda(CeldaManager celda) 
+    { 
+        listCeldas.Add(celda); 
+    }
 
     public void removeCelda(CeldaManager celda) { listCeldas.Remove(celda); }
     private void addSP(GameObject p)
     {
-        Debug.Log("Añadir personaje: " + p);
+        //Debug.Log("Añadir personaje: " + p);
         var newFlequillo = p.transform.Find("Flequillo").GetComponent<Image>();
         var fn = newFlequillo.sprite.name;
 
@@ -76,7 +83,7 @@ public class DataToBattle : MonoBehaviour
         SerializablePlayer sp = new SerializablePlayer(int.Parse(fn),int.Parse(newPelo),int.Parse(newPestañas),int.Parse(newOrejas)
             ,int.Parse(newNarices),int.Parse(newBoca)
             ,int.Parse(newExtra),int.Parse(newCejas),int.Parse(ropa),rp,gp,bp,ri,gi,bi,person.GetAtaque(),
-            person.GetDefensa(),person.GetVida(),(int)person.GetTipoAtaque(),person.GetNombre(),(int)person.GetRareza());
+            person.GetDefensa(),person.GetVida(),person.getVidaMax(),(int)person.GetTipoAtaque(),person.GetNombre(),(int)person.GetRareza());
 
         lsp.list.Add(sp);
     }

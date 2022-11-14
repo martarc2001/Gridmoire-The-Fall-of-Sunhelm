@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -26,26 +27,100 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private List<Sprite> cejas;
     [SerializeField] private List<Sprite> ropas;
 
+    [SerializeField] private TextMeshProUGUI textoNoDinero;
     public void Start()
     {
-        string json = PlayerPrefs.GetString("ejercito");
-
-        if (!string.IsNullOrEmpty(json))
-        {
-            spl = JsonUtility.FromJson<ListaPlayerSerializable>(json);
-        }
     }
     public void Awake()
     {
         newRareza = Rareza.COMUN;
+        changeRareness("Comun");
+    }
+
+    public void changeRareness(string rareness)
+    {
+        switch (rareness)
+        {
+            case "Comun":
+                newRareza = Rareza.COMUN;
+                spl.list.Clear();
+                var com = PlayerPrefs.GetString("commons");
+
+                if (!string.IsNullOrEmpty(com))
+                {
+                    spl = JsonUtility.FromJson<ListaPlayerSerializable>(com);
+                }
+                break;
+            case "Raro":
+                newRareza = Rareza.RARO;
+                spl.list.Clear();
+                var rar = PlayerPrefs.GetString("rares");
+
+                if (!string.IsNullOrEmpty(rar))
+                {
+                    spl = JsonUtility.FromJson<ListaPlayerSerializable>(rar);
+                }
+                break;
+            case "SuperRaro":
+                newRareza = Rareza.SUPER_RARO;
+                spl.list.Clear();
+                var ur = PlayerPrefs.GetString("superRares");
+
+                if (!string.IsNullOrEmpty(ur))
+                {
+                    spl = JsonUtility.FromJson<ListaPlayerSerializable>(ur);
+                }
+                break;
+        }
+    }
+
+    public void comprarPersonaje()
+    {
+        if (lastCreated != null)
+        {
+            Destroy(lastCreated);
+        }
+        textoNoDinero.text = "";
+
+        switch (newRareza)
+        {
+            case Rareza.COMUN:
+                if(GameManager.instance.getDineroJugador() >= 150)
+                {
+                    generateRandomCharacter();
+                }
+                else
+                {
+                    textoNoDinero.text = "No tienes suficiente dinero";
+                }
+                break;
+            case Rareza.RARO:
+                if (GameManager.instance.getDineroJugador() >= 500)
+                {
+                    generateRandomCharacter();
+                }
+                else
+                {
+                    textoNoDinero.text = "No tienes suficiente dinero";
+                }
+                break;
+            case Rareza.SUPER_RARO:
+                if (GameManager.instance.getDineroJugador() >= 1500)
+                {
+                    generateRandomCharacter();
+                }
+                else
+                {
+                    textoNoDinero.text = "No tienes suficiente dinero";
+                }
+                break;
+        }
     }
 
     public void generateRandomCharacter()
     {
-        if(lastCreated != null)
-        {
-            Destroy(lastCreated);
-        }
+
+        
         var newCharacter = Instantiate(character);
 
         string newNombre = nombres[Random.Range(0, nombres.Count)];
@@ -142,12 +217,29 @@ public class StoreManager : MonoBehaviour
 
 
         var sp = new SerializablePlayer(iFlequillo,iPelo,iPest,iOrej,iNari,iBoca,iExtra,iCejas,
-            iRopa,RP,GP,BP,RI,GI,BI,pers.GetAtaque(),pers.GetDefensa(),pers.GetVida(), 
+            iRopa,RP,GP,BP,RI,GI,BI,pers.GetAtaque(),pers.GetDefensa(),pers.GetVida(),pers.getVidaMax(), 
             (int)pers.GetTipoAtaque(),pers.GetNombre(),(int)pers.GetRareza());
 
         spl.list.Add(sp);
 
-        PlayerPrefs.SetString("ejercito",JsonUtility.ToJson(spl));
+        switch (newRareza)
+        {
+            case Rareza.COMUN:
+                GameManager.instance.restarDinero(150);
+                PlayerPrefs.SetString("commons", JsonUtility.ToJson(spl));
+                break;
+            case Rareza.RARO:
+                GameManager.instance.restarDinero(500);
+                PlayerPrefs.SetString("rares", JsonUtility.ToJson(spl));
+                break;
+            case Rareza.SUPER_RARO:
+                GameManager.instance.restarDinero(1500);
+                PlayerPrefs.SetString("superRares", JsonUtility.ToJson(spl));
+                
+                break;
+        }
+
+        PlayerPrefs.SetInt("Dinero", GameManager.instance.getDineroJugador());
         PlayerPrefs.Save();
 
     }
