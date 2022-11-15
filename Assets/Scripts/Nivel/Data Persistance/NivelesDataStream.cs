@@ -8,7 +8,7 @@ using UnityEngine.SocialPlatforms;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
-public class CargarNiveles : MonoBehaviour
+public class NivelesDataStream : MonoBehaviour
 {
     private ListaLevelSerializable lls = new ListaLevelSerializable();
     //[SerializeField] private GameObject llsPrefab;
