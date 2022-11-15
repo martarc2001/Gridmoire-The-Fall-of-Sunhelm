@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class NivelesManager : MonoBehaviour
@@ -8,6 +9,8 @@ public class NivelesManager : MonoBehaviour
 
     [SerializeField] private NivelesDataStream nivelesDS;
     [SerializeField] private List<SerializableLevel> niveles;
+
+    [SerializeField] private GameObject infoNivel;
 
 
     // GETTERS & SETTERS
@@ -33,7 +36,18 @@ public class NivelesManager : MonoBehaviour
     {
         while (nivelesDS.GetLista().Count == 0) { }
         niveles = nivelesDS.GetLista();
+
+        RellenaInfo(niveles[0]);
     }
     
-    
+    public void RellenaInfo(SerializableLevel sl)
+    {
+        var id = infoNivel.transform.Find("ID");
+        var nombre = infoNivel.transform.Find("Nombre");
+        var estado = infoNivel.transform.Find("Estado");
+
+        id.GetComponent<TextMeshProUGUI>().SetText("ID: " + sl.id);
+        nombre.GetComponent<TextMeshProUGUI>().SetText("Nombre: " + sl.nombre);
+        estado.GetComponent<TextMeshProUGUI>().SetText("Estado: " + sl.estado);
+    }
 }

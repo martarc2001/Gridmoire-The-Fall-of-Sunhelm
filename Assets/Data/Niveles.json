@@ -4,23 +4,23 @@
         {
             "id": 1,
             "nombre": "Patata",
-            "estado": "NO_JUGADO",
+            "estado": 1,
             "enemigos": [],
             "monedas": 30,
             "xp": 30
         },
         {
-            "id": 1,
+            "id": 2,
             "nombre": "Zanahoria",
-            "estado": "BLOQUEADO",
+            "estado": 0,
             "enemigos": [],
             "monedas": 20,
             "xp": 20
         },
         {
-            "id": 1,
+            "id": 3,
             "nombre": "Puerro",
-            "estado": "JUGADO",
+            "estado": 2,
             "enemigos": [],
             "monedas": 10,
             "xp": 10

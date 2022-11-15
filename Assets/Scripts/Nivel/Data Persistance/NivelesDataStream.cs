@@ -11,14 +11,6 @@ using UnityEngine.UI;
 public class NivelesDataStream : MonoBehaviour
 {
     private ListaLevelSerializable lls = new ListaLevelSerializable();
-    //[SerializeField] private GameObject llsPrefab;
-
-    //[SerializeField] private List<int> ids;
-    //[SerializeField] private List<string> nombres;
-    //[SerializeField] private List<Estado> estados;
-    //[SerializeField] private List<List<Personaje>> listasEnemigos;
-    //[SerializeField] private List<int> monedas;
-    //[SerializeField] private List<int> experiencias;
 
     // Start is called before the first frame update
     void Start()
@@ -27,13 +19,19 @@ public class NivelesDataStream : MonoBehaviour
 
         string jsonString = lector.ReadToEnd();
 
+        Debug.Log(jsonString);
+
         if (!string.IsNullOrEmpty(jsonString))
         {
             lls = JsonUtility.FromJson<ListaLevelSerializable>(jsonString);
 
+            Debug.Log(lls.list.Count);
+
             foreach(var sl in lls.list)
             {
-                Debug.Log(sl.GetNombre());
+                Debug.Log(sl.id);
+                Debug.Log(sl.nombre);
+                Debug.Log(sl.estado);
             }
         }
     }
