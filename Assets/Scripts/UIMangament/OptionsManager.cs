@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class OptionsManager : MonoBehaviour
 {
+    public AudioMixer mainMixer;
+
     public GameObject opciones;
 
     public List<Button> botones;
@@ -12,6 +15,14 @@ public class OptionsManager : MonoBehaviour
     //
     public void abreOpciones()
     {
+        var slider = opciones.GetComponentInChildren<Slider>() as Slider;
+
+        float aux;
+        mainMixer.GetFloat("VolumenGeneral", out aux);
+
+        slider.value = aux;
+
+
         opciones.SetActive(true);
 
         foreach(Button boton in botones)
