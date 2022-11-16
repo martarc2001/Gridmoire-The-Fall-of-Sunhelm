@@ -162,7 +162,7 @@ public class LevelFlow : MonoBehaviour
             do
             {
                 x = Random.Range(0, 3);
-                y = 0;
+                y = Random.Range(0,3);
             } while ( grid.getGridInfo().GetCeldas()[x, y].IsOccupied());
 
            foreach(var celda in grid.getCeldas())
@@ -185,12 +185,12 @@ public class LevelFlow : MonoBehaviour
                     }
                     else if (y == 1)
                     {
-                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x + 0.005f, 
+                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x -0.045f, 
                             celdaTransform.position.y + 0.465f, 1f);
                     }
                     else
                     {
-                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x + 0.117f, 
+                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x -0.058f, 
                             celdaTransform.position.y + 0.45f, 1f);
                     }
                     objEnemigo.transform.localScale = new Vector3(0.4f, 0.4f, 1f);
@@ -204,13 +204,13 @@ public class LevelFlow : MonoBehaviour
                     }
                     else if (y == 1)
                     {
-                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x + 0.039f, 
-                            celdaTransform.position.y + 0.516f, 1f);
+                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x -0.008f, 
+                            celdaTransform.position.y + 0.494f, 1f);
                     }
                     else
                     {
-                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x + 0.03f, 
-                            celdaTransform.position.y + 0.47f, 1f);
+                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x -0.074f, 
+                            celdaTransform.position.y + 0.566f, 1f);
                     }
                     objEnemigo.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
                     objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sortingOrder = 1;
@@ -223,13 +223,13 @@ public class LevelFlow : MonoBehaviour
                     }
                     else if (y == 1)
                     {
-                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x + 0.07f, 
-                            celdaTransform.position.y + 0.655f, 1f);
+                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x -0.061f, 
+                            celdaTransform.position.y + 0.598f, 1f);
                     }
                     else
                     {
-                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x + 0.044f, 
-                            celdaTransform.position.y + 0.6f, 1f);
+                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x -0.155f, 
+                            celdaTransform.position.y + 0.733f, 1f);
                     }
                     objEnemigo.transform.localScale = new Vector3(0.6f, 0.6f, 1f);
                     objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sortingOrder = 2;
@@ -242,19 +242,19 @@ public class LevelFlow : MonoBehaviour
             switch (objEnemigo.GetComponent<EnemigoController>().getEnemigo().GetTipoAtaque())
             {
                 case TipoAtaque.SINGLE:
-                    objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = ataques[0];
+                    objEnemigo.transform.Find("Ataque").GetComponent<SpriteRenderer>().sprite = ataques[0];
                     break;
                 case TipoAtaque.COLUMN:
-                    objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = ataques[1];
+                    objEnemigo.transform.Find("Ataque").GetComponent<SpriteRenderer>().sprite = ataques[1];
                     break;
                 case TipoAtaque.ROW:
-                    objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = ataques[2];
+                    objEnemigo.transform.Find("Ataque").GetComponent<SpriteRenderer>().sprite = ataques[2];
                     break;
                 case TipoAtaque.GRID:
-                    objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = ataques[3];
+                    objEnemigo.transform.Find("Ataque").GetComponent<SpriteRenderer>().sprite = ataques[3];
                     break;
                 case TipoAtaque.HEAL:
-                    objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = ataques[4];
+                    objEnemigo.transform.Find("Ataque").GetComponent<SpriteRenderer>().sprite = ataques[4];
                     break;
             }
             ejercitoEnemigo.Add(objEnemigo.GetComponent<EnemigoController>());

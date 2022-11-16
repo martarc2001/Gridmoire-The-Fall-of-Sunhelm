@@ -46,9 +46,6 @@ public class EnemigoController : MonoBehaviour
         enemigo.SetVida(hp);
         enemigo.SetVidaMax(hp);
         enemigo.SetTipoAtaque((TipoAtaque)tipoAtaque);
-
-
-        changeColorAttack(tipoAtaque);
     }
 
     private void crearMurcielago()
@@ -63,8 +60,6 @@ public class EnemigoController : MonoBehaviour
         enemigo.SetVida(hp);
         enemigo.SetVidaMax(hp);
         enemigo.SetTipoAtaque((TipoAtaque)tipoAtaque);
-
-        changeColorAttack(tipoAtaque);
     }
 
     private void crearGoblin()
@@ -79,8 +74,6 @@ public class EnemigoController : MonoBehaviour
         enemigo.SetVida(hp);
         enemigo.SetVidaMax(hp);
         enemigo.SetTipoAtaque((TipoAtaque)tipoAtaque);
-
-        changeColorAttack(tipoAtaque);
     }
 
     private void crearDemonioHembra()
@@ -95,8 +88,6 @@ public class EnemigoController : MonoBehaviour
         enemigo.SetVida(hp);
         enemigo.SetVidaMax(hp);
         enemigo.SetTipoAtaque((TipoAtaque)tipoAtaque);
-
-        changeColorAttack(tipoAtaque);
     }
 
     private void crearDemonioMacho()
@@ -111,30 +102,5 @@ public class EnemigoController : MonoBehaviour
         enemigo.SetVida(hp);
         enemigo.SetVidaMax(hp);
         enemigo.SetTipoAtaque((TipoAtaque)tipoAtaque);
-
-        changeColorAttack(tipoAtaque);
-    }
-
-    private void changeColorAttack(int tipo)
-    {
-        var at = transform.Find("Ataque").GetComponent<SpriteRenderer>();
-        switch ((TipoAtaque)tipo)
-        {
-            case TipoAtaque.SINGLE:
-                at.color = Color.red;
-                break;
-            case TipoAtaque.ROW:
-                at.color = Color.blue;
-                break;
-            case TipoAtaque.COLUMN:
-                at.color = Color.yellow;
-                break;
-            case TipoAtaque.GRID:
-                at.color = Color.black;
-                break;
-            case TipoAtaque.HEAL:
-                at.color = Color.green;
-                break;
-        }
     }
 }
