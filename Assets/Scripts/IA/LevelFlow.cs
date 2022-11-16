@@ -33,6 +33,8 @@ public class LevelFlow : MonoBehaviour
 
     [SerializeField] private List<VidaEnemigosUI> vidaEnemigos;
 
+    [SerializeField] private List<Sprite> ataques;
+
     // getter & setters
 
     public GridManager GetGridIA() { return gridIA; }
@@ -160,7 +162,7 @@ public class LevelFlow : MonoBehaviour
             do
             {
                 x = Random.Range(0, 3);
-                y = Random.Range(0, 3);
+                y = 0;
             } while ( grid.getGridInfo().GetCeldas()[x, y].IsOccupied());
 
            foreach(var celda in grid.getCeldas())
@@ -173,10 +175,88 @@ public class LevelFlow : MonoBehaviour
             }
             var objEnemigo = Instantiate(datosBatalla.getEnemigos()[nEnemigos], celdaTransform.position, Quaternion.identity);
             objEnemigo.transform.SetParent(celdaTransform);
-            objEnemigo.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+            switch (x)
+            {
+                case 0:
+                    if (y == 0)
+                    {
+                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x -0.017f, 
+                            celdaTransform.position.y + +0.422f, 1f);
+                    }
+                    else if (y == 1)
+                    {
+                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x + 0.005f, 
+                            celdaTransform.position.y + 0.465f, 1f);
+                    }
+                    else
+                    {
+                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x + 0.117f, 
+                            celdaTransform.position.y + 0.45f, 1f);
+                    }
+                    objEnemigo.transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+                    objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sortingOrder = 0;
+                    break;
+                case 1:
+                    if (y == 0)
+                    {
+                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x -0.014f, 
+                            celdaTransform.position.y + 0.539f, 1f);
+                    }
+                    else if (y == 1)
+                    {
+                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x + 0.039f, 
+                            celdaTransform.position.y + 0.516f, 1f);
+                    }
+                    else
+                    {
+                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x + 0.03f, 
+                            celdaTransform.position.y + 0.47f, 1f);
+                    }
+                    objEnemigo.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                    objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sortingOrder = 1;
+                    break;
+                case 2:
+                    if (y == 0)
+                    {
+                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x -0.111f, 
+                            celdaTransform.position.y + 0.478f, 1f);
+                    }
+                    else if (y == 1)
+                    {
+                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x + 0.07f, 
+                            celdaTransform.position.y + 0.655f, 1f);
+                    }
+                    else
+                    {
+                        objEnemigo.transform.position = new Vector3(celdaTransform.position.x + 0.044f, 
+                            celdaTransform.position.y + 0.6f, 1f);
+                    }
+                    objEnemigo.transform.localScale = new Vector3(0.6f, 0.6f, 1f);
+                    objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sortingOrder = 2;
+                    break;
+            }
             objEnemigo.GetComponent<EnemigoController>().crearEnemigo();
             grid.getGridInfo().GetCeldas()[x, y].SetPersonaje(objEnemigo);
             grid.getGridInfo().GetCeldas()[x, y].ChangeOccupied();
+
+            switch (objEnemigo.GetComponent<EnemigoController>().getEnemigo().GetTipoAtaque())
+            {
+                case TipoAtaque.SINGLE:
+                    objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = ataques[0];
+                    break;
+                case TipoAtaque.COLUMN:
+                    objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = ataques[1];
+                    break;
+                case TipoAtaque.ROW:
+                    objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = ataques[2];
+                    break;
+                case TipoAtaque.GRID:
+                    objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = ataques[3];
+                    break;
+                case TipoAtaque.HEAL:
+                    objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = ataques[4];
+                    break;
+            }
             ejercitoEnemigo.Add(objEnemigo.GetComponent<EnemigoController>());
             nEnemigos++;
 
