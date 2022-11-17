@@ -7,31 +7,29 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
+using System.Runtime.Serialization.Formatters.Binary;
+using System;
+using UnityEngine.Networking;
+using Newtonsoft.Json.Linq;
 
 public class NivelesDataStream : MonoBehaviour
 {
+
+    private string nivelesJson = "{\"list\": [{\"mundo\": 1,\"id\": 1,\"nombre\": \"Patata\",\"enemigos\": [0, 1, 2],\"monedas\": 30,\"xp\": 30},{\"mundo\": 1,\"id\": 2,\"nombre\": \"Zanahoria\",\"enemigos\": [0, 1, 2],\"monedas\": 20,\"xp\": 20},{\"mundo\": 1,\"id\": 3,\"nombre\": \"Puerro\",\"estado\": 2,\"enemigos\": [0, 1, 2],\"monedas\": 10,\"xp\": 10}]}";
+
     private ListaLevelSerializable lls = new ListaLevelSerializable();
 
     // Start is called before the first frame update
     void Start()
     {
-        StreamReader lector = new StreamReader("Assets/Data/Niveles.json");
-
-        string jsonString = lector.ReadToEnd();
-
-        Debug.Log(jsonString);
-
-        if (!string.IsNullOrEmpty(jsonString))
+        if (!string.IsNullOrEmpty(nivelesJson))
         {
-            lls = JsonUtility.FromJson<ListaLevelSerializable>(jsonString);
+            lls = JsonUtility.FromJson<ListaLevelSerializable>(nivelesJson);
 
-            Debug.Log(lls.list.Count);
-
-            foreach(var sl in lls.list)
+            foreach (var sl in lls.list)
             {
                 Debug.Log(sl.id);
                 Debug.Log(sl.nombre);
-                Debug.Log(sl.estado);
             }
         }
     }

@@ -13,11 +13,11 @@ public class ListaLevelSerializable
 [Serializable]
 public class SerializableLevel
 {
+    public int mundo;
     public int id;
     public string nombre;
-    public Estado estado;
 
-    public List<SerializablePlayer> enemigos; // en un furturo será de la clase enemigo
+    public List<int> enemigos; // en un furturo será de la clase enemigo
 
     public int monedas;
     public int xp;
@@ -25,18 +25,13 @@ public class SerializableLevel
 
     public SerializableLevel() { }
 
-    public SerializableLevel(int id, string nombre, Estado estado, List<SerializablePlayer> enemigos, int monedas, int xp)
+    public SerializableLevel(int mundo, int id, string nombre, List<int> enemigos, int monedas, int xp)
     {
+        this.mundo = mundo;
         this.id = id;
         this.nombre = nombre;
-        this.estado = estado;
         this.enemigos = enemigos;
         this.monedas = monedas;
         this.xp = xp;
     }
-
-    //public int GetId() { return id; }
-    //public string GetNombre() { return this.nombre; }
-    //public Estado GetEstado() { return this.estado; }
-
 }

@@ -42,12 +42,12 @@ public class NivelesManager : MonoBehaviour
     
     public void RellenaInfo(SerializableLevel sl)
     {
+        var mundo = infoNivel.transform.Find("Mundo");
         var id = infoNivel.transform.Find("ID");
         var nombre = infoNivel.transform.Find("Nombre");
-        var estado = infoNivel.transform.Find("Estado");
 
+        mundo.GetComponent<TextMeshProUGUI>().SetText("Mundo: " + sl.mundo);
         id.GetComponent<TextMeshProUGUI>().SetText("ID: " + sl.id);
         nombre.GetComponent<TextMeshProUGUI>().SetText("Nombre: " + sl.nombre);
-        estado.GetComponent<TextMeshProUGUI>().SetText("Estado: " + sl.estado);
     }
 }
