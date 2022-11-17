@@ -45,4 +45,4 @@ jobs:
           CHANNEL: html5
           ITCH_GAME: ${{secrets.ITCHIO_GAMEID }}
           ITCH_USER: ${{secrets.ITCHIO_USERNAME }}
-          PACKAGE: build/WebGL
+          PACKAGE: build/WebGL/Build-WebGL
