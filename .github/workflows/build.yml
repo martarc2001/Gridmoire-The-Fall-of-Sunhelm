@@ -37,6 +37,7 @@ jobs:
   uploadToItchio:
     name: Upload build to Itch.io
     runs-on: ubuntu-latest
+    needs: buildForAllSupportedPlatforms
     steps:
       - uses: manleydev/butler-publish-itchio-action@master
         env:
