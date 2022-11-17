@@ -9,8 +9,13 @@ public class BattleController : MonoBehaviour
     private GridManager gridAliado;
     private GameObject playerSelected;
 
+    private List<SeleccionableManager> seleccionables = new List<SeleccionableManager>();
+
     private int turnosJugados=0;
 
+    private Dictionary<int, List<Color>> colores = new Dictionary<int, List<Color>>();
+    [SerializeField] private CeldaManager cellSelected;
+    int keyDic = 0;
     private void Start()
     {
         gridEnemigo = GetComponent<LevelFlow>().GetGridIA();
@@ -22,6 +27,7 @@ public class BattleController : MonoBehaviour
         {
             if (turnosJugados < GetComponent<LevelFlow>().ejercitoJugador.Count)
             {
+
                 if (Input.GetMouseButtonUp(0))
                 {
                     var pointer = Input.mousePosition;
@@ -40,35 +46,114 @@ public class BattleController : MonoBehaviour
 
     private void inputController(Vector3 position)
     {
+        
         var pos = Camera.main.ScreenToWorldPoint(position);
-        RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
-        if (hit.collider != null)
+        RaycastHit2D[] hits = Physics2D.RaycastAll(pos, Vector2.zero);
+        foreach(var hit in hits)
         {
             if (hit.collider.CompareTag("Player"))
             {
-                playerSelected = hit.collider.gameObject;
+                if (hit.collider.gameObject.GetComponent<SeleccionableManager>().isSelectable())
+                {
+                    playerSelected = hit.collider.gameObject;
+                    var listacolores = new List<Color>();
+                    foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
+                    {
+
+                        listacolores.Add(sprite.color);
+                        if (!sprite.transform.name.Equals("Ataque"))
+                            sprite.color = Color.blue;
+                    }
+                    colores.Add(keyDic, listacolores);
+                    keyDic++;
+                }
+                else
+                {
+                    Debug.Log("Personaje no seleccionable");
+                }
+
             }
             else if (hit.collider.CompareTag("CellEnemy"))
             {
-                if (playerSelected != null && 
-                    playerSelected.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque()
-                    != TipoAtaque.HEAL)
+                if (playerSelected != null && playerSelected.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque()
+                    != TipoAtaque.HEAL && cellSelected == null)
                 {
-                    var celda = hit.collider.gameObject.GetComponent<CeldaManager>();
-                    playerSelected.GetComponent<Attack>().performAttack(gridEnemigo, celda.getCelda());
-                    turnosJugados++;
-                    Debug.Log("Turno terminado");
+                    cellSelected = hit.collider.gameObject.GetComponent<CeldaManager>();
+                    resaltar();
                 }
-            }else if (hit.collider.CompareTag("CellPlayer"))
-            {
-                if(playerSelected != null 
-                    && playerSelected.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque() 
-                    == TipoAtaque.HEAL)
+
+                else if (cellSelected != null)
                 {
                     var celda = hit.collider.gameObject.GetComponent<CeldaManager>();
-                    playerSelected.GetComponent<Attack>().performAttack(gridAliado, celda.getCelda());
+                    var coincide = false;
+                    switch (playerSelected.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque())
+                    {
+                        case TipoAtaque.SINGLE:
+                            coincide = comprobarSingle(cellSelected, celda);
+                            break;
+                        case TipoAtaque.COLUMN:
+                            coincide = comprobarColumn(cellSelected, celda);
+                            break;
+                        case TipoAtaque.ROW:
+                            coincide = comprobarRow(cellSelected, celda);
+                            break;
+                        case TipoAtaque.GRID:
+                            coincide = true;
+                            break;
+                    }
+                    if (coincide)
+                    {
+                        playerSelected.GetComponent<Attack>().performAttack(gridEnemigo, cellSelected.getCelda());
+                        turnosJugados++;
+                        seleccionables.Add(playerSelected.GetComponent<SeleccionableManager>());
+                        playerSelected.GetComponent<SeleccionableManager>().notSelectable();
+
+                        foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
+                        {
+                            sprite.color = Color.gray;
+                        }
+                        playerSelected = null;
+                        cellSelected = null;
+                        resetResalto();
+                    }
+                    else
+                    {
+                        cellSelected = celda;
+                        resetResalto();
+                        resaltar();
+                    }
+
+                }
+
+
+            }
+            else if (hit.collider.CompareTag("CellPlayer"))
+            {
+                if (playerSelected != null
+                    && playerSelected.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque()
+                    == TipoAtaque.HEAL && cellSelected == null)
+                {
+                    var celda = hit.collider.gameObject.GetComponent<CeldaManager>();
+                    cellSelected = hit.collider.gameObject.GetComponent<CeldaManager>();
+                    foreach (var cell in gridAliado.getCeldas())
+                    {
+                        cell.GetComponent<SpriteRenderer>().color = Color.green;
+                    }
+                }
+
+                else if (cellSelected != null)
+                {
+                    playerSelected.GetComponent<Attack>().performAttack(gridAliado, cellSelected.getCelda());
                     turnosJugados++;
-                    Debug.Log("Turno terminado");
+                    seleccionables.Add(playerSelected.GetComponent<SeleccionableManager>());
+                    playerSelected.GetComponent<SeleccionableManager>().notSelectable();
+                    foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
+                    {
+                        sprite.color = Color.gray;
+                    }
+                    playerSelected = null;
+                    cellSelected = null;
+                    resetResalto();
                 }
             }
         }
@@ -76,5 +161,107 @@ public class BattleController : MonoBehaviour
 
     public int getTurnos() { return turnosJugados; }
 
-    public void resetTurno() { turnosJugados = 0; }
+    public void resetTurno() 
+    { 
+        turnosJugados = 0;
+        var indice = 0;
+        foreach(var personaje in seleccionables)
+        {
+            personaje.canSelectable();
+            var indiceColores = 0;
+            var lista = colores[indice];
+            foreach(var sprite in personaje.GetComponentsInChildren<SpriteRenderer>())
+            {
+                sprite.color = lista[indiceColores];
+                indiceColores++;
+            }
+            indice++;
+        }
+        keyDic = 0;
+        colores.Clear();
+        seleccionables.Clear();
+    }
+
+    private void resaltarSingle(CeldaManager celda) 
+    {
+        celda.GetComponent<SpriteRenderer>().color = Color.red;
+    }
+
+    private void resaltarRow(CeldaManager celda) 
+    {
+        foreach(var cell in gridEnemigo.getCeldas())
+        {
+            if(cell.getCelda().GetX() == celda.getCelda().GetX())
+            {
+                cell.GetComponent<SpriteRenderer>().color = Color.red;
+            }
+        }
+    }
+
+    private void resaltarColumn(CeldaManager celda) 
+    {
+        foreach (var cell in gridEnemigo.getCeldas())
+        {
+            if (cell.getCelda().GetY() == celda.getCelda().GetY())
+            {
+                cell.GetComponent<SpriteRenderer>().color = Color.red;
+            }
+        }
+    }
+
+    private void resaltarGrid() 
+    { 
+        foreach(var cell in gridEnemigo.getCeldas())
+        {
+            cell.GetComponent<SpriteRenderer>().color = Color.red;
+        }
+    }
+
+    private void resetResalto() 
+    {
+        foreach(var cell in gridAliado.getCeldas())
+        {
+            cell.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+
+        foreach (var cell in gridEnemigo.getCeldas())
+        {
+            cell.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+    }
+
+    private bool comprobarSingle(CeldaManager celdaSelected, CeldaManager cellNew)
+    {
+        return celdaSelected.getCelda().GetX() == cellNew.getCelda().GetX()
+            && celdaSelected.getCelda().GetY() == cellNew.getCelda().GetY();
+    }
+
+    private bool comprobarColumn(CeldaManager celdaSelected, CeldaManager cellNew)
+    {
+        return celdaSelected.getCelda().GetY() == cellNew.getCelda().GetY();
+    }
+
+    private bool comprobarRow(CeldaManager celdaSelected, CeldaManager cellNew)
+    {
+        return celdaSelected.getCelda().GetX() == cellNew.getCelda().GetX();
+    }
+
+    private void resaltar()
+    {
+        switch (playerSelected.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque())
+        {
+            case TipoAtaque.SINGLE:
+                resaltarSingle(cellSelected);
+                break;
+            case TipoAtaque.COLUMN:
+                resaltarColumn(cellSelected);
+                break;
+            case TipoAtaque.ROW:
+                resaltarRow(cellSelected);
+                break;
+            case TipoAtaque.GRID:
+                resaltarGrid();
+                break;
+        }
+    }
 }

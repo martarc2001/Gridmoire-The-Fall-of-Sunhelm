@@ -6,41 +6,55 @@ using UnityEngine.UI;
 
 public class DataToBattle : MonoBehaviour
 {
-    private Grid celdas;
     private ListaPlayerSerializable lsp = new ListaPlayerSerializable();
     private Celda[] listaCeldas = new Celda[3];
+    [SerializeField] private List<GameObject> enemigosNivel;
+    private List<CeldaManager> listCeldas = new List<CeldaManager>();
 
     public void putGrid()
     {
-        var grid = FindObjectOfType<GridManager>();
-
-        celdas = grid.getGridInfo();
         var i = 0;
-        foreach(var celda in celdas.GetCeldas())
+
+        foreach (var celda in listCeldas)
         {
-            if(celda.GetPersonaje() != null)
+            if(celda.getCelda().GetPersonaje() != null)
             {
-                addSP(celda.GetPersonaje().GetComponent<RectTransform>().Find("Character").gameObject);
-                listaCeldas[i] = celda;
+                addSP(celda.getCelda().GetPersonaje().GetComponent<RectTransform>().Find("Character").gameObject);
+                listaCeldas[i] = celda.getCelda();
                 i++;
             }
             
         }
+
+        foreach(var celda in listaCeldas)
+        {
+            //Debug.Log("Celda [" + celda.GetX() + "," + celda.GetY() + "]: " + celda.IsOccupied());
+        }
+
         DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene("Batalla");
     }
 
-    public Grid getGrid() { return celdas; }
     public ListaPlayerSerializable getLSP() { return lsp; }
-    public Celda[] getCeldas() { return listaCeldas; }
+    public List<CeldaManager> getCeldas() { return listCeldas; }
+
+    public List<GameObject> getEnemigos() { return enemigosNivel; }
+
+    public void addCelda(CeldaManager celda) 
+    { 
+        listCeldas.Add(celda); 
+    }
+
+    public void removeCelda(CeldaManager celda) { listCeldas.Remove(celda); }
     private void addSP(GameObject p)
     {
+        //Debug.Log("Añadir personaje: " + p);
         var newFlequillo = p.transform.Find("Flequillo").GetComponent<Image>();
         var fn = newFlequillo.sprite.name;
 
         var newPelo = p.transform.Find("Pelo").GetComponent<Image>().sprite.name;
 
-        var newPestañas = p.transform.Find("Pestañas").GetComponent<Image>().sprite.name;
+        var newPestanhas = p.transform.Find("Pestanhas").GetComponent<Image>().sprite.name;
 
         var newOrejas = p.transform.Find("Orejas").GetComponent<Image>().sprite.name;
 
@@ -66,10 +80,10 @@ public class DataToBattle : MonoBehaviour
 
         
         var person = p.GetComponent<PlayerController>().getPersonaje();
-        SerializablePlayer sp = new SerializablePlayer(int.Parse(fn),int.Parse(newPelo),int.Parse(newPestañas),int.Parse(newOrejas)
+        SerializablePlayer sp = new SerializablePlayer(int.Parse(fn),int.Parse(newPelo),int.Parse(newPestanhas),int.Parse(newOrejas)
             ,int.Parse(newNarices),int.Parse(newBoca)
             ,int.Parse(newExtra),int.Parse(newCejas),int.Parse(ropa),rp,gp,bp,ri,gi,bi,person.GetAtaque(),
-            person.GetDefensa(),person.GetVida(),(int)person.GetTipoAtaque());
+            person.GetDefensa(),person.GetVida(),person.getVidaMax(),(int)person.GetTipoAtaque(),person.GetNombre(),(int)person.GetRareza());
 
         lsp.list.Add(sp);
     }

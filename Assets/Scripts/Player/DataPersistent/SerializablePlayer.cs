@@ -32,11 +32,19 @@ public class SerializablePlayer
     public float ataque;
     public float defensa;
     public float vida;
+    public float vidaMax;
     public int tipoAtaque;
+
+    public string nombre;
+    public int rareza;
+
+    
 
     public SerializablePlayer() { }
 
-    public SerializablePlayer(int flequillo, int pelo, int pestanha, int orejas, int narices, int bocas, int extras, int cejas, int ropa, float rp, float gp, float bp, float ri, float gi, float bi, float ataque, float defensa, float vida, int tipoAtaque)
+    public SerializablePlayer(int flequillo, int pelo, int pestanha, int orejas, int narices, int bocas, 
+        int extras, int cejas, int ropa, float rp, float gp, float bp, float ri, float gi, float bi, 
+        float ataque, float defensa, float vida, float vidaMax, int tipoAtaque, string nombre, int rareza)
     {
         this.flequillo = flequillo;
         this.pelo = pelo;
@@ -56,6 +64,9 @@ public class SerializablePlayer
         this.ataque = ataque;
         this.defensa = defensa;
         this.vida = vida;
+        this.vidaMax = vidaMax;
         this.tipoAtaque = tipoAtaque;
+        this.nombre = nombre;
+        this.rareza = rareza;  
     }
 }

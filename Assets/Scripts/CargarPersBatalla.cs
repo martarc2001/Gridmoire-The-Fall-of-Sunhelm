@@ -14,7 +14,7 @@ public class CargarPersBatalla : MonoBehaviour
 
     [SerializeField] private List<Sprite> flequillos;
     [SerializeField] private List<Sprite> pelos;
-    [SerializeField] private List<Sprite> pestañas;
+    [SerializeField] private List<Sprite> pestanhas;
     [SerializeField] private List<Sprite> orejas;
     [SerializeField] private List<Sprite> narices;
     [SerializeField] private List<Sprite> bocas;
@@ -22,37 +22,105 @@ public class CargarPersBatalla : MonoBehaviour
     [SerializeField] private List<Sprite> cejas;
     [SerializeField] private List<Sprite> ropas;
 
+    [SerializeField] private List<LifeUI> listaVidas;
     private void Start()
     {
         grid = FindObjectOfType<DataToBattle>().getLSP();
         var celdas = FindObjectOfType<DataToBattle>().getCeldas();
 
-        
-
         var posSituar = new List<Transform>();
+
 
         foreach(var celda in celdas)
         {
             for(var i = 0; i < headPosition.Count; i++)
             {
-                if(celda.GetX() == headPosition[i].getCelda().GetX() 
-                    && celda.GetY() == headPosition[i].getCelda().GetY())
+                if(celda.getCelda().GetX() == headPosition[i].getCelda().GetX() 
+                    && celda.getCelda().GetY() == headPosition[i].getCelda().GetY())
                 {
                     posSituar.Add(headPosition[i].transform);
                 }
             }
+
+            
         }
 
         for (var i = 0; i < grid.list.Count; i++)
         {
-            instanciarPersonaje(grid.list[i], posSituar[i], headPosition[i]);
+            instanciarPersonaje(grid.list[i], posSituar[i], celdas[i]);
+        }
+
+        foreach(var celda in gridPlayer.getCeldas())
+        {
+            foreach (var barra in listaVidas)
+            {
+                var cell = barra.GetCelda().getCelda();
+                if (cell.GetX() == celda.getCelda().GetX() && cell.GetY() == celda.getCelda().GetY())
+                {
+                    if(celda.getCelda().GetPersonaje() != null)
+                    {
+                        barra.setPlayer(celda.getCelda().GetPersonaje().GetComponent<PlayerController>());
+                        barra.activar();
+                    }
+                    
+                }
+            }
         }
     }
 
+    public GridManager GetGridManager() { return gridPlayer; }
     private void instanciarPersonaje(SerializablePlayer sp, Transform transPos, CeldaManager celda)
     {
         var newCharacter = Instantiate(prefab, transPos.position, Quaternion.identity);
         newCharacter.transform.SetParent(transPos);
+
+        switch (celda.getCelda().GetX())
+        {
+            case 0:
+                if(celda.getCelda().GetY() == 0)
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.019f, transPos.position.y + 0.468f, 1f);
+                }else if(celda.getCelda().GetY() == 1)
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.005f, transPos.position.y + 0.465f, 1f);
+                }
+                else
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.117f, transPos.position.y + 0.45f, 1f);
+                }
+                newCharacter.transform.localScale = new Vector3(0.35f, 0.35f, 1f); 
+                break;
+            case 1:
+                if (celda.getCelda().GetY() == 0)
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.044f, transPos.position.y+0.539f, 1f);
+                }
+                else if (celda.getCelda().GetY() == 1)
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.039f, transPos.position.y+0.516f, 1f);
+                }
+                else
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.03f, transPos.position.y+0.47f, 1f);
+                }
+                newCharacter.transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+                break;
+            case 2:
+                if (celda.getCelda().GetY() == 0)
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x + 0.05f, transPos.position.y +0.655f, 1f);
+                }
+                else if (celda.getCelda().GetY() == 1)
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.07f, transPos.position.y+0.655f, 1f);
+                }
+                else
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x + 0.044f, transPos.position.y +0.6f, 1f);
+                }
+                newCharacter.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                break;
+        }
         /////// CHARACTER CUSTOMIZATION ///////
 
         var newFlequillo = newCharacter.transform.Find("Flequillo").GetComponent<SpriteRenderer>();
@@ -61,8 +129,8 @@ public class CargarPersBatalla : MonoBehaviour
         var newPelo = newCharacter.transform.Find("Pelo").GetComponent<SpriteRenderer>();
         newPelo.sprite = pelos[sp.pelo-1];
 
-        var newPestañas = newCharacter.transform.Find("Pestañas").GetComponent<SpriteRenderer>();
-        newPestañas.sprite = pestañas[sp.pestanha-1];
+        var newPestanhas = newCharacter.transform.Find("Pestanhas").GetComponent<SpriteRenderer>();
+        newPestanhas.sprite = pestanhas[sp.pestanha-1];
 
         var newOrejas = newCharacter.transform.Find("Orejas").GetComponent<SpriteRenderer>();
         newOrejas.sprite = orejas[sp.orejas-1];
@@ -92,10 +160,34 @@ public class CargarPersBatalla : MonoBehaviour
         personaje.SetAtaque(sp.ataque);
         personaje.SetDefensa(sp.defensa);
         personaje.SetVida(sp.vida);
+        personaje.setVidaMax(sp.vidaMax);
         personaje.SetTipoAtaque((TipoAtaque)sp.tipoAtaque);
         newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
+        var ataque = newCharacter.transform.Find("Ataque").GetComponent<SpriteRenderer>();
+
+        switch (sp.tipoAtaque)
+        {
+            case (int)TipoAtaque.SINGLE:
+                ataque.color = Color.red;
+                break;
+            case (int)TipoAtaque.ROW:
+                ataque.color = Color.blue;
+                break;
+            case (int)TipoAtaque.COLUMN:
+                ataque.color = Color.yellow;
+                break;
+            case (int)TipoAtaque.GRID:
+                ataque.color = Color.black;
+                break;
+            case (int)TipoAtaque.HEAL:
+                ataque.color = Color.green;
+                break;
+        }
+
         gridPlayer.getGridInfo().GetCeldas()[celda.getCelda().GetX(), celda.getCelda().GetY()].SetPersonaje(newCharacter);
+        gridPlayer.getGridInfo().GetCeldas()[celda.getCelda().GetX(), celda.getCelda().GetY()].NowOccupied();
+
         
         level.addPersonaje(newCharacter.GetComponent<PlayerController>());
     }

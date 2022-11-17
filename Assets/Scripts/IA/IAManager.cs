@@ -1,13 +1,17 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 
 public class IAManager
 {
     // ATRIBUTOS
 
-    private List<PlayerController> ejercito = new List<PlayerController>();
+    private List<EnemigoController> ejercito = new List<EnemigoController>();
     private readonly int FACTOR_ALEATORIEDAD;
+    private Celda celdaObj;
 
     // CONSTRUCTORS
 
@@ -22,8 +26,8 @@ public class IAManager
 
     // GETTERS & SETTERS
 
-    public List<PlayerController> GetEjercito() { return this.ejercito; }
-    public void SetEjercito(List<PlayerController> ejercito) { this.ejercito = ejercito; }
+    public List<EnemigoController> GetEjercito() { return this.ejercito; }
+    public void SetEjercito(List<EnemigoController> ejercito) { this.ejercito = ejercito; }
 
     // METODOS
 
@@ -32,21 +36,33 @@ public class IAManager
         Celda objetivo = new Celda();
         float PeorVida = Mathf.Infinity;
 
-        for (int i = 0; i < gridEnemigo.getGridInfo().GetCeldas().GetLength(0); i++)
+
+        foreach(var cell in gridEnemigo.getCeldas())
+        {
+            Debug.Log(cell.getCelda().IsOccupied());
+            if (cell.getCelda().IsOccupied())
+            {
+                if(cell.getCelda().GetPersonaje().GetComponent<PlayerController>().getPersonaje().GetVida() <= PeorVida)
+                {
+                    objetivo = cell.getCelda();
+                    Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
+                }
+            }
+        }
+        /*for (int i = 0; i < gridEnemigo.getGridInfo().GetCeldas().GetLength(0); i++)
         {
             for (int j = 0; j < gridEnemigo.getGridInfo().GetCeldas().GetLength(1); j++)
             {
                 if (gridEnemigo.getGridInfo().GetCeldas()[i, j].IsOccupied())
                 {
-                    var accionAleatoria = Random.Range(1, 10);
-
                     if(gridEnemigo.getGridInfo().GetCeldas()[i, j].GetPersonaje().GetComponent<PlayerController>().getPersonaje().GetVida() <= PeorVida)
                     {
                         objetivo = gridEnemigo.getGridInfo().GetCeldas()[i, j];
+                        Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
                     }
                 }
             }
-        }
+        }*/
         return objetivo;
     }
 
@@ -73,6 +89,7 @@ public class IAManager
             {
                 mejorColumna = nEnemigos;
                 columnaObj = j;
+                Debug.Log("Celda seleccionada: " + columnaObj);
             }
         }
 
@@ -102,42 +119,64 @@ public class IAManager
             {
                 mejorFila = nEnemigos;
                 filaObj = i;
+                Debug.Log("Celda seleccionada: " + filaObj);
             }
         }
 
         return filaObj;
     }
-    public void Atacar(GridManager gridAliado, GridManager gridEnemigo, PlayerController personaje)
+
+    public void Atacar(GridManager gridAliado, GridManager gridEnemigo, EnemigoController personaje)
     {
-        switch (personaje.getPersonaje().GetTipoAtaque())
+        switch (personaje.getEnemigo().GetTipoAtaque())
         {
             case TipoAtaque.GRID:
-                // Invocar ataque grid
-                personaje.GetComponent<Attack>().gridAttack(gridEnemigo);
-                Debug.Log("He atacado en GRID");
+                personaje.GetComponent<EnemyAttack>().gridAttack(gridEnemigo);
                 break;
             case TipoAtaque.SINGLE:
-                Celda celdaObj = CompruebaSingle(gridEnemigo);
-                // Invocar ataque single
-                personaje.GetComponent<Attack>().singleAttack(celdaObj);
-                //Debug.Log("He atacado en SINGLE a la casilla: " + celdaObj[0] + ", " + celdaObj[1]);
+                if(celdaObj.GetPersonaje() == null)
+                    celdaObj = CompruebaSingle(gridEnemigo);
+                personaje.GetComponent<EnemyAttack>().singleAttack(celdaObj);
                 break;
             case TipoAtaque.COLUMN:
-                int columnaObj = CompruebaColumn(gridEnemigo);
-                // Invocar ataque column
-                personaje.GetComponent<Attack>().columnAttack(gridEnemigo, gridEnemigo.getGridInfo().GetCeldas()[0, columnaObj]);
-                Debug.Log("He atacado en COLUMN a la columna: " + columnaObj);
+                if (celdaObj.GetPersonaje() == null)
+                    celdaObj = new Celda(0, CompruebaColumn(gridEnemigo));
+                personaje.GetComponent<EnemyAttack>().columnAttack(gridEnemigo, gridEnemigo.getGridInfo().GetCeldas()[0, celdaObj.GetY()]);
                 break;
             case TipoAtaque.ROW:
-                int filaObj = CompruebaRow(gridEnemigo);
-                // Invocar ataque row
-                personaje.GetComponent<Attack>().rowAttack(gridEnemigo, gridEnemigo.getGridInfo().GetCeldas()[filaObj, 0]);
-                Debug.Log("He atacado en ROW a la fila: " + filaObj);
+                if (celdaObj.GetPersonaje() == null)
+                    celdaObj = new Celda(CompruebaRow(gridEnemigo), 0);
+                personaje.GetComponent<EnemyAttack>().rowAttack(gridEnemigo, gridEnemigo.getGridInfo().GetCeldas()[celdaObj.GetX(), 0]);
                 break;
             case TipoAtaque.HEAL:
-                // Invocar ataque heal
-                personaje.GetComponent<Attack>().healAttack(gridAliado);
-                Debug.Log("He HEALeado");
+                personaje.GetComponent<EnemyAttack>().healAttack(gridAliado);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void resaltarAtaque(GridManager gridAliado, GridManager gridEnemigo, EnemigoController personaje)
+    {
+        switch (personaje.getEnemigo().GetTipoAtaque())
+        {
+            case TipoAtaque.GRID:
+                resaltarGrid(gridEnemigo);
+                break;
+            case TipoAtaque.SINGLE:
+                celdaObj = CompruebaSingle(gridEnemigo);
+                resaltarSingle(gridEnemigo, celdaObj);
+                break;
+            case TipoAtaque.COLUMN:
+                celdaObj = new Celda(0, CompruebaColumn(gridEnemigo));
+                resaltarColumn(gridEnemigo, celdaObj.GetY());
+                break;
+            case TipoAtaque.ROW:
+                celdaObj = new Celda(CompruebaRow(gridEnemigo),0);
+                resaltarRow(gridEnemigo, celdaObj.GetX());
+                break;
+            case TipoAtaque.HEAL:
+                resaltarHeal(gridAliado);
                 break;
             default:
                 break;
@@ -157,9 +196,9 @@ public class IAManager
         return grid.getGridInfo().GetCeldas()[x,y];
     }
 
-    public void AtacarRandom(GridManager gridAliado, GridManager gridEnemigo, PlayerController personaje)
+    public void AtacarRandom(GridManager gridAliado, GridManager gridEnemigo, EnemigoController personaje)
     {
-        switch (personaje.getPersonaje().GetTipoAtaque())
+        switch (personaje.getEnemigo().GetTipoAtaque())
         {
             case TipoAtaque.GRID:
                 // Invocar ataque grid
@@ -191,23 +230,91 @@ public class IAManager
         }
     }
 
-    public void RealizarTurno(GridManager gridAliado, GridManager gridEnemigo)
+    public async void RealizarTurno(GridManager gridAliado, GridManager gridEnemigo,TextMeshProUGUI texto)
     {
-
-        foreach(var celda in gridEnemigo.getGridInfo().GetCeldas())
-        {
-            Debug.Log("Celda: " + celda.GetPersonaje());
-        }
         foreach (var personaje in this.ejercito)
         {
-            int factorInteligencia = Random.Range(0, 10);
-            if (factorInteligencia > FACTOR_ALEATORIEDAD)
+            texto.SetText("Turno Enemigos");
+            personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.blue;
+            resaltarAtaque(gridAliado, gridEnemigo, personaje);
+            await UniTask.Delay(500);
+            Atacar(gridAliado, gridEnemigo, personaje);
+            await UniTask.Delay(500);
+            resetResalto(gridAliado, gridEnemigo);
+            personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.gray;
+            await UniTask.Delay(500);
+        }
+        texto.SetText("Turno Jugador");
+        resetEnemigos();
+    }
+
+    public void resetEnemigos()
+    {
+        foreach(var personaje in this.ejercito)
+        {
+            personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.white;
+        }
+    }
+
+    private void resaltarSingle(GridManager gridEnemigo, Celda celda)
+    {
+        foreach(var cell in gridEnemigo.getCeldas())
+        {
+            if(cell.getCelda().GetX() == celda.GetX() && cell.getCelda().GetY() == celda.GetY())
+                cell.GetComponent<SpriteRenderer>().color = Color.red;
+        }
+        
+    }
+
+    private void resaltarRow(GridManager gridEnemigo, int celda)
+    {
+        foreach (var cell in gridEnemigo.getCeldas())
+        {
+            if (cell.getCelda().GetX() == celda)
             {
-                Atacar(gridAliado, gridEnemigo, personaje);
-            } else
-            {
-                AtacarRandom(gridAliado, gridEnemigo, personaje);
+                cell.GetComponent<SpriteRenderer>().color = Color.red;
             }
         }
     }
+
+    private void resaltarColumn(GridManager gridEnemigo, int celda)
+    {
+        foreach (var cell in gridEnemigo.getCeldas())
+        {
+            if (cell.getCelda().GetY() == celda)
+            {
+                cell.GetComponent<SpriteRenderer>().color = Color.red;
+            }
+        }
+    }
+
+    private void resaltarGrid(GridManager gridEnemigo)
+    {
+        foreach (var cell in gridEnemigo.getCeldas())
+        {
+            cell.GetComponent<SpriteRenderer>().color = Color.red;
+        }
+    }
+
+    private void resaltarHeal(GridManager gridAliado)
+    {
+        foreach (var cell in gridAliado.getCeldas())
+        {
+            cell.GetComponent<SpriteRenderer>().color = Color.green;
+        }
+    }
+
+    private void resetResalto(GridManager gridAliado, GridManager gridEnemigo)
+    {
+        foreach (var cell in gridAliado.getCeldas())
+        {
+            cell.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+
+        foreach (var cell in gridEnemigo.getCeldas())
+        {
+            cell.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+    }
+
 }

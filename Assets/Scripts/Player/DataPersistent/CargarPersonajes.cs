@@ -13,7 +13,7 @@ public class CargarPersonajes : MonoBehaviour
 
     [SerializeField] private List<Sprite> flequillos;
     [SerializeField] private List<Sprite> pelos;
-    [SerializeField] private List<Sprite> pestañas;
+    [SerializeField] private List<Sprite> pestanhas;
     [SerializeField] private List<Sprite> orejas;
     [SerializeField] private List<Sprite> narices;
     [SerializeField] private List<Sprite> bocas;
@@ -24,27 +24,67 @@ public class CargarPersonajes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string json = PlayerPrefs.GetString("ejercito");
-
-        if (!string.IsNullOrEmpty(json))
-        {
-            lsp = JsonUtility.FromJson<ListaPlayerSerializable>(json);
-
-            foreach (var p in lsp.list)
-            {
-                instanciarPersonaje(p);
-            }
-        }
-
-        
+        changeRareness("Comun");
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void changeRareness(string rareness)
     {
-        
+
+        lsp.list.Clear();
+        vaciarLista();
+        switch(rareness) 
+        {
+            case "Comun":
+                string com = PlayerPrefs.GetString("commons");
+
+                if (!string.IsNullOrEmpty(com))
+                {
+                    lsp = JsonUtility.FromJson<ListaPlayerSerializable>(com);
+
+                    foreach (var p in lsp.list)
+                    {
+                        instanciarPersonaje(p);
+                    }
+                }
+                break;
+            case "Raro":
+                string rar = PlayerPrefs.GetString("rares");
+
+                if (!string.IsNullOrEmpty(rar))
+                {
+                    lsp = JsonUtility.FromJson<ListaPlayerSerializable>(rar);
+
+                    foreach (var p in lsp.list)
+                    {
+                        instanciarPersonaje(p);
+                    }
+                }
+                break;
+            case "SuperRaro":
+                string sr = PlayerPrefs.GetString("superRares");
+
+                if (!string.IsNullOrEmpty(sr))
+                {
+                    lsp = JsonUtility.FromJson<ListaPlayerSerializable>(sr);
+
+                    foreach (var p in lsp.list)
+                    {
+                        instanciarPersonaje(p);
+                    }
+                }
+                break;
+        }
     }
+
+    private void vaciarLista()
+    {
+        for(var i =0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+    }
+
 
     private void instanciarPersonaje(SerializablePlayer sp)
     {
@@ -60,8 +100,8 @@ public class CargarPersonajes : MonoBehaviour
         var newPelo = newCharacter.transform.Find("Pelo").GetComponent<Image>();
         newPelo.sprite = pelos[sp.pelo];
 
-        var newPestañas = newCharacter.transform.Find("Pestañas").GetComponent<Image>();
-        newPestañas.sprite = pestañas[sp.pestanha];
+        var newPestanhas = newCharacter.transform.Find("Pestanhas").GetComponent<Image>();
+        newPestanhas.sprite = pestanhas[sp.pestanha];
 
         var newOrejas = newCharacter.transform.Find("Orejas").GetComponent<Image>();
         newOrejas.sprite = orejas[sp.orejas];
@@ -94,7 +134,10 @@ public class CargarPersonajes : MonoBehaviour
         personaje.SetAtaque(sp.ataque);
         personaje.SetDefensa(sp.defensa);
         personaje.SetVida(sp.vida);
+        personaje.setVidaMax(sp.vidaMax);
         personaje.SetTipoAtaque((TipoAtaque)sp.tipoAtaque);
+        personaje.SetRareza((Rareza)sp.rareza);
+        personaje.SetNombre(sp.nombre);
         newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
 

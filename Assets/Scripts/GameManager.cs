@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    [SerializeField] private EjercitoManager em;
+    [SerializeField] private int dineroJugador = 1500;
 
     public GameManager Instance
     {
@@ -34,12 +34,22 @@ public class GameManager : MonoBehaviour
         }
         
         DontDestroyOnLoad(gameObject);
-        em = GetComponent<EjercitoManager>();
     }
 
     private void Start()
     {
-        
+        if (PlayerPrefs.HasKey("PrimeraVez") == false)
+        {
+            PlayerPrefs.SetInt("PrimeraVez", 1);
+            dineroJugador = 1500;
+            PlayerPrefs.SetInt("Dinero", dineroJugador);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            dineroJugador = PlayerPrefs.GetInt("Dinero");
+
+        }
     }
 
     private void Update()
@@ -48,5 +58,8 @@ public class GameManager : MonoBehaviour
             //Debug.Log(em.GetEjercito()[0]);
     }
 
-    public EjercitoManager getEM() { return em; }
+    public void restarDinero(int dinero) { dineroJugador -= dinero; }
+    public void sumarDinero(int dinero) { dineroJugador += dinero; }
+
+    public int getDineroJugador() { return dineroJugador; }
 }

@@ -49,6 +49,7 @@ public class Celda
     public void SetY(int y) { this.y = y; }
     public void SetPersonaje(GameObject personaje) { this.personaje = personaje; }
     public void ChangeOccupied() { this.occupied = !this.occupied; }
+    public void NowOccupied() { this.occupied = true; }
     //public void SetPrefab(GameObject prefab) { this.prefab = prefab;}
     #endregion
 }
