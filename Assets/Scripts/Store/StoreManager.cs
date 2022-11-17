@@ -138,7 +138,7 @@ public class StoreManager : MonoBehaviour
         var iPelo = Random.Range(0, pelos.Count);
         newPelo.sprite = pelos[iPelo];
 
-        var newPestanhas = newCharacter.transform.Find("Pestañas").GetComponent<SpriteRenderer>();
+        var newPestanhas = newCharacter.transform.Find("Pestanhas").GetComponent<SpriteRenderer>();
         var iPest = Random.Range(0, pestanha.Count);
         newPestanhas.sprite = pestanha[iPest];
 

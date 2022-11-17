@@ -54,7 +54,7 @@ public class DataToBattle : MonoBehaviour
 
         var newPelo = p.transform.Find("Pelo").GetComponent<Image>().sprite.name;
 
-        var newPestañas = p.transform.Find("Pestañas").GetComponent<Image>().sprite.name;
+        var newPestanhas = p.transform.Find("Pestanhas").GetComponent<Image>().sprite.name;
 
         var newOrejas = p.transform.Find("Orejas").GetComponent<Image>().sprite.name;
 
@@ -80,7 +80,7 @@ public class DataToBattle : MonoBehaviour
 
         
         var person = p.GetComponent<PlayerController>().getPersonaje();
-        SerializablePlayer sp = new SerializablePlayer(int.Parse(fn),int.Parse(newPelo),int.Parse(newPestañas),int.Parse(newOrejas)
+        SerializablePlayer sp = new SerializablePlayer(int.Parse(fn),int.Parse(newPelo),int.Parse(newPestanhas),int.Parse(newOrejas)
             ,int.Parse(newNarices),int.Parse(newBoca)
             ,int.Parse(newExtra),int.Parse(newCejas),int.Parse(ropa),rp,gp,bp,ri,gi,bi,person.GetAtaque(),
             person.GetDefensa(),person.GetVida(),person.getVidaMax(),(int)person.GetTipoAtaque(),person.GetNombre(),(int)person.GetRareza());

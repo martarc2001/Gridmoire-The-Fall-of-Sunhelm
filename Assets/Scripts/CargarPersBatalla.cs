@@ -14,7 +14,7 @@ public class CargarPersBatalla : MonoBehaviour
 
     [SerializeField] private List<Sprite> flequillos;
     [SerializeField] private List<Sprite> pelos;
-    [SerializeField] private List<Sprite> pestañas;
+    [SerializeField] private List<Sprite> pestanhas;
     [SerializeField] private List<Sprite> orejas;
     [SerializeField] private List<Sprite> narices;
     [SerializeField] private List<Sprite> bocas;
@@ -129,8 +129,8 @@ public class CargarPersBatalla : MonoBehaviour
         var newPelo = newCharacter.transform.Find("Pelo").GetComponent<SpriteRenderer>();
         newPelo.sprite = pelos[sp.pelo-1];
 
-        var newPestañas = newCharacter.transform.Find("Pestañas").GetComponent<SpriteRenderer>();
-        newPestañas.sprite = pestañas[sp.pestanha-1];
+        var newPestanhas = newCharacter.transform.Find("Pestanhas").GetComponent<SpriteRenderer>();
+        newPestanhas.sprite = pestanhas[sp.pestanha-1];
 
         var newOrejas = newCharacter.transform.Find("Orejas").GetComponent<SpriteRenderer>();
         newOrejas.sprite = orejas[sp.orejas-1];

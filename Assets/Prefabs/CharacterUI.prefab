@@ -854,7 +854,7 @@ GameObject:
   - component: {fileID: 4833883005725093506}
   - component: {fileID: 8286793580553241626}
   m_Layer: 0
-  m_Name: "Pesta\xF1as"
+  m_Name: Pestanhas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

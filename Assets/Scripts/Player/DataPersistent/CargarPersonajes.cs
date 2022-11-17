@@ -13,7 +13,7 @@ public class CargarPersonajes : MonoBehaviour
 
     [SerializeField] private List<Sprite> flequillos;
     [SerializeField] private List<Sprite> pelos;
-    [SerializeField] private List<Sprite> pestañas;
+    [SerializeField] private List<Sprite> pestanhas;
     [SerializeField] private List<Sprite> orejas;
     [SerializeField] private List<Sprite> narices;
     [SerializeField] private List<Sprite> bocas;
@@ -100,8 +100,8 @@ public class CargarPersonajes : MonoBehaviour
         var newPelo = newCharacter.transform.Find("Pelo").GetComponent<Image>();
         newPelo.sprite = pelos[sp.pelo];
 
-        var newPestañas = newCharacter.transform.Find("Pestañas").GetComponent<Image>();
-        newPestañas.sprite = pestañas[sp.pestanha];
+        var newPestanhas = newCharacter.transform.Find("Pestanhas").GetComponent<Image>();
+        newPestanhas.sprite = pestanhas[sp.pestanha];
 
         var newOrejas = newCharacter.transform.Find("Orejas").GetComponent<Image>();
         newOrejas.sprite = orejas[sp.orejas];
