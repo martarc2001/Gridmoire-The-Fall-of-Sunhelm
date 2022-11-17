@@ -41,6 +41,8 @@ public class LevelFlow : MonoBehaviour
     public GridManager GetGridPlayer() { return gridPlayer; }
     public IAManager GetIAManager() { return ia; }
     public bool isInitialized() { return initialize; }
+
+    private bool turnoIATomado = false;
     
 
     public void SetGridIA(GridManager gridIA) { this.gridIA = gridIA; }
@@ -62,7 +64,8 @@ public class LevelFlow : MonoBehaviour
                 if (GetComponent<BattleController>().getTurnos() < ejercitoJugador.Count)
                 {
                     //Debug.Log(GetComponent<BattleController>().getTurnos());
-                    
+                    turnoIATomado = false;
+
                 }
                 else if (QuedanEnemigos(ejercitoEnemigo))
                 {
@@ -71,16 +74,13 @@ public class LevelFlow : MonoBehaviour
                         vidasEnemigos.Add(enemigo.getEnemigo().GetVida());
                     }
 
-                    ia.RealizarTurno(gridIA, gridPlayer, textoTurno);
-
-                    foreach (var enemigo in ejercitoJugador)
+                    if (!turnoIATomado)
                     {
-                        vidasJugador.Add(enemigo.getPersonaje().GetVida());
+                        StartCoroutine(ataqueIA());
                     }
-                    GetComponent<BattleController>().resetTurno();
 
                 }
-                
+
 
             }
             else
@@ -95,10 +95,37 @@ public class LevelFlow : MonoBehaviour
                     SceneManager.LoadScene("GameOver");
                     Destroy(FindObjectOfType<DataToBattle>().gameObject);
                 }
-                
+
             }
         }
-        
+
+    }
+
+    IEnumerator ataqueIA()
+    {
+        turnoIATomado = true;
+        foreach (var personaje in ejercitoEnemigo)
+        {
+            textoTurno.SetText("Turno Enemigos");
+            personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.blue;
+            ia.resaltarAtaque(gridIA, gridPlayer, personaje);
+            yield return new WaitForSeconds(0.25f);
+            ia.Atacar(gridIA, gridPlayer, personaje);
+            yield return new WaitForSeconds(0.25f);
+            ia.resetResalto(gridIA, gridPlayer);
+            personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.gray;
+            yield return new WaitForSeconds(0.25f);
+        }
+
+        textoTurno.SetText("Turno Jugador");
+        ia.resetEnemigos();
+        foreach (var enemigo in ejercitoJugador)
+        {
+            vidasJugador.Add(enemigo.getPersonaje().GetVida());
+        }
+        yield return new WaitForSeconds(0.05f);
+        GetComponent<BattleController>().resetTurno();
+        //yield return new WaitForSeconds(0.05f);
     }
 
     private bool QuedanAliados(List<PlayerController> comprobar)
