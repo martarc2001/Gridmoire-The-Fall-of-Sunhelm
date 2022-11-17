@@ -20,22 +20,14 @@ public class NivelesDataStream : MonoBehaviour
     private ListaLevelSerializable lls = new ListaLevelSerializable();
 
     // Start is called before the first frame update
-    void Start()
+
+    public List<SerializableLevel> ObtenerLista()
     {
         if (!string.IsNullOrEmpty(nivelesJson))
         {
             lls = JsonUtility.FromJson<ListaLevelSerializable>(nivelesJson);
-
-            foreach (var sl in lls.list)
-            {
-                Debug.Log(sl.id);
-                Debug.Log(sl.nombre);
-            }
         }
-    }
 
-    public List<SerializableLevel> GetLista()
-    {
         return this.lls.list;
     }
 }

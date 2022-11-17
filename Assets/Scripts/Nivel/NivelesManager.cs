@@ -34,14 +34,24 @@ public class NivelesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        while (nivelesDS.GetLista().Count == 0) { }
-        niveles = nivelesDS.GetLista();
-
-        RellenaInfo(niveles[0]);
+        niveles = nivelesDS.ObtenerLista();
     }
     
-    public void RellenaInfo(SerializableLevel sl)
+    public void ActivaInfo(int idx)
     {
+        RellenaInfo(idx);
+        infoNivel.SetActive(true);
+    }
+
+    public void DesactivaInfo()
+    {
+        infoNivel.SetActive(false);
+    }
+
+    private void RellenaInfo(int idx)
+    {
+        SerializableLevel sl = niveles[idx-1];
+
         var mundo = infoNivel.transform.Find("Mundo");
         var id = infoNivel.transform.Find("ID");
         var nombre = infoNivel.transform.Find("Nombre");
