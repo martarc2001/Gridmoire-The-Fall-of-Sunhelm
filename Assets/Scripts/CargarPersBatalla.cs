@@ -73,6 +73,54 @@ public class CargarPersBatalla : MonoBehaviour
     {
         var newCharacter = Instantiate(prefab, transPos.position, Quaternion.identity);
         newCharacter.transform.SetParent(transPos);
+
+        switch (celda.getCelda().GetX())
+        {
+            case 0:
+                if(celda.getCelda().GetY() == 0)
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.019f, transPos.position.y + 0.468f, 1f);
+                }else if(celda.getCelda().GetY() == 1)
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.005f, transPos.position.y + 0.465f, 1f);
+                }
+                else
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.117f, transPos.position.y + 0.45f, 1f);
+                }
+                newCharacter.transform.localScale = new Vector3(0.35f, 0.35f, 1f); 
+                break;
+            case 1:
+                if (celda.getCelda().GetY() == 0)
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.044f, transPos.position.y+0.539f, 1f);
+                }
+                else if (celda.getCelda().GetY() == 1)
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.039f, transPos.position.y+0.516f, 1f);
+                }
+                else
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.03f, transPos.position.y+0.47f, 1f);
+                }
+                newCharacter.transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+                break;
+            case 2:
+                if (celda.getCelda().GetY() == 0)
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x + 0.05f, transPos.position.y +0.655f, 1f);
+                }
+                else if (celda.getCelda().GetY() == 1)
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.07f, transPos.position.y+0.655f, 1f);
+                }
+                else
+                {
+                    newCharacter.transform.position = new Vector3(transPos.position.x + 0.044f, transPos.position.y +0.6f, 1f);
+                }
+                newCharacter.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                break;
+        }
         /////// CHARACTER CUSTOMIZATION ///////
 
         var newFlequillo = newCharacter.transform.Find("Flequillo").GetComponent<SpriteRenderer>();
@@ -136,8 +184,6 @@ public class CargarPersBatalla : MonoBehaviour
                 ataque.color = Color.green;
                 break;
         }
-
-        newCharacter.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
 
         gridPlayer.getGridInfo().GetCeldas()[celda.getCelda().GetX(), celda.getCelda().GetY()].SetPersonaje(newCharacter);
         gridPlayer.getGridInfo().GetCeldas()[celda.getCelda().GetX(), celda.getCelda().GetY()].NowOccupied();

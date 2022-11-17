@@ -48,8 +48,8 @@ public class BattleController : MonoBehaviour
     {
         
         var pos = Camera.main.ScreenToWorldPoint(position);
-        RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
-        if (hit.collider != null)
+        RaycastHit2D[] hits = Physics2D.RaycastAll(pos, Vector2.zero);
+        foreach(var hit in hits)
         {
             if (hit.collider.CompareTag("Player"))
             {
@@ -59,7 +59,7 @@ public class BattleController : MonoBehaviour
                     var listacolores = new List<Color>();
                     foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
                     {
-                        
+
                         listacolores.Add(sprite.color);
                         if (!sprite.transform.name.Equals("Ataque"))
                             sprite.color = Color.blue;
@@ -71,7 +71,7 @@ public class BattleController : MonoBehaviour
                 {
                     Debug.Log("Personaje no seleccionable");
                 }
-                    
+
             }
             else if (hit.collider.CompareTag("CellEnemy"))
             {
@@ -108,7 +108,7 @@ public class BattleController : MonoBehaviour
                         seleccionables.Add(playerSelected.GetComponent<SeleccionableManager>());
                         playerSelected.GetComponent<SeleccionableManager>().notSelectable();
 
-                        foreach(var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
+                        foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
                         {
                             sprite.color = Color.gray;
                         }
@@ -122,15 +122,16 @@ public class BattleController : MonoBehaviour
                         resetResalto();
                         resaltar();
                     }
-                    
+
                 }
 
 
-            }else if (hit.collider.CompareTag("CellPlayer"))
+            }
+            else if (hit.collider.CompareTag("CellPlayer"))
             {
-                if(playerSelected != null 
-                    && playerSelected.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque() 
-                    == TipoAtaque.HEAL && cellSelected==null)
+                if (playerSelected != null
+                    && playerSelected.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque()
+                    == TipoAtaque.HEAL && cellSelected == null)
                 {
                     var celda = hit.collider.gameObject.GetComponent<CeldaManager>();
                     cellSelected = hit.collider.gameObject.GetComponent<CeldaManager>();
