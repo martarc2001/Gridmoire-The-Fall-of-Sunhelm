@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 215053402}
   m_HandleRect: {fileID: 215053401}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2680,7 +2680,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Menu
+          m_StringArgument: "Selecci\xF3n de niveles"
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &2057733963
