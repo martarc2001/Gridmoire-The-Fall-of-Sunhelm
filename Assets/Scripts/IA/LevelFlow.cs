@@ -20,7 +20,7 @@ public class LevelFlow : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
 
     [SerializeField] public List<PlayerController> ejercitoJugador = new List<PlayerController>();
-    private List<PlayerController> ejercitoCompletoJugador = new List<PlayerController>();
+    [SerializeField] private List<PlayerController> ejercitoCompletoJugador = new List<PlayerController>();
     [SerializeField] private List<EnemigoController> ejercitoEnemigo = new List<EnemigoController>();
 
     [SerializeField] private List<float> vidasEnemigos = new List<float>();
@@ -90,7 +90,10 @@ public class LevelFlow : MonoBehaviour
                 {
                     GameObject personajesRecompensa = new GameObject("Ejercito Jugador");
                     personajesRecompensa.AddComponent<EjercitoRecompensa>();
-                    personajesRecompensa.GetComponent<EjercitoRecompensa>().SetLista(ejercitoCompletoJugador);
+                    foreach(var p in ejercitoCompletoJugador)
+                    {
+                        personajesRecompensa.GetComponent<EjercitoRecompensa>().AddPersonaje(p.getPersonaje());
+                    }
                     DontDestroyOnLoad(personajesRecompensa);
                     SceneManager.LoadScene("Win");
                 }

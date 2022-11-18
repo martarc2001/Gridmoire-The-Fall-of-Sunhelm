@@ -11,12 +11,14 @@ public class RecompensaHandler : MonoBehaviour
         GameManager.instance.sumarDinero(nivelData.GetMonedas());
 
         var ejercitoData = FindObjectOfType<EjercitoRecompensa>();
-        foreach(var personaje in ejercitoData.GetLista())
+
+        Debug.Log(ejercitoData.getNombres().Count);
+
+        foreach(var personaje in ejercitoData.getNombres())
         {
-            personaje.getPersonaje().SetXp(nivelData.GetXp());
-            personaje.getPersonaje().ComprobarNivel();
-            Debug.Log(personaje.getPersonaje().GetNombre() +" Nivel: "+personaje.getPersonaje().GetNivel());
-            switch (personaje.getPersonaje().GetRareza())
+            personaje.SetXp(nivelData.GetXp());
+            personaje.ComprobarNivel();
+            switch (personaje.GetRareza())
             {
                 case Rareza.COMUN:
                     recompensaCommons(personaje);
@@ -29,11 +31,9 @@ public class RecompensaHandler : MonoBehaviour
                     break;
             }
         }
-
-        Destroy(ejercitoData.gameObject);
     }
 
-    void recompensaCommons(PlayerController personaje)
+    void recompensaCommons(Personaje personaje)
     {
         string com = PlayerPrefs.GetString("commons");
 
@@ -44,16 +44,16 @@ public class RecompensaHandler : MonoBehaviour
 
             foreach (var p in lsp.list)
             {
-                if (p.nombre.Equals(personaje.getPersonaje().GetNombre()))
+                if (p.nombre.Equals(personaje.GetNombre()))
                 {
-                    p.ataque = personaje.getPersonaje().GetAtaque();
-                    p.defensa = personaje.getPersonaje().GetDefensa();
-                    p.vida = personaje.getPersonaje().GetVida();
-                    p.vidaMax = personaje.getPersonaje().getVidaMax();
-                    p.nivel = personaje.getPersonaje().GetNivel();
-                    p.xp = personaje.getPersonaje().GetXp();
-                    p.xpSubida = personaje.getPersonaje().GetXpSubida();
-                    p.xpSubidaPrev = personaje.getPersonaje().GetXpSubidaPrev();
+                    p.ataque = personaje.GetAtaque();
+                    p.defensa = personaje.GetDefensa();
+                    p.vida = personaje.GetVida();
+                    p.vidaMax = personaje.getVidaMax();
+                    p.nivel = personaje.GetNivel();
+                    p.xp = personaje.GetXp();
+                    p.xpSubida = personaje.GetXpSubida();
+                    p.xpSubidaPrev = personaje.GetXpSubidaPrev();
                 }
                 newList.list.Add(p);
             }
@@ -61,7 +61,7 @@ public class RecompensaHandler : MonoBehaviour
         }
     }
 
-    void recompensaRares(PlayerController personaje)
+    void recompensaRares(Personaje personaje)
     {
         string com = PlayerPrefs.GetString("rares");
 
@@ -72,16 +72,16 @@ public class RecompensaHandler : MonoBehaviour
 
             foreach (var p in lsp.list)
             {
-                if (p.nombre.Equals(personaje.getPersonaje().GetNombre()))
+                if (p.nombre.Equals(personaje.GetNombre()))
                 {
-                    p.ataque = personaje.getPersonaje().GetAtaque();
-                    p.defensa = personaje.getPersonaje().GetDefensa();
-                    p.vida = personaje.getPersonaje().GetVida();
-                    p.vidaMax = personaje.getPersonaje().getVidaMax();
-                    p.nivel = personaje.getPersonaje().GetNivel();
-                    p.xp = personaje.getPersonaje().GetXp();
-                    p.xpSubida = personaje.getPersonaje().GetXpSubida();
-                    p.xpSubidaPrev = personaje.getPersonaje().GetXpSubidaPrev();
+                    p.ataque = personaje.GetAtaque();
+                    p.defensa = personaje.GetDefensa();
+                    p.vida = personaje.GetVida();
+                    p.vidaMax = personaje.getVidaMax();
+                    p.nivel = personaje.GetNivel();
+                    p.xp = personaje.GetXp();
+                    p.xpSubida = personaje.GetXpSubida();
+                    p.xpSubidaPrev = personaje.GetXpSubidaPrev();
                 }
                 newList.list.Add(p);
             }
@@ -89,7 +89,7 @@ public class RecompensaHandler : MonoBehaviour
         }
     }
 
-    void recompensaSuperRares(PlayerController personaje)
+    void recompensaSuperRares(Personaje personaje)
     {
         string com = PlayerPrefs.GetString("superRares");
 
@@ -101,26 +101,20 @@ public class RecompensaHandler : MonoBehaviour
 
             foreach (var p in lsp.list)
             {
-                if (p.nombre.Equals(personaje.getPersonaje().GetNombre()))
+                if (p.nombre.Equals(personaje.GetNombre()))
                 {
-                    p.ataque = personaje.getPersonaje().GetAtaque();
-                    p.defensa = personaje.getPersonaje().GetDefensa();
-                    p.vida = personaje.getPersonaje().GetVida();
-                    p.vidaMax = personaje.getPersonaje().getVidaMax();
-                    p.nivel = personaje.getPersonaje().GetNivel();
-                    p.xp = personaje.getPersonaje().GetXp();
-                    p.xpSubida = personaje.getPersonaje().GetXpSubida();
-                    p.xpSubidaPrev = personaje.getPersonaje().GetXpSubidaPrev();
+                    p.ataque = personaje.GetAtaque();
+                    p.defensa = personaje.GetDefensa();
+                    p.vida = personaje.GetVida();
+                    p.vidaMax = personaje.getVidaMax();
+                    p.nivel = personaje.GetNivel();
+                    p.xp = personaje.GetXp();
+                    p.xpSubida = personaje.GetXpSubida();
+                    p.xpSubidaPrev = personaje.GetXpSubidaPrev();
                 }
                 newList.list.Add(p);
 
             }
-
-            foreach(var p in newList.list)
-            {
-                Debug.Log(p.nombre + " Nivel: " + p.nivel);
-            }
-            PlayerPrefs.SetString("superRares", JsonUtility.ToJson(newList));
         }
     }
 

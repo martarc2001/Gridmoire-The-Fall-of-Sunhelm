@@ -5,9 +5,9 @@ using UnityEngine;
 public class EjercitoRecompensa : MonoBehaviour
 {
 
-    private List<PlayerController> recompensados = new List<PlayerController>();
-    
+    [SerializeField] private List<Personaje> recompensados = new List<Personaje>();
 
-    public List<PlayerController> GetLista() { return recompensados; }
-    public void SetLista(List<PlayerController> recompensados) { this.recompensados = recompensados; }
+    public List<Personaje> getNombres() { return recompensados; }
+
+    public void AddPersonaje(Personaje recompensado) { this.recompensados.Add(recompensado); }
 }

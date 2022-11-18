@@ -35,6 +35,11 @@ public class SceneLoader : MonoBehaviour
         Destroy(dataBattle.gameObject);
         Destroy(nivelData.gameObject);
 
+        if (FindObjectOfType<EjercitoRecompensa>())
+        {
+            Destroy(FindObjectOfType<EjercitoRecompensa>().gameObject);
+        }
+
         SceneManager.LoadScene(scene);
     }
 }
