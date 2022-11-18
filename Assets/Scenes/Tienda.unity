@@ -3095,6 +3095,24 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e0a204f4befb89f4c9fa80be68d028e5, type: 3}
   - {fileID: 21300000, guid: 0c07021538af0e44a9fe0d2fd76fa976, type: 3}
   - {fileID: 21300000, guid: 358bfc990d748d3438196efa7150dc6f, type: 3}
+  armas_delante:
+  - {fileID: 21300000, guid: 210be0fe486e39e4cb42ec00e296cb1a, type: 3}
+  - {fileID: 21300000, guid: 57f574075e246ab488b20064eae0d194, type: 3}
+  - {fileID: 21300000, guid: f40d604f77e6ab047bddeff88ea724da, type: 3}
+  - {fileID: 21300000, guid: 9b5ca14383e0cd8488f6af8b9f90ba92, type: 3}
+  - {fileID: 21300000, guid: 056d612f2ff7fe746bd3c0640885b1ee, type: 3}
+  - {fileID: 21300000, guid: 8238e24580c8dc14bae9d11ad254bf4b, type: 3}
+  - {fileID: 21300000, guid: ca12e8c872f01b74681b698721b2e16d, type: 3}
+  - {fileID: 21300000, guid: 929d867f4dd2f03418817db98e319d25, type: 3}
+  - {fileID: 21300000, guid: 240025099c55f214bb97f9e02314dcf7, type: 3}
+  - {fileID: 21300000, guid: 72f3bb795c88069408cc2c1b03a0dbc0, type: 3}
+  armas_detras:
+  - {fileID: 21300000, guid: e5ed344bf57dcb5458dcf617a6efe1c4, type: 3}
+  - {fileID: 21300000, guid: 9e5dd90feb1415245a2a2c16e61c7654, type: 3}
+  - {fileID: 21300000, guid: 4b1ee5023ebaf1c4287ee64d1d443e4c, type: 3}
+  - {fileID: 21300000, guid: 4c028d942c89b73478204d0aec9a4127, type: 3}
+  - {fileID: 21300000, guid: 2a7ec751c87d181458eb7ae7e6783273, type: 3}
+  - {fileID: 0}
   textoNoDinero: {fileID: 1344745229}
 --- !u!114 &1466077476
 MonoBehaviour:

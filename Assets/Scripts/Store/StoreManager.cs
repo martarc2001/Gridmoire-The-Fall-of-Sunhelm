@@ -28,6 +28,8 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private List<Sprite> extras;
     [SerializeField] private List<Sprite> cejas;
     [SerializeField] private List<Sprite> ropas;
+    [SerializeField] private List<Sprite> armas_delante;
+    [SerializeField] private List<Sprite> armas_detras;
 
     [SerializeField] private TextMeshProUGUI textoNoDinero;
     public void Start()
@@ -171,6 +173,17 @@ public class StoreManager : MonoBehaviour
         var iRopa = Random.Range(0, ropas.Count);
         ropa.sprite = ropas[iRopa];
 
+        var newArma = newCharacter.transform.Find("Arma_delante").GetComponent<SpriteRenderer>();
+        var iArma = Random.Range(0, armas_delante.Count);
+        newArma.sprite = armas_delante[iArma];
+
+        var iArmaDetras = 5;
+        if(iArma < 5)
+        {
+            iArmaDetras = iArma;
+        }
+        var newArmaDetras = newCharacter.transform.Find("Arma_detras").GetComponent<SpriteRenderer>();
+        newArmaDetras.sprite = armas_detras[iArmaDetras];
 
         var RP = Random.Range(0, 255) / 255f;
         var GP = Random.Range(0, 255) / 255f;
@@ -185,6 +198,7 @@ public class StoreManager : MonoBehaviour
 
         var newIris = newCharacter.transform.Find("Ojos").transform.Find("Iris").GetComponent<SpriteRenderer>();
         newIris.material.color = new Color(RI, GI, BI);
+
 
         /////// ATTACK SELECTION ///////
 
@@ -222,7 +236,7 @@ public class StoreManager : MonoBehaviour
 
 
         var sp = new SerializablePlayer(iFlequillo,iPelo,iPest,iOrej,iNari,iBoca,iExtra,iCejas,
-            iRopa,RP,GP,BP,RI,GI,BI,pers.GetAtaque(),pers.GetDefensa(),pers.GetVida(),pers.getVidaMax(), 
+            iRopa, iArma, iArmaDetras, piel.r, piel.g, piel.b,RP,GP,BP,RI,GI,BI,pers.GetAtaque(),pers.GetDefensa(),pers.GetVida(),pers.getVidaMax(), 
             (int)pers.GetTipoAtaque(),pers.GetNombre(),(int)pers.GetRareza());
 
         spl.list.Add(sp);
