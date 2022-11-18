@@ -304,7 +304,7 @@ public class IAManager
         }
     }
 
-    private void resetResalto(GridManager gridAliado, GridManager gridEnemigo)
+    public void resetResalto(GridManager gridAliado, GridManager gridEnemigo) // Esto estaba en private
     {
         foreach (var cell in gridAliado.getCeldas())
         {
