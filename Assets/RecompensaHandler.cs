@@ -31,6 +31,16 @@ public class RecompensaHandler : MonoBehaviour
                     break;
             }
         }
+
+        string estadosString = PlayerPrefs.GetString("Estados Niveles");
+
+        SerializableEstadoList estados = JsonUtility.FromJson<SerializableEstadoList>(estadosString);
+
+        estados.list[(nivelData.GetMundo() * nivelData.GetID()) - 1] = Estado.JUGADO;
+        estados.list[(nivelData.GetMundo() * nivelData.GetID())] = Estado.NO_JUGADO;
+
+        PlayerPrefs.SetString("Estados Niveles", JsonUtility.ToJson(estados));
+
     }
 
     void recompensaCommons(Personaje personaje)
