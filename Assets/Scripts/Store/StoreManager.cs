@@ -15,6 +15,8 @@ public class StoreManager : MonoBehaviour
 
     private Rareza newRareza;
 
+    private List<Color> pieles = new List<Color>() {new Color(255, 231, 209), new Color(255, 241, 229), new Color(255, 214, 175), new Color(225, 163, 106), new Color(174, 120, 71), new Color(122, 85, 51), new Color(79, 55, 32), new Color(41, 27, 15) };
+
     [SerializeField] private List<string> nombres;
     [SerializeField] private List<string> titulos;
     [SerializeField] private List<Sprite> flequillos;
@@ -129,6 +131,9 @@ public class StoreManager : MonoBehaviour
 
         /////// CHARACTER CUSTOMIZATION ///////
 
+        var cuerpo = newCharacter.transform.Find("CUERPO BASE").GetComponent<SpriteRenderer>();
+        Color piel = this.pieles[Random.Range(0, this.pieles.Count)];
+        cuerpo.material.color = piel;
 
         var newFlequillo = newCharacter.transform.Find("Flequillo").GetComponent<SpriteRenderer>();
         var iFlequillo = Random.Range(0, flequillos.Count);
