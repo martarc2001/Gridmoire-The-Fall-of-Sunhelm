@@ -12,6 +12,15 @@ public class PlanificationManager : MonoBehaviour
     private int personajesSeleccionados = 0;
     [SerializeField] DataToBattle dataBattle;
 
+
+    void Start()
+    {
+        var obj = FindObjectOfType<NivelDataHandler>() as NivelDataHandler;
+
+        Debug.Log(obj.GetMonedas());
+    }
+
+
     // Update is called once per frame
     void Update()
     {

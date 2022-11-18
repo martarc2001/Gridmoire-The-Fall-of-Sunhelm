@@ -25,11 +25,9 @@ public class CargarPersonajes : MonoBehaviour
     void Start()
     {
         string json = PlayerPrefs.GetString("ejercito");
-        Debug.Log(json);
         if (!string.IsNullOrEmpty(json))
         {
             lsp = JsonUtility.FromJson<ListaPlayerSerializable>(json);
-            Debug.Log(lsp.list.Count());
             foreach (var p in lsp.list)
             {
                 instanciarPersonaje(p);

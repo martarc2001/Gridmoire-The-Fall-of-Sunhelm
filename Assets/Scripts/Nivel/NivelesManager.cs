@@ -10,6 +10,8 @@ public class NivelesManager : MonoBehaviour
     [SerializeField] private NivelesDataStream nivelesDS;
     [SerializeField] private List<SerializableLevel> niveles;
 
+    private int seleccion = 0;
+
     [SerializeField] private GameObject infoNivel;
 
 
@@ -17,9 +19,11 @@ public class NivelesManager : MonoBehaviour
 
     public NivelesDataStream GetNivelesDS() { return this.nivelesDS; }
     public List<SerializableLevel> GetNiveles() { return this.niveles; }
+    public int GetSeleccion() { return this.seleccion; }
 
     public void SetNivelesDS(NivelesDataStream nivelesDS) { this.nivelesDS = nivelesDS; }
     public void SetNiveles(List<SerializableLevel> niveles) { this.niveles = niveles; }
+    public void SetSeleccion(int seleccion) { this.seleccion = seleccion - 1; }
 
 
     // CONSTRUCTORES
@@ -39,7 +43,8 @@ public class NivelesManager : MonoBehaviour
     
     public void ActivaInfo(int idx)
     {
-        RellenaInfo(idx);
+        SetSeleccion(idx);
+        RellenaInfo();
         infoNivel.SetActive(true);
     }
 
@@ -48,9 +53,9 @@ public class NivelesManager : MonoBehaviour
         infoNivel.SetActive(false);
     }
 
-    private void RellenaInfo(int idx)
+    private void RellenaInfo()
     {
-        SerializableLevel sl = niveles[idx-1];
+        SerializableLevel sl = niveles[this.seleccion];
 
         var mundo = infoNivel.transform.Find("Mundo");
         var id = infoNivel.transform.Find("ID");
