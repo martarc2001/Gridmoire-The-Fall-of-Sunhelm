@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Creditos.unity
     guid: 2b81809c3a78bad459d19b00149f6638
   - enabled: 1
+    path: "Assets/Scenes/Selecci\xF3n de niveles.unity"
+    guid: 5d7508283b79cdb488452197a66a6760
+  - enabled: 1
     path: Assets/Scenes/Planificacion.unity
     guid: e3cbddd05a94f1e479c9ce0a5ef3323f
   - enabled: 1
