@@ -22,6 +22,8 @@ public class CargarPersonajes : MonoBehaviour
     [SerializeField] private List<Sprite> cejas;
     [SerializeField] private List<Sprite> ropas;
 
+    [SerializeField] private List<Sprite> tiposAtaque;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -158,7 +160,7 @@ public class CargarPersonajes : MonoBehaviour
         uiCharacter.transform.Find("Ataque").GetComponent<TextMeshProUGUI>().text = "Ataque: " + sp.ataque;
         uiCharacter.transform.Find("Defensa").GetComponent<TextMeshProUGUI>().text = "Defensa: " + sp.defensa;
         uiCharacter.transform.Find("HP").GetComponent<TextMeshProUGUI>().text = "HP: " + sp.vidaMax;
-
+        uiCharacter.transform.Find("TipoAtaque").GetComponent<Image>().sprite = tiposAtaque[sp.tipoAtaque];
 
         var personaje = new Personaje();
         personaje.SetAtaque(sp.ataque);
