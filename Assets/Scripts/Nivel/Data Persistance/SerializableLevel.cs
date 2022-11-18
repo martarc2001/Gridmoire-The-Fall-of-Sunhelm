@@ -7,28 +7,29 @@ using UnityEngine;
 [Serializable]
 public class ListaLevelSerializable
 {
-    public List<SerializableLevel> list= new List<SerializableLevel>();
+    public List<SerializableLevel> list = new List<SerializableLevel>();
 }
 
 [Serializable]
 public class SerializableLevel
 {
-    private int id;
-    private string nombre;
-    private Estado estado;
+    public int mundo;
+    public int id;
+    public string nombre;
 
-    private List<Personaje> enemigos; // en un furturo será de la clase enemigo
+    public List<int> enemigos; // en un furturo será de la clase enemigo
 
-    private int monedas;
-    private int xp;
+    public int monedas;
+    public int xp;
+
 
     public SerializableLevel() { }
 
-    public SerializableLevel(int id, string nombre, Estado estado, List<Personaje> enemigos, int monedas, int xp)
+    public SerializableLevel(int mundo, int id, string nombre, List<int> enemigos, int monedas, int xp)
     {
+        this.mundo = mundo;
         this.id = id;
         this.nombre = nombre;
-        this.estado = estado;
         this.enemigos = enemigos;
         this.monedas = monedas;
         this.xp = xp;
