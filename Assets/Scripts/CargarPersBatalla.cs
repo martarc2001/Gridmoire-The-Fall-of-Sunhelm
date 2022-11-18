@@ -163,6 +163,12 @@ public class CargarPersBatalla : MonoBehaviour
         personaje.SetVida(sp.vida);
         personaje.setVidaMax(sp.vidaMax);
         personaje.SetTipoAtaque((TipoAtaque)sp.tipoAtaque);
+        personaje.SetNombre(sp.nombre);
+        personaje.SetRareza((Rareza)sp.rareza);
+        personaje.SetNivel(sp.nivel);
+        personaje.SetXp(sp.xp);
+        personaje.SetXpSubida(sp.xpSubida);
+        personaje.SetXpSubidaPrev(sp.xpSubidaPrev);
         newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
         var ataque = newCharacter.transform.Find("Ataque").GetComponent<SpriteRenderer>();

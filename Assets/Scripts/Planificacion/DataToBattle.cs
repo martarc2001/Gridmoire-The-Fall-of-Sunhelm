@@ -8,7 +8,6 @@ public class DataToBattle : MonoBehaviour
 {
     private ListaPlayerSerializable lsp = new ListaPlayerSerializable();
     private Celda[] listaCeldas;
-    [SerializeField] private List<GameObject> enemigosNivel;
     private List<CeldaManager> listCeldas = new List<CeldaManager>();
 
     public void putGrid()
@@ -37,8 +36,6 @@ public class DataToBattle : MonoBehaviour
 
     public ListaPlayerSerializable getLSP() { return lsp; }
     public List<CeldaManager> getCeldas() { return listCeldas; }
-
-    public List<GameObject> getEnemigos() { return enemigosNivel; }
 
     public void addCelda(CeldaManager celda) 
     { 
@@ -83,7 +80,8 @@ public class DataToBattle : MonoBehaviour
         SerializablePlayer sp = new SerializablePlayer(int.Parse(fn),int.Parse(newPelo),int.Parse(newPestanhas),int.Parse(newOrejas)
             ,int.Parse(newNarices),int.Parse(newBoca)
             ,int.Parse(newExtra),int.Parse(newCejas),int.Parse(ropa),rp,gp,bp,ri,gi,bi,person.GetAtaque(),
-            person.GetDefensa(),person.GetVida(),person.getVidaMax(),(int)person.GetTipoAtaque(),person.GetNombre(),(int)person.GetRareza());
+            person.GetDefensa(),person.GetVida(),person.getVidaMax(),(int)person.GetTipoAtaque(),person.GetNombre(),(int)person.GetRareza(),
+            person.GetNivel(),person.GetXp(),person.GetXpSubida(),person.GetXpSubidaPrev());
 
         lsp.list.Add(sp);
     }

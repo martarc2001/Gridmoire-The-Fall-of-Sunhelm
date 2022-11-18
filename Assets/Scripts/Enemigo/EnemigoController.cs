@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class EnemigoController : MonoBehaviour
 {
-    [SerializeField] private TipoEnemigo tipoEnemigo;
     private Enemigo enemigo;
-
+    [SerializeField] private List<Sprite> spritesEnemigos;
 
     public Enemigo getEnemigo() { return enemigo; }
-    public void setEnemigo(Enemigo enemigo) { this.enemigo = enemigo; }
     // Start is called before the first frame update
-    public void crearEnemigo()
+    public void crearEnemigo(int tipoEnemigo, int mundo, int nivel)
     {
-        enemigo = new Enemigo(this.tipoEnemigo);
+        var level = nivel + (mundo - 1) * 10;
+        transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = spritesEnemigos[tipoEnemigo];
+        enemigo = new Enemigo((TipoEnemigo)tipoEnemigo, level);
     }
 
 }

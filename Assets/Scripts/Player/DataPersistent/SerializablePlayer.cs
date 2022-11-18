@@ -38,13 +38,18 @@ public class SerializablePlayer
     public string nombre;
     public int rareza;
 
+    public int nivel;
+    public int xp;
+    public int xpSubida;
+    public int xpSubidaPrev;
     
 
     public SerializablePlayer() { }
 
     public SerializablePlayer(int flequillo, int pelo, int pestanha, int orejas, int narices, int bocas, 
         int extras, int cejas, int ropa, float rp, float gp, float bp, float ri, float gi, float bi, 
-        float ataque, float defensa, float vida, float vidaMax, int tipoAtaque, string nombre, int rareza)
+        float ataque, float defensa, float vida, float vidaMax, int tipoAtaque, string nombre, int rareza,int nivel, int xp,
+        int xpSubida, int xpSubidaPrev)
     {
         this.flequillo = flequillo;
         this.pelo = pelo;
@@ -68,5 +73,9 @@ public class SerializablePlayer
         this.tipoAtaque = tipoAtaque;
         this.nombre = nombre;
         this.rareza = rareza;  
+        this.nivel = nivel;
+        this.xp = xp;
+        this.xpSubida = xpSubida;
+        this.xpSubidaPrev = xpSubidaPrev;
     }
 }

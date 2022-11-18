@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.TextCore.Text;
@@ -24,57 +25,81 @@ public class CargarPersonajes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        changeRareness("Comun");
+        string com = PlayerPrefs.GetString("commons");
+
+        if (!string.IsNullOrEmpty(com))
+        {
+            lsp = JsonUtility.FromJson<ListaPlayerSerializable>(com);
+
+            foreach (var p in lsp.list)
+            {
+                instanciarPersonaje(p);
+            }
+        }
 
     }
 
     public void changeRareness(string rareness)
     {
+        var listaNombres = FindObjectOfType<PlanificationManager>().getNombres();
 
-        lsp.list.Clear();
-        vaciarLista();
-        switch(rareness) 
+        if(listaNombres.Count >= 0)
         {
-            case "Comun":
-                string com = PlayerPrefs.GetString("commons");
+            lsp.list.Clear();
+            vaciarLista();
+            switch (rareness)
+            {
+                case "Comun":
+                    string com = PlayerPrefs.GetString("commons");
 
-                if (!string.IsNullOrEmpty(com))
-                {
-                    lsp = JsonUtility.FromJson<ListaPlayerSerializable>(com);
-
-                    foreach (var p in lsp.list)
+                    if (!string.IsNullOrEmpty(com))
                     {
-                        instanciarPersonaje(p);
+                        lsp = JsonUtility.FromJson<ListaPlayerSerializable>(com);
+
+                        foreach (var p in lsp.list)
+                        {
+                            if (!listaNombres.Contains(p.nombre))
+                            {
+                                instanciarPersonaje(p);
+                            }
+                        }
                     }
-                }
-                break;
-            case "Raro":
-                string rar = PlayerPrefs.GetString("rares");
+                    break;
+                case "Raro":
+                    string rar = PlayerPrefs.GetString("rares");
 
-                if (!string.IsNullOrEmpty(rar))
-                {
-                    lsp = JsonUtility.FromJson<ListaPlayerSerializable>(rar);
-
-                    foreach (var p in lsp.list)
+                    if (!string.IsNullOrEmpty(rar))
                     {
-                        instanciarPersonaje(p);
+                        lsp = JsonUtility.FromJson<ListaPlayerSerializable>(rar);
+
+                        foreach (var p in lsp.list)
+                        {
+                            if (!listaNombres.Contains(p.nombre))
+                            {
+                                instanciarPersonaje(p);
+                            }
+                        }
                     }
-                }
-                break;
-            case "SuperRaro":
-                string sr = PlayerPrefs.GetString("superRares");
+                    break;
+                case "SuperRaro":
+                    string sr = PlayerPrefs.GetString("superRares");
 
-                if (!string.IsNullOrEmpty(sr))
-                {
-                    lsp = JsonUtility.FromJson<ListaPlayerSerializable>(sr);
-
-                    foreach (var p in lsp.list)
+                    if (!string.IsNullOrEmpty(sr))
                     {
-                        instanciarPersonaje(p);
+                        lsp = JsonUtility.FromJson<ListaPlayerSerializable>(sr);
+
+                        foreach (var p in lsp.list)
+                        {
+                            if (!listaNombres.Contains(p.nombre))
+                            {
+                                instanciarPersonaje(p);
+                            }
+                        }
                     }
-                }
-                break;
+                    break;
+            }
         }
+       
     }
 
     private void vaciarLista()
@@ -129,7 +154,12 @@ public class CargarPersonajes : MonoBehaviour
         var newIris = newCharacter.transform.Find("Ojos").transform.Find("Iris").GetComponent<Image>();
         newIris.color = new Color(sp.rp, sp.gi, sp.bi);
 
-        
+        uiCharacter.transform.Find("Nivel").GetComponent<TextMeshProUGUI>().text = "Nivel: "+sp.nivel;
+        uiCharacter.transform.Find("Ataque").GetComponent<TextMeshProUGUI>().text = "Ataque: " + sp.ataque;
+        uiCharacter.transform.Find("Defensa").GetComponent<TextMeshProUGUI>().text = "Defensa: " + sp.defensa;
+        uiCharacter.transform.Find("HP").GetComponent<TextMeshProUGUI>().text = "HP: " + sp.vidaMax;
+
+
         var personaje = new Personaje();
         personaje.SetAtaque(sp.ataque);
         personaje.SetDefensa(sp.defensa);
@@ -138,6 +168,10 @@ public class CargarPersonajes : MonoBehaviour
         personaje.SetTipoAtaque((TipoAtaque)sp.tipoAtaque);
         personaje.SetRareza((Rareza)sp.rareza);
         personaje.SetNombre(sp.nombre);
+        personaje.SetNivel(sp.nivel);
+        personaje.SetXp(sp.xp);
+        personaje.SetXpSubida(sp.xpSubida);
+        personaje.SetXpSubidaPrev(sp.xpSubidaPrev);
         newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
 

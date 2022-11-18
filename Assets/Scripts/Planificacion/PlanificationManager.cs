@@ -12,6 +12,10 @@ public class PlanificationManager : MonoBehaviour
     private int personajesSeleccionados = 0;
     [SerializeField] DataToBattle dataBattle;
 
+    private List<string> nombres = new List<string>();
+
+
+    public List<string> getNombres() { return nombres; }
 
     void Start()
     {
@@ -59,9 +63,10 @@ public class PlanificationManager : MonoBehaviour
                             hit.gameObject.GetComponent<CeldaManager>().getCelda().ChangeOccupied();
                             playerSelected.gameObject.transform.SetParent(hit.gameObject.transform);
                             playerSelected.gameObject.transform.position = hit.gameObject.transform.position;
+                            playerSelected.gameObject.transform.localScale = new Vector3(1, 1, 1);
+                            nombres.Add(playerSelected.transform.Find("Character").GetComponent<PlayerController>().getPersonaje().GetNombre());
                             playerSelected = null;
                             personajesSeleccionados++;
-
                             dataBattle.addCelda(hit.gameObject.GetComponent<CeldaManager>());
                         }
 
@@ -72,11 +77,20 @@ public class PlanificationManager : MonoBehaviour
                         {
                             hit.gameObject.GetComponent<CeldaManager>().getCelda()
                                 .GetPersonaje().transform.SetParent(canvasParent.transform);
+                            hit.gameObject.GetComponent<CeldaManager>().getCelda()
+                                .GetPersonaje().transform.localScale = new Vector3(3, 3, 3);
 
+                            nombres.Remove(hit.gameObject.GetComponent<CeldaManager>().getCelda()
+                                .GetPersonaje().transform.Find("Character").GetComponent<PlayerController>()
+                                .getPersonaje().GetNombre()
+                                );
+                            
                             hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(null);
                             hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(playerSelected);
                             playerSelected.gameObject.transform.SetParent(hit.gameObject.transform);
+                            playerSelected.gameObject.transform.localScale = new Vector3(1, 1, 1);
                             playerSelected.gameObject.transform.position = hit.gameObject.transform.position;
+                            nombres.Add(playerSelected.transform.Find("Character").GetComponent<PlayerController>().getPersonaje().GetNombre());
                             playerSelected = null;
                         }
                         else
@@ -86,6 +100,7 @@ public class PlanificationManager : MonoBehaviour
                             hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(null);
                             hit.gameObject.GetComponent<CeldaManager>().getCelda().ChangeOccupied();
                             dataBattle.removeCelda(hit.gameObject.GetComponent<CeldaManager>());
+                            nombres.Remove(playerSelected.transform.Find("Character").GetComponent<PlayerController>().getPersonaje().GetNombre());
                         }
 
                     }
@@ -94,4 +109,6 @@ public class PlanificationManager : MonoBehaviour
             }
         }
     }
+
+
 }
