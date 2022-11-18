@@ -49,11 +49,14 @@ TagManager:
   - name: Cuerpo Base
     uniqueID: 1445993875
     locked: 0
-  - name: "Pelo Atr\xE1s"
-    uniqueID: 3608290137
-    locked: 0
   - name: Ropa
     uniqueID: 1306115029
+    locked: 0
+  - name: Cara
+    uniqueID: 488696609
+    locked: 0
+  - name: "Pelo Atr\xE1s"
+    uniqueID: 3608290137
     locked: 0
   - name: "Ojos - Pesta\xF1a"
     uniqueID: 478034029
@@ -84,4 +87,7 @@ TagManager:
     locked: 0
   - name: Ceja
     uniqueID: 4116405517
+    locked: 0
+  - name: Vidas
+    uniqueID: 4292312645
     locked: 0

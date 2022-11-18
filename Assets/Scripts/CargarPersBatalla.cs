@@ -80,46 +80,46 @@ public class CargarPersBatalla : MonoBehaviour
             case 0:
                 if(celda.getCelda().GetY() == 0)
                 {
-                    newCharacter.transform.position = new Vector3(transPos.position.x+0.019f, transPos.position.y + 0.468f, 1f);
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.019f, transPos.position.y + 0.766f, 1f);
                 }else if(celda.getCelda().GetY() == 1)
                 {
-                    newCharacter.transform.position = new Vector3(transPos.position.x+0.005f, transPos.position.y + 0.465f, 1f);
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.005f, transPos.position.y + 0.805f, 1f);
                 }
                 else
                 {
-                    newCharacter.transform.position = new Vector3(transPos.position.x+0.117f, transPos.position.y + 0.45f, 1f);
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.261f, transPos.position.y + 0.794f, 1f);
                 }
-                newCharacter.transform.localScale = new Vector3(0.35f, 0.35f, 1f); 
+                newCharacter.transform.localScale = new Vector3(0.6f, 0.6f, 1f); 
                 break;
             case 1:
                 if (celda.getCelda().GetY() == 0)
                 {
-                    newCharacter.transform.position = new Vector3(transPos.position.x+0.044f, transPos.position.y+0.539f, 1f);
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.044f, transPos.position.y+0.933f, 1f);
                 }
                 else if (celda.getCelda().GetY() == 1)
                 {
-                    newCharacter.transform.position = new Vector3(transPos.position.x+0.039f, transPos.position.y+0.516f, 1f);
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.039f, transPos.position.y+0.961f, 1f);
                 }
                 else
                 {
-                    newCharacter.transform.position = new Vector3(transPos.position.x+0.03f, transPos.position.y+0.47f, 1f);
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.03f, transPos.position.y+0.905f, 1f);
                 }
-                newCharacter.transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+                newCharacter.transform.localScale = new Vector3(0.7f, 0.7f, 1f);
                 break;
             case 2:
                 if (celda.getCelda().GetY() == 0)
                 {
-                    newCharacter.transform.position = new Vector3(transPos.position.x + 0.05f, transPos.position.y +0.655f, 1f);
+                    newCharacter.transform.position = new Vector3(transPos.position.x + 0.05f, transPos.position.y +1.072f, 1f);
                 }
                 else if (celda.getCelda().GetY() == 1)
                 {
-                    newCharacter.transform.position = new Vector3(transPos.position.x+0.07f, transPos.position.y+0.655f, 1f);
+                    newCharacter.transform.position = new Vector3(transPos.position.x+0.022f, transPos.position.y+1.049f, 1f);
                 }
                 else
                 {
-                    newCharacter.transform.position = new Vector3(transPos.position.x + 0.044f, transPos.position.y +0.6f, 1f);
+                    newCharacter.transform.position = new Vector3(transPos.position.x-0.027f, transPos.position.y +1.011f, 1f);
                 }
-                newCharacter.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                newCharacter.transform.localScale = new Vector3(0.8f, 0.8f, 1f);
                 break;
         }
         /////// CHARACTER CUSTOMIZATION ///////
