@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.TextCore.Text;
@@ -129,7 +130,9 @@ public class CargarPersonajes : MonoBehaviour
         var newIris = newCharacter.transform.Find("Ojos").transform.Find("Iris").GetComponent<Image>();
         newIris.color = new Color(sp.rp, sp.gi, sp.bi);
 
-        
+        var nivel = uiCharacter.transform.Find("Nivel").GetComponent<TextMeshProUGUI>().text = ""+sp.nivel;
+
+
         var personaje = new Personaje();
         personaje.SetAtaque(sp.ataque);
         personaje.SetDefensa(sp.defensa);
@@ -138,6 +141,10 @@ public class CargarPersonajes : MonoBehaviour
         personaje.SetTipoAtaque((TipoAtaque)sp.tipoAtaque);
         personaje.SetRareza((Rareza)sp.rareza);
         personaje.SetNombre(sp.nombre);
+        personaje.SetNivel(sp.nivel);
+        personaje.SetXp(sp.xp);
+        personaje.SetXpSubida(sp.xpSubida);
+        personaje.SetXpSubidaPrev(sp.xpSubidaPrev);
         newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
 

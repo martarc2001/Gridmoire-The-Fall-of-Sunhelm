@@ -3883,7 +3883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridIA: {fileID: 1595833231}
   gridPlayer: {fileID: 622565098}
-  enemyPrefab: {fileID: 8221006076319714446, guid: 6436c5b72b087fe46842478fbf59cb66, type: 3}
+  enemyPrefab: {fileID: 8221006076319714446, guid: 28b7f8c3556f4814280d08dda6779363, type: 3}
   ejercitoJugador: []
   ejercitoEnemigo: []
   vidasEnemigos: []
@@ -7422,7 +7422,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1939591538}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: LoadMainMenu
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

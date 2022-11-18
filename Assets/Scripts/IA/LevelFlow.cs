@@ -20,6 +20,7 @@ public class LevelFlow : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
 
     [SerializeField] public List<PlayerController> ejercitoJugador = new List<PlayerController>();
+    private List<PlayerController> ejercitoCompletoJugador = new List<PlayerController>();
     [SerializeField] private List<EnemigoController> ejercitoEnemigo = new List<EnemigoController>();
 
     [SerializeField] private List<float> vidasEnemigos = new List<float>();
@@ -27,7 +28,7 @@ public class LevelFlow : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI textoTurno;
 
-    private DataToBattle datosBatalla;
+    private NivelDataHandler datosBatalla;
 
     [SerializeField] private CargarPersBatalla datosCargados;
 
@@ -87,13 +88,15 @@ public class LevelFlow : MonoBehaviour
             {
                 if (QuedanAliados(ejercitoJugador))
                 {
+                    GameObject personajesRecompensa = new GameObject("Ejercito Jugador");
+                    personajesRecompensa.AddComponent<EjercitoRecompensa>();
+                    personajesRecompensa.GetComponent<EjercitoRecompensa>().SetLista(ejercitoCompletoJugador);
+                    DontDestroyOnLoad(personajesRecompensa);
                     SceneManager.LoadScene("Win");
-                    Destroy(FindObjectOfType<DataToBattle>().gameObject);
                 }
                 else
                 {
                     SceneManager.LoadScene("GameOver");
-                    Destroy(FindObjectOfType<DataToBattle>().gameObject);
                 }
 
             }
@@ -181,7 +184,7 @@ public class LevelFlow : MonoBehaviour
         int x, y;
         int nEnemigos = 0;
         Transform celdaTransform = transform;
-        datosBatalla = FindObjectOfType<DataToBattle>();
+        datosBatalla = FindObjectOfType<NivelDataHandler>();
         Celda cell = new Celda();
         
         while (nEnemigos < 3)
@@ -200,7 +203,7 @@ public class LevelFlow : MonoBehaviour
                     cell = celda.getCelda();
                 }
             }
-            var objEnemigo = Instantiate(datosBatalla.getEnemigos()[nEnemigos], celdaTransform.position, Quaternion.identity);
+            var objEnemigo = Instantiate(enemyPrefab, celdaTransform.position, Quaternion.identity);
             objEnemigo.transform.SetParent(celdaTransform);
             switch (x)
             {
@@ -262,7 +265,7 @@ public class LevelFlow : MonoBehaviour
                     objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sortingOrder = 2;
                     break;
             }
-            objEnemigo.GetComponent<EnemigoController>().crearEnemigo();
+            objEnemigo.GetComponent<EnemigoController>().crearEnemigo(datosBatalla.GetEnemigos()[nEnemigos],datosBatalla.GetMundo(),datosBatalla.GetID());
             grid.getGridInfo().GetCeldas()[x, y].SetPersonaje(objEnemigo);
             grid.getGridInfo().GetCeldas()[x, y].ChangeOccupied();
 
@@ -311,6 +314,8 @@ public class LevelFlow : MonoBehaviour
         gridPlayer = datosCargados.GetGridManager();
 
         ia.SetEjercito(ejercitoEnemigo);
+
+        ejercitoCompletoJugador = ejercitoJugador;
         initialize = true;
     }
 
