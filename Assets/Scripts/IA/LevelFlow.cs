@@ -126,6 +126,7 @@ public class LevelFlow : MonoBehaviour
         turnoIATomado = true;
         foreach (var personaje in ejercitoEnemigo)
         {
+            QuedanAliados(ejercitoJugador);
             textoTurno.SetText("Turno Enemigos");
             personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.blue;
             ia.resaltarAtaque(gridIA, gridPlayer, personaje);
@@ -135,6 +136,7 @@ public class LevelFlow : MonoBehaviour
             ia.resetResalto(gridIA, gridPlayer);
             personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.gray;
             yield return new WaitForSeconds(0.25f);
+            
         }
 
         textoTurno.SetText("Turno Jugador");
@@ -152,11 +154,14 @@ public class LevelFlow : MonoBehaviour
     {
         var result = false;
         List<PlayerController> persEliminar = new List<PlayerController>();
+        List<CeldaManager> celdaVaciar = new List<CeldaManager>();
+
         foreach(var personaje in comprobar)
         {
             if(personaje.getPersonaje().GetVida() <= 0)
             {
                 persEliminar.Add(personaje);
+                celdaVaciar.Add(personaje.GetComponentInParent<CeldaManager>());
             }
             if(personaje.getPersonaje().GetVida() > 0)
             {
@@ -167,7 +172,20 @@ public class LevelFlow : MonoBehaviour
         foreach(var eliminados in persEliminar)
         {
             comprobar.Remove(eliminados);
+            GetComponent<BattleController>().eliminarMuerto(eliminados.GetComponent<SeleccionableManager>());
             Destroy(eliminados.gameObject);
+        }
+
+        foreach(var celda in celdaVaciar)
+        {
+            foreach(var cell in gridPlayer.getCeldas())
+            {
+                if(celda.getCelda().GetX() == cell.getCelda().GetX() && celda.getCelda().GetY() == cell.getCelda().GetY())
+                {
+                    cell.getCelda().SetPersonaje(null);
+                    cell.getCelda().ChangeOccupied();
+                }
+            }
         }
         return result;
     }
