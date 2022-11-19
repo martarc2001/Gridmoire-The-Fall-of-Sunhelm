@@ -48,16 +48,16 @@ public class Enemigo
                 break;
 
             case TipoEnemigo.DEMONIO_HEMBRA:
-                ataque = Random.Range(8+nivel, 20+nivel);
-                defensa = Random.Range(8+nivel, 15+nivel);
+                ataque = Random.Range(12+nivel, 20+nivel);
+                defensa = Random.Range(8+nivel, 18+nivel);
                 vida = Random.Range(15+nivel, 30+nivel);
                 vidaMax = vida;
                 tipoAtaque = (TipoAtaque)Random.Range(0, 5);
                 break;
 
             case TipoEnemigo.DEMONIO_MACHO:
-                ataque = Random.Range(8+nivel, 20 + nivel);
-                defensa = Random.Range(8+nivel, 15+nivel);
+                ataque = Random.Range(10+nivel, 18 + nivel);
+                defensa = Random.Range(10+nivel, 20+nivel);
                 vida = Random.Range(15 + nivel, 30 +nivel);
                 vidaMax = vida;
                 tipoAtaque = (TipoAtaque)Random.Range(0, 5);
