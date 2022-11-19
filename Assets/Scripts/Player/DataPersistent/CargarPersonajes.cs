@@ -24,6 +24,8 @@ public class CargarPersonajes : MonoBehaviour
 
     [SerializeField] private List<Sprite> tiposAtaque;
 
+    private Rareza rarezaActual;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +68,7 @@ public class CargarPersonajes : MonoBehaviour
                             }
                         }
                     }
+                    rarezaActual = Rareza.COMUN;
                     break;
                 case "Raro":
                     string rar = PlayerPrefs.GetString("rares");
@@ -82,6 +85,7 @@ public class CargarPersonajes : MonoBehaviour
                             }
                         }
                     }
+                    rarezaActual = Rareza.RARO;
                     break;
                 case "SuperRaro":
                     string sr = PlayerPrefs.GetString("superRares");
@@ -98,6 +102,7 @@ public class CargarPersonajes : MonoBehaviour
                             }
                         }
                     }
+                    rarezaActual = Rareza.SUPER_RARO;
                     break;
             }
         }
@@ -111,6 +116,8 @@ public class CargarPersonajes : MonoBehaviour
             Destroy(transform.GetChild(i).gameObject);
         }
     }
+
+    public Rareza getRarezaAtual() { return rarezaActual; }
 
 
     private void instanciarPersonaje(SerializablePlayer sp)

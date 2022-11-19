@@ -43,7 +43,7 @@ public class StoreManager : MonoBehaviour
         switch (rareness)
         {
             case "Comun":
-                textoCompra.text = "Comprar: 500";
+                textoCompra.text = "Comprar: 150";
                 newRareza = Rareza.COMUN;
                 spl.list.Clear();
                 var com = PlayerPrefs.GetString("commons");
@@ -54,7 +54,7 @@ public class StoreManager : MonoBehaviour
                 }
                 break;
             case "Raro":
-                textoCompra.text = "Comprar: 1000";
+                textoCompra.text = "Comprar: 500";
                 newRareza = Rareza.RARO;
                 spl.list.Clear();
                 var rar = PlayerPrefs.GetString("rares");
@@ -65,7 +65,7 @@ public class StoreManager : MonoBehaviour
                 }
                 break;
             case "SuperRaro":
-                textoCompra.text = "Comprar: 1500";
+                textoCompra.text = "Comprar: 2500";
                 newRareza = Rareza.SUPER_RARO;
                 spl.list.Clear();
                 var ur = PlayerPrefs.GetString("superRares");

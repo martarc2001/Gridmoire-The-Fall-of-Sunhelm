@@ -13,7 +13,7 @@ public class PlanificationManager : MonoBehaviour
     [SerializeField] DataToBattle dataBattle;
 
     private List<string> nombres = new List<string>();
-
+    [SerializeField] private CargarPersonajes cargarScript;
 
     public List<string> getNombres() { return nombres; }
 
@@ -75,16 +75,29 @@ public class PlanificationManager : MonoBehaviour
                     {
                         if (playerSelected != null)
                         {
-                            hit.gameObject.GetComponent<CeldaManager>().getCelda()
-                                .GetPersonaje().transform.SetParent(canvasParent.transform);
-                            hit.gameObject.GetComponent<CeldaManager>().getCelda()
-                                .GetPersonaje().transform.localScale = new Vector3(3, 3, 3);
 
                             nombres.Remove(hit.gameObject.GetComponent<CeldaManager>().getCelda()
                                 .GetPersonaje().transform.Find("Character").GetComponent<PlayerController>()
                                 .getPersonaje().GetNombre()
                                 );
+
+                            if (hit.gameObject.GetComponent<CeldaManager>().getCelda()
+                                .GetPersonaje().transform.Find("Character").GetComponent<PlayerController>()
+                                .getPersonaje().GetRareza() == cargarScript.getRarezaAtual())
+                            {
+                                hit.gameObject.GetComponent<CeldaManager>().getCelda()
+                                .GetPersonaje().transform.SetParent(canvasParent.transform);
+                                hit.gameObject.GetComponent<CeldaManager>().getCelda()
+                                    .GetPersonaje().transform.localScale = new Vector3(3, 3, 3);
+
+                            }
+                            else
+                            {
+                                Destroy(hit.gameObject.GetComponent<CeldaManager>().getCelda()
+                                .GetPersonaje().gameObject);
+                            }
                             
+
                             hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(null);
                             hit.gameObject.GetComponent<CeldaManager>().getCelda().SetPersonaje(playerSelected);
                             playerSelected.gameObject.transform.SetParent(hit.gameObject.transform);
