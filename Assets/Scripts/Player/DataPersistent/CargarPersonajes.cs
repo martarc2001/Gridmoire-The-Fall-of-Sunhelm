@@ -24,10 +24,12 @@ public class CargarPersonajes : MonoBehaviour
 
     [SerializeField] private List<Sprite> tiposAtaque;
 
+    private Rareza rarezaActual;
+
     // Start is called before the first frame update
     void Start()
     {
-        string com = PlayerPrefs.GetString("commons");
+        /*string com = PlayerPrefs.GetString("commons");
 
         if (!string.IsNullOrEmpty(com))
         {
@@ -37,7 +39,9 @@ public class CargarPersonajes : MonoBehaviour
             {
                 instanciarPersonaje(p);
             }
-        }
+        }*/
+
+        changeRareness("Comun");
 
     }
 
@@ -66,6 +70,7 @@ public class CargarPersonajes : MonoBehaviour
                             }
                         }
                     }
+                    rarezaActual = Rareza.COMUN;
                     break;
                 case "Raro":
                     string rar = PlayerPrefs.GetString("rares");
@@ -82,6 +87,7 @@ public class CargarPersonajes : MonoBehaviour
                             }
                         }
                     }
+                    rarezaActual = Rareza.RARO;
                     break;
                 case "SuperRaro":
                     string sr = PlayerPrefs.GetString("superRares");
@@ -98,6 +104,7 @@ public class CargarPersonajes : MonoBehaviour
                             }
                         }
                     }
+                    rarezaActual = Rareza.SUPER_RARO;
                     break;
             }
         }
@@ -111,6 +118,8 @@ public class CargarPersonajes : MonoBehaviour
             Destroy(transform.GetChild(i).gameObject);
         }
     }
+
+    public Rareza getRarezaAtual() { return rarezaActual; }
 
 
     private void instanciarPersonaje(SerializablePlayer sp)
@@ -148,10 +157,8 @@ public class CargarPersonajes : MonoBehaviour
         var ropa = newCharacter.transform.Find("Ropa").GetComponent<Image>();
         ropa.sprite = ropas[sp.ropa];
 
-
         newFlequillo.color = new Color(sp.rp, sp.gp, sp.bp);
         newPelo.color = new Color(sp.rp, sp.gp, sp.bp);
-
 
         var newIris = newCharacter.transform.Find("Ojos").transform.Find("Iris").GetComponent<Image>();
         newIris.color = new Color(sp.rp, sp.gi, sp.bi);

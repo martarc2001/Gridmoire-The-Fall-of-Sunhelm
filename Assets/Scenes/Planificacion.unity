@@ -3218,6 +3218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasParent: {fileID: 1649428663}
   dataBattle: {fileID: 464156422}
+  cargarScript: {fileID: 1649428665}
 --- !u!4 &1238200907
 Transform:
   m_ObjectHideFlags: 0
