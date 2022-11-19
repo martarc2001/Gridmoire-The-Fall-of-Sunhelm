@@ -1,14 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class RecompensaHandler : MonoBehaviour
 {
+
+    [SerializeField] private TextMeshProUGUI textoMonedas;
+    [SerializeField] private TextMeshProUGUI textoXP;
     // Start is called before the first frame update
     void Start()
     {
         var nivelData = FindObjectOfType<NivelDataHandler>();
         GameManager.instance.sumarDinero(nivelData.GetMonedas());
+
+        textoMonedas.text = "" + nivelData.GetMonedas();
+        textoXP.text = "" + nivelData.GetXp();
 
         var ejercitoData = FindObjectOfType<EjercitoRecompensa>();
 

@@ -29,7 +29,7 @@ public class CargarPersonajes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string com = PlayerPrefs.GetString("commons");
+        /*string com = PlayerPrefs.GetString("commons");
 
         if (!string.IsNullOrEmpty(com))
         {
@@ -39,7 +39,9 @@ public class CargarPersonajes : MonoBehaviour
             {
                 instanciarPersonaje(p);
             }
-        }
+        }*/
+
+        changeRareness("Comun");
 
     }
 
@@ -155,10 +157,8 @@ public class CargarPersonajes : MonoBehaviour
         var ropa = newCharacter.transform.Find("Ropa").GetComponent<Image>();
         ropa.sprite = ropas[sp.ropa];
 
-
         newFlequillo.color = new Color(sp.rp, sp.gp, sp.bp);
         newPelo.color = new Color(sp.rp, sp.gp, sp.bp);
-
 
         var newIris = newCharacter.transform.Find("Ojos").transform.Find("Iris").GetComponent<Image>();
         newIris.color = new Color(sp.rp, sp.gi, sp.bi);
