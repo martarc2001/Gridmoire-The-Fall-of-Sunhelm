@@ -88,14 +88,28 @@ public class LevelFlow : MonoBehaviour
             {
                 if (QuedanAliados(ejercitoJugador))
                 {
+                    var nivelData = FindObjectOfType<NivelDataHandler>();
                     GameObject personajesRecompensa = new GameObject("Ejercito Jugador");
                     personajesRecompensa.AddComponent<EjercitoRecompensa>();
-                    foreach(var p in ejercitoCompletoJugador)
+                    foreach (var p in ejercitoCompletoJugador)
                     {
                         personajesRecompensa.GetComponent<EjercitoRecompensa>().AddPersonaje(p.getPersonaje());
                     }
                     DontDestroyOnLoad(personajesRecompensa);
-                    SceneManager.LoadScene("Win");
+
+                    string estadosString = PlayerPrefs.GetString("Estados Niveles");
+
+                    SerializableEstadoList estados = JsonUtility.FromJson<SerializableEstadoList>(estadosString);
+
+                    if (nivelData.GetHistoria() == 0 || estados.list[nivelData.GetMundo()*nivelData.GetID()-1] == Estado.JUGADO)
+                    {
+                        SceneManager.LoadScene("Win");
+                    }
+                    else
+                    {
+                        //cargar historia correspondiente aquí
+                    }
+                    
                 }
                 else
                 {

@@ -22,10 +22,12 @@ public class SerializableLevel
     public int monedas;
     public int xp;
 
+    public int historia;
+
 
     public SerializableLevel() { }
 
-    public SerializableLevel(int mundo, int id, string nombre, List<int> enemigos, int monedas, int xp)
+    public SerializableLevel(int mundo, int id, string nombre, List<int> enemigos, int monedas, int xp, int historia)
     {
         this.mundo = mundo;
         this.id = id;
@@ -33,5 +35,6 @@ public class SerializableLevel
         this.enemigos = enemigos;
         this.monedas = monedas;
         this.xp = xp;
+        this.historia = historia;
     }
 }
