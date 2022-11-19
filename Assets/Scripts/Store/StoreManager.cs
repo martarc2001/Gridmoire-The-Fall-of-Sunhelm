@@ -29,13 +29,15 @@ public class StoreManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI textoNoDinero;
     [SerializeField] private TextMeshProUGUI textoCompra;
+
+    [SerializeField] private GameObject moneda;
     public void Start()
     {
     }
     public void Awake()
     {
         newRareza = Rareza.COMUN;
-        changeRareness("Comun");
+        //changeRareness("Comun");
     }
 
     public void changeRareness(string rareness)
@@ -43,7 +45,8 @@ public class StoreManager : MonoBehaviour
         switch (rareness)
         {
             case "Comun":
-                textoCompra.text = "Comprar: 500";
+                moneda.SetActive(true);
+                textoCompra.text = "Comprar:\n   150";
                 newRareza = Rareza.COMUN;
                 spl.list.Clear();
                 var com = PlayerPrefs.GetString("commons");
@@ -54,7 +57,8 @@ public class StoreManager : MonoBehaviour
                 }
                 break;
             case "Raro":
-                textoCompra.text = "Comprar: 1000";
+                moneda.SetActive(true);
+                textoCompra.text = "Comprar:\n   500";
                 newRareza = Rareza.RARO;
                 spl.list.Clear();
                 var rar = PlayerPrefs.GetString("rares");
@@ -65,7 +69,8 @@ public class StoreManager : MonoBehaviour
                 }
                 break;
             case "SuperRaro":
-                textoCompra.text = "Comprar: 1500";
+                moneda.SetActive(true);
+                textoCompra.text = "Comprar:\n   2500";
                 newRareza = Rareza.SUPER_RARO;
                 spl.list.Clear();
                 var ur = PlayerPrefs.GetString("superRares");

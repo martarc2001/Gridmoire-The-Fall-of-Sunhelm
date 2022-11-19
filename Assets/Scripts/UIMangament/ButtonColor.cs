@@ -13,6 +13,11 @@ public class ButtonColor : MonoBehaviour
 
     public void blackColor()
     {
-        GetComponent<TextMeshProUGUI>().color = Color.black;
+        //GetComponent<TextMeshProUGUI>().color = Color.black;
+        GetComponent<TextMeshProUGUI>().color = Color.white;
+        //GetComponent<TextMeshProUGUI>().color = new Color(171, 0, 255);
+        //GetComponent<TextMeshProUGUI>().color =new Color(90/255f, 26/255f, 119/255f);
     }
+
+   
 }
