@@ -5,11 +5,26 @@ using UnityEngine;
 public class EjercitoManager : MonoBehaviour
 {
 
+    [SerializeField] private AudioClip clip;
+
+    private void Awake()
+    {
+        GameManager.instance.setClip(clip);
+    }
     private void Start()
     {
         if (!PlayerPrefs.HasKey("commons"))
         {
             crearPersonajes();
+        }
+
+        if (FindObjectOfType<DataToBattle>())
+        {
+            Destroy(FindObjectOfType<DataToBattle>().gameObject);
+        }
+        if (FindObjectOfType<NivelDataHandler>())
+        {
+            Destroy(FindObjectOfType<NivelDataHandler>().gameObject);
         }
     }
 

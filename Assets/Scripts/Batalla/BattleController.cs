@@ -13,9 +13,16 @@ public class BattleController : MonoBehaviour
 
     private int turnosJugados=0;
 
+    [SerializeField] private AudioClip clip;
+
     private Dictionary<int, List<Color>> colores = new Dictionary<int, List<Color>>();
     [SerializeField] private CeldaManager cellSelected;
     int keyDic = 0;
+
+    private void Awake()
+    {
+        GameManager.instance.setClip(clip);
+    }
     private void Start()
     {
         gridEnemigo = GetComponent<LevelFlow>().GetGridIA();

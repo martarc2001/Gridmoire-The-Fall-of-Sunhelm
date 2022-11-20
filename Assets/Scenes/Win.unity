@@ -1154,6 +1154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textoMonedas: {fileID: 58124975}
   textoXP: {fileID: 1207059074}
+  clip: {fileID: 8300000, guid: 5d9dd3d57c829a448bdff3977ea13099, type: 3}
 --- !u!4 &1554965677
 Transform:
   m_ObjectHideFlags: 0
