@@ -48,7 +48,7 @@ public class SceneLoader : MonoBehaviour
         if(PlayerPrefs.GetInt("PrimeraVez") == 1)
         {
             PlayerPrefs.SetInt("PrimeraVez", 0);
-            SceneManager.LoadScene("Visual Novel");
+            SceneManager.LoadScene("Intro Visual Novel");
         } else
         {
             SceneManager.LoadScene("Seleccion de niveles");
