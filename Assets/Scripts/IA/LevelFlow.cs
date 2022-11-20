@@ -99,17 +99,7 @@ public class LevelFlow : MonoBehaviour
 
                     string estadosString = PlayerPrefs.GetString("Estados Niveles");
 
-                    SerializableEstadoList estados = JsonUtility.FromJson<SerializableEstadoList>(estadosString);
-
-                    if (nivelData.GetHistoria() == 0 || estados.list[nivelData.GetMundo()*nivelData.GetID()-1] == Estado.JUGADO)
-                    {
-                        SceneManager.LoadScene("Win");
-                    }
-                    else
-                    {
-                        //cargar historia correspondiente aquí
-                    }
-                    
+                    SceneManager.LoadScene("Win");
                 }
                 else
                 {

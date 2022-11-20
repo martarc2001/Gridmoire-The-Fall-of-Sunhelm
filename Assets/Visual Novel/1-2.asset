@@ -1,0 +1,183 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d55d090c78b6240aa6dccd6042a022, type: 3}
+  m_Name: 1-2
+  m_EditorClassIdentifier: 
+  links:
+  - guid: 29175d6e-ff0a-4f62-b527-cc063db40efc
+    targetGuid: b21d8e9b-abb9-4ad1-802c-ec1cf3f9e23e
+    portId: 0
+  - guid: b21d8e9b-abb9-4ad1-802c-ec1cf3f9e23e
+    targetGuid: a3d24778-0bb4-4075-bba6-88dc00d43672
+    portId: 1
+  - guid: a3d24778-0bb4-4075-bba6-88dc00d43672
+    targetGuid: ffce43cc-4c10-4db4-b8f5-7c4f2c4fdb23
+    portId: 2
+  - guid: 52307091-6eda-411a-b907-f573182eb516
+    targetGuid: 29175d6e-ff0a-4f62-b527-cc063db40efc
+    portId: 3
+  - guid: ffce43cc-4c10-4db4-b8f5-7c4f2c4fdb23
+    targetGuid: d6ad8c03-c8b7-4152-b5b4-7a1ecc0a0b46
+    portId: 4
+  - guid: d6ad8c03-c8b7-4152-b5b4-7a1ecc0a0b46
+    targetGuid: 09618ed2-4f05-4fea-970d-19c85b7f5214
+    portId: 5
+  - guid: adfa2614-7572-4dc9-ad3f-7ee90e15c7bf
+    targetGuid: 52307091-6eda-411a-b907-f573182eb516
+    portId: 6
+  nodes:
+  - guid: adfa2614-7572-4dc9-ad3f-7ee90e15c7bf
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: Bueno, eso ha ido mejor de lo que esperaba.
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 1
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 8
+      y: 322
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 52307091-6eda-411a-b907-f573182eb516
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: Vaya, no ha estado nada mal para ser la primera vez...
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 633
+      y: 322
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 29175d6e-ff0a-4f62-b527-cc063db40efc
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: Tal vez no sea imposible salvar este reino.
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1245
+      y: 322
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: a3d24778-0bb4-4075-bba6-88dc00d43672
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Emm... Bueno, creo que cualquier persona con una espada podr\xEDa
+      encargarse de est-"
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 2470
+      y: 322
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: b21d8e9b-abb9-4ad1-802c-ec1cf3f9e23e
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "\xA1Te dije que ser\xEDa capaz! Seguro que en un visto y no visto
+      hemos conseguido salvar el mundo."
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1819
+      y: 322
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: ffce43cc-4c10-4db4-b8f5-7c4f2c4fdb23
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "\xA1Ah! Qu\xE9 bien sienta derrotar al mal. \xA1Vamos a por m\xE1s!"
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 3099
+      y: 322
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: d6ad8c03-c8b7-4152-b5b4-7a1ecc0a0b46
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "\xA1Espera! No te lances as-...As\xED, sin pensar..."
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 3727
+      y: 322
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 09618ed2-4f05-4fea-970d-19c85b7f5214
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "*Suspiro* Y ah\xED va. Espero que sepa lo que hace."
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 1
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 4350
+      y: 323
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
