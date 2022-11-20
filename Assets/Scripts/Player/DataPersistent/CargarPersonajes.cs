@@ -168,11 +168,12 @@ public class CargarPersonajes : MonoBehaviour
 
         var cuerpo = newCharacter.transform.Find("CUERPO BASE").GetComponent<Image>();
         cuerpo.color = new Color(sp.rc, sp.gc, sp.bc);
-
+        newOrejas.color = new Color(sp.rc, sp.gc, sp.bc);
 
 
         newFlequillo.color = new Color(sp.rp, sp.gp, sp.bp);
         newPelo.color = new Color(sp.rp, sp.gp, sp.bp);
+        newCejas.color = new Color(sp.rp, sp.gp, sp.bp);
 
         var newIris = newCharacter.transform.Find("Ojos").transform.Find("Iris").GetComponent<Image>();
         newIris.color = new Color(sp.rp, sp.gi, sp.bi);

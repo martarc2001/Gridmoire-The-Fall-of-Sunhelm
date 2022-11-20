@@ -30,6 +30,7 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private List<Sprite> ropas;
     [SerializeField] private List<Sprite> armas_delante;
     [SerializeField] private List<Sprite> armas_detras;
+    [SerializeField] private List<Sprite> tiposAtaque;
 
     [SerializeField] private TextMeshProUGUI textoNoDinero;
     [SerializeField] private TextMeshProUGUI textoCompra;
@@ -218,6 +219,25 @@ public class StoreManager : MonoBehaviour
         /////// ATTACK SELECTION ///////
 
         var tipoAtaque = (TipoAtaque)Random.Range(0, 5);
+
+        switch ((int)tipoAtaque)
+        {
+            case 0:
+                newCharacter.transform.Find("Arma_detras").GetComponent<SpriteRenderer>().sprite = tiposAtaque[0];
+                break;
+            case 1:
+                newCharacter.transform.Find("Arma_detras").GetComponent<SpriteRenderer>().sprite = tiposAtaque[1];
+                break;
+            case 2:
+                newCharacter.transform.Find("Arma_detras").GetComponent<SpriteRenderer>().sprite = tiposAtaque[2];
+                break;
+            case 3:
+                newCharacter.transform.Find("Arma_detras").GetComponent<SpriteRenderer>().sprite = tiposAtaque[3];
+                break;
+            case 4:
+                newCharacter.transform.Find("Arma_detras").GetComponent<SpriteRenderer>().sprite = tiposAtaque[4];
+                break;
+        }
 
         ///// CHARACTER GENERATION /////
 

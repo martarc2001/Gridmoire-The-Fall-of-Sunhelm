@@ -169,12 +169,16 @@ public class CargarPersBatalla : MonoBehaviour
         cuerpo.color = new Color(sp.rc, sp.gc, sp.bc);
 
         newCharacter.transform.Find("Cara").GetComponent<SpriteRenderer>().color = new Color(sp.rc, sp.gc, sp.bc);
+        newOrejas.color = new Color(sp.rc, sp.gc, sp.bc);
 
         newFlequillo.color = new Color(sp.rp, sp.gp, sp.bp);
         newPelo.color = new Color(sp.rp, sp.gp, sp.bp);
+        newCejas.color = new Color(sp.rp, sp.gp, sp.bp);
 
         var newIris = newCharacter.transform.Find("Ojos").transform.Find("Iris").GetComponent<SpriteRenderer>();
         newIris.color = new Color(sp.rp, sp.gi, sp.bi);
+
+        newCharacter.transform.Find("Ataque").gameObject.SetActive(false);
 
         var personaje = new Personaje();
         personaje.SetAtaque(sp.ataque);
@@ -210,10 +214,12 @@ public class CargarPersBatalla : MonoBehaviour
         cabeza.transform.Find("Orejas").GetComponent<SpriteRenderer>().sprite = orejas[sp.orejas - 1];
 
         cabeza.transform.Find("Flequillo").GetComponent<SpriteRenderer>().color = new Color(sp.rp, sp.gp, sp.bp);
+        cabeza.transform.Find("Cejas").GetComponent<SpriteRenderer>().color = new Color(sp.rp, sp.gp, sp.bp);
 
         cabeza.transform.Find("Ojos").transform.Find("Iris").GetComponent<SpriteRenderer>().color = new Color(sp.rp, sp.gi, sp.bi);
 
         cabeza.transform.Find("Cara").GetComponent<SpriteRenderer>().color = new Color(sp.rc, sp.gc, sp.bc);
+        cabeza.transform.Find("Orejas").GetComponent<SpriteRenderer>().color = new Color(sp.rc, sp.gc, sp.bc);
 
         var ataque = cabeza.transform.Find("Ataque").GetComponent<SpriteRenderer>();
 

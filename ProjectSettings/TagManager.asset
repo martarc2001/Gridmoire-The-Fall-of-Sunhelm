@@ -58,6 +58,9 @@ TagManager:
   - name: Cara
     uniqueID: 2871864043
     locked: 0
+  - name: Pestanhas
+    uniqueID: 536924473
+    locked: 0
   - name: Ojos-Brillo
     uniqueID: 266258723
     locked: 0
@@ -66,9 +69,6 @@ TagManager:
     locked: 0
   - name: Ojos-Extras
     uniqueID: 594489531
-    locked: 0
-  - name: Pestanhas
-    uniqueID: 536924473
     locked: 0
   - name: Flequillo
     uniqueID: 3857822035
