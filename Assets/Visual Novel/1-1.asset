@@ -1,0 +1,797 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d55d090c78b6240aa6dccd6042a022, type: 3}
+  m_Name: 1-1
+  m_EditorClassIdentifier: 
+  links:
+  - guid: c8c6bcfa-a5bb-4ab7-9aa8-ce40fc023914
+    targetGuid: 74ee42d1-cc12-4e44-9a61-0dc3e7119f78
+    portId: 0
+  - guid: 74ee42d1-cc12-4e44-9a61-0dc3e7119f78
+    targetGuid: 57a0fa2c-945e-478b-98c0-72d023a0acfc
+    portId: 1
+  - guid: 57a0fa2c-945e-478b-98c0-72d023a0acfc
+    targetGuid: 9826e00c-eae3-48ae-ae5c-1eed2dcf275d
+    portId: 2
+  - guid: 9826e00c-eae3-48ae-ae5c-1eed2dcf275d
+    targetGuid: 2515c4cd-4884-41f1-a58a-ff3484073a93
+    portId: 3
+  - guid: 43d01ffb-d0cc-489a-ac73-8b9bd097bc09
+    targetGuid: 069cd0b2-2604-4a84-a820-0e0d78b4284e
+    portId: 4
+  - guid: 069cd0b2-2604-4a84-a820-0e0d78b4284e
+    targetGuid: a46766d5-0b9a-49fa-a92e-68f6f386e410
+    portId: 5
+  - guid: 2515c4cd-4884-41f1-a58a-ff3484073a93
+    targetGuid: 43d01ffb-d0cc-489a-ac73-8b9bd097bc09
+    portId: 6
+  - guid: a46766d5-0b9a-49fa-a92e-68f6f386e410
+    targetGuid: a445cc84-2d6a-4225-897a-fd2ff27d6c8d
+    portId: 7
+  - guid: a445cc84-2d6a-4225-897a-fd2ff27d6c8d
+    targetGuid: 486223ad-a570-4135-83ef-c8b4464c3df3
+    portId: 8
+  - guid: 486223ad-a570-4135-83ef-c8b4464c3df3
+    targetGuid: 0af98f7a-b2e4-4f43-9b1d-62a33f3b690e
+    portId: 9
+  - guid: 0af98f7a-b2e4-4f43-9b1d-62a33f3b690e
+    targetGuid: 2a47e1f5-27b6-4d57-a81e-66c295841684
+    portId: 10
+  - guid: 2a47e1f5-27b6-4d57-a81e-66c295841684
+    targetGuid: df8aec36-c47a-425f-ae30-e7c2190090d4
+    portId: 11
+  - guid: df8aec36-c47a-425f-ae30-e7c2190090d4
+    targetGuid: 0598e9c9-f3cb-4b5d-9b3f-86f1d64e8efc
+    portId: 12
+  - guid: 0598e9c9-f3cb-4b5d-9b3f-86f1d64e8efc
+    targetGuid: 586b97d8-675d-44e1-a862-604e9097b458
+    portId: 13
+  - guid: 586b97d8-675d-44e1-a862-604e9097b458
+    targetGuid: 9cf021c1-ed70-4a1d-a0ab-868df07644ac
+    portId: 14
+  - guid: 9cf021c1-ed70-4a1d-a0ab-868df07644ac
+    targetGuid: 25def71b-2d32-4cbe-af7a-2ba24c18d537
+    portId: 15
+  - guid: 25def71b-2d32-4cbe-af7a-2ba24c18d537
+    targetGuid: eb63d13c-0e4f-40e3-99f7-2a041109b766
+    portId: 16
+  - guid: eaf1e1d1-fb56-4a18-964c-c4111837c30d
+    targetGuid: 2bc2cac8-83b4-45c2-a20c-96357ddfc2b6
+    portId: 17
+  - guid: fcdce253-fb70-4f93-a009-5244898f00f8
+    targetGuid: eaf1e1d1-fb56-4a18-964c-c4111837c30d
+    portId: 18
+  - guid: 2bc2cac8-83b4-45c2-a20c-96357ddfc2b6
+    targetGuid: 09252d16-6602-46e5-88a9-3de53179eb21
+    portId: 19
+  nodes:
+  - guid: c8c6bcfa-a5bb-4ab7-9aa8-ce40fc023914
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1535
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 74ee42d1-cc12-4e44-9a61-0dc3e7119f78
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 2299
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 57a0fa2c-945e-478b-98c0-72d023a0acfc
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 2913
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 9826e00c-eae3-48ae-ae5c-1eed2dcf275d
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 3501
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 43d01ffb-d0cc-489a-ac73-8b9bd097bc09
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 4744
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 069cd0b2-2604-4a84-a820-0e0d78b4284e
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 5370
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 2515c4cd-4884-41f1-a58a-ff3484073a93
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 4111
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: a46766d5-0b9a-49fa-a92e-68f6f386e410
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 5961
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: a445cc84-2d6a-4225-897a-fd2ff27d6c8d
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 6557
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 486223ad-a570-4135-83ef-c8b4464c3df3
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 7160
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 0af98f7a-b2e4-4f43-9b1d-62a33f3b690e
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 7775
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 2a47e1f5-27b6-4d57-a81e-66c295841684
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 8363
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: df8aec36-c47a-425f-ae30-e7c2190090d4
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 8974
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 0598e9c9-f3cb-4b5d-9b3f-86f1d64e8efc
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 9593
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 586b97d8-675d-44e1-a862-604e9097b458
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 10220
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 9cf021c1-ed70-4a1d-a0ab-868df07644ac
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 10804
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 25def71b-2d32-4cbe-af7a-2ba24c18d537
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 11400
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 2418f353-d5de-4e1a-a93b-0fe41b5b8fed
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 11989
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 46fc2a9b-0412-45c6-a9ff-b93093561fe7
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 12582
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 0267050a-9745-4288-966b-e9f6d1d967cb
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 13174
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: f61d1d71-8436-4ab1-96f7-2974e1f79f83
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 13783
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 2365f140-3cea-4576-a57a-6ed9e77cc1d1
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 14393
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 6b342d37-f288-4171-a1bc-40d341a89d73
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 14990
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: cbf73fd9-ae9a-4e31-87b0-bb5d6cc353a6
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 15570
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 386921f2-83fd-4dcf-a7e1-68285cc84431
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 16150
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 2a660fd9-7e32-4845-95b9-7356ee30ebd4
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 16783
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 075b314b-890b-4055-befc-b13ef92842e6
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 17462
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: e8c8cbad-634d-4508-84f9-c31c7efcc3c6
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 18119
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: a22c5511-88ff-4519-a5d4-faa1ff430fd7
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 18731
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: e2f917bc-82fa-4ce5-89d8-ef66f4af5589
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 19346
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 9bdd243f-cad1-4689-8faf-bb51f67e5950
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 19938
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: efa0430f-932f-4006-85e5-8d43076c8887
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 20535
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 41517baf-6229-42cc-90b8-dd8da667c6a6
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 21122
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 44271d21-c3a9-4764-9dab-0bcd1803adbc
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 21713
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: a48f1e5c-c422-47f8-b6e1-1f57aaf6213f
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 1
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 22284
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: eb63d13c-0e4f-40e3-99f7-2a041109b766
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 0}
+    startNode: 0
+    endNode: 1
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 11989
+      y: -112
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: fcdce253-fb70-4f93-a009-5244898f00f8
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: "T\xFA"
+    dialogueText: "Todo empez\xF3 aquel d\xEDa... Estaba tranquilo jugando en mi
+      consola Mytendo Snitch al aclamado juego de estrategia Fatal Fallacy XX cuando..."
+    backgroundSpr: {fileID: 21300000, guid: 375910f00bc5ed64b8b7415a00664f88, type: 3}
+    startNode: 1
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: -403
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: eaf1e1d1-fb56-4a18-964c-c4111837c30d
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: "T\xFA"
+    dialogueText: de repente...
+    backgroundSpr: {fileID: 21300000, guid: 375910f00bc5ed64b8b7415a00664f88, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 229
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 2bc2cac8-83b4-45c2-a20c-96357ddfc2b6
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: "T\xFA"
+    dialogueText: "Fui absorbido a trav\xE9s de mi pantalla a otro mundo..."
+    backgroundSpr: {fileID: 21300000, guid: 375910f00bc5ed64b8b7415a00664f88, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 882
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 09252d16-6602-46e5-88a9-3de53179eb21
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: 
+    dialogueText: 
+    backgroundSpr: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    startNode: 0
+    endNode: 1
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1535
+      y: -96
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}

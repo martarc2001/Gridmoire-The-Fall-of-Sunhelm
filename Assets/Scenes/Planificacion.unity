@@ -4482,7 +4482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <- Volver
+  m_text: "\u2190Volver"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: db2f28f94d5978846913dd5a99116b63, type: 2}
   m_sharedMaterial: {fileID: -5118543241869315926, guid: db2f28f94d5978846913dd5a99116b63, type: 2}
@@ -4820,7 +4820,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <- Volver
+  m_text: "\u2190Volver"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: db2f28f94d5978846913dd5a99116b63, type: 2}
   m_sharedMaterial: {fileID: -5118543241869315926, guid: db2f28f94d5978846913dd5a99116b63, type: 2}
@@ -4847,7 +4847,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 31.6
+  m_fontSize: 34.65
   m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 1
