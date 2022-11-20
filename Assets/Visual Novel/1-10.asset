@@ -1,0 +1,314 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d55d090c78b6240aa6dccd6042a022, type: 3}
+  m_Name: 1-10
+  m_EditorClassIdentifier: 
+  links:
+  - guid: 4856a0fe-6490-405c-a7c5-e8d59f8c3ebf
+    targetGuid: b416b6e7-1f2a-4d1b-9531-b054cafd5fe8
+    portId: 0
+  - guid: b416b6e7-1f2a-4d1b-9531-b054cafd5fe8
+    targetGuid: 556bf1c8-0a81-43a4-9403-72583a96c763
+    portId: 1
+  - guid: 556bf1c8-0a81-43a4-9403-72583a96c763
+    targetGuid: 27a40385-3725-497a-9eb5-f12707332989
+    portId: 2
+  - guid: 27a40385-3725-497a-9eb5-f12707332989
+    targetGuid: 48e157fe-b9f9-4cb9-8301-892bf838780b
+    portId: 3
+  - guid: 48e157fe-b9f9-4cb9-8301-892bf838780b
+    targetGuid: 778e0536-527d-4293-948a-b57c0f440e01
+    portId: 4
+  - guid: 778e0536-527d-4293-948a-b57c0f440e01
+    targetGuid: bd886f1f-0810-4cad-814f-7db44a88b15e
+    portId: 5
+  - guid: bd886f1f-0810-4cad-814f-7db44a88b15e
+    targetGuid: b1bfabc9-1a55-4b0c-93d6-ba8068143682
+    portId: 6
+  - guid: b1bfabc9-1a55-4b0c-93d6-ba8068143682
+    targetGuid: 0b722c6b-55b0-47bd-9e81-7070a3173714
+    portId: 7
+  - guid: 0b722c6b-55b0-47bd-9e81-7070a3173714
+    targetGuid: 49af3d6f-4677-4eb9-8bd0-10eafb70531c
+    portId: 8
+  - guid: 49af3d6f-4677-4eb9-8bd0-10eafb70531c
+    targetGuid: 2104d737-91d8-4e3a-83e7-9a67162d7e61
+    portId: 9
+  - guid: 2104d737-91d8-4e3a-83e7-9a67162d7e61
+    targetGuid: 96761494-07c9-4908-b259-b60774b4ab5a
+    portId: 10
+  - guid: 96761494-07c9-4908-b259-b60774b4ab5a
+    targetGuid: c461b8ea-d1c7-40a4-98ca-b652851b1248
+    portId: 11
+  - guid: c461b8ea-d1c7-40a4-98ca-b652851b1248
+    targetGuid: bba39bc4-ddca-41a7-91df-23188b5c94ae
+    portId: 12
+  nodes:
+  - guid: b416b6e7-1f2a-4d1b-9531-b054cafd5fe8
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "No... No queda ningun monstruo m\xE1s en la capital..."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 70
+      y: 384
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 556bf1c8-0a81-43a4-9403-72583a96c763
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "No me lo creo. \xA1Lo hemos conseguido!"
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 718
+      y: 384
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 27a40385-3725-497a-9eb5-f12707332989
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "Ya te dije que ser\xEDamos capaces. Parece que hacemos un buen
+      equipo."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1320
+      y: 384
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 48e157fe-b9f9-4cb9-8301-892bf838780b
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Qui\xE9n lo dir\xEDa *risas*. Aunque ahora nos queda la parte
+      m\xE1s dif\xEDcil."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1940
+      y: 384
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 778e0536-527d-4293-948a-b57c0f440e01
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "\xBFHm? \xBFNo hemos salvado ya la ciudad?"
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 2547
+      y: 384
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: bd886f1f-0810-4cad-814f-7db44a88b15e
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "S\xED pero mientras Artem siga suelto, la ciudad nunca estar\xE1
+      del todo segura."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 3129
+      y: 384
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: b1bfabc9-1a55-4b0c-93d6-ba8068143682
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Nuestro siguiente paso es ir al bosque de Thelia. All\xED es dondeviven
+      las hadas y duendes de Sunhelm."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 3750
+      y: 384
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 0b722c6b-55b0-47bd-9e81-7070a3173714
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "No tienen recursos para defenderse y viven escondidos en los \xE1rboles.
+      Tenemos que salvarles."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 4359
+      y: 384
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 49af3d6f-4677-4eb9-8bd0-10eafb70531c
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "\xBFEntonces no podemos descansar? Esto de ser un h\xE9roe cansa
+      mucho..."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 4960
+      y: 384
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 2104d737-91d8-4e3a-83e7-9a67162d7e61
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Oh, \xA1venga! Piensa en que ser\xE1s el h\xE9roe tambi\xE9n de
+      las criaturas m\xE1gicas de Thelia"
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 5522
+      y: 384
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 96761494-07c9-4908-b259-b60774b4ab5a
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: ...
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 6130
+      y: 384
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: c461b8ea-d1c7-40a4-98ca-b652851b1248
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "Bueno, pens\xE1ndolo as\xED, ya no me siento tan cansado."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 6710
+      y: 384
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: bba39bc4-ddca-41a7-91df-23188b5c94ae
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "\xA1Esa es la actitud! Venga, \xA1en marcha!"
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 1
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 7334
+      y: 384
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 4856a0fe-6490-405c-a7c5-e8d59f8c3ebf
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "Puff, \xBFqu-queda alguno m\xE1s?"
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 1
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: -575
+      y: 384
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}

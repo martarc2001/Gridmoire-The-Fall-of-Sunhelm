@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [SerializeField] private int dineroJugador = 1500;
-
+    private AudioClip clipMenu;
     public GameManager Instance
     {
         get
@@ -34,11 +35,13 @@ public class GameManager : MonoBehaviour
         }
         
         DontDestroyOnLoad(gameObject);
+
+        clipMenu = GetComponent<AudioSource>().clip;
     }
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey("PrimeraVez") == false)
+        if (!PlayerPrefs.HasKey("PrimeraVez"))
         {
             PlayerPrefs.SetInt("PrimeraVez", 1);
             dineroJugador = 1500;
@@ -62,4 +65,21 @@ public class GameManager : MonoBehaviour
     public void sumarDinero(int dinero) { dineroJugador += dinero; }
 
     public int getDineroJugador() { return dineroJugador; }
+
+    public void setClip(AudioClip clip) {
+        if (clip.name != GetComponent<AudioSource>().clip.name)
+        {
+            GetComponent<AudioSource>().clip = clip;
+            GetComponent<AudioSource>().Play();
+        }
+    }
+
+    public void playSound(AudioClip clip)
+    {
+        var audio = GetComponent<AudioSource>().clip;
+        GetComponent<AudioSource>().Stop() ;
+        GetComponent<AudioSource>().PlayOneShot(clip);
+        GetComponent<AudioSource>().clip = clipMenu;
+        GetComponent<AudioSource>().Play();
+    }
 }

@@ -23,6 +23,14 @@ public class OptionsManager : MonoBehaviour
         slider.value = aux;
 
 
+        var toggle = opciones.GetComponentInChildren<Toggle>() as Toggle;
+
+        bool auxToggle = Screen.fullScreen;
+
+        toggle.isOn = auxToggle;
+
+
+
         opciones.SetActive(true);
 
         foreach(Button boton in botones)
