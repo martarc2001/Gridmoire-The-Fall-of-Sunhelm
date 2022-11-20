@@ -55,7 +55,7 @@ public class StoreManager : MonoBehaviour
         {
             case "Comun":
                 moneda.SetActive(true);
-                textoCompra.text = "Comprar:\n   150";
+                textoCompra.text = "Comprar: 150";
                 newRareza = Rareza.COMUN;
                 spl.list.Clear();
                 var com = PlayerPrefs.GetString("commons");
@@ -67,7 +67,7 @@ public class StoreManager : MonoBehaviour
                 break;
             case "Raro":
                 moneda.SetActive(true);
-                textoCompra.text = "Comprar:\n   500";
+                textoCompra.text = "Comprar: 500";
                 newRareza = Rareza.RARO;
                 spl.list.Clear();
                 var rar = PlayerPrefs.GetString("rares");
@@ -79,7 +79,7 @@ public class StoreManager : MonoBehaviour
                 break;
             case "SuperRaro":
                 moneda.SetActive(true);
-                textoCompra.text = "Comprar:\n   2500";
+                textoCompra.text = "Comprar: 2500";
                 newRareza = Rareza.SUPER_RARO;
                 spl.list.Clear();
                 var ur = PlayerPrefs.GetString("superRares");
