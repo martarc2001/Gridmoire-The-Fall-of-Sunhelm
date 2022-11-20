@@ -33,6 +33,8 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private GameObject moneda;
     public void Start()
     {
+        newRareza = Rareza.COMUN;
+        changeRareness("Comun");
     }
     public void Awake()
     {
@@ -199,28 +201,6 @@ public class StoreManager : MonoBehaviour
         Personaje pers = new Personaje(newNombrePersonaje, tipoAtaque, this.newRareza);
 
         newCharacter.GetComponent<PlayerController>().setPersonaje(pers);
-
-        Debug.Log(newCharacter.GetComponent<PlayerController>().getPersonaje().GetNombre());
-        var ataque = newCharacter.transform.Find("Ataque").GetComponent<SpriteRenderer>();
-
-        switch (tipoAtaque)
-        {
-            case TipoAtaque.SINGLE:
-                ataque.color = Color.red;
-                break;
-            case TipoAtaque.ROW:
-                ataque.color = Color.blue;
-                break;
-            case TipoAtaque.COLUMN:
-                ataque.color = Color.yellow;
-                break;
-            case TipoAtaque.GRID:
-                ataque.color = Color.black;
-                break;
-            case TipoAtaque.HEAL:
-                ataque.color = Color.green;
-                break;
-        }
 
         lastCreated = newCharacter;
 

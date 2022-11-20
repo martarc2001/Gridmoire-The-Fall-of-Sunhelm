@@ -4,8 +4,7 @@ using UnityEngine;
 public class NivelesDataStream : MonoBehaviour
 {
 
-    private string nivelesJson = "{\"list\": [{\"mundo\": 1,\"id\": 1,\"nombre\": \"Patata\",\"enemigos\": [0, 0, 0],\"monedas\": 30,\"xp\": 30},{\"mundo\": 1,\"id\": 2,\"nombre\": \"Zanahoria\",\"enemigos\": [0, 0, 0],\"monedas\": 75,\"xp\": 40},{\"mundo\": 1,\"id\": 3,\"nombre\": \"Puerro\",\"estado\": 2,\"enemigos\": [0, 1, 0],\"monedas\": 100,\"xp\": 50}]}";
-
+    private string nivelesJson = "{\"list\":[{\"mundo\":1,\"id\":1,\"nombre\":\"\",\"enemigos\":[0,0,0],\"monedas\":25,\"xp\":100,\"historia\":0},{\"mundo\":1,\"id\":2,\"nombre\":\"\",\"enemigos\":[0,0,0],\"monedas\":30,\"xp\":225,\"historia\":0},{\"mundo\":1,\"id\":3,\"nombre\":\"\",\"enemigos\":[0,0,0],\"monedas\":35,\"xp\":350,\"historia\":0},{\"mundo\":1,\"id\":4,\"nombre\":\"\",\"enemigos\":[0,0,0],\"monedas\":40,\"xp\":475,\"historia\":0},{\"mundo\":1,\"id\":5,\"nombre\":\"\",\"enemigos\":[0,1,0],\"monedas\":45,\"xp\":600,\"historia\":0},{\"mundo\":1,\"id\":6,\"nombre\":\"\",\"enemigos\":[1,0,0],\"monedas\":50,\"xp\":725,\"historia\":0},{\"mundo\":1,\"id\":7,\"nombre\":\"\",\"enemigos\":[0,0,0],\"monedas\":55,\"xp\":850,\"historia\":0},{\"mundo\":1,\"id\":8,\"nombre\":\"\",\"enemigos\":[0,1,0],\"monedas\":60,\"xp\":975,\"historia\":0},{\"mundo\":1,\"id\":9,\"nombre\":\"\",\"enemigos\":[0,1,0],\"monedas\":65,\"xp\":1100,\"historia\":0},{\"mundo\":1,\"id\":10,\"nombre\":\"\",\"enemigos\":[1,0,1],\"monedas\":70,\"xp\":1225,\"historia\":0}]}";
     private ListaLevelSerializable lls = new ListaLevelSerializable();
 
     // Start is called before the first frame update

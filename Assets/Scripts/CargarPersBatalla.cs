@@ -7,6 +7,7 @@ public class CargarPersBatalla : MonoBehaviour
     private ListaPlayerSerializable grid;
     [SerializeField] private GameObject prefab;
     [SerializeField] private List<CeldaManager> headPosition;
+    [SerializeField] private List<GameObject> cabezasInfo;
 
     [SerializeField] private GridManager gridPlayer;
 
@@ -49,6 +50,8 @@ public class CargarPersBatalla : MonoBehaviour
         for (var i = 0; i < grid.list.Count; i++)
         {
             instanciarPersonaje(grid.list[i], posSituar[i], celdas[i]);
+            cabezasInfo[i].SetActive(true);
+            cargarCabeza(grid.list[i], cabezasInfo[i]);
         }
 
         foreach(var celda in gridPlayer.getCeldas())
@@ -171,7 +174,31 @@ public class CargarPersBatalla : MonoBehaviour
         personaje.SetXpSubidaPrev(sp.xpSubidaPrev);
         newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
-        var ataque = newCharacter.transform.Find("Ataque").GetComponent<SpriteRenderer>();
+        gridPlayer.getGridInfo().GetCeldas()[celda.getCelda().GetX(), celda.getCelda().GetY()].SetPersonaje(newCharacter);
+        gridPlayer.getGridInfo().GetCeldas()[celda.getCelda().GetX(), celda.getCelda().GetY()].NowOccupied();
+
+        
+        level.addPersonaje(newCharacter.GetComponent<PlayerController>());
+    }
+
+    private void cargarCabeza(SerializablePlayer sp, GameObject cabeza)
+    {
+        cabeza.transform.Find("Flequillo").GetComponent<SpriteRenderer>().sprite = flequillos[sp.flequillo-1];
+
+        cabeza.transform.Find("Cejas").GetComponent<SpriteRenderer>().sprite = cejas[sp.cejas - 1];
+        cabeza.transform.Find("Extra").GetComponent<SpriteRenderer>().sprite = extras[sp.extras - 1];
+        cabeza.transform.Find("Pestanhas").GetComponent<SpriteRenderer>().sprite = pestanhas[sp.pestanha - 1];
+
+        cabeza.transform.Find("Nariz").GetComponent<SpriteRenderer>().sprite = narices[sp.narices - 1];
+        cabeza.transform.Find("Boca").GetComponent<SpriteRenderer>().sprite = bocas[sp.bocas - 1];
+        cabeza.transform.Find("Orejas").GetComponent<SpriteRenderer>().sprite = orejas[sp.orejas - 1];
+
+        cabeza.transform.Find("Flequillo").GetComponent<SpriteRenderer>().color = new Color(sp.rp, sp.gp, sp.bp);
+
+        cabeza.transform.Find("Ojos").transform.Find("Iris").GetComponent<SpriteRenderer>().color = new Color(sp.rp, sp.gi, sp.bi);
+
+
+        var ataque = cabeza.transform.Find("Ataque").GetComponent<SpriteRenderer>();
 
         switch (sp.tipoAtaque)
         {
@@ -191,11 +218,5 @@ public class CargarPersBatalla : MonoBehaviour
                 ataque.sprite = tiposAtaque[4];
                 break;
         }
-
-        gridPlayer.getGridInfo().GetCeldas()[celda.getCelda().GetX(), celda.getCelda().GetY()].SetPersonaje(newCharacter);
-        gridPlayer.getGridInfo().GetCeldas()[celda.getCelda().GetX(), celda.getCelda().GetY()].NowOccupied();
-
-        
-        level.addPersonaje(newCharacter.GetComponent<PlayerController>());
     }
 }
