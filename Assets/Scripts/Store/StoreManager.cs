@@ -13,6 +13,8 @@ public class StoreManager : MonoBehaviour
     private GameObject lastCreated;
     private ListaPlayerSerializable spl = new ListaPlayerSerializable();
 
+    [SerializeField] private GameObject stats;
+
     private Rareza newRareza;
 
     private List<Color> pieles = new List<Color>() {new Color(255f / 255f, 231f / 255f, 209f / 255f), new Color(255f / 255f, 241f / 255f, 229f / 255f), new Color(255f / 255f, 214f / 255f, 175f / 255f), new Color(225f / 255f, 163f / 255f, 106f / 255f), new Color(174f / 255f, 120f / 255f, 71f / 255f), new Color(122f / 255f, 85f / 255f, 51f / 255f), new Color(79f / 255f, 55f / 255f, 32f / 255f), new Color(41f / 255f, 27f / 255f, 15f / 255f) };
@@ -274,5 +276,22 @@ public class StoreManager : MonoBehaviour
         PlayerPrefs.SetInt("Dinero", GameManager.instance.getDineroJugador());
         PlayerPrefs.Save();
 
+
+        var nombreStats = "Nombre: " + pers.GetNombre();
+        var vidaStats = "Vida: " + pers.GetVida();
+        var ataqueStats = "Ataque: " + pers.GetAtaque();
+        var defensaStats = "Defensa: " + pers.GetDefensa();
+        var tipoAtaqueStats = "Tipo de ataque: " + pers.GetTipoAtaque();
+
+        stats.transform.Find("Nombre").GetComponent<TextMeshProUGUI>().text = nombreStats;
+        stats.transform.Find("Vida").GetComponent<TextMeshProUGUI>().text = vidaStats;
+        stats.transform.Find("Ataque").GetComponent<TextMeshProUGUI>().text = ataqueStats;
+        stats.transform.Find("Defensa").GetComponent<TextMeshProUGUI>().text = defensaStats;
+        stats.transform.Find("Tipo Ataque").GetComponent<TextMeshProUGUI>().text = tipoAtaqueStats;
+
+        if (!stats.activeSelf)
+        {
+            stats.SetActive(true);
+        }
     }
 }

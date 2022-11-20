@@ -17,6 +17,9 @@ public class NivelesManager : MonoBehaviour
     [SerializeField] private GameObject infoNivel;
     [SerializeField] private List<Button> botonesSeleccion;
 
+    [SerializeField] private Sprite imgBloqueado;
+    [SerializeField] private Sprite imgDesbloqueado;
+
 
     // GETTERS & SETTERS
 
@@ -47,7 +50,6 @@ public class NivelesManager : MonoBehaviour
         // Si no existe la tabla de estados en el PlayerPrefs
         if (!PlayerPrefs.HasKey("Estados Niveles"))
         {
-            Debug.Log("He llegado");
             // Creamos el array de estados
             SerializableEstadoList estados = new SerializableEstadoList();
             int contador = 0;
@@ -82,9 +84,16 @@ public class NivelesManager : MonoBehaviour
 
         for (int i = 0; i < botonesSeleccion.Count; i++)
         {
+            var imagen = botonesSeleccion[i].GetComponent<Image>() as Image;
+
             if (estados.list[i] == 0)
             {
+                imagen.sprite = imgBloqueado;
+
                 botonesSeleccion[i].enabled = false;
+            } else
+            {
+                imagen.sprite = imgDesbloqueado;
             }
         }
     }
