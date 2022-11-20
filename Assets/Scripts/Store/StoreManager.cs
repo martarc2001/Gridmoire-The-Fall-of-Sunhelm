@@ -135,7 +135,7 @@ public class StoreManager : MonoBehaviour
 
         var cuerpo = newCharacter.transform.Find("CUERPO BASE").GetComponent<SpriteRenderer>();
         Color piel = this.pieles[Random.Range(0, this.pieles.Count)];
-        cuerpo.color = new Color(piel.r, piel.g, piel.b);
+        cuerpo.color = piel;
 
         var newFlequillo = newCharacter.transform.Find("Flequillo").GetComponent<SpriteRenderer>();
         var iFlequillo = Random.Range(0, flequillos.Count);
@@ -185,12 +185,15 @@ public class StoreManager : MonoBehaviour
         var newArmaDetras = newCharacter.transform.Find("Arma_detras").GetComponent<SpriteRenderer>();
         newArmaDetras.sprite = armas_detras[iArmaDetras];
 
+        newOrejas.color = piel;
+
         var RP = Random.Range(0, 255) / 255f;
         var GP = Random.Range(0, 255) / 255f;
         var BP = Random.Range(0, 255) / 255f;
 
         newFlequillo.color = new Color(RP, GP, BP);
         newPelo.color = new Color(RP, GP, BP);
+        newCejas.color = new Color(RP, GP, BP);
 
         var RI = Random.Range(0, 255) / 255f;
         var GI = Random.Range(0, 255) / 255f;
