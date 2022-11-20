@@ -13,6 +13,8 @@ public class StoreManager : MonoBehaviour
     private GameObject lastCreated;
     private ListaPlayerSerializable spl = new ListaPlayerSerializable();
 
+    [SerializeField] private GameObject stats;
+
     private Rareza newRareza;
 
     [SerializeField] private List<string> nombres;
@@ -225,5 +227,22 @@ public class StoreManager : MonoBehaviour
         PlayerPrefs.SetInt("Dinero", GameManager.instance.getDineroJugador());
         PlayerPrefs.Save();
 
+
+        var nombreStats = "Nombre: " + pers.GetNombre();
+        var vidaStats = "Vida: " + pers.GetVida();
+        var ataqueStats = "Ataque: " + pers.GetAtaque();
+        var defensaStats = "Defensa: " + pers.GetDefensa();
+        var tipoAtaqueStats = "Tipo de ataque: " + pers.GetTipoAtaque();
+
+        stats.transform.Find("Nombre").GetComponent<TextMeshProUGUI>().text = nombreStats;
+        stats.transform.Find("Vida").GetComponent<TextMeshProUGUI>().text = vidaStats;
+        stats.transform.Find("Ataque").GetComponent<TextMeshProUGUI>().text = ataqueStats;
+        stats.transform.Find("Defensa").GetComponent<TextMeshProUGUI>().text = defensaStats;
+        stats.transform.Find("Tipo Ataque").GetComponent<TextMeshProUGUI>().text = tipoAtaqueStats;
+
+        if (!stats.activeSelf)
+        {
+            stats.SetActive(true);
+        }
     }
 }
