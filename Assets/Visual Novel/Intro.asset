@@ -61,71 +61,71 @@ MonoBehaviour:
   - guid: c8c6bcfa-a5bb-4ab7-9aa8-ce40fc023914
     targetGuid: 74ee42d1-cc12-4e44-9a61-0dc3e7119f78
     portId: 15
-  - guid: eaf1e1d1-fb56-4a18-964c-c4111837c30d
-    targetGuid: 2bc2cac8-83b4-45c2-a20c-96357ddfc2b6
-    portId: 16
-  - guid: 2bc2cac8-83b4-45c2-a20c-96357ddfc2b6
-    targetGuid: c8c6bcfa-a5bb-4ab7-9aa8-ce40fc023914
-    portId: 17
-  - guid: 74ee42d1-cc12-4e44-9a61-0dc3e7119f78
-    targetGuid: aa9729c3-992f-4368-9482-40fa2debde99
-    portId: 18
-  - guid: aa9729c3-992f-4368-9482-40fa2debde99
-    targetGuid: 57a0fa2c-945e-478b-98c0-72d023a0acfc
-    portId: 19
-  - guid: 57a0fa2c-945e-478b-98c0-72d023a0acfc
-    targetGuid: 9826e00c-eae3-48ae-ae5c-1eed2dcf275d
-    portId: 20
-  - guid: 9826e00c-eae3-48ae-ae5c-1eed2dcf275d
-    targetGuid: 2515c4cd-4884-41f1-a58a-ff3484073a93
-    portId: 21
-  - guid: 2515c4cd-4884-41f1-a58a-ff3484073a93
-    targetGuid: 43d01ffb-d0cc-489a-ac73-8b9bd097bc09
-    portId: 22
-  - guid: 43d01ffb-d0cc-489a-ac73-8b9bd097bc09
-    targetGuid: 069cd0b2-2604-4a84-a820-0e0d78b4284e
-    portId: 23
-  - guid: 069cd0b2-2604-4a84-a820-0e0d78b4284e
-    targetGuid: a46766d5-0b9a-49fa-a92e-68f6f386e410
-    portId: 24
-  - guid: a46766d5-0b9a-49fa-a92e-68f6f386e410
-    targetGuid: a445cc84-2d6a-4225-897a-fd2ff27d6c8d
-    portId: 25
-  - guid: 0af98f7a-b2e4-4f43-9b1d-62a33f3b690e
-    targetGuid: 2a47e1f5-27b6-4d57-a81e-66c295841684
-    portId: 26
-  - guid: 0598e9c9-f3cb-4b5d-9b3f-86f1d64e8efc
-    targetGuid: 586b97d8-675d-44e1-a862-604e9097b458
-    portId: 27
-  - guid: 9cf021c1-ed70-4a1d-a0ab-868df07644ac
-    targetGuid: 25def71b-2d32-4cbe-af7a-2ba24c18d537
-    portId: 28
-  - guid: 46fc2a9b-0412-45c6-a9ff-b93093561fe7
-    targetGuid: 0267050a-9745-4288-966b-e9f6d1d967cb
-    portId: 29
-  - guid: 2365f140-3cea-4576-a57a-6ed9e77cc1d1
-    targetGuid: 6b342d37-f288-4171-a1bc-40d341a89d73
-    portId: 30
-  - guid: cbf73fd9-ae9a-4e31-87b0-bb5d6cc353a6
-    targetGuid: 386921f2-83fd-4dcf-a7e1-68285cc84431
-    portId: 31
-  - guid: 386921f2-83fd-4dcf-a7e1-68285cc84431
-    targetGuid: 2a660fd9-7e32-4845-95b9-7356ee30ebd4
-    portId: 32
-  - guid: 2a660fd9-7e32-4845-95b9-7356ee30ebd4
-    targetGuid: 075b314b-890b-4055-befc-b13ef92842e6
-    portId: 33
-  - guid: e8c8cbad-634d-4508-84f9-c31c7efcc3c6
-    targetGuid: a22c5511-88ff-4519-a5d4-faa1ff430fd7
-    portId: 34
-  - guid: e2f917bc-82fa-4ce5-89d8-ef66f4af5589
-    targetGuid: 9bdd243f-cad1-4689-8faf-bb51f67e5950
-    portId: 35
-  - guid: 44271d21-c3a9-4764-9dab-0bcd1803adbc
-    targetGuid: a48f1e5c-c422-47f8-b6e1-1f57aaf6213f
-    portId: 36
   - guid: fcdce253-fb70-4f93-a009-5244898f00f8
     targetGuid: eaf1e1d1-fb56-4a18-964c-c4111837c30d
+    portId: 16
+  - guid: eaf1e1d1-fb56-4a18-964c-c4111837c30d
+    targetGuid: 2bc2cac8-83b4-45c2-a20c-96357ddfc2b6
+    portId: 17
+  - guid: 2bc2cac8-83b4-45c2-a20c-96357ddfc2b6
+    targetGuid: c8c6bcfa-a5bb-4ab7-9aa8-ce40fc023914
+    portId: 18
+  - guid: 74ee42d1-cc12-4e44-9a61-0dc3e7119f78
+    targetGuid: aa9729c3-992f-4368-9482-40fa2debde99
+    portId: 19
+  - guid: aa9729c3-992f-4368-9482-40fa2debde99
+    targetGuid: 57a0fa2c-945e-478b-98c0-72d023a0acfc
+    portId: 20
+  - guid: 57a0fa2c-945e-478b-98c0-72d023a0acfc
+    targetGuid: 9826e00c-eae3-48ae-ae5c-1eed2dcf275d
+    portId: 21
+  - guid: 9826e00c-eae3-48ae-ae5c-1eed2dcf275d
+    targetGuid: 2515c4cd-4884-41f1-a58a-ff3484073a93
+    portId: 22
+  - guid: 2515c4cd-4884-41f1-a58a-ff3484073a93
+    targetGuid: 43d01ffb-d0cc-489a-ac73-8b9bd097bc09
+    portId: 23
+  - guid: 43d01ffb-d0cc-489a-ac73-8b9bd097bc09
+    targetGuid: 069cd0b2-2604-4a84-a820-0e0d78b4284e
+    portId: 24
+  - guid: 069cd0b2-2604-4a84-a820-0e0d78b4284e
+    targetGuid: a46766d5-0b9a-49fa-a92e-68f6f386e410
+    portId: 25
+  - guid: a46766d5-0b9a-49fa-a92e-68f6f386e410
+    targetGuid: a445cc84-2d6a-4225-897a-fd2ff27d6c8d
+    portId: 26
+  - guid: 0af98f7a-b2e4-4f43-9b1d-62a33f3b690e
+    targetGuid: 2a47e1f5-27b6-4d57-a81e-66c295841684
+    portId: 27
+  - guid: 0598e9c9-f3cb-4b5d-9b3f-86f1d64e8efc
+    targetGuid: 586b97d8-675d-44e1-a862-604e9097b458
+    portId: 28
+  - guid: 9cf021c1-ed70-4a1d-a0ab-868df07644ac
+    targetGuid: 25def71b-2d32-4cbe-af7a-2ba24c18d537
+    portId: 29
+  - guid: 46fc2a9b-0412-45c6-a9ff-b93093561fe7
+    targetGuid: 0267050a-9745-4288-966b-e9f6d1d967cb
+    portId: 30
+  - guid: 2365f140-3cea-4576-a57a-6ed9e77cc1d1
+    targetGuid: 6b342d37-f288-4171-a1bc-40d341a89d73
+    portId: 31
+  - guid: cbf73fd9-ae9a-4e31-87b0-bb5d6cc353a6
+    targetGuid: 386921f2-83fd-4dcf-a7e1-68285cc84431
+    portId: 32
+  - guid: 386921f2-83fd-4dcf-a7e1-68285cc84431
+    targetGuid: 2a660fd9-7e32-4845-95b9-7356ee30ebd4
+    portId: 33
+  - guid: 2a660fd9-7e32-4845-95b9-7356ee30ebd4
+    targetGuid: 075b314b-890b-4055-befc-b13ef92842e6
+    portId: 34
+  - guid: e8c8cbad-634d-4508-84f9-c31c7efcc3c6
+    targetGuid: a22c5511-88ff-4519-a5d4-faa1ff430fd7
+    portId: 35
+  - guid: e2f917bc-82fa-4ce5-89d8-ef66f4af5589
+    targetGuid: 9bdd243f-cad1-4689-8faf-bb51f67e5950
+    portId: 36
+  - guid: 44271d21-c3a9-4764-9dab-0bcd1803adbc
+    targetGuid: a48f1e5c-c422-47f8-b6e1-1f57aaf6213f
     portId: 37
   nodes:
   - guid: a445cc84-2d6a-4225-897a-fd2ff27d6c8d
@@ -206,8 +206,8 @@ MonoBehaviour:
   - guid: 586b97d8-675d-44e1-a862-604e9097b458
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Chica misteriosa
-    dialogueText: "\xA1Libraste a Lofarmor de la destrucci\xF3n hace menos de su
-      destrucci\xF3n! \xBFTampoco te funciona bien la memoria?"
+    dialogueText: "\xA1Libraste a Lofarmor de la destrucci\xF3n hace menos de una
+      semana! \xBFTampoco te funciona bien la memoria?"
     backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
     startNode: 0
     endNode: 0
@@ -628,25 +628,6 @@ MonoBehaviour:
       height: 305
     soundEffect: {fileID: 0}
     backgroundMusic: {fileID: 0}
-  - guid: a46766d5-0b9a-49fa-a92e-68f6f386e410
-    characterSpr: {fileID: 0}
-    characterName: Chica misteriosa
-    dialogueText: "Sab\xEDa que se me olvidaba algo. Tu cara es un poema. * risas
-      *"
-    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
-    startNode: 0
-    endNode: 0
-    choices: 1
-    choiceOptions:
-    - 
-    nodePosition:
-      serializedVersion: 2
-      x: 5961
-      y: 292
-      width: 499
-      height: 305
-    soundEffect: {fileID: 0}
-    backgroundMusic: {fileID: 0}
   - guid: 0af98f7a-b2e4-4f43-9b1d-62a33f3b690e
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
@@ -849,6 +830,25 @@ MonoBehaviour:
     nodePosition:
       serializedVersion: 2
       x: 21713
+      y: 292
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: a46766d5-0b9a-49fa-a92e-68f6f386e410
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Chica misteriosa
+    dialogueText: "Sab\xEDa que se me olvidaba algo. Tu cara es un poema. * risas
+      *"
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 5961
       y: 292
       width: 499
       height: 305
