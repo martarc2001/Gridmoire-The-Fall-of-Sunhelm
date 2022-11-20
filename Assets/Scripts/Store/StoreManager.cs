@@ -28,13 +28,18 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private List<Sprite> ropas;
 
     [SerializeField] private TextMeshProUGUI textoNoDinero;
+    [SerializeField] private TextMeshProUGUI textoCompra;
+
+    [SerializeField] private GameObject moneda;
     public void Start()
     {
+        newRareza = Rareza.COMUN;
+        changeRareness("Comun");
     }
     public void Awake()
     {
         newRareza = Rareza.COMUN;
-        changeRareness("Comun");
+        //changeRareness("Comun");
     }
 
     public void changeRareness(string rareness)
@@ -42,6 +47,8 @@ public class StoreManager : MonoBehaviour
         switch (rareness)
         {
             case "Comun":
+                moneda.SetActive(true);
+                textoCompra.text = "Comprar:\n   150";
                 newRareza = Rareza.COMUN;
                 spl.list.Clear();
                 var com = PlayerPrefs.GetString("commons");
@@ -52,6 +59,8 @@ public class StoreManager : MonoBehaviour
                 }
                 break;
             case "Raro":
+                moneda.SetActive(true);
+                textoCompra.text = "Comprar:\n   500";
                 newRareza = Rareza.RARO;
                 spl.list.Clear();
                 var rar = PlayerPrefs.GetString("rares");
@@ -62,6 +71,8 @@ public class StoreManager : MonoBehaviour
                 }
                 break;
             case "SuperRaro":
+                moneda.SetActive(true);
+                textoCompra.text = "Comprar:\n   2500";
                 newRareza = Rareza.SUPER_RARO;
                 spl.list.Clear();
                 var ur = PlayerPrefs.GetString("superRares");
@@ -191,34 +202,12 @@ public class StoreManager : MonoBehaviour
 
         newCharacter.GetComponent<PlayerController>().setPersonaje(pers);
 
-        Debug.Log(newCharacter.GetComponent<PlayerController>().getPersonaje().GetNombre());
-        var ataque = newCharacter.transform.Find("Ataque").GetComponent<SpriteRenderer>();
-
-        switch (tipoAtaque)
-        {
-            case TipoAtaque.SINGLE:
-                ataque.color = Color.red;
-                break;
-            case TipoAtaque.ROW:
-                ataque.color = Color.blue;
-                break;
-            case TipoAtaque.COLUMN:
-                ataque.color = Color.yellow;
-                break;
-            case TipoAtaque.GRID:
-                ataque.color = Color.black;
-                break;
-            case TipoAtaque.HEAL:
-                ataque.color = Color.green;
-                break;
-        }
-
         lastCreated = newCharacter;
 
 
         var sp = new SerializablePlayer(iFlequillo,iPelo,iPest,iOrej,iNari,iBoca,iExtra,iCejas,
             iRopa,RP,GP,BP,RI,GI,BI,pers.GetAtaque(),pers.GetDefensa(),pers.GetVida(),pers.getVidaMax(), 
-            (int)pers.GetTipoAtaque(),pers.GetNombre(),(int)pers.GetRareza());
+            (int)pers.GetTipoAtaque(),pers.GetNombre(),(int)pers.GetRareza(),1,0,500,250);
 
         spl.list.Add(sp);
 

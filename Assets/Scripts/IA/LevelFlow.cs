@@ -20,6 +20,7 @@ public class LevelFlow : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
 
     [SerializeField] public List<PlayerController> ejercitoJugador = new List<PlayerController>();
+    [SerializeField] private List<PlayerController> ejercitoCompletoJugador = new List<PlayerController>();
     [SerializeField] private List<EnemigoController> ejercitoEnemigo = new List<EnemigoController>();
 
     [SerializeField] private List<float> vidasEnemigos = new List<float>();
@@ -27,7 +28,7 @@ public class LevelFlow : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI textoTurno;
 
-    private DataToBattle datosBatalla;
+    private NivelDataHandler datosBatalla;
 
     [SerializeField] private CargarPersBatalla datosCargados;
 
@@ -87,13 +88,32 @@ public class LevelFlow : MonoBehaviour
             {
                 if (QuedanAliados(ejercitoJugador))
                 {
-                    SceneManager.LoadScene("Win");
-                    Destroy(FindObjectOfType<DataToBattle>().gameObject);
+                    var nivelData = FindObjectOfType<NivelDataHandler>();
+                    GameObject personajesRecompensa = new GameObject("Ejercito Jugador");
+                    personajesRecompensa.AddComponent<EjercitoRecompensa>();
+                    foreach (var p in ejercitoCompletoJugador)
+                    {
+                        personajesRecompensa.GetComponent<EjercitoRecompensa>().AddPersonaje(p.getPersonaje());
+                    }
+                    DontDestroyOnLoad(personajesRecompensa);
+
+                    string estadosString = PlayerPrefs.GetString("Estados Niveles");
+
+                    SerializableEstadoList estados = JsonUtility.FromJson<SerializableEstadoList>(estadosString);
+
+                    if (nivelData.GetHistoria() == 0 || estados.list[nivelData.GetMundo()*nivelData.GetID()-1] == Estado.JUGADO)
+                    {
+                        SceneManager.LoadScene("Win");
+                    }
+                    else
+                    {
+                        //cargar historia correspondiente aquí
+                    }
+                    
                 }
                 else
                 {
                     SceneManager.LoadScene("GameOver");
-                    Destroy(FindObjectOfType<DataToBattle>().gameObject);
                 }
 
             }
@@ -106,6 +126,7 @@ public class LevelFlow : MonoBehaviour
         turnoIATomado = true;
         foreach (var personaje in ejercitoEnemigo)
         {
+            QuedanAliados(ejercitoJugador);
             textoTurno.SetText("Turno Enemigos");
             personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.blue;
             ia.resaltarAtaque(gridIA, gridPlayer, personaje);
@@ -115,6 +136,7 @@ public class LevelFlow : MonoBehaviour
             ia.resetResalto(gridIA, gridPlayer);
             personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.gray;
             yield return new WaitForSeconds(0.25f);
+            
         }
 
         textoTurno.SetText("Turno Jugador");
@@ -132,11 +154,14 @@ public class LevelFlow : MonoBehaviour
     {
         var result = false;
         List<PlayerController> persEliminar = new List<PlayerController>();
+        List<CeldaManager> celdaVaciar = new List<CeldaManager>();
+
         foreach(var personaje in comprobar)
         {
             if(personaje.getPersonaje().GetVida() <= 0)
             {
                 persEliminar.Add(personaje);
+                celdaVaciar.Add(personaje.GetComponentInParent<CeldaManager>());
             }
             if(personaje.getPersonaje().GetVida() > 0)
             {
@@ -147,7 +172,20 @@ public class LevelFlow : MonoBehaviour
         foreach(var eliminados in persEliminar)
         {
             comprobar.Remove(eliminados);
+            GetComponent<BattleController>().eliminarMuerto(eliminados.GetComponent<SeleccionableManager>());
             Destroy(eliminados.gameObject);
+        }
+
+        foreach(var celda in celdaVaciar)
+        {
+            foreach(var cell in gridPlayer.getCeldas())
+            {
+                if(celda.getCelda().GetX() == cell.getCelda().GetX() && celda.getCelda().GetY() == cell.getCelda().GetY())
+                {
+                    cell.getCelda().SetPersonaje(null);
+                    cell.getCelda().ChangeOccupied();
+                }
+            }
         }
         return result;
     }
@@ -181,7 +219,7 @@ public class LevelFlow : MonoBehaviour
         int x, y;
         int nEnemigos = 0;
         Transform celdaTransform = transform;
-        datosBatalla = FindObjectOfType<DataToBattle>();
+        datosBatalla = FindObjectOfType<NivelDataHandler>();
         Celda cell = new Celda();
         
         while (nEnemigos < 3)
@@ -200,7 +238,7 @@ public class LevelFlow : MonoBehaviour
                     cell = celda.getCelda();
                 }
             }
-            var objEnemigo = Instantiate(datosBatalla.getEnemigos()[nEnemigos], celdaTransform.position, Quaternion.identity);
+            var objEnemigo = Instantiate(enemyPrefab, celdaTransform.position, Quaternion.identity);
             objEnemigo.transform.SetParent(celdaTransform);
             switch (x)
             {
@@ -262,7 +300,7 @@ public class LevelFlow : MonoBehaviour
                     objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sortingOrder = 2;
                     break;
             }
-            objEnemigo.GetComponent<EnemigoController>().crearEnemigo();
+            objEnemigo.GetComponent<EnemigoController>().crearEnemigo(datosBatalla.GetEnemigos()[nEnemigos],datosBatalla.GetMundo(),datosBatalla.GetID());
             grid.getGridInfo().GetCeldas()[x, y].SetPersonaje(objEnemigo);
             grid.getGridInfo().GetCeldas()[x, y].ChangeOccupied();
 
@@ -311,6 +349,8 @@ public class LevelFlow : MonoBehaviour
         gridPlayer = datosCargados.GetGridManager();
 
         ia.SetEjercito(ejercitoEnemigo);
+
+        ejercitoCompletoJugador = ejercitoJugador;
         initialize = true;
     }
 

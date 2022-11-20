@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class EjercitoManager : MonoBehaviour
 {
-    private List<GameObject> personajes = new List<GameObject>();
-    
-    // GETTERS & SETTERS
 
-    public List<GameObject> GetEjercito() { return this.personajes; }
+    private void Start()
+    {
+        if (!PlayerPrefs.HasKey("commons"))
+        {
+            crearPersonajes();
+        }
+    }
 
-    public void SetEjercito(List<GameObject> lista) { this.personajes = lista; }
-    
-    // METODOS
+    void crearPersonajes()
+    {
 
-    public void AddPersonaje(GameObject personaje) { this.personajes.Add(personaje); }
+        var lsp = new ListaPlayerSerializable();
+
+        var sp1 = new SerializablePlayer(0, 1, 2, 3, 4, 5, 6, 6, 8, 25/255f, 175/255f, 200/255f, 200/255f, 0/255f, 145/255f, 
+            4, 4, 17, 17,2,"Egalyn La soñadora", 0, 1, 0, 500, 250);
+
+        var sp2 = new SerializablePlayer(1, 2, 3, 4, 2, 3, 1, 5, 9, 16/255f, 165/255f, 10/255f, 164/255f, 96/255f, 75/255f, 
+            4, 3, 24, 24, 1, "Fropy La furia oriental", 0, 1, 0, 500, 250);
+
+        var sp3 = new SerializablePlayer(2, 3, 4, 1, 1, 4, 2, 4, 10, 175/255f, 10/255f, 100/255f, 173/255f, 78/255f, 47/255f, 
+            5, 2, 14, 14, 0, "Londolf Sangre dragón", 0, 1, 0, 500, 250);
+
+        lsp.list.Add(sp1);
+        lsp.list.Add(sp2);
+        lsp.list.Add(sp3);
+
+        PlayerPrefs.SetString("commons", JsonUtility.ToJson(lsp));
+    }
 }
