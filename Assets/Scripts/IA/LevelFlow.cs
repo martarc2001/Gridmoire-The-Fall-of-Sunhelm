@@ -113,6 +113,14 @@ public class LevelFlow : MonoBehaviour
                 }
                 else
                 {
+                    var nivelData = FindObjectOfType<NivelDataHandler>();
+                    string estadosString = PlayerPrefs.GetString("Estados Niveles");
+
+                    SerializableEstadoList estados = JsonUtility.FromJson<SerializableEstadoList>(estadosString);
+
+                    estados.list[(nivelData.GetMundo() * nivelData.GetID()) - 1] = Estado.JUGADO;
+
+                    PlayerPrefs.SetString("Estados Niveles", JsonUtility.ToJson(estados));
                     SceneManager.LoadScene("GameOver");
                 }
 
