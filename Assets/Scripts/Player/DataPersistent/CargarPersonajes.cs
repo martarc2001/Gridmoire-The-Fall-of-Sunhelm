@@ -20,6 +20,8 @@ public class CargarPersonajes : MonoBehaviour
     [SerializeField] private List<Sprite> extras;
     [SerializeField] private List<Sprite> cejas;
     [SerializeField] private List<Sprite> ropas;
+    [SerializeField] private List<Sprite> armas_delante;
+    [SerializeField] private List<Sprite> armas_detras;
 
     // Start is called before the first frame update
     void Start()
@@ -120,6 +122,16 @@ public class CargarPersonajes : MonoBehaviour
 
         var ropa = newCharacter.transform.Find("Ropa").GetComponent<Image>();
         ropa.sprite = ropas[sp.ropa];
+
+        var arma_delante = newCharacter.transform.Find("Arma_delante").GetComponent<Image>();
+        arma_delante.sprite = armas_delante[sp.arma_delante];
+
+        var arma_detras = newCharacter.transform.Find("Arma_detras").GetComponent<Image>();
+        arma_detras.sprite = armas_detras[sp.arma_detras];
+
+
+        var cuerpo = newCharacter.transform.Find("CUERPO BASE").GetComponent<Image>();
+        cuerpo.color = new Color(sp.rc, sp.gc, sp.bc);
 
 
         newFlequillo.color = new Color(sp.rp, sp.gp, sp.bp);
