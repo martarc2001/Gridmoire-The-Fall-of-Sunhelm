@@ -8,6 +8,13 @@ public class RecompensaHandler : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI textoMonedas;
     [SerializeField] private TextMeshProUGUI textoXP;
+
+    [SerializeField] private AudioClip clip;
+
+    private void Awake()
+    {
+        GameManager.instance.playSound(clip);
+    }
     // Start is called before the first frame update
     void Start()
     {

@@ -4077,6 +4077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee321b1556bb196428199c5ffe816468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 3d7957efbaece49488b59f2f81803383, type: 3}
   cellSelected: {fileID: 0}
 --- !u!4 &901621128
 Transform:
