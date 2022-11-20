@@ -15,7 +15,7 @@ public class StoreManager : MonoBehaviour
 
     private Rareza newRareza;
 
-    private List<Color> pieles = new List<Color>() {new Color(255, 231, 209), new Color(255, 241, 229), new Color(255, 214, 175), new Color(225, 163, 106), new Color(174, 120, 71), new Color(122, 85, 51), new Color(79, 55, 32), new Color(41, 27, 15) };
+    private List<Color> pieles = new List<Color>() {new Color(255f / 255f, 231f / 255f, 209f / 255f), new Color(255f / 255f, 241f / 255f, 229f / 255f), new Color(255f / 255f, 214f / 255f, 175f / 255f), new Color(225f / 255f, 163f / 255f, 106f / 255f), new Color(174f / 255f, 120f / 255f, 71f / 255f), new Color(122f / 255f, 85f / 255f, 51f / 255f), new Color(79f / 255f, 55f / 255f, 32f / 255f), new Color(41f / 255f, 27f / 255f, 15f / 255f) };
 
     [SerializeField] private List<string> nombres;
     [SerializeField] private List<string> titulos;
@@ -135,7 +135,7 @@ public class StoreManager : MonoBehaviour
 
         var cuerpo = newCharacter.transform.Find("CUERPO BASE").GetComponent<SpriteRenderer>();
         Color piel = this.pieles[Random.Range(0, this.pieles.Count)];
-        cuerpo.material.color = piel;
+        cuerpo.color = new Color(piel.r, piel.g, piel.b);
 
         var newFlequillo = newCharacter.transform.Find("Flequillo").GetComponent<SpriteRenderer>();
         var iFlequillo = Random.Range(0, flequillos.Count);
@@ -189,15 +189,15 @@ public class StoreManager : MonoBehaviour
         var GP = Random.Range(0, 255) / 255f;
         var BP = Random.Range(0, 255) / 255f;
 
-        newFlequillo.material.color = new Color(RP, GP, BP);
-        newPelo.material.color = new Color(RP, GP, BP);
+        newFlequillo.color = new Color(RP, GP, BP);
+        newPelo.color = new Color(RP, GP, BP);
 
         var RI = Random.Range(0, 255) / 255f;
         var GI = Random.Range(0, 255) / 255f;
         var BI = Random.Range(0, 255) / 255f;
 
         var newIris = newCharacter.transform.Find("Ojos").transform.Find("Iris").GetComponent<SpriteRenderer>();
-        newIris.material.color = new Color(RI, GI, BI);
+        newIris.color = new Color(RI, GI, BI);
 
 
         /////// ATTACK SELECTION ///////
