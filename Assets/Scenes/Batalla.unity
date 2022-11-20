@@ -5645,7 +5645,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: -2654651
+  m_SortingLayerID: -828623039
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1067065622
@@ -5663,7 +5663,7 @@ RectTransform:
   - {fileID: 41567575}
   - {fileID: 1576206146}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10993,7 +10993,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744733056}
   m_CullTransparentMesh: 1
-
 --- !u!1001 &1751152339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11218,7 +11217,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 336a42f79a94ef44abf60a1f6686eb75, type: 3}
-
 --- !u!1 &1802998499
 GameObject:
   m_ObjectHideFlags: 0
@@ -12850,7 +12848,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e0a204f4befb89f4c9fa80be68d028e5, type: 3}
   - {fileID: 21300000, guid: 0c07021538af0e44a9fe0d2fd76fa976, type: 3}
   - {fileID: 21300000, guid: 358bfc990d748d3438196efa7150dc6f, type: 3}
-
+  - {fileID: 0}
   armas_delante:
   - {fileID: 21300000, guid: 210be0fe486e39e4cb42ec00e296cb1a, type: 3}
   - {fileID: 21300000, guid: 57f574075e246ab488b20064eae0d194, type: 3}
@@ -12869,14 +12867,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4c028d942c89b73478204d0aec9a4127, type: 3}
   - {fileID: 21300000, guid: 2a7ec751c87d181458eb7ae7e6783273, type: 3}
   - {fileID: 21300000, guid: 245ae3b33606bac45946c85b1f5e58b7, type: 3}
-
+  - {fileID: 0}
   tiposAtaque:
   - {fileID: 21300000, guid: 39beb98b1c2825748a3e9b8d8bc7e83b, type: 3}
   - {fileID: 21300000, guid: 95663b3dbdf55eb4ebf597a9aab66a87, type: 3}
   - {fileID: 21300000, guid: aff04691095697e4792fce69b914eeb7, type: 3}
   - {fileID: 21300000, guid: 75023b51304cfe54682010f95bc3051e, type: 3}
   - {fileID: 21300000, guid: 6c4e0432a1e2e0f448b23127e4d608cf, type: 3}
-
+  - {fileID: 0}
   listaVidas:
   - {fileID: 1807618719}
   - {fileID: 6260681}

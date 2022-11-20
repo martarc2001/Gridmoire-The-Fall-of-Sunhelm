@@ -52,55 +52,51 @@ TagManager:
   - name: Cuerpo Base
     uniqueID: 1445993875
     locked: 0
-
-  - name: "Pelo Atr\xE1s"
-    uniqueID: 3608290137
-    locked: 0
-  - name: Arma
-    uniqueID: 1133896809
-    locked: 0
-
   - name: Ropa
-    uniqueID: 1306115029
+    uniqueID: 7902405
     locked: 0
   - name: Cara
-    uniqueID: 488696609
+    uniqueID: 2871864043
     locked: 0
-  - name: "Pelo Atr\xE1s"
-    uniqueID: 3608290137
+  - name: Ojos-Brillo
+    uniqueID: 266258723
     locked: 0
-  - name: "Ojos - Pesta\xF1a"
-    uniqueID: 478034029
+  - name: Ojos-Iris
+    uniqueID: 3433529199
     locked: 0
-  - name: Ojos - iris
-    uniqueID: 4027358655
+  - name: Ojos-Extras
+    uniqueID: 594489531
     locked: 0
-  - name: Ojos - Extra
-    uniqueID: 28479405
-    locked: 0
-  - name: Ojos - Brillo
-    uniqueID: 1687402741
-    locked: 0
-  - name: Nariz
-    uniqueID: 1493755613
-    locked: 0
-  - name: Extras
-    uniqueID: 1556680669
-    locked: 0
-  - name: Boca
-    uniqueID: 3736628693
-    locked: 0
-  - name: Orejas
-    uniqueID: 1147545061
+  - name: Pestanhas
+    uniqueID: 536924473
     locked: 0
   - name: Flequillo
-    uniqueID: 2619220173
+    uniqueID: 3857822035
     locked: 0
-  - name: Ceja
-    uniqueID: 4116405517
+  - name: Pelo
+    uniqueID: 642155027
+    locked: 0
+  - name: Orejas
+    uniqueID: 3705025067
+    locked: 0
+  - name: Nariz
+    uniqueID: 3355374953
+    locked: 0
+  - name: Boca
+    uniqueID: 3740376789
+    locked: 0
+  - name: Extra
+    uniqueID: 4030824251
+    locked: 0
+  - name: Cejas
+    uniqueID: 72407359
     locked: 0
   - name: Ataque
-    uniqueID: 1568440369
-  - name: Vidas
-    uniqueID: 4292312645
+    uniqueID: 843209281
+    locked: 0
+  - name: Arma_delante
+    uniqueID: 3497559307
+    locked: 0
+  - name: Viidas
+    uniqueID: 3466344257
     locked: 0

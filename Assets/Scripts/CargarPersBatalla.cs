@@ -168,6 +168,8 @@ public class CargarPersBatalla : MonoBehaviour
         var cuerpo = newCharacter.transform.Find("CUERPO BASE").GetComponent<SpriteRenderer>();
         cuerpo.color = new Color(sp.rc, sp.gc, sp.bc);
 
+        newCharacter.transform.Find("Cara").GetComponent<SpriteRenderer>().color = new Color(sp.rc, sp.gc, sp.bc);
+
         newFlequillo.color = new Color(sp.rp, sp.gp, sp.bp);
         newPelo.color = new Color(sp.rp, sp.gp, sp.bp);
 
@@ -211,6 +213,7 @@ public class CargarPersBatalla : MonoBehaviour
 
         cabeza.transform.Find("Ojos").transform.Find("Iris").GetComponent<SpriteRenderer>().color = new Color(sp.rp, sp.gi, sp.bi);
 
+        cabeza.transform.Find("Cara").GetComponent<SpriteRenderer>().color = new Color(sp.rc, sp.gc, sp.bc);
 
         var ataque = cabeza.transform.Find("Ataque").GetComponent<SpriteRenderer>();
 

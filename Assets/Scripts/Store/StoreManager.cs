@@ -147,6 +147,7 @@ public class StoreManager : MonoBehaviour
         var cuerpo = newCharacter.transform.Find("CUERPO BASE").GetComponent<SpriteRenderer>();
         Color piel = this.pieles[Random.Range(0, this.pieles.Count)];
         cuerpo.color = piel;
+        newCharacter.transform.Find("Cara").GetComponent<SpriteRenderer>().color = piel;
 
         var newFlequillo = newCharacter.transform.Find("Flequillo").GetComponent<SpriteRenderer>();
         var iFlequillo = Random.Range(0, flequillos.Count);
