@@ -46,9 +46,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Arma detras
+    uniqueID: 2529284767
+    locked: 0
   - name: Cuerpo Base
     uniqueID: 1445993875
     locked: 0
+
+  - name: "Pelo Atr\xE1s"
+    uniqueID: 3608290137
+    locked: 0
+  - name: Arma
+    uniqueID: 1133896809
+    locked: 0
+
   - name: Ropa
     uniqueID: 1306115029
     locked: 0
@@ -88,6 +99,8 @@ TagManager:
   - name: Ceja
     uniqueID: 4116405517
     locked: 0
+  - name: Ataque
+    uniqueID: 1568440369
   - name: Vidas
     uniqueID: 4292312645
     locked: 0

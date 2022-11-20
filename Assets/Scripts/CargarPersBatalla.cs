@@ -22,7 +22,12 @@ public class CargarPersBatalla : MonoBehaviour
     [SerializeField] private List<Sprite> extras;
     [SerializeField] private List<Sprite> cejas;
     [SerializeField] private List<Sprite> ropas;
+
+    [SerializeField] private List<Sprite> armas_delante;
+    [SerializeField] private List<Sprite> armas_detras;
+
     [SerializeField] private List<Sprite> tiposAtaque;
+
 
     [SerializeField] private List<LifeUI> listaVidas;
     private void Start()
@@ -153,6 +158,15 @@ public class CargarPersBatalla : MonoBehaviour
 
         var ropa = newCharacter.transform.Find("Ropa").GetComponent<SpriteRenderer>();
         ropa.sprite = ropas[sp.ropa-1];
+
+        var armaDelante = newCharacter.transform.Find("Arma_delante").GetComponent<SpriteRenderer>();
+        armaDelante.sprite = armas_delante[sp.arma_delante - 1];
+
+        var armaDetras = newCharacter.transform.Find("Arma_detras").GetComponent<SpriteRenderer>();
+        armaDetras.sprite = armas_detras[sp.arma_detras - 1];
+
+        var cuerpo = newCharacter.transform.Find("CUERPO BASE").GetComponent<SpriteRenderer>();
+        cuerpo.color = new Color(sp.rc, sp.gc, sp.bc);
 
         newFlequillo.color = new Color(sp.rp, sp.gp, sp.bp);
         newPelo.color = new Color(sp.rp, sp.gp, sp.bp);

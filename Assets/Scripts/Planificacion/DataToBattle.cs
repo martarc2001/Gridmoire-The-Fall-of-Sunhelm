@@ -45,7 +45,9 @@ public class DataToBattle : MonoBehaviour
     public void removeCelda(CeldaManager celda) { listCeldas.Remove(celda); }
     private void addSP(GameObject p)
     {
-        //Debug.Log("Añadir personaje: " + p);
+        //Debug.Log("AÃ±adir personaje: " + p);
+        var cuerpo = p.transform.Find("CUERPO BASE").GetComponent<Image>();
+
         var newFlequillo = p.transform.Find("Flequillo").GetComponent<Image>();
         var fn = newFlequillo.sprite.name;
 
@@ -65,8 +67,16 @@ public class DataToBattle : MonoBehaviour
 
         var ropa = p.transform.Find("Ropa").GetComponent<Image>().sprite.name;
 
+        var arma_delante = p.transform.Find("Arma_delante").GetComponent<Image>().sprite.name;
+
+        var arma_detras = p.transform.Find("Arma_detras").GetComponent<Image>().sprite.name;
+
         var newIris = p.transform.Find("Ojos").transform.Find("Iris").GetComponent<Image>();
 
+        var rc = cuerpo.color.r;
+        var gc = cuerpo.color.g;
+        var bc = cuerpo.color.b;
+        
         var rp = newFlequillo.color.r;
         var gp = newFlequillo.color.g;
         var bp = newFlequillo.color.b;
@@ -79,9 +89,10 @@ public class DataToBattle : MonoBehaviour
         var person = p.GetComponent<PlayerController>().getPersonaje();
         SerializablePlayer sp = new SerializablePlayer(int.Parse(fn),int.Parse(newPelo),int.Parse(newPestanhas),int.Parse(newOrejas)
             ,int.Parse(newNarices),int.Parse(newBoca)
-            ,int.Parse(newExtra),int.Parse(newCejas),int.Parse(ropa),rp,gp,bp,ri,gi,bi,person.GetAtaque(),
+            ,int.Parse(newExtra),int.Parse(newCejas),int.Parse(ropa),int.Parse(arma_delante),int.Parse(arma_detras),rc,gc,bc,rp,gp,bp,ri,gi,bi,person.GetAtaque(),
             person.GetDefensa(),person.GetVida(),person.getVidaMax(),(int)person.GetTipoAtaque(),person.GetNombre(),(int)person.GetRareza(),
             person.GetNivel(),person.GetXp(),person.GetXpSubida(),person.GetXpSubidaPrev());
+
 
         lsp.list.Add(sp);
     }
