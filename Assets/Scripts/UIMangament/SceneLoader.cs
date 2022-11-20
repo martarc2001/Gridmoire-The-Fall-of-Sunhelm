@@ -42,4 +42,16 @@ public class SceneLoader : MonoBehaviour
 
         SceneManager.LoadScene(scene);
     }
+
+    public void LoadSeleccionNiveles()
+    {
+        if(PlayerPrefs.GetInt("PrimeraVez") == 1)
+        {
+            PlayerPrefs.SetInt("PrimeraVez", 0);
+            SceneManager.LoadScene("Visual Novel");
+        } else
+        {
+            SceneManager.LoadScene("Seleccion de niveles");
+        }
+    }
 }
