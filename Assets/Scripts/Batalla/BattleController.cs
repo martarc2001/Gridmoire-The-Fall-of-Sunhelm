@@ -264,4 +264,9 @@ public class BattleController : MonoBehaviour
                 break;
         }
     }
+
+    public void eliminarMuerto(SeleccionableManager muerto)
+    {
+        seleccionables.Remove(muerto);
+    }
 }

@@ -4,103 +4,16 @@ using UnityEngine;
 
 public class EnemigoController : MonoBehaviour
 {
-    [SerializeField] private TipoEnemigo tipoEnemigo;
     private Enemigo enemigo;
-
+    [SerializeField] private List<Sprite> spritesEnemigos;
 
     public Enemigo getEnemigo() { return enemigo; }
-    public void setEnemigo(Enemigo enemigo) { this.enemigo = enemigo; }
     // Start is called before the first frame update
-    public void crearEnemigo()
+    public void crearEnemigo(int tipoEnemigo, int mundo, int nivel)
     {
-        enemigo = new Enemigo();
-        switch (tipoEnemigo)
-        {
-            case TipoEnemigo.PERRO_INFERNAL:
-                crearPerro();
-                break;
-            case TipoEnemigo.MURICELAGO_VAMPIRO:
-                crearMurcielago();
-                break;
-            case TipoEnemigo.GOBLIN:
-                crearGoblin();
-                break;
-            case TipoEnemigo.DEMONIO_HEMBRA:
-                crearDemonioHembra();
-                break;
-            case TipoEnemigo.DEMONIO_MACHO:
-                crearDemonioMacho();
-                break;
-        }
+        var level = nivel + (mundo - 1) * 10;
+        transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = spritesEnemigos[tipoEnemigo];
+        enemigo = new Enemigo((TipoEnemigo)tipoEnemigo, level);
     }
 
-    private void crearPerro()
-    {
-        var ataque = Random.Range(2, 7);
-        var defensa = Random.Range(1, 6);
-        var hp = Random.Range(5, 15);
-        var tipoAtaque = Random.Range(0, 2);
-
-        enemigo.SetAtaque(ataque);
-        enemigo.SetDefensa(defensa);
-        enemigo.SetVida(hp);
-        enemigo.SetVidaMax(hp);
-        enemigo.SetTipoAtaque((TipoAtaque)tipoAtaque);
-    }
-
-    private void crearMurcielago()
-    {
-        var ataque = Random.Range(3, 9);
-        var defensa = Random.Range(2, 6);
-        var hp = Random.Range(5, 20);
-        var tipoAtaque = Random.Range(1, 3);
-
-        enemigo.SetAtaque(ataque);
-        enemigo.SetDefensa(defensa);
-        enemigo.SetVida(hp);
-        enemigo.SetVidaMax(hp);
-        enemigo.SetTipoAtaque((TipoAtaque)tipoAtaque);
-    }
-
-    private void crearGoblin()
-    {
-        var ataque = Random.Range(5, 10);
-        var defensa = Random.Range(4, 8);
-        var hp = Random.Range(10, 25);
-        var tipoAtaque = Random.Range(0, 3);
-
-        enemigo.SetAtaque(ataque);
-        enemigo.SetDefensa(defensa);
-        enemigo.SetVida(hp);
-        enemigo.SetVidaMax(hp);
-        enemigo.SetTipoAtaque((TipoAtaque)tipoAtaque);
-    }
-
-    private void crearDemonioHembra()
-    {
-        var ataque = Random.Range(8, 20);
-        var defensa = Random.Range(8, 15);
-        var hp = Random.Range(15, 30);
-        var tipoAtaque = Random.Range(0, 5);
-
-        enemigo.SetAtaque(ataque);
-        enemigo.SetDefensa(defensa);
-        enemigo.SetVida(hp);
-        enemigo.SetVidaMax(hp);
-        enemigo.SetTipoAtaque((TipoAtaque)tipoAtaque);
-    }
-
-    private void crearDemonioMacho()
-    {
-        var ataque = Random.Range(8, 20);
-        var defensa = Random.Range(8, 15);
-        var hp = Random.Range(15, 30);
-        var tipoAtaque = Random.Range(0, 5);
-
-        enemigo.SetAtaque(ataque);
-        enemigo.SetDefensa(defensa);
-        enemigo.SetVida(hp);
-        enemigo.SetVidaMax(hp);
-        enemigo.SetTipoAtaque((TipoAtaque)tipoAtaque);
-    }
 }

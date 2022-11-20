@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -49,7 +50,8 @@ public class Nivel
     public void SetXP(int xp) { this.xp = xp; }
 }
 
+[Serializable]
 public enum Estado
 {
-    BLOQUEADA, NO_JUGADA, JUGADA
+    BLOQUEADO, NO_JUGADO, JUGADO
 }

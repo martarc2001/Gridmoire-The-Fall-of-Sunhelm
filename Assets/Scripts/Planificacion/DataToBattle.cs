@@ -7,8 +7,7 @@ using UnityEngine.UI;
 public class DataToBattle : MonoBehaviour
 {
     private ListaPlayerSerializable lsp = new ListaPlayerSerializable();
-    private Celda[] listaCeldas = new Celda[3];
-    [SerializeField] private List<GameObject> enemigosNivel;
+    private Celda[] listaCeldas;
     private List<CeldaManager> listCeldas = new List<CeldaManager>();
 
     public void putGrid()
@@ -17,7 +16,7 @@ public class DataToBattle : MonoBehaviour
         if(listCeldas.Count > 0)
         {
             var i = 0;
-
+            listaCeldas = new Celda[listCeldas.Count];
             foreach (var celda in listCeldas)
             {
                 if (celda.getCelda().GetPersonaje() != null)
@@ -38,8 +37,6 @@ public class DataToBattle : MonoBehaviour
     public ListaPlayerSerializable getLSP() { return lsp; }
     public List<CeldaManager> getCeldas() { return listCeldas; }
 
-    public List<GameObject> getEnemigos() { return enemigosNivel; }
-
     public void addCelda(CeldaManager celda) 
     { 
         listCeldas.Add(celda); 
@@ -48,7 +45,7 @@ public class DataToBattle : MonoBehaviour
     public void removeCelda(CeldaManager celda) { listCeldas.Remove(celda); }
     private void addSP(GameObject p)
     {
-        //Debug.Log("Añadir personaje: " + p);
+        //Debug.Log("AÃ±adir personaje: " + p);
         var cuerpo = p.transform.Find("CUERPO BASE").GetComponent<Image>();
 
         var newFlequillo = p.transform.Find("Flequillo").GetComponent<Image>();
@@ -93,7 +90,9 @@ public class DataToBattle : MonoBehaviour
         SerializablePlayer sp = new SerializablePlayer(int.Parse(fn),int.Parse(newPelo),int.Parse(newPestanhas),int.Parse(newOrejas)
             ,int.Parse(newNarices),int.Parse(newBoca)
             ,int.Parse(newExtra),int.Parse(newCejas),int.Parse(ropa),int.Parse(arma_delante),int.Parse(arma_detras),rc,gc,bc,rp,gp,bp,ri,gi,bi,person.GetAtaque(),
-            person.GetDefensa(),person.GetVida(),person.getVidaMax(),(int)person.GetTipoAtaque(),person.GetNombre(),(int)person.GetRareza());
+            person.GetDefensa(),person.GetVida(),person.getVidaMax(),(int)person.GetTipoAtaque(),person.GetNombre(),(int)person.GetRareza(),
+            person.GetNivel(),person.GetXp(),person.GetXpSubida(),person.GetXpSubidaPrev());
+
 
         lsp.list.Add(sp);
     }
