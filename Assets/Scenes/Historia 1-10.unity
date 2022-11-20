@@ -2311,7 +2311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19bffdf8e809ebd439aaf9f444d2ea04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: {fileID: 0}
+  story: {fileID: 11400000, guid: 5e2962b431f8d944f8da7ca3ca12721f, type: 2}
   characterNameTxt: {fileID: 1739009363}
   dialogueTxt: {fileID: 690447186}
   characterImg: {fileID: 1666865173}

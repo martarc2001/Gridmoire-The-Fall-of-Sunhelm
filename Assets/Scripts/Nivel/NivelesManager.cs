@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using VNCreator;
 
 public class NivelesManager : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class NivelesManager : MonoBehaviour
 
     [SerializeField] private Sprite imgBloqueado;
     [SerializeField] private Sprite imgDesbloqueado;
+
+    [SerializeField] private GameObject historiaManager;
+    [SerializeField] private List<String> historias;
 
 
     // GETTERS & SETTERS
@@ -54,9 +58,10 @@ public class NivelesManager : MonoBehaviour
             SerializableEstadoList estados = new SerializableEstadoList();
             int contador = 0;
 
-            // Rellenamos el array (primera posición no jugado el resto bloqueados)
+            //Rellenamos el array(primera posición no jugado el resto bloqueados)
             estados.list.Add(Estado.NO_JUGADO);
             contador++;
+
             while (contador < 10)
             {
                 estados.list.Add(Estado.BLOQUEADO);
@@ -80,8 +85,6 @@ public class NivelesManager : MonoBehaviour
 
         SerializableEstadoList estados = JsonUtility.FromJson<SerializableEstadoList>(estadosString);
 
-        Debug.Log(estados.list.Count);
-
         for (int i = 0; i < botonesSeleccion.Count; i++)
         {
             var imagen = botonesSeleccion[i].GetComponent<Image>() as Image;
@@ -104,12 +107,24 @@ public class NivelesManager : MonoBehaviour
     public void ActivaInfo(int idx)
     {
         SetSeleccion(idx);
+
+        var manager = historiaManager.GetComponent<HistoriaManager>() as HistoriaManager;
+        var idxHistoria = niveles[this.seleccion].historia;
+        if (niveles[this.seleccion].historia != 0)
+        {
+            manager.SetTieneHistoria(true);
+            manager.SetHistoria(historias[idxHistoria - 1]);
+        }
+
         RellenaInfo();
         infoNivel.SetActive(true);
     }
 
     public void DesactivaInfo()
     {
+        var manager = historiaManager.GetComponent<HistoriaManager>() as HistoriaManager;
+        manager.SetTieneHistoria(false);
+
         infoNivel.SetActive(false);
     }
 

@@ -54,4 +54,31 @@ public class SceneLoader : MonoBehaviour
             SceneManager.LoadScene("Seleccion de niveles");
         }
     }
+
+    public void LoadPlanificacion(GameObject historiaManager)
+    {
+        NivelesManager nivelesManager = FindObjectOfType<NivelesManager>() as NivelesManager;
+
+        int seleccionado = nivelesManager.GetSeleccion();
+        SerializableLevel nivel = nivelesManager.GetNiveles()[seleccionado];
+
+        GameObject nivelDH = new GameObject("Nivel");
+        var dataHandler = nivelDH.AddComponent<NivelDataHandler>() as NivelDataHandler;
+        dataHandler.SetNivel(nivel);
+
+        DontDestroyOnLoad(nivelDH);
+
+
+        var manager = historiaManager.GetComponent<HistoriaManager>() as HistoriaManager;
+
+        if (manager.TieneHistoria())
+        {
+            DontDestroyOnLoad(historiaManager.gameObject);
+            SceneManager.LoadScene("Historia " + manager.GetHistoria());
+        }
+        else
+        {
+            SceneManager.LoadScene("Planificacion");
+        }
+    }
 }

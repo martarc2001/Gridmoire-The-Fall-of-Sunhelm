@@ -35,4 +35,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro Visual Novel.unity
     guid: 2cce43d7f0dfc0540954be8390b02886
+  - enabled: 1
+    path: Assets/Scenes/Historia.unity
+    guid: 0eabba77652f8c146afd43f9ff5a44ae
+  - enabled: 1
+    path: Assets/Scenes/Historia 1-2.unity
+    guid: d33d3fc48a60f8a45b6598e7d9832da5
+  - enabled: 1
+    path: Assets/Scenes/Historia 1-5.unity
+    guid: 1ac35eb32351efd40bdcea7dd33fb20f
+  - enabled: 1
+    path: Assets/Scenes/Historia 1-10.unity
+    guid: 939e713fa62013549a28d2beeb8da6a6
   m_configObjects: {}
