@@ -225,19 +225,19 @@ public class StoreManager : MonoBehaviour
         switch ((int)tipoAtaque)
         {
             case 0:
-                newCharacter.transform.Find("Arma_detras").GetComponent<SpriteRenderer>().sprite = tiposAtaque[0];
+                newCharacter.transform.Find("Ataque").GetComponent<SpriteRenderer>().sprite = tiposAtaque[0];
                 break;
             case 1:
-                newCharacter.transform.Find("Arma_detras").GetComponent<SpriteRenderer>().sprite = tiposAtaque[1];
+                newCharacter.transform.Find("Ataque").GetComponent<SpriteRenderer>().sprite = tiposAtaque[1];
                 break;
             case 2:
-                newCharacter.transform.Find("Arma_detras").GetComponent<SpriteRenderer>().sprite = tiposAtaque[2];
+                newCharacter.transform.Find("Ataque").GetComponent<SpriteRenderer>().sprite = tiposAtaque[2];
                 break;
             case 3:
-                newCharacter.transform.Find("Arma_detras").GetComponent<SpriteRenderer>().sprite = tiposAtaque[3];
+                newCharacter.transform.Find("Ataque").GetComponent<SpriteRenderer>().sprite = tiposAtaque[3];
                 break;
             case 4:
-                newCharacter.transform.Find("Arma_detras").GetComponent<SpriteRenderer>().sprite = tiposAtaque[4];
+                newCharacter.transform.Find("Ataque").GetComponent<SpriteRenderer>().sprite = tiposAtaque[4];
                 break;
         }
 
