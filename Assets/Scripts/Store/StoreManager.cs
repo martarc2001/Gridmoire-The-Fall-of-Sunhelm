@@ -120,30 +120,36 @@ public class StoreManager : MonoBehaviour
             case Rareza.COMUN:
                 if(GameManager.instance.getDineroJugador() >= 150)
                 {
+                    textoNoDinero.text = "";
                     generateRandomCharacter();
                 }
                 else
                 {
+                    stats.SetActive(false);
                     textoNoDinero.text = "No tienes suficiente dinero";
                 }
                 break;
             case Rareza.RARO:
                 if (GameManager.instance.getDineroJugador() >= 500)
                 {
+                    textoNoDinero.text = "";
                     generateRandomCharacter();
                 }
                 else
                 {
+                    stats.SetActive(false);
                     textoNoDinero.text = "No tienes suficiente dinero";
                 }
                 break;
             case Rareza.SUPER_RARO:
                 if (GameManager.instance.getDineroJugador() >= 1500)
                 {
+                    textoNoDinero.text = "";
                     generateRandomCharacter();
                 }
                 else
                 {
+                    stats.SetActive(false);
                     textoNoDinero.text = "No tienes suficiente dinero";
                 }
                 break;
