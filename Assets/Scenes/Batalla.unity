@@ -7654,7 +7654,7 @@ GameObject:
   - component: {fileID: 1325080286}
   - component: {fileID: 1325080285}
   m_Layer: 5
-  m_Name: menu_ppl
+  m_Name: Terminar nivel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7700,7 +7700,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Menu Principal
+  m_text: Terminar nivel
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: db2f28f94d5978846913dd5a99116b63, type: 2}
   m_sharedMaterial: {fileID: -5118543241869315926, guid: db2f28f94d5978846913dd5a99116b63, type: 2}
@@ -7842,7 +7842,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Menu
+          m_StringArgument: Seleccion de niveles
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &1325080288
