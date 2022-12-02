@@ -103,7 +103,7 @@ public class Personaje
     public void SetTipoAtaque(TipoAtaque tipoAtaque) { this.tipoAtaque = tipoAtaque; }
     public void SetRareza(Rareza rareza) { this.rareza = rareza; }
     public void SetNivel(int nivel) { this.nivel = nivel; }
-    public void SetXp(int xp) { this.xp = xp; }
+    public void SetXp(int xp) { this.xp += xp; }
     public void SetXpSubida(int xpSubida) { this.xpSubida = xpSubida; }
     public void SetXpSubidaPrev(int xpSubidaPrev) { this.xpSubidaPrev = xpSubidaPrev; }
     public void setVidaMax(float vidaMax) { this.vidaMax = vidaMax; }

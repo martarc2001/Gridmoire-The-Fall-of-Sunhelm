@@ -26,12 +26,13 @@ public class RecompensaHandler : MonoBehaviour
 
         var ejercitoData = FindObjectOfType<EjercitoRecompensa>();
 
-        Debug.Log(ejercitoData.getNombres().Count);
 
         foreach(var personaje in ejercitoData.getNombres())
         {
             personaje.SetXp(nivelData.GetXp());
             personaje.ComprobarNivel();
+
+            Debug.Log(personaje.GetNombre() + " nivel: " + personaje.GetNivel());
             switch (personaje.GetRareza())
             {
                 case Rareza.COMUN:
