@@ -138,7 +138,7 @@ public class StoreManager : MonoBehaviour
                 }
                 break;
             case Rareza.SUPER_RARO:
-                if (GameManager.instance.getDineroJugador() >= 1500)
+                if (GameManager.instance.getDineroJugador() >= 2500)
                 {
                     generateRandomCharacter();
                 }
@@ -298,7 +298,7 @@ public class StoreManager : MonoBehaviour
                 PlayerPrefs.SetString("rares", JsonUtility.ToJson(spl));
                 break;
             case Rareza.SUPER_RARO:
-                GameManager.instance.restarDinero(1500);
+                GameManager.instance.restarDinero(2500);
                 PlayerPrefs.SetString("superRares", JsonUtility.ToJson(spl));
                 
                 break;
