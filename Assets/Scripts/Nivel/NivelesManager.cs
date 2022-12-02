@@ -16,6 +16,7 @@ public class NivelesManager : MonoBehaviour
     private int seleccion = 0;
 
     [SerializeField] private GameObject infoNivel;
+    [SerializeField] private List<Button> botonesUI;
     [SerializeField] private List<Button> botonesSeleccion;
 
     [SerializeField] private Sprite imgBloqueado;
@@ -117,6 +118,16 @@ public class NivelesManager : MonoBehaviour
         }
 
         RellenaInfo();
+
+        foreach (var boton in botonesSeleccion)
+        {
+            boton.enabled = false;
+        }
+        foreach (var boton in botonesUI)
+        {
+            boton.enabled=false;
+        }
+
         infoNivel.SetActive(true);
     }
 
@@ -124,6 +135,15 @@ public class NivelesManager : MonoBehaviour
     {
         var manager = historiaManager.GetComponent<HistoriaManager>() as HistoriaManager;
         manager.SetTieneHistoria(false);
+
+        foreach (var boton in botonesSeleccion)
+        {
+            boton.enabled = true;
+        }
+        foreach (var boton in botonesUI)
+        {
+            boton.enabled = true;
+        }
 
         infoNivel.SetActive(false);
     }
