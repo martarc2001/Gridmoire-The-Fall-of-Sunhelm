@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PlanificationManager : MonoBehaviour
 {
-    private GameObject playerSelected;
+    [SerializeField] private GameObject playerSelected;
     [SerializeField] private GameObject canvasParent;
     private int personajesSeleccionados = 0;
     [SerializeField] DataToBattle dataBattle;
@@ -32,11 +32,11 @@ public class PlanificationManager : MonoBehaviour
         {
             var pointer = new PointerEventData(EventSystem.current) { position = Input.mousePosition};
             inputController(pointer);
-        }else if((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+        }/*else if((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
             var pointer = new PointerEventData(EventSystem.current) { position = Input.GetTouch(0).position };
             inputController(pointer);
-        }
+        }*/
     }
 
     private void inputController(PointerEventData pointer)
@@ -50,8 +50,30 @@ public class PlanificationManager : MonoBehaviour
             {
                 if (hit.gameObject.CompareTag("Player") && !hit.gameObject.transform.parent.CompareTag("Cell"))
                 {
-                    if (hit.gameObject.transform.Find("Character").GetComponent<SeleccionableManager>().isSelectable())
-                        playerSelected = hit.gameObject;
+                    if(playerSelected != null)
+                    {
+                        if(playerSelected.transform.Find("Character").GetComponent<PlayerController>().getPersonaje().GetRareza() == cargarScript.getRarezaAtual())
+                        {
+                            playerSelected.transform.SetParent(canvasParent.transform);
+                            playerSelected.transform.localScale = new Vector3(3, 3, 3);
+
+                            playerSelected.transform.Find("Ataque").gameObject.SetActive(true);
+                            playerSelected.transform.Find("Defensa").gameObject.SetActive(true);
+                            playerSelected.transform.Find("HP").gameObject.SetActive(true);
+                            playerSelected.transform.Find("Nivel").gameObject.SetActive(true);
+                            playerSelected.transform.Find("TipoAtaque").gameObject.SetActive(true);
+
+                            if (hit.gameObject.transform.Find("Character").GetComponent<SeleccionableManager>().isSelectable())
+                                playerSelected = hit.gameObject;
+
+                        }
+                    }
+                    else 
+                    {
+                        if (hit.gameObject.transform.Find("Character").GetComponent<SeleccionableManager>().isSelectable())
+                            playerSelected = hit.gameObject;
+                    }
+                    
                 }
                 else if (hit.gameObject.CompareTag("Cell"))
                 {
