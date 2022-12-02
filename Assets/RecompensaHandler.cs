@@ -55,6 +55,8 @@ public class RecompensaHandler : MonoBehaviour
 
         PlayerPrefs.SetString("Estados Niveles", JsonUtility.ToJson(estados));
 
+        PlayerPrefs.Save();
+
     }
 
     void recompensaCommons(Personaje personaje)
