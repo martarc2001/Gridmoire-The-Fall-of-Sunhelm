@@ -34,6 +34,7 @@ Gridmoire está enfocado a un público joven, no necesariamente experimentado en
 ### Tecnologías empleadas ###
 El juego está desarrollado en Unity-C#, y los assets están desarrollados en distintos softwares:
 * Assets visuales (Personajes, iconos, menús) desarrollados en Clip Studio Paint
+* Assets de animación (Logo) desarrollados en Clip Studio Paint y Adobe Animate
 * Assets de sonidos (música, efectos de sonido) desarrollados en LMMS y Audacity
 
 
@@ -55,13 +56,36 @@ El nivel termina cuando las unidades del jugador son derrotadas o éste consigue
 * **Habilidades:** las unidades, tanto del jugador como del enemigo, tendrán diferentes tipos de ataque, así como una habilidad para curar. Los ataques pueden ser en fila, en columna, a todo el tablero y en una sola casilla, atacando únicamente al área seleccionada por el jugador siguiendo su patrón. La habilidad de curar se realizará para todas las casillas, y solo tendrá efecto en las unidades aliadas de quien lo ejecute.
 
 * **Enemigos:**  los enemigos serán colocados aleatoriamente en el tablero, mostrando al jugador previamente solo su tipo de ataque, para que así este no pueda colocar sus unidades estratégicamente para que ataquen a todas las unidades enemigas y juegue más bien con esquivar los ataques enemigos, intuyendo cuál podría ser su patrón de ataque.<br>
-Los enemigos que encontrará el jugador durante su partida, dependiendo del nivel en el que se encuentre, serán:
+Los enemigos que encontrará el jugador durante su partida, dependiendo del nivel en el que se encuentre, así como sus estadísticas, serán:
    * Perro infernal
+      * HP: Entre 5+n y 15+n
+      * Ataque: Entre 2+n y 7+n
+      * Defensa: Entre 1+n y 6+n
+      <br>
    *  Murciélago vampiro
+      * HP: Entre 5+n y 20+n
+      * Ataque: Entre 3+n y 9+n
+      * Defensa: Entre 2+n y 6+n
+      <br>
    *  Goblin
+      * HP: Entre 10+n y 25+n
+      * Ataque: Entre 5+n y 10+n
+      * Defensa: Entre 4+n y 8+n
+      <br>
    *  Demonio hembra
+      * HP: Entre 15+n y 30+n
+      * Ataque: Entre 12+n y 20+n
+      * Defensa: Entre 8+n y 18+n
+      <br>
    *  Demonio macho
+      * HP: Entre 15+n y 30+n
+      * Ataque: Entre 10+n y 18+n
+      * Defensa: Entre 10+n y 20+n
+      <br>
    *  Artem (Jefe final)
+   <br>
+  (Siendo n la suma del número de nivel en el que aparece, más el producto de 10 por el número de capítulo menos 1.
+  Por ejemplo, si estamos en el nivel 2-1, n se calcula como: 1(nivel) + (2(capítulo)-1) * 10 = 11)
 
 * **Planificación de la partida:** el jugador cuenta con un inventario de personajes, donde encontrará todos los que haya obtenido, con el nivel que les corresponda y mostrando el tipo de ataque que tiene. En cada partida, el jugador solo podrá usar a tres de esos personajes, colocándolos en su tablero.
 
@@ -161,10 +185,12 @@ El juego se dividirá en 5 zonas inicialmente que, a su vez, están divididas en
 * Cantermahl, capital de Sunhelm<br>
 Es la zona inicial. El jugador se enfrentará a los “Perros infernales”, los enemigos más débiles del juego. En estos niveles se sitúa al jugador en la historia, además de servir a modo de práctica para ir aprendiendo las mecánicas del juego.<br>
 Vencer en un nivel ofrecerá entre 20 y 70 monedas, dependiendo de cuán avanzado sea el nivel de zona. Es decir, el nivel 1-1 otorgará 20 monedas, mientras que el 1-10 otorgará 70 y el 1-5, 45.
-
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/mapa_1erCap.png)
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Ciudad.jpg)
 * Thelia, el bosque mágico<br>
 Segunda zona de nuestro juego. Aquí se incluirá un nuevo tipo de enemigo: “Murciélagos vampiro”. Estos son atraídos por las criaturas mágicas del bosque, por lo que el jugador deberá defender el segundo lugar de ataque de las tropas de Artem. Estos serán un poco más fuertes que los perros infernales.<br>
 Vencer en un nivel ofrecerá entre 50 y 100 monedas, dependiendo de cuán avanzado sea el nivel de zona. Es decir, el nivel 2-1 otorgará 50 monedas, mientras que el 2-10 otorgará 100 y el 2-5, 75.
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Bosque.jpg)
 
 * Muddybog, la ciénaga perdida<br>
 Tercera zona del juego. La primera parte de la zona, hasta el nivel 3-5, no incluirá ningún tipo de enemigo nuevo. Tras el nivel 3-5, aparecerá el nuevo tipo de enemigo “Goblin”, el cuál empezará a exigir algo más de nivel al jugador, fomentando así la rejugabilidad de niveles anteriores.<br>
@@ -224,6 +250,8 @@ El estilo visual se va a dividir en 2 partes:
 ![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Fase%202%20-%20Elecci%C3%B3n%20ropa.jpg)
 ![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Fase%203%20-%20Elecci%C3%B3n%20paleta%20de%20color.jpg)
 ![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Raley.png)
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Raley0.png)
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Raley1.png)
 * Casillas<br>
 ![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/casilla.png)
 ![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/casilla2.png)
@@ -240,16 +268,24 @@ El estilo visual se va a dividir en 2 partes:
 * Artem (villano)
 ![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Concept%20Artem.jpg)
 ![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Artem.png)
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Artem0.png)
 * Armas<br>
 ![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/CONCEPTarmas.jpg)
 ![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/armas.jpg)
+*Enemigos
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Murciélago.png)
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Perro.png)
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Goblin.png)
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/DemonioF.png)
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/DemonioM.png)
 
 ### Audio ###
-Se crearán cinco temas completos: uno para la tienda, otro para la batalla, otro para los menús, otro para el apartado de historia  y un tema principal. Se querrá que estos reflejen temas similares a juegos de aventura y fantasía, pero con algún elemento que suene algo “bubblegum pop”.
+Se buscarán 2 temas completos: uno para la tienda y los menús y otro para la batalla. Se querrá que estos reflejen temas similares a juegos de aventura y fantasía, típicos de un juego del género RPG.
 
 Además, se creará un tema de victoria y otro de derrota, aunque serán de corta duración.
 
 Efectos sonoros: se crearán efectos para: botones, personajes, ataque arma física, ataque arma a distancia, ataque arma mágica, curación, ataque enemigo, colocar personaje, inicio de batalla, sonido palabras y sonido muerte personaje.
+
 
 
 ## Producción ##
@@ -269,9 +305,28 @@ Efectos sonoros: se crearán efectos para: botones, personajes, ataque arma fís
 * 11 de diciembre de 2022: Entrega Goldmaster
 * 18 de diciembre de 2022: RRSS, Portfolio y Pitch (Goldmaster)
 
+**Modelo de Negocio**
+La forma de monetización del videojuego será por medio de un sistema ‘Pay What You Want’ a través de Itch.io, pero dentro del juego también se ofrecerá la opción de la compra de monedas para comprar personajes.
+
+Nuestro usuario objetivo principal será un jugador casual de 16-25 años, pero que pase bastante tiempo en internet y disfrute del humor y los memes.
+
+También queremos crear una comunidad en RRSS, con la que podamos recibir feedback, tanto de bugs como de futuras actualizaciones, una vez lanzado el juego. Crear una comunidad fuerte con la que interactuemos constantemente, realicemos giveaways y concursos… también nos beneficiará a la hora de publicitarnos más fácilmente y que más gente acceda a nuestro producto.
+
+
 ### Mapa de empatía ###
 ![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Produccion/empatia.png)
 ### Toolkit ###
 ![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Produccion/toolkit.png)
 ### Business Model Canvas ###
 ![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Produccion/LBMC.png)
+
+
+### Créditos ###
+Please calm my mind, compuesta por Lesfm: https://pixabay.com/music/id-125566/
+
+Arches, compuesta por DSTechnician: https://pixabay.com/music/id-113013/ 
+
+Chapter Two, compuesta por Leonell Cassio: https://pixabay.com/music/id-114909/ 
+
+Motivational Sport Champions Event - Orchestral Epic Award Ceremony, compuesta por SoundGalleryBy: https://pixabay.com/music/id-123489/ 
+
