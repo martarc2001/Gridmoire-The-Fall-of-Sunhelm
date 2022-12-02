@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StoreManager : MonoBehaviour
 {
@@ -35,17 +36,17 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private List<Sprite> tiposAtaque;
 
     [SerializeField] private TextMeshProUGUI textoNoDinero;
-    [SerializeField] private TextMeshProUGUI textoCompra;
+    [SerializeField] private GameObject textoCompra;
 
     [SerializeField] private GameObject moneda;
     public void Start()
     {
-        newRareza = Rareza.COMUN;
-        changeRareness("Comun");
+        //newRareza = Rareza.COMUN;
+        //changeRareness("Comun");
     }
     public void Awake()
     {
-        newRareza = Rareza.COMUN;
+        //newRareza = Rareza.COMUN;
         //changeRareness("Comun");
     }
 
@@ -54,8 +55,12 @@ public class StoreManager : MonoBehaviour
         switch (rareness)
         {
             case "Comun":
+                //activar botón de compra
                 moneda.SetActive(true);
-                textoCompra.text = "Comprar: 150";
+                textoCompra.GetComponent<TextMeshProUGUI>().text = "Comprar: 150";
+                textoCompra.GetComponent<Button>().interactable = true;
+
+                //cambio de rareza y carga de PlayerPref de esa rareza
                 newRareza = Rareza.COMUN;
                 spl.list.Clear();
                 var com = PlayerPrefs.GetString("commons");
@@ -66,8 +71,12 @@ public class StoreManager : MonoBehaviour
                 }
                 break;
             case "Raro":
+                //activar botón de compra
                 moneda.SetActive(true);
-                textoCompra.text = "Comprar: 500";
+                textoCompra.GetComponent<TextMeshProUGUI>().text = "Comprar: 500";
+                textoCompra.GetComponent<Button>().interactable = true;
+
+                //cambio de rareza y carga de PlayerPref de esa rareza
                 newRareza = Rareza.RARO;
                 spl.list.Clear();
                 var rar = PlayerPrefs.GetString("rares");
@@ -78,8 +87,12 @@ public class StoreManager : MonoBehaviour
                 }
                 break;
             case "SuperRaro":
+                //activar botón de compra
                 moneda.SetActive(true);
-                textoCompra.text = "Comprar: 2500";
+                textoCompra.GetComponent<TextMeshProUGUI>().text = "Comprar: 2500";
+                textoCompra.GetComponent<Button>().interactable = true;
+
+                //cambio de rareza y carga de PlayerPref de esa rareza
                 newRareza = Rareza.SUPER_RARO;
                 spl.list.Clear();
                 var ur = PlayerPrefs.GetString("superRares");
@@ -94,12 +107,14 @@ public class StoreManager : MonoBehaviour
 
     public void comprarPersonaje()
     {
+        //se comprueba si se ha comprado un personaje antes. Si es así, se elimina para evitar superposiciones
         if (lastCreated != null)
         {
             Destroy(lastCreated);
         }
         textoNoDinero.text = "";
 
+        //Dependiendo de la rareza, se compruba que tenga el dinero requerido para esa rareza. Si lo tiene, se genera un personaje, si no, se muestra un texto de falta de dinero.
         switch (newRareza)
         {
             case Rareza.COMUN:
@@ -138,60 +153,73 @@ public class StoreManager : MonoBehaviour
     public void generateRandomCharacter()
     {
 
-        
+        //instancia una copia del prefab de personaje
         var newCharacter = Instantiate(character);
 
+        //selecciona un nombre y un titulo para el personaje
         string newNombre = nombres[Random.Range(0, nombres.Count)];
         string newTitulo = titulos[Random.Range(0, titulos.Count)];
         string newNombrePersonaje = newNombre + " " + newTitulo;
 
         /////// CHARACTER CUSTOMIZATION ///////
 
+        //color del cuerpo y la cara
         var cuerpo = newCharacter.transform.Find("CUERPO BASE").GetComponent<SpriteRenderer>();
         Color piel = this.pieles[Random.Range(0, this.pieles.Count)];
         cuerpo.color = piel;
         newCharacter.transform.Find("Cara").GetComponent<SpriteRenderer>().color = piel;
 
+        //tipo de flequillo
         var newFlequillo = newCharacter.transform.Find("Flequillo").GetComponent<SpriteRenderer>();
         var iFlequillo = Random.Range(0, flequillos.Count);
         newFlequillo.sprite = flequillos[iFlequillo];
 
+        //tipo de pelo
         var newPelo = newCharacter.transform.Find("Pelo").GetComponent<SpriteRenderer>();
         var iPelo = Random.Range(0, pelos.Count);
         newPelo.sprite = pelos[iPelo];
 
+        //tipo de pestañas
         var newPestanhas = newCharacter.transform.Find("Pestanhas").GetComponent<SpriteRenderer>();
         var iPest = Random.Range(0, pestanha.Count);
         newPestanhas.sprite = pestanha[iPest];
 
+        //tipo de orejas
         var newOrejas = newCharacter.transform.Find("Orejas").GetComponent<SpriteRenderer>();
         var iOrej = Random.Range(0, orejas.Count);
         newOrejas.sprite = orejas[iOrej];
 
+        //tipo de nariz
         var newNarices = newCharacter.transform.Find("Nariz").GetComponent<SpriteRenderer>();
         var iNari = Random.Range(0, narices.Count);
         newNarices.sprite = narices[iNari];
 
+        //tipo de boca
         var newBoca = newCharacter.transform.Find("Boca").GetComponent<SpriteRenderer>();
         var iBoca = Random.Range(0, bocas.Count);
         newBoca.sprite = bocas[iBoca];
 
+        //tipo de extras de la cara
         var newExtra = newCharacter.transform.Find("Extra").GetComponent<SpriteRenderer>();
         var iExtra = Random.Range(0, extras.Count);
         newExtra.sprite = extras[iExtra];
 
+        //tipo de cejas
         var newCejas = newCharacter.transform.Find("Cejas").GetComponent<SpriteRenderer>();
         var iCejas = Random.Range(0, cejas.Count);
         newCejas.sprite = cejas[iCejas];
 
+        //tipo de ropa
         var ropa = newCharacter.transform.Find("Ropa").GetComponent<SpriteRenderer>();
         var iRopa = Random.Range(0, ropas.Count);
         ropa.sprite = ropas[iRopa];
 
+        //tipo de arma
         var newArma = newCharacter.transform.Find("Arma_delante").GetComponent<SpriteRenderer>();
         var iArma = Random.Range(0, armas_delante.Count);
         newArma.sprite = armas_delante[iArma];
 
+        //parte trasera del arma, dependiente de la delantera
         var iArmaDetras = 5;
         if(iArma < 5)
         {
@@ -200,8 +228,10 @@ public class StoreManager : MonoBehaviour
         var newArmaDetras = newCharacter.transform.Find("Arma_detras").GetComponent<SpriteRenderer>();
         newArmaDetras.sprite = armas_detras[iArmaDetras];
 
+        //cambia el color de las orejas al de la piel
         newOrejas.color = piel;
 
+        //color para pelo y flequillo
         var RP = Random.Range(0, 255) / 255f;
         var GP = Random.Range(0, 255) / 255f;
         var BP = Random.Range(0, 255) / 255f;
@@ -210,6 +240,7 @@ public class StoreManager : MonoBehaviour
         newPelo.color = new Color(RP, GP, BP);
         newCejas.color = new Color(RP, GP, BP);
 
+        //color para ojos
         var RI = Random.Range(0, 255) / 255f;
         var GI = Random.Range(0, 255) / 255f;
         var BI = Random.Range(0, 255) / 255f;
