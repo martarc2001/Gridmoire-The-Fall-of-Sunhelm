@@ -7,7 +7,7 @@ using UnityEngine.Timeline;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    [SerializeField] private int dineroJugador = 1500;
+    [SerializeField] private int dineroJugador = 2500;
     private AudioClip clipMenu;
     public GameManager Instance
     {
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         if (!PlayerPrefs.HasKey("PrimeraVez"))
         {
             PlayerPrefs.SetInt("PrimeraVez", 1);
-            dineroJugador = 1500;
+            dineroJugador = 2500;
             PlayerPrefs.SetInt("Dinero", dineroJugador);
             PlayerPrefs.Save();
         }
