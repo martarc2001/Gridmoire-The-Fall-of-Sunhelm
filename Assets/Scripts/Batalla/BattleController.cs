@@ -40,11 +40,11 @@ public class BattleController : MonoBehaviour
                     var pointer = Input.mousePosition;
                     inputController(pointer);
                 }
-                else if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended))
+                /*else if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended))
                 {
                     var pointer = Input.GetTouch(0).position;
                     inputController(pointer);
-                }
+                }*/
             }
         }
         
@@ -62,6 +62,21 @@ public class BattleController : MonoBehaviour
             {
                 if (hit.collider.gameObject.GetComponent<SeleccionableManager>().isSelectable())
                 {
+                    if(playerSelected != null)
+                    {
+                        Debug.Log("Hola");
+                        keyDic--;
+                        var lista = colores[keyDic];
+                        var indice = 0;
+                        foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
+                        {
+                            sprite.color = lista[indice];
+                            indice++;
+                        }
+                        colores.Remove(keyDic);
+                        
+                        
+                    }
                     playerSelected = hit.collider.gameObject;
                     var listacolores = new List<Color>();
                     foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
