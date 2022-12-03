@@ -27,6 +27,7 @@ namespace VNCreator
 
         void MainMenu()
         {
+            PlayerPrefs.SetInt("PrimeraVez", 0);
             SceneManager.LoadScene(mainMenu, LoadSceneMode.Single);
         }
     }
