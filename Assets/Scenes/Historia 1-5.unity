@@ -2356,16 +2356,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   story: {fileID: 11400000, guid: 0d10d49c28a18c64a9ad0a66a45a0cfa, type: 2}
-  characterNameTxt: {fileID: 0}
-  dialogueTxt: {fileID: 0}
+  characterNameTxt: {fileID: 1303114951}
+  dialogueTxt: {fileID: 1842594391}
   characterImg: {fileID: 1666865173}
   backgroundImg: {fileID: 1185306631}
   musicSource: {fileID: 0}
   soundEffectSource: {fileID: 0}
-  nextBtn: {fileID: 0}
-  previousBtn: {fileID: 0}
+  nextBtn: {fileID: 921251489}
+  previousBtn: {fileID: 897760091}
   saveBtn: {fileID: 0}
-  menuButton: {fileID: 0}
+  menuButton: {fileID: 1332077266}
   choiceBtn1: {fileID: 1711734561}
   choiceBtn2: {fileID: 1588672136}
   choiceBtn3: {fileID: 505797634}
