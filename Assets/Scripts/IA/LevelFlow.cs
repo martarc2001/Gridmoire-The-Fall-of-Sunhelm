@@ -353,5 +353,9 @@ public class LevelFlow : MonoBehaviour
     }
 
 
-    public void addPersonaje(PlayerController add) { ejercitoJugador.Add(add); }
+    public void addPersonaje(PlayerController add) 
+    { 
+        ejercitoJugador.Add(add);
+        ejercitoCompletoJugador.Add(add);
+    }
 }
