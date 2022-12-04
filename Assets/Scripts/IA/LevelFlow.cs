@@ -95,6 +95,10 @@ public class LevelFlow : MonoBehaviour
                     {
                         personajesRecompensa.GetComponent<EjercitoRecompensa>().AddPersonaje(p.getPersonaje());
                     }
+                    foreach(var p in personajesRecompensa.GetComponent<EjercitoRecompensa>().getNombres())
+                    {
+                        Debug.Log(p.GetNombre());
+                    }
                     DontDestroyOnLoad(personajesRecompensa);
 
                     string estadosString = PlayerPrefs.GetString("Estados Niveles");
@@ -348,10 +352,14 @@ public class LevelFlow : MonoBehaviour
 
         ia.SetEjercito(ejercitoEnemigo);
 
-        ejercitoCompletoJugador = ejercitoJugador;
+        
         initialize = true;
     }
 
 
-    public void addPersonaje(PlayerController add) { ejercitoJugador.Add(add); }
+    public void addPersonaje(PlayerController add) 
+    {
+        ejercitoJugador.Add(add);
+        ejercitoCompletoJugador.Add(add);
+    }
 }
