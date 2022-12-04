@@ -15,7 +15,7 @@ public class Intro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (anim.GetCurrentAnimatorClipInfo(0)[0].clip.name.Equals("anim_bucle_2")) SceneManager.LoadScene("Menu");
+        if (anim.GetCurrentAnimatorClipInfo(0)[0].clip.name.Equals("Anim_Bucle")) SceneManager.LoadScene("Menu");
     }
 
 
