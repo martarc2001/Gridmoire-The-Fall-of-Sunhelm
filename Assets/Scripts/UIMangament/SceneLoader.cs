@@ -47,6 +47,7 @@ public class SceneLoader : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("PrimeraVez") == 1)
         {
+            PlayerPrefs.SetInt("PrimeraVez", 0);
             SceneManager.LoadScene("Intro Visual Novel");
         } else
         {
