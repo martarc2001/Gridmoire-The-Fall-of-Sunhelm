@@ -84,17 +84,17 @@ namespace VNCreator
 
             if (currentNode.choices <= 1) 
             {
-                nextBtn.gameObject.SetActive(true);
+                //nextBtn.gameObject.SetActive(true);
 
                 choiceBtn1.gameObject.SetActive(false);
                 choiceBtn2.gameObject.SetActive(false);
                 choiceBtn3.gameObject.SetActive(false);
 
-                previousBtn.gameObject.SetActive(loadList.Count != 1);
+                //previousBtn.gameObject.SetActive(loadList.Count != 1);
             }
             else
             {
-                nextBtn.gameObject.SetActive(false);
+                //nextBtn.gameObject.SetActive(false);
 
                 choiceBtn1.gameObject.SetActive(true);
                 choiceBtn1.transform.GetChild(0).GetComponent<Text>().text = currentNode.choiceOptions[0];
@@ -129,10 +129,16 @@ namespace VNCreator
                 string fullString = string.Empty;
                 for (int i = 0; i < _chars.Length; i++)
                 {
+                    nextBtn.gameObject.SetActive(false);
+                    previousBtn.gameObject.SetActive(false);
+
+
                     fullString += _chars[i];
                     dialogueTxt.text = fullString;
                     yield return new WaitForSeconds(0.01f/ GameOptions.readSpeed);
                 }
+                nextBtn.gameObject.SetActive(true);
+                previousBtn.gameObject.SetActive(true);
             }
         }
 
