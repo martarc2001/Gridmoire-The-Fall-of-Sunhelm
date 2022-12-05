@@ -60,39 +60,44 @@ public class BattleController : MonoBehaviour
         {
             if (hit.collider.CompareTag("Player"))
             {
-                if (hit.collider.gameObject.GetComponent<SeleccionableManager>().isSelectable())
+                if(cellSelected == null)
                 {
-                    if(playerSelected != null)
+                    if (hit.collider.gameObject.GetComponent<SeleccionableManager>().isSelectable())
                     {
-                        Debug.Log("Hola");
-                        keyDic--;
-                        var lista = colores[keyDic];
-                        var indice = 0;
+                        if (playerSelected != null)
+                        {
+
+                            Debug.Log("Hola");
+                            keyDic--;
+                            var lista = colores[keyDic];
+                            var indice = 0;
+                            foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
+                            {
+                                sprite.color = lista[indice];
+                                indice++;
+                            }
+                            colores.Remove(keyDic);
+
+
+                        }
+                        playerSelected = hit.collider.gameObject;
+                        var listacolores = new List<Color>();
                         foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
                         {
-                            sprite.color = lista[indice];
-                            indice++;
-                        }
-                        colores.Remove(keyDic);
-                        
-                        
-                    }
-                    playerSelected = hit.collider.gameObject;
-                    var listacolores = new List<Color>();
-                    foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
-                    {
 
-                        listacolores.Add(sprite.color);
-                        if (!sprite.transform.name.Equals("Ataque"))
-                            sprite.color = Color.blue;
+                            listacolores.Add(sprite.color);
+                            if (!sprite.transform.name.Equals("Ataque"))
+                                sprite.color = Color.blue;
+                        }
+                        colores.Add(keyDic, listacolores);
+                        keyDic++;
                     }
-                    colores.Add(keyDic, listacolores);
-                    keyDic++;
+                    else
+                    {
+                        Debug.Log("Personaje no seleccionable");
+                    }
                 }
-                else
-                {
-                    Debug.Log("Personaje no seleccionable");
-                }
+                
 
             }
             else if (hit.collider.CompareTag("CellEnemy"))
@@ -157,25 +162,34 @@ public class BattleController : MonoBehaviour
                 {
                     var celda = hit.collider.gameObject.GetComponent<CeldaManager>();
                     cellSelected = hit.collider.gameObject.GetComponent<CeldaManager>();
-                    foreach (var cell in gridAliado.getCeldas())
-                    {
-                        cell.GetComponent<SpriteRenderer>().color = Color.green;
-                    }
+                    resaltarHeal(cellSelected);
                 }
 
                 else if (cellSelected != null)
                 {
-                    playerSelected.GetComponent<Attack>().performAttack(gridAliado, cellSelected.getCelda());
-                    turnosJugados++;
-                    seleccionables.Add(playerSelected.GetComponent<SeleccionableManager>());
-                    playerSelected.GetComponent<SeleccionableManager>().notSelectable();
-                    foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
+                    var celda = hit.collider.gameObject.GetComponent<CeldaManager>();
+                    var coincide = comprobarSingle(cellSelected,celda);
+                    if(coincide)
                     {
-                        sprite.color = Color.gray;
+                        playerSelected.GetComponent<Attack>().performAttack(gridAliado, cellSelected.getCelda());
+                        turnosJugados++;
+                        seleccionables.Add(playerSelected.GetComponent<SeleccionableManager>());
+                        playerSelected.GetComponent<SeleccionableManager>().notSelectable();
+                        foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
+                        {
+                            sprite.color = Color.gray;
+                        }
+                        playerSelected = null;
+                        cellSelected = null;
+                        resetResalto();
                     }
-                    playerSelected = null;
-                    cellSelected = null;
-                    resetResalto();
+                    else
+                    {
+                        cellSelected = celda;
+                        resetResalto();
+                        resaltarHeal(cellSelected);
+                    }
+                    
                 }
             }
         }
@@ -237,6 +251,11 @@ public class BattleController : MonoBehaviour
         {
             cell.GetComponent<SpriteRenderer>().color = Color.red;
         }
+    }
+
+    private void resaltarHeal(CeldaManager celda)
+    {
+        celda.GetComponent<SpriteRenderer>().color = Color.green;
     }
 
     private void resetResalto() 
