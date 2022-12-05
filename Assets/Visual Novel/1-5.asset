@@ -16,38 +16,38 @@ MonoBehaviour:
   - guid: 49773ad1-5fc3-451d-9473-706b1426557e
     targetGuid: 0c735fc4-13ce-4f51-82d3-0605ee80c572
     portId: 0
-  - guid: 0c735fc4-13ce-4f51-82d3-0605ee80c572
-    targetGuid: 2b848a39-7f62-4886-95d0-a43f1bc22c91
-    portId: 1
-  - guid: 2b848a39-7f62-4886-95d0-a43f1bc22c91
-    targetGuid: f382df18-3e92-419a-8dd6-94971f0d2566
-    portId: 2
-  - guid: f382df18-3e92-419a-8dd6-94971f0d2566
-    targetGuid: 470a4e89-0339-4cfe-a652-d1a9ee5ad99e
-    portId: 3
-  - guid: 470a4e89-0339-4cfe-a652-d1a9ee5ad99e
-    targetGuid: 1690f971-f548-405a-a839-46ad634ef9bd
-    portId: 4
   - guid: 1690f971-f548-405a-a839-46ad634ef9bd
     targetGuid: e2dbbbfc-970f-405d-adec-e5e9e86eca6c
+    portId: 1
+  - guid: 0c735fc4-13ce-4f51-82d3-0605ee80c572
+    targetGuid: 2b848a39-7f62-4886-95d0-a43f1bc22c91
+    portId: 2
+  - guid: 2b848a39-7f62-4886-95d0-a43f1bc22c91
+    targetGuid: f382df18-3e92-419a-8dd6-94971f0d2566
+    portId: 3
+  - guid: f382df18-3e92-419a-8dd6-94971f0d2566
+    targetGuid: 470a4e89-0339-4cfe-a652-d1a9ee5ad99e
+    portId: 4
+  - guid: 470a4e89-0339-4cfe-a652-d1a9ee5ad99e
+    targetGuid: 1690f971-f548-405a-a839-46ad634ef9bd
     portId: 5
   - guid: e2dbbbfc-970f-405d-adec-e5e9e86eca6c
     targetGuid: 09c9a4b7-4626-4191-a2bf-21a246d7a59d
     portId: 6
+  - guid: 97b89c1a-7787-49c9-ac59-edf01ef8d355
+    targetGuid: 5d60d0a1-5833-40ca-872a-532dada144e6
+    portId: 7
   - guid: 09c9a4b7-4626-4191-a2bf-21a246d7a59d
     targetGuid: bd3ad3f7-34c9-4c51-b8ab-96f108507e76
-    portId: 7
-  - guid: bd3ad3f7-34c9-4c51-b8ab-96f108507e76
-    targetGuid: 3ac82782-45e4-4611-be33-9748873fe0d1
     portId: 8
   - guid: 3ac82782-45e4-4611-be33-9748873fe0d1
     targetGuid: f7b7524f-9e0f-4301-8078-964736221a45
     portId: 9
+  - guid: bd3ad3f7-34c9-4c51-b8ab-96f108507e76
+    targetGuid: 3ac82782-45e4-4611-be33-9748873fe0d1
+    portId: 10
   - guid: f7b7524f-9e0f-4301-8078-964736221a45
     targetGuid: 97b89c1a-7787-49c9-ac59-edf01ef8d355
-    portId: 10
-  - guid: 97b89c1a-7787-49c9-ac59-edf01ef8d355
-    targetGuid: 5d60d0a1-5833-40ca-872a-532dada144e6
     portId: 11
   - guid: 5d60d0a1-5833-40ca-872a-532dada144e6
     targetGuid: 0f91c78c-469a-42a5-a868-ef63ea3b0156
@@ -281,7 +281,7 @@ MonoBehaviour:
   - guid: f7b7524f-9e0f-4301-8078-964736221a45
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Raley
-    dialogueText: "unque tambi\xE9n hay monstruos perdidos de camino a su castillo.
+    dialogueText: "Aunque tambi\xE9n hay monstruos perdidos de camino a su castillo.
       No s\xE9 por qu\xE9 si nadie va por ah\xED."
     backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
     startNode: 0
