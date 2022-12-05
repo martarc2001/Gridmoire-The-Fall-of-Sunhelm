@@ -46,32 +46,32 @@ public class DataToBattle : MonoBehaviour
     private void addSP(GameObject p)
     {
         //Debug.Log("Añadir personaje: " + p);
-        var cuerpo = p.transform.Find("CUERPO BASE").GetComponent<Image>();
+        var cuerpo = p.transform.Find("CUERPO BASE").GetComponent<SpriteRenderer>();
 
-        var newFlequillo = p.transform.Find("Flequillo").GetComponent<Image>();
+        var newFlequillo = p.transform.Find("Flequillo").GetComponent<SpriteRenderer>();
         var fn = newFlequillo.sprite.name;
 
-        var newPelo = p.transform.Find("Pelo").GetComponent<Image>().sprite.name;
+        var newPelo = p.transform.Find("Pelo").GetComponent<SpriteRenderer>().sprite.name;
 
-        var newPestanhas = p.transform.Find("Pestanhas").GetComponent<Image>().sprite.name;
+        var newPestanhas = p.transform.Find("Pestanhas").GetComponent<SpriteRenderer>().sprite.name;
 
-        var newOrejas = p.transform.Find("Orejas").GetComponent<Image>().sprite.name;
+        var newOrejas = p.transform.Find("Orejas").GetComponent<SpriteRenderer>().sprite.name;
 
-        var newNarices = p.transform.Find("Nariz").GetComponent<Image>().sprite.name;
+        var newNarices = p.transform.Find("Nariz").GetComponent<SpriteRenderer>().sprite.name;
 
-        var newBoca = p.transform.Find("Boca").GetComponent<Image>().sprite.name;
+        var newBoca = p.transform.Find("Boca").GetComponent<SpriteRenderer>().sprite.name;
 
-        var newExtra = p.transform.Find("Extra").GetComponent<Image>().sprite.name;
+        var newExtra = p.transform.Find("Extra").GetComponent<SpriteRenderer>().sprite.name;
 
-        var newCejas = p.transform.Find("Cejas").GetComponent<Image>().sprite.name;
+        var newCejas = p.transform.Find("Cejas").GetComponent<SpriteRenderer>().sprite.name;
 
-        var ropa = p.transform.Find("Ropa").GetComponent<Image>().sprite.name;
+        var ropa = p.transform.Find("Ropa").GetComponent<SpriteRenderer>().sprite.name;
 
-        var arma_delante = p.transform.Find("Arma_delante").GetComponent<Image>().sprite.name;
+        var arma_delante = p.transform.Find("Arma_delante").GetComponent<SpriteRenderer>().sprite.name;
 
-        var arma_detras = p.transform.Find("Arma_detras").GetComponent<Image>().sprite.name;
+        var arma_detras = p.transform.Find("Arma_detras").GetComponent<SpriteRenderer>().sprite.name;
 
-        var newIris = p.transform.Find("Ojos").transform.Find("Iris").GetComponent<Image>();
+        var newIris = p.transform.Find("Ojos").transform.Find("Iris").GetComponent<SpriteRenderer>();
 
         var rc = cuerpo.color.r;
         var gc = cuerpo.color.g;

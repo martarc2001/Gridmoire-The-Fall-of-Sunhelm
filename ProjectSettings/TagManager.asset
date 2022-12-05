@@ -49,9 +49,6 @@ TagManager:
   - name: Arma detras
     uniqueID: 2529284767
     locked: 0
-  - name: Arma_delante
-    uniqueID: 3497559307
-    locked: 0
   - name: Cuerpo Base
     uniqueID: 1445993875
     locked: 0
@@ -64,8 +61,8 @@ TagManager:
   - name: Pestanhas
     uniqueID: 536924473
     locked: 0
-  - name: Ojos-Brillo
-    uniqueID: 266258723
+  - name: Pelo
+    uniqueID: 642155027
     locked: 0
   - name: Ojos-Iris
     uniqueID: 3433529199
@@ -73,23 +70,23 @@ TagManager:
   - name: Ojos-Extras
     uniqueID: 594489531
     locked: 0
-  - name: Flequillo
-    uniqueID: 3857822035
-    locked: 0
-  - name: Pelo
-    uniqueID: 642155027
+  - name: Ojos-Brillo
+    uniqueID: 266258723
     locked: 0
   - name: Orejas
     uniqueID: 3705025067
     locked: 0
+  - name: Flequillo
+    uniqueID: 3857822035
+    locked: 0
   - name: Nariz
     uniqueID: 3355374953
     locked: 0
-  - name: Boca
-    uniqueID: 3740376789
-    locked: 0
   - name: Extra
     uniqueID: 4030824251
+    locked: 0
+  - name: Boca
+    uniqueID: 3740376789
     locked: 0
   - name: Cejas
     uniqueID: 72407359
@@ -99,4 +96,7 @@ TagManager:
     locked: 0
   - name: Viidas
     uniqueID: 3466344257
+    locked: 0
+  - name: Arma_delante
+    uniqueID: 3497559307
     locked: 0
