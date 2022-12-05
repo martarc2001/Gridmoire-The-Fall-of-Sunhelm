@@ -50,9 +50,21 @@ public class Attack : MonoBehaviour
             var defEnemigo = enemigo.GetComponent<EnemigoController>().getEnemigo().GetDefensa();
             var damageTotal = damage * Random.Range(0.75f, 1);
             if (damageTotal - defEnemigo > 0)
-                enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal - defEnemigo);
+            {
+                if(enemigo.GetComponent<EnemigoController>().getEnemigo().GetTipoAtaque() == TipoAtaque.ROW)
+                {
+                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal+0.25f - defEnemigo);
+                }
+                else
+                {
+                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal - defEnemigo);
+                }
+            }
             else
-                enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal / 5);
+            {
+                enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal*2 / 5);
+            }
+                
 
         }
         
@@ -71,9 +83,21 @@ public class Attack : MonoBehaviour
                 var defEnemigo = enemigo.GetComponent<EnemigoController>().getEnemigo().GetDefensa();
                 var damageTotal = damage * Random.Range(0.5f, 0.75f);
                 if (damageTotal - defEnemigo > 0)
-                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal - defEnemigo);
+                {
+                    if (enemigo.GetComponent<EnemigoController>().getEnemigo().GetTipoAtaque() == TipoAtaque.GRID)
+                    {
+                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal + 0.25f - defEnemigo);
+                    }
+                    else
+                    {
+                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal - defEnemigo);
+                    }
+                }
                 else
-                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal / 5);
+                {
+                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal * 2 / 5);
+                }
+                    
             }
             
         }
@@ -91,9 +115,20 @@ public class Attack : MonoBehaviour
                 var defEnemigo = enemigo.GetComponent<EnemigoController>().getEnemigo().GetDefensa();
                 var damageTotal = damage * Random.Range(0.5f, 0.75f);
                 if (damageTotal - defEnemigo > 0)
-                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal - defEnemigo);
+                {
+                    if (enemigo.GetComponent<EnemigoController>().getEnemigo().GetTipoAtaque() == TipoAtaque.COLUMN)
+                    {
+                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal + 0.25f - defEnemigo);
+                    }
+                    else
+                    {
+                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal - defEnemigo);
+                    }
+                }
                 else
-                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal / 5);
+                {
+                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal * 2 / 5);
+                }
             }
             
         }
@@ -111,9 +146,20 @@ public class Attack : MonoBehaviour
                 var defEnemigo = enemigo.GetComponent<EnemigoController>().getEnemigo().GetDefensa();
                 var damageTotal = damage * Random.Range(0.25f, 0.5f);
                 if (damageTotal - defEnemigo > 0)
-                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal - defEnemigo);
+                {
+                    if (enemigo.GetComponent<EnemigoController>().getEnemigo().GetTipoAtaque() == TipoAtaque.SINGLE)
+                    {
+                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal + 0.25f - defEnemigo);
+                    }
+                    else
+                    {
+                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal - defEnemigo);
+                    }
+                }
                 else
-                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal / 5);
+                {
+                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal * 2 / 5);
+                }
             }
             
         }
