@@ -60,44 +60,44 @@ public class BattleController : MonoBehaviour
         {
             if (hit.collider.CompareTag("Player"))
             {
-                if(cellSelected == null)
+                if (hit.collider.gameObject.GetComponent<SeleccionableManager>().isSelectable())
                 {
-                    if (hit.collider.gameObject.GetComponent<SeleccionableManager>().isSelectable())
+                    if (playerSelected != null)
                     {
-                        if (playerSelected != null)
-                        {
-
-                            Debug.Log("Hola");
-                            keyDic--;
-                            var lista = colores[keyDic];
-                            var indice = 0;
-                            foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
-                            {
-                                sprite.color = lista[indice];
-                                indice++;
-                            }
-                            colores.Remove(keyDic);
-
-
-                        }
-                        playerSelected = hit.collider.gameObject;
-                        var listacolores = new List<Color>();
+                        Debug.Log("Hola");
+                        keyDic--;
+                        var lista = colores[keyDic];
+                        var indice = 0;
                         foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
                         {
-
-                            listacolores.Add(sprite.color);
-                            if (!sprite.transform.name.Equals("Ataque"))
-                                sprite.color = Color.blue;
+                            sprite.color = lista[indice];
+                            indice++;
                         }
-                        colores.Add(keyDic, listacolores);
-                        keyDic++;
-                    }
-                    else
+                        colores.Remove(keyDic);
+
+                        if(cellSelected != null)
+                        {
+                            cellSelected = null;
+                            resetResalto();
+                        }
+
+
+                        }
+                    playerSelected = hit.collider.gameObject;
+                    var listacolores = new List<Color>();
+                    foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
                     {
-                        Debug.Log("Personaje no seleccionable");
+                        listacolores.Add(sprite.color);
+                        if (!sprite.transform.name.Equals("Ataque"))
+                            sprite.color = Color.blue;
                     }
+                    colores.Add(keyDic, listacolores);
+                    keyDic++;
                 }
-                
+                else
+                {
+                    Debug.Log("Personaje no seleccionable");
+                }   
 
             }
             else if (hit.collider.CompareTag("CellEnemy"))

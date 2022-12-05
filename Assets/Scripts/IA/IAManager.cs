@@ -241,23 +241,7 @@ public class IAManager
         }
     }
 
-    public async void RealizarTurno(GridManager gridAliado, GridManager gridEnemigo,TextMeshProUGUI texto)
-    {
-        foreach (var personaje in this.ejercito)
-        {
-            texto.SetText("Turno Enemigos");
-            personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.blue;
-            resaltarAtaque(gridAliado, gridEnemigo, personaje);
-            await UniTask.Delay(500);
-            Atacar(gridAliado, gridEnemigo, personaje);
-            await UniTask.Delay(500);
-            resetResalto(gridAliado, gridEnemigo);
-            personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.gray;
-            await UniTask.Delay(500);
-        }
-        texto.SetText("Turno Jugador");
-        resetEnemigos();
-    }
+    
 
     public void resetEnemigos()
     {
