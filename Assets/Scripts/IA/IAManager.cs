@@ -36,23 +36,46 @@ public class IAManager
 
     public Celda CompruebaSingle(GridManager gridEnemigo)
     {
-        Celda objetivo = new Celda();
-        float PeorVida = Mathf.Infinity;
+        Celda objetivo = gridEnemigo.getGridInfo().GetCeldas()[0, 0];
+        //float PeorVida = Mathf.Infinity;
 
 
-        foreach (var cell in gridEnemigo.getCeldas())
+        //foreach (var cell in gridEnemigo.getCeldas())
+        //{
+        //    Debug.Log(cell.getCelda().IsOccupied());
+        //    if (cell.getCelda().IsOccupied())
+        //    {
+        //        if (cell.getCelda().GetPersonaje().GetComponent<PlayerController>().getPersonaje().GetVida() <= PeorVida)
+        //        {
+        //            objetivo = cell.getCelda();
+        //            Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
+        //        }
+        //    }
+        //}
+
+        bool seleccionado = false;
+
+        int x = 0;
+        int y = 0;
+
+        while (x < gridEnemigo.getGridInfo().GetCeldas().GetLength(0))
         {
-            Debug.Log(cell.getCelda().IsOccupied());
-            if (cell.getCelda().IsOccupied())
+            while (y < gridEnemigo.getGridInfo().GetCeldas().GetLength(1))
             {
-                if (cell.getCelda().GetPersonaje().GetComponent<PlayerController>().getPersonaje().GetVida() <= PeorVida)
+                if (gridEnemigo.getGridInfo().GetCeldas()[x, y].IsOccupied())
                 {
-                    objetivo = cell.getCelda();
-                    Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
+                    objetivo = gridEnemigo.getGridInfo().GetCeldas()[x, y];
+                    seleccionado = true;
+                    break;
                 }
+                y++;
             }
-        }
 
+            if (seleccionado) { break; }
+
+            y = 0;
+            x++;
+        }
 
         return objetivo;
     }
