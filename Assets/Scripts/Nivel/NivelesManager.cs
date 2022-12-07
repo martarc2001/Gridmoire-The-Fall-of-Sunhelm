@@ -25,6 +25,12 @@ public class NivelesManager : MonoBehaviour
     [SerializeField] private GameObject historiaManager;
     [SerializeField] private List<String> historias;
 
+    [SerializeField] private List<Image> enemigos;
+    [SerializeField] private List<Image> tipoAtaque;
+
+    [SerializeField] private List<Sprite> spriteEnemigos;
+    [SerializeField] private List<Sprite> spriteAtaques;
+
 
     // GETTERS & SETTERS
 
@@ -152,13 +158,19 @@ public class NivelesManager : MonoBehaviour
     {
         SerializableLevel sl = niveles[this.seleccion];
 
-        var mundo = infoNivel.transform.Find("Mundo");
+        /*var mundo = infoNivel.transform.Find("Mundo");
         var id = infoNivel.transform.Find("ID");
         var nombre = infoNivel.transform.Find("Nombre");
 
         mundo.GetComponent<TextMeshProUGUI>().SetText("Mundo: " + sl.mundo);
         id.GetComponent<TextMeshProUGUI>().SetText("ID: " + sl.id);
-        nombre.GetComponent<TextMeshProUGUI>().SetText("Nombre: " + sl.nombre);
+        nombre.GetComponent<TextMeshProUGUI>().SetText("Nombre: " + sl.nombre);*/
+
+        for(var i=0; i < 3; i++)
+        {
+            enemigos[i].sprite = spriteEnemigos[sl.enemigos[i]];
+            tipoAtaque[i].sprite = spriteAtaques[sl.tipoAtaque[i]];
+        }
     }
 }
 

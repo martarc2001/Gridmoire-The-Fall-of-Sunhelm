@@ -9,11 +9,11 @@ public class EnemigoController : MonoBehaviour
 
     public Enemigo getEnemigo() { return enemigo; }
     // Start is called before the first frame update
-    public void crearEnemigo(int tipoEnemigo, int mundo, int nivel)
+    public void crearEnemigo(int tipoEnemigo, int mundo, int nivel, int tipoAtaque)
     {
         var level = nivel + (mundo - 1) * 10;
         transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = spritesEnemigos[tipoEnemigo];
-        enemigo = new Enemigo((TipoEnemigo)tipoEnemigo, level);
+        enemigo = new Enemigo((TipoEnemigo)tipoEnemigo, level, (TipoAtaque)tipoAtaque);
     }
 
 }

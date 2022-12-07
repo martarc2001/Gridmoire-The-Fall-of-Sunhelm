@@ -19,7 +19,7 @@ public class Enemigo
     [SerializeField]
     private TipoAtaque tipoAtaque;
 
-    public Enemigo(TipoEnemigo tipoEnemigo, int nivel) 
+    public Enemigo(TipoEnemigo tipoEnemigo, int nivel, TipoAtaque tipoAtaque) 
     {
         switch (tipoEnemigo)
         {
@@ -28,7 +28,7 @@ public class Enemigo
                 defensa = Random.Range(1+nivel, 6+nivel);
                 vida = Random.Range(5+nivel, 15+nivel);
                 vidaMax = vida;
-                tipoAtaque = (TipoAtaque)Random.Range(0, 2);
+                this.tipoAtaque = tipoAtaque;
                 break;
 
             case TipoEnemigo.MURICELAGO_VAMPIRO:
@@ -36,7 +36,7 @@ public class Enemigo
                 defensa = Random.Range(2+nivel, 6+nivel);
                 vida = Random.Range(5+nivel, 20+nivel);
                 vidaMax = vida;
-                tipoAtaque = (TipoAtaque)Random.Range(1, 3);
+                this.tipoAtaque = tipoAtaque;
                 break;
 
             case TipoEnemigo.GOBLIN:
@@ -44,7 +44,7 @@ public class Enemigo
                 defensa = Random.Range(4+nivel, 8+nivel);
                 vida = Random.Range(10+nivel, 25+nivel);
                 vidaMax = vida;
-                tipoAtaque = (TipoAtaque)Random.Range(0, 3);
+                this.tipoAtaque = tipoAtaque;
                 break;
 
             case TipoEnemigo.DEMONIO_HEMBRA:
@@ -52,7 +52,7 @@ public class Enemigo
                 defensa = Random.Range(8+nivel, 18+nivel);
                 vida = Random.Range(15+nivel, 30+nivel);
                 vidaMax = vida;
-                tipoAtaque = (TipoAtaque)Random.Range(0, 5);
+                this.tipoAtaque = tipoAtaque;
                 break;
 
             case TipoEnemigo.DEMONIO_MACHO:
@@ -60,7 +60,7 @@ public class Enemigo
                 defensa = Random.Range(10+nivel, 20+nivel);
                 vida = Random.Range(15 + nivel, 30 +nivel);
                 vidaMax = vida;
-                tipoAtaque = (TipoAtaque)Random.Range(0, 5);
+                this.tipoAtaque = tipoAtaque;
                 break;
         }
     }
