@@ -64,7 +64,7 @@ public class BattleController : MonoBehaviour
                 {
                     if (playerSelected != null)
                     {
-                        Debug.Log("Hola");
+                        //Debug.Log("Hola");
                         keyDic--;
                         var lista = colores[keyDic];
                         var indice = 0;

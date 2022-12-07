@@ -45,7 +45,7 @@ public class IAManager
                 if(cell.getCelda().GetPersonaje().GetComponent<PlayerController>().getPersonaje().GetVida() <= PeorVida)
                 {
                     objetivo = cell.getCelda();
-                    Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
+                    //Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
                 }
             }
         }
@@ -66,7 +66,7 @@ public class IAManager
                 if (cell.getCelda().GetPersonaje().GetComponent<EnemigoController>().getEnemigo().GetVida() <= PeorVida)
                 {
                     objetivo = cell.getCelda();
-                    Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
+                    //Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
                 }
             }
         }
@@ -96,7 +96,7 @@ public class IAManager
             {
                 mejorColumna = nEnemigos;
                 columnaObj = j;
-                Debug.Log("Celda seleccionada: " + columnaObj);
+                //Debug.Log("Celda seleccionada: " + columnaObj);
             }
         }
 
@@ -126,7 +126,7 @@ public class IAManager
             {
                 mejorFila = nEnemigos;
                 filaObj = i;
-                Debug.Log("Celda seleccionada: " + filaObj);
+                //Debug.Log("Celda seleccionada: " + filaObj);
             }
         }
 

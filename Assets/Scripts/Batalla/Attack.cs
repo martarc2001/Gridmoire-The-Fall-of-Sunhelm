@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     private TipoAtaque tipoAtaque;
+    [SerializeField] private ParticleSystem particulasCurar;
 
     void Start()
     {
@@ -173,8 +174,14 @@ public class Attack : MonoBehaviour
         {
             var aliado = celda.GetPersonaje();
             var damageTotal = damage * Random.Range(0.5f, 0.25f);
+            var particles = Instantiate(particulasCurar, aliado.transform.position, Quaternion.Euler(-90, 0, 0));
+            particles.transform.parent = aliado.transform;
+            particles.transform.localScale = Vector3.one;
+            particles.Play();
             aliado.GetComponent<PlayerController>().getPersonaje().curar(damageTotal);
 
         }
     }
+
+
 }
