@@ -32,7 +32,7 @@ public class EnemyAttack : MonoBehaviour
                     gridAttack(grid);
                     break;
                 case TipoAtaque.HEAL:
-                    healAttack(grid);
+                    healAttack(objetivo);
                     break;
             }
         }
@@ -161,16 +161,14 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-    public void healAttack(GridManager grid)
+    public void healAttack(Celda celda)
     {
         var damage = GetComponent<EnemigoController>().getEnemigo().GetAtaque();
-        foreach (var celda in grid.getGridInfo().GetCeldas())
+        if (celda.GetPersonaje() != null)
         {
-
-            var damageTotal = damage * Random.Range(0.25f, 0.5f);
-            var aliado = celda.GetPersonaje();
-            if (aliado != null)
-                aliado.GetComponent<EnemigoController>().getEnemigo().curar(damageTotal);
+            var enemigo = celda.GetPersonaje();
+            var damageTotal = damage * Random.Range(0.05f, 0.15f);
+            enemigo.GetComponent<EnemigoController>().getEnemigo().curar(damageTotal);
         }
     }
 }
