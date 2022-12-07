@@ -21,7 +21,7 @@ public class PlanificationManager : MonoBehaviour
     {
         var obj = FindObjectOfType<NivelDataHandler>() as NivelDataHandler;
 
-        Debug.Log(obj.GetMonedas());
+        //Debug.Log(obj.GetMonedas());
     }
 
 
