@@ -14,6 +14,8 @@ public class NivelDataHandler : MonoBehaviour
     // METODOS
 
     public List<int> GetEnemigos() { return this.nivel.enemigos; }
+
+    public List<int> GetTipoAtaque() { return nivel.tipoAtaque; }
     public int GetMundo() { return this.nivel.mundo; }
     public int GetID() { return this.nivel.id; }
     public int GetXp() { return this.nivel.xp; }

@@ -18,6 +18,7 @@ public class SerializableLevel
     public string nombre;
 
     public List<int> enemigos; // en un furturo será de la clase enemigo
+    public List<int> tipoAtaque;
 
     public int monedas;
     public int xp;
@@ -29,12 +30,13 @@ public class SerializableLevel
 
     public SerializableLevel() { }
 
-    public SerializableLevel(int mundo, int id, string nombre, List<int> enemigos, int monedas, int xp, int historia, List<int> celdaX, List<int> celdaY)
+    public SerializableLevel(int mundo, int id, string nombre, List<int> enemigos, List<int> tipoAtaque, int monedas, int xp, int historia, List<int> celdaX, List<int> celdaY)
     {
         this.mundo = mundo;
         this.id = id;
         this.nombre = nombre;
         this.enemigos = enemigos;
+        this.tipoAtaque = tipoAtaque;
         this.monedas = monedas;
         this.xp = xp;
         this.historia = historia;
