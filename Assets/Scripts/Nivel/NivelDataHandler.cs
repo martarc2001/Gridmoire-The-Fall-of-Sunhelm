@@ -19,4 +19,7 @@ public class NivelDataHandler : MonoBehaviour
     public int GetXp() { return this.nivel.xp; }
     public int GetMonedas() { return this.nivel.monedas; }
     public int GetHistoria() { return this.nivel.historia; }
+
+    public List<int> GetCeldasX() { return nivel.celdaX; }
+    public List<int> GetCeldasY() { return nivel.celdaY; }
 }
