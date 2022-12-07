@@ -49,20 +49,27 @@ public class IAManager
                 }
             }
         }
-        /*for (int i = 0; i < gridEnemigo.getGridInfo().GetCeldas().GetLength(0); i++)
+        return objetivo;
+    }
+
+    public Celda ComprubeaHeal(GridManager gridAliado)
+    {
+        Celda objetivo = new Celda();
+        float PeorVida = Mathf.Infinity;
+
+
+        foreach (var cell in gridAliado.getCeldas())
         {
-            for (int j = 0; j < gridEnemigo.getGridInfo().GetCeldas().GetLength(1); j++)
+            Debug.Log(cell.getCelda().IsOccupied());
+            if (cell.getCelda().IsOccupied())
             {
-                if (gridEnemigo.getGridInfo().GetCeldas()[i, j].IsOccupied())
+                if (cell.getCelda().GetPersonaje().GetComponent<EnemigoController>().getEnemigo().GetVida() <= PeorVida)
                 {
-                    if(gridEnemigo.getGridInfo().GetCeldas()[i, j].GetPersonaje().GetComponent<PlayerController>().getPersonaje().GetVida() <= PeorVida)
-                    {
-                        objetivo = gridEnemigo.getGridInfo().GetCeldas()[i, j];
-                        Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
-                    }
+                    objetivo = cell.getCelda();
+                    Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
                 }
             }
-        }*/
+        }
         return objetivo;
     }
 
@@ -149,7 +156,9 @@ public class IAManager
                 personaje.GetComponent<EnemyAttack>().rowAttack(gridEnemigo, gridEnemigo.getGridInfo().GetCeldas()[celdaObj.GetX(), 0]);
                 break;
             case TipoAtaque.HEAL:
-                personaje.GetComponent<EnemyAttack>().healAttack(gridAliado);
+                if (celdaObj.GetPersonaje() == null)
+                    celdaObj = ComprubeaHeal(gridAliado);
+                personaje.GetComponent<EnemyAttack>().healAttack(celdaObj);
                 break;
             default:
                 break;
@@ -176,7 +185,8 @@ public class IAManager
                 resaltarRow(gridEnemigo, celdaObj.GetX());
                 break;
             case TipoAtaque.HEAL:
-                resaltarHeal(gridAliado);
+                celdaObj = ComprubeaHeal(gridAliado);
+                resaltarHeal(gridAliado, celdaObj);
                 break;
             default:
                 break;
@@ -222,7 +232,8 @@ public class IAManager
                 break;
             case TipoAtaque.HEAL:
                 // Invocar ataque heal
-                personaje.GetComponent<Attack>().healAttack(gridAliado);
+                Celda objetivoHeal = BuscaRandom(gridAliado);
+                personaje.GetComponent<Attack>().healAttack(objetivoHeal);
                 Debug.Log("He HEALeado RANDOM");
                 break;
             default:
@@ -230,23 +241,7 @@ public class IAManager
         }
     }
 
-    public async void RealizarTurno(GridManager gridAliado, GridManager gridEnemigo,TextMeshProUGUI texto)
-    {
-        foreach (var personaje in this.ejercito)
-        {
-            texto.SetText("Turno Enemigos");
-            personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.blue;
-            resaltarAtaque(gridAliado, gridEnemigo, personaje);
-            await UniTask.Delay(500);
-            Atacar(gridAliado, gridEnemigo, personaje);
-            await UniTask.Delay(500);
-            resetResalto(gridAliado, gridEnemigo);
-            personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.gray;
-            await UniTask.Delay(500);
-        }
-        texto.SetText("Turno Jugador");
-        resetEnemigos();
-    }
+    
 
     public void resetEnemigos()
     {
@@ -296,11 +291,12 @@ public class IAManager
         }
     }
 
-    private void resaltarHeal(GridManager gridAliado)
+    private void resaltarHeal(GridManager gridAliado, Celda celda)
     {
         foreach (var cell in gridAliado.getCeldas())
         {
-            cell.GetComponent<SpriteRenderer>().color = Color.green;
+            if (cell.getCelda().GetX() == celda.GetX() && cell.getCelda().GetY() == celda.GetY())
+                cell.GetComponent<SpriteRenderer>().color = Color.green;
         }
     }
 

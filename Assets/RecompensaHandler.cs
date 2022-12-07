@@ -32,7 +32,6 @@ public class RecompensaHandler : MonoBehaviour
             personaje.SetXp(nivelData.GetXp());
             personaje.ComprobarNivel();
 
-            Debug.Log(personaje.GetNombre() + " nivel: " + personaje.GetNivel());
             switch (personaje.GetRareza())
             {
                 case Rareza.COMUN:

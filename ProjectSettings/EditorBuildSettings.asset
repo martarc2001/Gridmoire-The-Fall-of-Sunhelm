@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tienda.unity
     guid: 551dd81b5b79ad44fab98e517c4f5dec
   - enabled: 1
+    path: Assets/Scenes/Ejercito.unity
+    guid: 61fde847e905e264bae8642304da137a
+  - enabled: 1
     path: Assets/Scenes/Creditos.unity
     guid: 2b81809c3a78bad459d19b00149f6638
   - enabled: 1
