@@ -179,9 +179,9 @@ public class CargarPersonajes : MonoBehaviour
         newIris.color = new Color(sp.rp, sp.gi, sp.bi);
 
         uiCharacter.transform.Find("Nivel").GetComponent<TextMeshProUGUI>().text = "Nivel: "+sp.nivel;
-        uiCharacter.transform.Find("Ataque").GetComponent<TextMeshProUGUI>().text = "Ataque: " + sp.ataque;
-        uiCharacter.transform.Find("Defensa").GetComponent<TextMeshProUGUI>().text = "Defensa: " + sp.defensa;
-        uiCharacter.transform.Find("HP").GetComponent<TextMeshProUGUI>().text = "HP: " + sp.vidaMax;
+        uiCharacter.transform.Find("Ataque").GetComponent<TextMeshProUGUI>().text = "Ataque: " + (int)sp.ataque;
+        uiCharacter.transform.Find("Defensa").GetComponent<TextMeshProUGUI>().text = "Defensa: " + (int)sp.defensa;
+        uiCharacter.transform.Find("HP").GetComponent<TextMeshProUGUI>().text = "HP: " + (int)sp.vidaMax;
         uiCharacter.transform.Find("TipoAtaque").GetComponent<SpriteRenderer>().sprite = tiposAtaque[sp.tipoAtaque];
 
         var personaje = new Personaje();
