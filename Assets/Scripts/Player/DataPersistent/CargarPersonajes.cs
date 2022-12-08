@@ -189,13 +189,15 @@ public class CargarPersonajes : MonoBehaviour
         personaje.SetDefensa(sp.defensa);
         personaje.SetVida(sp.vida);
         personaje.setVidaMax(sp.vidaMax);
+        personaje.SetAtaqueBase(sp.ataqueBase);
+        personaje.SetDefensaBase(sp.defensaBase);
+        personaje.SetVidaBase(sp.vidaBase);
         personaje.SetTipoAtaque((TipoAtaque)sp.tipoAtaque);
         personaje.SetRareza((Rareza)sp.rareza);
         personaje.SetNombre(sp.nombre);
         personaje.SetNivel(sp.nivel);
         personaje.SetXp(sp.xp);
         personaje.SetXpSubida(sp.xpSubida);
-        personaje.SetXpSubidaPrev(sp.xpSubidaPrev);
         newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
 

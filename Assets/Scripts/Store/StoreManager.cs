@@ -289,7 +289,8 @@ public class StoreManager : MonoBehaviour
 
         var sp = new SerializablePlayer(iFlequillo,iPelo,iPest,iOrej,iNari,iBoca,iExtra,iCejas,
             iRopa, iArma, iArmaDetras, piel.r, piel.g, piel.b,RP,GP,BP,RI,GI,BI,pers.GetAtaque(),pers.GetDefensa(),pers.GetVida(),pers.getVidaMax(), 
-            (int)pers.GetTipoAtaque(),pers.GetNombre(),(int)pers.GetRareza(),1,0,500,250);
+            (int)pers.GetTipoAtaque(),pers.GetAtaqueBase(),pers.GetDefensaBase(),pers.GetVidaBase(),
+            pers.GetNombre(),(int)pers.GetRareza(),1,0,500);
 
         spl.list.Add(sp);
 
