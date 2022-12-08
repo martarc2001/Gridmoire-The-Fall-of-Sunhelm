@@ -3302,6 +3302,7 @@ MonoBehaviour:
   playerSelected: {fileID: 0}
   canvasParent: {fileID: 1649428663}
   dataBattle: {fileID: 464156422}
+  grid: {fileID: 682459945}
   cargarScript: {fileID: 1649428665}
 --- !u!4 &1238200907
 Transform:

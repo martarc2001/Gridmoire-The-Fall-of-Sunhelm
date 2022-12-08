@@ -300,7 +300,8 @@ public class LevelFlow : MonoBehaviour
                     objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sortingOrder = 2;
                     break;
             }
-            objEnemigo.GetComponent<EnemigoController>().crearEnemigo(datosBatalla.GetEnemigos()[nEnemigos],datosBatalla.GetMundo(),datosBatalla.GetID());
+            objEnemigo.GetComponent<EnemigoController>().crearEnemigo(datosBatalla.GetEnemigos()[nEnemigos],datosBatalla.GetMundo(),
+                datosBatalla.GetID(), datosBatalla.GetTipoAtaque()[nEnemigos]);
             grid.getGridInfo().GetCeldas()[x, y].SetPersonaje(objEnemigo);
             grid.getGridInfo().GetCeldas()[x, y].ChangeOccupied();
 

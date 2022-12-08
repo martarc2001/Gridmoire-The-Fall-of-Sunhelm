@@ -94,7 +94,7 @@ public class IAManager
                 if (cell.getCelda().GetPersonaje().GetComponent<EnemigoController>().getEnemigo().GetVida() <= PeorVida)
                 {
                     objetivo = cell.getCelda();
-                    Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
+                    //Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
                 }
             }
         }
@@ -214,6 +214,7 @@ public class IAManager
 
             y = 0;
             filaPosible++;
+
         }
 
         return filaObj;

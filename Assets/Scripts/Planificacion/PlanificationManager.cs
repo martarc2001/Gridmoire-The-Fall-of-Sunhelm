@@ -11,17 +11,39 @@ public class PlanificationManager : MonoBehaviour
     [SerializeField] private GameObject canvasParent;
     private int personajesSeleccionados = 0;
     [SerializeField] DataToBattle dataBattle;
+    [SerializeField] private GridManager grid;
 
     private List<string> nombres = new List<string>();
     [SerializeField] private CargarPersonajes cargarScript;
 
     public List<string> getNombres() { return nombres; }
 
+    private List<CeldaManager> celdasToRemove= new List<CeldaManager>();
+
     void Start()
     {
-        var obj = FindObjectOfType<NivelDataHandler>() as NivelDataHandler;
+        var obj = FindObjectOfType<NivelDataHandler>();
 
-        //Debug.Log(obj.GetMonedas());
+        foreach(var celda in grid.getCeldas())
+        {
+            Debug.Log(obj.GetCeldasX().Count);
+
+            for (var i = 0; i < obj.GetCeldasX().Count; i++)
+            {
+                Debug.Log("Celda a remover: (" + obj.GetCeldasX()[i] + "," + obj.GetCeldasY()[i] + ")");
+                if (obj.GetCeldasX()[i] == celda.getCelda().GetX() && obj.GetCeldasY()[i] == celda.getCelda().GetY())
+                {
+                    celdasToRemove.Add(celda);
+                }
+            }
+        }
+
+        foreach(var celda in celdasToRemove)
+        {
+            grid.getCeldas().Remove(celda);
+            Destroy(celda.gameObject);
+        }
+        
     }
 
 
