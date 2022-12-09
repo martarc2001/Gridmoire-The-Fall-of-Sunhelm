@@ -32,15 +32,9 @@ public class DataToBattle : MonoBehaviour
 
             }
 
-            
-            
-            //Thread.Sleep(2000);
-
             DontDestroyOnLoad(gameObject);
 
-            SigEscena.CrossSceneInformation = "Batalla";
-            SceneManager.LoadScene("PantallaCarga2");
-            //SceneManager.LoadScene("Batalla");
+            Invoke("CargaBatalla", fadeEffect.GetComponent<GDTFadeEffect>().timeEffect);
         }
         
     }
@@ -106,5 +100,11 @@ public class DataToBattle : MonoBehaviour
 
 
         lsp.list.Add(sp);
+    }
+
+    private void CargaBatalla()
+    {
+        SigEscena.CrossSceneInformation = "Batalla";
+        SceneManager.LoadScene("PantallaCarga2");
     }
 }
