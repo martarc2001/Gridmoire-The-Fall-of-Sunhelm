@@ -8,8 +8,7 @@ public class SceneLoader : MonoBehaviour
 {
     public void LoadScene(string scene)
     {
-        SigEscena.CrossSceneInformation = scene;
-        SceneManager.LoadScene("PantallaCarga");
+        SceneManager.LoadScene(scene);
     }
 
     public void LoadBattleScene(string scene)
@@ -25,9 +24,7 @@ public class SceneLoader : MonoBehaviour
 
         DontDestroyOnLoad(nivelDH);
 
-        SigEscena.CrossSceneInformation = scene;
-        SceneManager.LoadScene("PantallaCarga");
-        //SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(scene);
     }
 
     public void LoadMainMenu(string scene)
@@ -43,23 +40,17 @@ public class SceneLoader : MonoBehaviour
             Destroy(FindObjectOfType<EjercitoRecompensa>().gameObject);
         }
 
-        SigEscena.CrossSceneInformation = scene;
-        SceneManager.LoadScene("PantallaCarga");
-        //SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(scene);
     }
 
     public void LoadSeleccionNiveles()
     {
         if(PlayerPrefs.GetInt("PrimeraVez") == 1)
         {
-            SigEscena.CrossSceneInformation = "Intro Visual Novel";
-            SceneManager.LoadScene("PantallaCarga");
-            //SceneManager.LoadScene("Intro Visual Novel");
+            SceneManager.LoadScene("Intro Visual Novel");
         } else
         {
-            SigEscena.CrossSceneInformation = "Seleccion de niveles";
-            SceneManager.LoadScene("PantallaCarga");
-            //SceneManager.LoadScene("Seleccion de niveles");
+            SceneManager.LoadScene("Seleccion de niveles");
         }
     }
 
@@ -82,16 +73,11 @@ public class SceneLoader : MonoBehaviour
         if (manager.TieneHistoria())
         {
             DontDestroyOnLoad(historiaManager.gameObject);
-
-            SigEscena.CrossSceneInformation = "Historia " + manager.GetHistoria();
-            SceneManager.LoadScene("PantallaCarga");
-            //SceneManager.LoadScene("Historia " + manager.GetHistoria());
+            SceneManager.LoadScene("Historia " + manager.GetHistoria());
         }
         else
         {
-            SigEscena.CrossSceneInformation = "Planificacion";
-            SceneManager.LoadScene("PantallaCarga");
-            //SceneManager.LoadScene("Planificacion");
+            SceneManager.LoadScene("Planificacion");
         }
     }
 }

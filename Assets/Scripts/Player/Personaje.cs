@@ -24,12 +24,6 @@ public class Personaje
     [SerializeField]
     private float defensa;
 
-    private float vidaBase;
-
-    private float ataqueBase;
-
-    private float defensaBase;
-
     /*------ Modificadores ------*/
     [SerializeField]
     private TipoAtaque tipoAtaque;
@@ -43,6 +37,7 @@ public class Personaje
 
     private int xpSubida;
 
+    private int xpSubidaPrev;
 
     // CONSTRUCTORES
 
@@ -54,21 +49,21 @@ public class Personaje
 
         switch (rareza) {
             case Rareza.COMUN:
-                this.vidaBase = this.vida = UnityEngine.Random.Range(14,26);
-                this.ataqueBase = this.ataque = UnityEngine.Random.Range(4, 6);
-                this.defensaBase = this.defensa = UnityEngine.Random.Range(2, 5);
+                this.vida = UnityEngine.Random.Range(14,26);
+                this.ataque = UnityEngine.Random.Range(4, 6);
+                this.defensa = UnityEngine.Random.Range(2, 5);
                 this.vidaMax = this.vida;
                 break;
             case Rareza.RARO:
-                this.vidaBase = this.vida = UnityEngine.Random.Range(20, 31);
-                this.ataqueBase = this.ataque = UnityEngine.Random.Range(10, 14);
-                this.defensa = this.defensa = UnityEngine.Random.Range(5, 8);
+                this.vida = UnityEngine.Random.Range(20, 31);
+                this.ataque = UnityEngine.Random.Range(10, 14);
+                this.defensa = UnityEngine.Random.Range(5, 8);
                 this.vidaMax = this.vida;
                 break;
             case Rareza.SUPER_RARO:
-                this.vidaBase = this.vida = UnityEngine.Random.Range(25, 41);
-                this.ataqueBase = this.ataque = UnityEngine.Random.Range(12, 17);
-                this.defensaBase = this.defensa = UnityEngine.Random.Range(7, 11);
+                this.vida = UnityEngine.Random.Range(25, 41);
+                this.ataque = UnityEngine.Random.Range(12, 17);
+                this.defensa = UnityEngine.Random.Range(7, 11);
                 this.vidaMax = this.vida;
                 break;
             default:
@@ -81,7 +76,8 @@ public class Personaje
         this.nivel = 1;
         this.xp = 0;
 
-        this.xpSubida = (int)1600/5;
+        this.xpSubida = 500;
+        this.xpSubidaPrev = 250;
     }
 
 
@@ -98,22 +94,18 @@ public class Personaje
     public int GetNivel() { return this.nivel; }
     public int GetXp() { return this.xp; }
     public int GetXpSubida() { return this.xpSubida; }
-    public float GetAtaqueBase() { return this.ataqueBase; }
-    public float GetDefensaBase() { return this.defensaBase; }
-    public float GetVidaBase() { return this.vidaBase; }
+    public int GetXpSubidaPrev() { return this.xpSubidaPrev; }
 
     public void SetNombre(string nombre) { this.nombre = nombre; }
     public void SetVida(float vida) { this.vida = vida; }
     public void SetAtaque(float ataque) { this.ataque = ataque; }
     public void SetDefensa(float defensa) { this.defensa = defensa; }
     public void SetTipoAtaque(TipoAtaque tipoAtaque) { this.tipoAtaque = tipoAtaque; }
-    public void SetAtaqueBase(float ataqueBase) { this.ataqueBase = ataqueBase; }
-    public void SetDefensaBase(float defensaBase) { this.defensaBase = defensaBase; }
-    public void SetVidaBase(float vidaBase) { this.vidaBase = vidaBase; }
     public void SetRareza(Rareza rareza) { this.rareza = rareza; }
     public void SetNivel(int nivel) { this.nivel = nivel; }
     public void SetXp(int xp) { this.xp += xp; }
     public void SetXpSubida(int xpSubida) { this.xpSubida = xpSubida; }
+    public void SetXpSubidaPrev(int xpSubidaPrev) { this.xpSubidaPrev = xpSubidaPrev; }
     public void setVidaMax(float vidaMax) { this.vidaMax = vidaMax; }
 
     // METODOS
@@ -139,43 +131,22 @@ public class Personaje
         switch (rareza)
         {
             case Rareza.COMUN:
-                
-                this.vidaMax += (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10));
-
-                this.ataque += (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10));
-
-                this.defensa += (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10)) ;
-
-                this.vida = this.vidaMax;
+                this.vida += UnityEngine.Random.Range(3, 6);
+                this.ataque += UnityEngine.Random.Range(2, 5);
+                this.defensa += UnityEngine.Random.Range(1, 3);
+                this.vidaMax = this.vida;
                 break;
             case Rareza.RARO:
-
-                this.vidaMax += (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10));
-
-                this.ataque += (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10));
-
-                this.defensa += (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10));
-
-                this.vida = this.vidaMax;
+                this.vida += UnityEngine.Random.Range(5, 8);
+                this.ataque += UnityEngine.Random.Range(3, 6);
+                this.defensa += UnityEngine.Random.Range(2, 4);
+                this.vidaMax = this.vida;
                 break;
             case Rareza.SUPER_RARO:
-
-                this.vidaMax += (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10));
-
-                this.ataque += (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10));
-
-                this.defensa += (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10));
-
-                this.vida = this.vidaMax;
+                this.vida += UnityEngine.Random.Range(6, 11);
+                this.ataque += UnityEngine.Random.Range(5, 8);
+                this.defensa += UnityEngine.Random.Range(3, 6);
+                this.vidaMax = this.vida;
                 break;
             default:
                 break;
@@ -184,16 +155,16 @@ public class Personaje
 
     public void ComprobarNivel()
     {
-        if(this.nivel < 30)
+        while (this.xp >= this.xpSubida)
         {
-            while (this.xp >= this.xpSubida)
-            {
-                this.SubirNivel();
-
-                this.xpSubida = (int)((4 * (Math.Pow(this.nivel + 1, 2))) / 5) * 100;
-            }
+            this.SubirNivel();
+            
+            this.xp -= this.xpSubida; // Opcional
+            
+            int aux = this.xpSubida;
+            this.xpSubida += this.xpSubidaPrev;
+            this.xpSubidaPrev = aux;
         }
-        
     }
 }
 

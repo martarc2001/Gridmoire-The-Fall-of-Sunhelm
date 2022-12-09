@@ -10,19 +10,16 @@ public class IAManager
     // ATRIBUTOS
 
     private List<EnemigoController> ejercito = new List<EnemigoController>();
-    private readonly int maxPatron = 5;
+    private readonly int FACTOR_ALEATORIEDAD;
     private Celda celdaObj;
-
-    private int[,] patronColumna = new int[5, 3] {{1,2,0}, {1,0,2}, {0,1,2}, {2,0,1}, {0,2,1}};
-    private int[,] patronFila = new int[5, 3] {{0,1,2}, {0,2,1}, {2,1,0}, {2,0,1}, {1,2,0}};
 
     // CONSTRUCTORS
 
     public IAManager() {}
 
-    public IAManager(int maxPatron)
+    public IAManager(int factor = 2)
     {
-        this.maxPatron = maxPatron;
+        this.FACTOR_ALEATORIEDAD = factor;
     }
 
 
@@ -36,47 +33,22 @@ public class IAManager
 
     public Celda CompruebaSingle(GridManager gridEnemigo)
     {
-        Celda objetivo = gridEnemigo.getGridInfo().GetCeldas()[0, 0];
-        //float PeorVida = Mathf.Infinity;
+        Celda objetivo = new Celda();
+        float PeorVida = Mathf.Infinity;
 
 
-        //foreach (var cell in gridEnemigo.getCeldas())
-        //{
-        //    Debug.Log(cell.getCelda().IsOccupied());
-        //    if (cell.getCelda().IsOccupied())
-        //    {
-        //        if (cell.getCelda().GetPersonaje().GetComponent<PlayerController>().getPersonaje().GetVida() <= PeorVida)
-        //        {
-        //            objetivo = cell.getCelda();
-        //            Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
-        //        }
-        //    }
-        //}
-
-        bool seleccionado = false;
-
-        int x = 0;
-        int y = 0;
-
-        while (x < gridEnemigo.getGridInfo().GetCeldas().GetLength(0))
+        foreach(var cell in gridEnemigo.getCeldas())
         {
-            while (y < gridEnemigo.getGridInfo().GetCeldas().GetLength(1))
+            Debug.Log(cell.getCelda().IsOccupied());
+            if (cell.getCelda().IsOccupied())
             {
-                if (gridEnemigo.getGridInfo().GetCeldas()[x, y].IsOccupied())
+                if(cell.getCelda().GetPersonaje().GetComponent<PlayerController>().getPersonaje().GetVida() <= PeorVida)
                 {
-                    objetivo = gridEnemigo.getGridInfo().GetCeldas()[x, y];
-                    seleccionado = true;
-                    break;
+                    objetivo = cell.getCelda();
+                    //Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
                 }
-                y++;
             }
-
-            if (seleccionado) { break; }
-
-            y = 0;
-            x++;
         }
-
         return objetivo;
     }
 
@@ -101,126 +73,67 @@ public class IAManager
         return objetivo;
     }
 
-    public int CompruebaColumn(GridManager gridEnemigo, int n_turno)
+    public int CompruebaColumn(GridManager gridEnemigo)
     {
         int columnaObj = 0;
-        //int nEnemigos = 0;
-        //int mejorColumna = 0;
+        int nEnemigos = 0;
+        int mejorColumna = 0;
 
-        //for (int j = 0; j < gridEnemigo.getGridInfo().GetCeldas().GetLength(1); j++)
-        //{
-        //    nEnemigos = 0;
-        //    var accionAleatoria = Random.Range(1, 10);
-
-        //    for (int i = 0; i < gridEnemigo.getGridInfo().GetCeldas().GetLength(0); i++)
-        //    {
-        //        if (gridEnemigo.getGridInfo().GetCeldas()[i, j].IsOccupied())
-        //        {
-        //            nEnemigos++;
-        //        }
-        //    }
-
-        //    if (nEnemigos > mejorColumna)
-        //    {
-        //        mejorColumna = nEnemigos;
-        //        columnaObj = j;
-        //        Debug.Log("Celda seleccionada: " + columnaObj);
-        //    }
-        //}
-
-        bool seleccionado = false;
-
-        int n_patron = n_turno % patronColumna.GetLength(0);
-        int columnaPosible = 0;
-
-        int x = 0;
-        int y = 0;
-
-        while (columnaPosible < patronColumna.GetLength(1))
+        for (int j = 0; j < gridEnemigo.getGridInfo().GetCeldas().GetLength(1); j++)
         {
-            y = patronColumna[n_patron, columnaPosible];
+            nEnemigos = 0;
+            var accionAleatoria = Random.Range(1, 10);
 
-            while (x < gridEnemigo.getGridInfo().GetCeldas().GetLength(0))
+            for (int i = 0; i < gridEnemigo.getGridInfo().GetCeldas().GetLength(0); i++)
             {
-                if (gridEnemigo.getGridInfo().GetCeldas()[x, y].IsOccupied())
+                if (gridEnemigo.getGridInfo().GetCeldas()[i, j].IsOccupied())
                 {
-                    columnaObj = y;
-                    seleccionado = true;
-                    break;
+                    nEnemigos++;
                 }
-                x++;
             }
 
-            if (seleccionado) { break; }
-
-            x = 0;
-            columnaPosible++;
+            if (nEnemigos > mejorColumna)
+            {
+                mejorColumna = nEnemigos;
+                columnaObj = j;
+                //Debug.Log("Celda seleccionada: " + columnaObj);
+            }
         }
 
         return columnaObj;
     }
 
-    public int CompruebaRow(GridManager gridEnemigo, int n_turno)
+    public int CompruebaRow(GridManager gridEnemigo)
     {
         int filaObj = 0;
-        //int nEnemigos = 0;
-        //int mejorFila = 0;
+        int nEnemigos = 0;
+        int mejorFila = 0;
 
-        //for (int i = 0; i < gridEnemigo.getGridInfo().GetCeldas().GetLength(0); i++)
-        //{
-        //    nEnemigos = 0;
-        //    var accionAleatoria = Random.Range(1, 10);
-
-        //    for (int j = 0; j < gridEnemigo.getGridInfo().GetCeldas().GetLength(1); j++)
-        //    {
-        //        if (gridEnemigo.getGridInfo().GetCeldas()[i, j].IsOccupied())
-        //        {
-        //            nEnemigos++;
-        //        }
-        //    }
-
-        //    if (nEnemigos > mejorFila)
-        //    {
-        //        mejorFila = nEnemigos;
-        //        filaObj = i;
-        //        Debug.Log("Celda seleccionada: " + filaObj);
-        //    }
-        //}
-
-        bool seleccionado = false;
-
-        int n_patron = n_turno % patronFila.GetLength(0);
-        int filaPosible = 0;
-
-        int x = 0;
-        int y = 0;
-
-        while (filaPosible < patronFila.GetLength(1))
+        for (int i = 0; i < gridEnemigo.getGridInfo().GetCeldas().GetLength(0); i++)
         {
-            x = patronFila[n_patron, filaPosible];
+            nEnemigos = 0;
+            var accionAleatoria = Random.Range(1, 10);
 
-            while (y < gridEnemigo.getGridInfo().GetCeldas().GetLength(1))
+            for (int j = 0; j < gridEnemigo.getGridInfo().GetCeldas().GetLength(1); j++)
             {
-                if (gridEnemigo.getGridInfo().GetCeldas()[x, y].IsOccupied())
+                if (gridEnemigo.getGridInfo().GetCeldas()[i, j].IsOccupied())
                 {
-                    filaObj = x;
-                    seleccionado = true;
-                    break;
+                    nEnemigos++;
                 }
-                y++;
             }
 
-            if (seleccionado) { break; }
-
-            y = 0;
-            filaPosible++;
-
+            if (nEnemigos > mejorFila)
+            {
+                mejorFila = nEnemigos;
+                filaObj = i;
+                //Debug.Log("Celda seleccionada: " + filaObj);
+            }
         }
 
         return filaObj;
     }
 
-    public void Atacar(GridManager gridAliado, GridManager gridEnemigo, EnemigoController personaje, int n_turno)
+    public void Atacar(GridManager gridAliado, GridManager gridEnemigo, EnemigoController personaje)
     {
         switch (personaje.getEnemigo().GetTipoAtaque())
         {
@@ -234,12 +147,12 @@ public class IAManager
                 break;
             case TipoAtaque.COLUMN:
                 if (celdaObj.GetPersonaje() == null)
-                    celdaObj = new Celda(0, CompruebaColumn(gridEnemigo, n_turno));
+                    celdaObj = new Celda(0, CompruebaColumn(gridEnemigo));
                 personaje.GetComponent<EnemyAttack>().columnAttack(gridEnemigo, gridEnemigo.getGridInfo().GetCeldas()[0, celdaObj.GetY()]);
                 break;
             case TipoAtaque.ROW:
                 if (celdaObj.GetPersonaje() == null)
-                    celdaObj = new Celda(CompruebaRow(gridEnemigo, n_turno), 0);
+                    celdaObj = new Celda(CompruebaRow(gridEnemigo), 0);
                 personaje.GetComponent<EnemyAttack>().rowAttack(gridEnemigo, gridEnemigo.getGridInfo().GetCeldas()[celdaObj.GetX(), 0]);
                 break;
             case TipoAtaque.HEAL:
@@ -252,7 +165,7 @@ public class IAManager
         }
     }
 
-    public void resaltarAtaque(GridManager gridAliado, GridManager gridEnemigo, EnemigoController personaje, int n_turno)
+    public void resaltarAtaque(GridManager gridAliado, GridManager gridEnemigo, EnemigoController personaje)
     {
         switch (personaje.getEnemigo().GetTipoAtaque())
         {
@@ -264,11 +177,11 @@ public class IAManager
                 resaltarSingle(gridEnemigo, celdaObj);
                 break;
             case TipoAtaque.COLUMN:
-                celdaObj = new Celda(0, CompruebaColumn(gridEnemigo, n_turno));
+                celdaObj = new Celda(0, CompruebaColumn(gridEnemigo));
                 resaltarColumn(gridEnemigo, celdaObj.GetY());
                 break;
             case TipoAtaque.ROW:
-                celdaObj = new Celda(CompruebaRow(gridEnemigo, n_turno), 0);
+                celdaObj = new Celda(CompruebaRow(gridEnemigo),0);
                 resaltarRow(gridEnemigo, celdaObj.GetX());
                 break;
             case TipoAtaque.HEAL:
@@ -279,6 +192,56 @@ public class IAManager
                 break;
         }
     }
+
+    public Celda BuscaRandom(GridManager grid)
+    {
+        int x, y;
+
+        do
+        {
+            x = Random.Range(0, 3);
+            y = Random.Range(0, 3);
+        } while (!grid.getGridInfo().GetCeldas()[x, y].IsOccupied());
+
+        return grid.getGridInfo().GetCeldas()[x,y];
+    }
+
+    public void AtacarRandom(GridManager gridAliado, GridManager gridEnemigo, EnemigoController personaje)
+    {
+        switch (personaje.getEnemigo().GetTipoAtaque())
+        {
+            case TipoAtaque.GRID:
+                // Invocar ataque grid
+                personaje.GetComponent<Attack>().gridAttack(gridEnemigo);
+                Debug.Log("He atacado RANDOM en GRID");
+                break;
+            case TipoAtaque.SINGLE:
+                Celda objetivoSingle = BuscaRandom(gridEnemigo);
+                // Invocar ataque single
+                personaje.GetComponent<Attack>().singleAttack(objetivoSingle);
+                break;
+            case TipoAtaque.COLUMN:
+                Celda objetivoColumn = BuscaRandom(gridEnemigo);
+                // Invocar ataque column
+                personaje.GetComponent<Attack>().columnAttack(gridEnemigo, objetivoColumn);
+                break;
+            case TipoAtaque.ROW:
+                Celda objetivoRow = BuscaRandom(gridEnemigo);
+                // Invocar ataque row
+                personaje.GetComponent<Attack>().rowAttack(gridEnemigo, objetivoRow);
+                break;
+            case TipoAtaque.HEAL:
+                // Invocar ataque heal
+                Celda objetivoHeal = BuscaRandom(gridAliado);
+                personaje.GetComponent<Attack>().healAttack(objetivoHeal);
+                Debug.Log("He HEALeado RANDOM");
+                break;
+            default:
+                break;
+        }
+    }
+
+    
 
     public void resetEnemigos()
     {

@@ -100,6 +100,3 @@ TagManager:
   - name: Arma_delante
     uniqueID: 3497559307
     locked: 0
-  - name: Fadeinout
-    uniqueID: 581629847
-    locked: 0
