@@ -55,6 +55,9 @@ TagManager:
   - name: Ropa
     uniqueID: 7902405
     locked: 0
+  - name: Arma_delante
+    uniqueID: 3497559307
+    locked: 0
   - name: Pestanhas
     uniqueID: 536924473
     locked: 0
@@ -96,9 +99,6 @@ TagManager:
     locked: 0
   - name: Viidas
     uniqueID: 3466344257
-    locked: 0
-  - name: Arma_delante
-    uniqueID: 3497559307
     locked: 0
   - name: Fadeinout
     uniqueID: 581629847
