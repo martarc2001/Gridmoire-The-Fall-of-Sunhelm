@@ -22,3 +22,9 @@ public class Intro : MonoBehaviour
 
 
 }
+
+
+public static class SigEscena
+{
+    public static string CrossSceneInformation { get; set; }
+}

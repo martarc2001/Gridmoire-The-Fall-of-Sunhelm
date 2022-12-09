@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Threading;
 
 public class DataToBattle : MonoBehaviour
 {
     private ListaPlayerSerializable lsp = new ListaPlayerSerializable();
     private Celda[] listaCeldas;
     private List<CeldaManager> listCeldas = new List<CeldaManager>();
+
+    public GameObject fadeEffect;
 
     public void putGrid()
     {
@@ -28,8 +31,15 @@ public class DataToBattle : MonoBehaviour
 
             }
 
+            
+            fadeEffect.SetActive(true);
+            Thread.Sleep(1000);
+
             DontDestroyOnLoad(gameObject);
-            SceneManager.LoadScene("Batalla");
+
+            SigEscena.CrossSceneInformation = "Batalla";
+            SceneManager.LoadScene("PantallaCarga2");
+            //SceneManager.LoadScene("Batalla");
         }
         
     }
