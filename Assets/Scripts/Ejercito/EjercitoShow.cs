@@ -150,6 +150,7 @@ public class EjercitoShow : MonoBehaviour
         newFlequillo.color = new Color(sp.rp, sp.gp, sp.bp);
         newPelo.color = new Color(sp.rp, sp.gp, sp.bp);
         newCejas.color = new Color(sp.rp, sp.gp, sp.bp);
+        newExtra.color = new Color(sp.rp, sp.gp, sp.bp);
 
         var newIris = newCharacter.transform.Find("Ojos").transform.Find("Iris").GetComponent<SpriteRenderer>();
         newIris.color = new Color(sp.rp, sp.gi, sp.bi);

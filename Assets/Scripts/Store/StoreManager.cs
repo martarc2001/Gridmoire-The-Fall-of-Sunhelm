@@ -245,6 +245,7 @@ public class StoreManager : MonoBehaviour
         newFlequillo.color = new Color(RP, GP, BP);
         newPelo.color = new Color(RP, GP, BP);
         newCejas.color = new Color(RP, GP, BP);
+        newExtra.color = new Color(RP, GP, BP);
 
         //color para ojos
         var RI = Random.Range(0, 255) / 255f;
