@@ -15,8 +15,9 @@ public class DataToBattle : MonoBehaviour
 
     public void putGrid()
     {
+        fadeEffect.SetActive(true);
 
-        if(listCeldas.Count > 0)
+        if (listCeldas.Count > 0)
         {
             var i = 0;
             listaCeldas = new Celda[listCeldas.Count];
@@ -32,8 +33,8 @@ public class DataToBattle : MonoBehaviour
             }
 
             
-            fadeEffect.SetActive(true);
-            Thread.Sleep(1000);
+            
+            //Thread.Sleep(2000);
 
             DontDestroyOnLoad(gameObject);
 
