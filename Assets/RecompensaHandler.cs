@@ -51,14 +51,14 @@ public class RecompensaHandler : MonoBehaviour
         SerializableEstadoList estados = JsonUtility.FromJson<SerializableEstadoList>(estadosString);
 
         estados.list[nivelData.GetID() - 1] = Estado.JUGADO;
-        if(nivelData.GetID() < 10)
+        if(nivelData.GetID() < 30)
         {
             estados.list[nivelData.GetID()] = Estado.NO_JUGADO;
         }
-        else
-        {
-            //esto está porque no hay más de 10 niveles
-        }
+        //else
+        //{
+        //    //esto está porque no hay más de 10 niveles
+        //}
 
 
         PlayerPrefs.SetString("Estados Niveles", JsonUtility.ToJson(estados));

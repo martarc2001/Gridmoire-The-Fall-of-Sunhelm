@@ -85,7 +85,7 @@ public class NivelesManager : MonoBehaviour
             estados.list.Add(Estado.NO_JUGADO);
             contador++;
 
-            while (contador < 10)
+            while (contador < botonesSeleccion.Count)
             {
                 estados.list.Add(Estado.BLOQUEADO);
                 contador++;
