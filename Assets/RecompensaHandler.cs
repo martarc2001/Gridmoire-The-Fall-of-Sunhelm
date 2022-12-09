@@ -50,16 +50,8 @@ public class RecompensaHandler : MonoBehaviour
 
         SerializableEstadoList estados = JsonUtility.FromJson<SerializableEstadoList>(estadosString);
 
-        estados.list[nivelData.GetID() - 1] = Estado.JUGADO;
-        if(nivelData.GetID() < 10)
-        {
-            estados.list[nivelData.GetID()] = Estado.NO_JUGADO;
-        }
-        else
-        {
-            //esto está porque no hay más de 10 niveles
-        }
-
+        estados.list[(nivelData.GetMundo() * nivelData.GetID()) - 1] = Estado.JUGADO;
+        estados.list[(nivelData.GetMundo() * nivelData.GetID())] = Estado.NO_JUGADO;
 
         PlayerPrefs.SetString("Estados Niveles", JsonUtility.ToJson(estados));
 
@@ -87,6 +79,7 @@ public class RecompensaHandler : MonoBehaviour
                     p.nivel = personaje.GetNivel();
                     p.xp = personaje.GetXp();
                     p.xpSubida = personaje.GetXpSubida();
+                    p.xpSubidaPrev = personaje.GetXpSubidaPrev();
                 }
                 newList.list.Add(p);
             }
@@ -113,7 +106,8 @@ public class RecompensaHandler : MonoBehaviour
                     p.vidaMax = personaje.getVidaMax();
                     p.nivel = personaje.GetNivel();
                     p.xp = personaje.GetXp();
-                    p.xpSubida = personaje.GetXpSubida();;
+                    p.xpSubida = personaje.GetXpSubida();
+                    p.xpSubidaPrev = personaje.GetXpSubidaPrev();
                 }
                 newList.list.Add(p);
             }
@@ -142,6 +136,7 @@ public class RecompensaHandler : MonoBehaviour
                     p.nivel = personaje.GetNivel();
                     p.xp = personaje.GetXp();
                     p.xpSubida = personaje.GetXpSubida();
+                    p.xpSubidaPrev = personaje.GetXpSubidaPrev();
                 }
                 newList.list.Add(p);
 

@@ -12,9 +12,6 @@ public class EnemigoController : MonoBehaviour
     public void crearEnemigo(int tipoEnemigo, int mundo, int nivel, int tipoAtaque)
     {
         var level = nivel + (mundo - 1) * 10;
-
-
-
         transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = spritesEnemigos[tipoEnemigo];
         enemigo = new Enemigo((TipoEnemigo)tipoEnemigo, level, (TipoAtaque)tipoAtaque);
     }

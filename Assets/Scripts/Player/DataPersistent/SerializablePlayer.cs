@@ -40,16 +40,13 @@ public class SerializablePlayer
     public float vidaMax;
     public int tipoAtaque;
 
-    public float ataqueBase;
-    public float defensaBase;
-    public float vidaBase;
-
     public string nombre;
     public int rareza;
 
     public int nivel;
     public int xp;
     public int xpSubida;
+    public int xpSubidaPrev;
     
 
     public SerializablePlayer() { }
@@ -57,9 +54,8 @@ public class SerializablePlayer
 
     public SerializablePlayer(int flequillo, int pelo, int pestanha, int orejas, int narices, int bocas,
         int extras, int cejas, int ropa, int arma_delante, int arma_detras, float rc, float gc, float bc, float rp, float gp, float bp, float ri, float gi, float bi, 
-        float ataque, float defensa, float vida, float vidaMax, int tipoAtaque, float ataqueBase, 
-        float defensaBase, float vidaBase, string nombre, int rareza,int nivel, int xp,
-        int xpSubida)
+        float ataque, float defensa, float vida, float vidaMax, int tipoAtaque, string nombre, int rareza,int nivel, int xp,
+        int xpSubida, int xpSubidaPrev)
 
     {
         this.flequillo = flequillo;
@@ -87,13 +83,11 @@ public class SerializablePlayer
         this.vida = vida;
         this.vidaMax = vidaMax;
         this.tipoAtaque = tipoAtaque;
-        this.ataqueBase = ataqueBase;
-        this.defensaBase = defensaBase;
-        this.vidaBase = vidaBase;
         this.nombre = nombre;
         this.rareza = rareza;  
         this.nivel = nivel;
         this.xp = xp;
         this.xpSubida = xpSubida;
+        this.xpSubidaPrev = xpSubidaPrev;
     }
 }
