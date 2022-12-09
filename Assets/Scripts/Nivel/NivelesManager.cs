@@ -15,16 +15,29 @@ public class NivelesManager : MonoBehaviour
 
     private int seleccion = 0;
 
+    [Header("Información nivel")]
     [SerializeField] private GameObject infoNivel;
+
+    [Header("Manejo UI")]
     [SerializeField] private List<Button> botonesUI;
     [SerializeField] private List<Button> botonesSeleccion;
 
+    [Header("Imágenes")]
     [SerializeField] private Sprite imgBloqueado;
     [SerializeField] private Sprite imgDesbloqueado;
 
+    [Header("Mundos")]
+    [SerializeField] private GameObject fondo;
+    [SerializeField] private List<Sprite> fondosMundo;
+    [SerializeField] private List<GameObject> iconosNiveles;
+    [SerializeField] private List<GameObject> flechasNiveles;
+    private int nMundos;
+
+    [Header("Historia")]
     [SerializeField] private GameObject historiaManager;
     [SerializeField] private List<String> historias;
 
+    [Header("Enemigos")]
     [SerializeField] private List<Image> enemigos;
     [SerializeField] private List<Image> tipoAtaque;
 
@@ -57,6 +70,9 @@ public class NivelesManager : MonoBehaviour
     // Awake se llama al cargar la instancia del script
     private void Awake()
     {
+        nMundos = fondosMundo.Count;
+        Debug.Log(nMundos);
+
         //PlayerPrefs.DeleteKey("Estados Niveles");
         // Si no existe la tabla de estados en el PlayerPrefs
         if (!PlayerPrefs.HasKey("Estados Niveles"))
@@ -170,6 +186,26 @@ public class NivelesManager : MonoBehaviour
         {
             enemigos[i].sprite = spriteEnemigos[sl.enemigos[i]];
             tipoAtaque[i].sprite = spriteAtaques[sl.tipoAtaque[i]];
+        }
+    }
+
+    public void CambiaMundo(int mundo)
+    {
+        fondo.GetComponent<SpriteRenderer>().sprite = fondosMundo[mundo - 1];
+
+        for (int i = 0; i < nMundos; i++)
+        {
+            if (i == (mundo - 1))
+            {
+                fondo.GetComponent<SpriteRenderer>().sprite = fondosMundo[i];
+                iconosNiveles[i].SetActive(true);
+                flechasNiveles[i].SetActive(true);
+            }
+            else
+            {
+                iconosNiveles[i].SetActive(false);
+                flechasNiveles[i].SetActive(false);
+            }
         }
     }
 }
