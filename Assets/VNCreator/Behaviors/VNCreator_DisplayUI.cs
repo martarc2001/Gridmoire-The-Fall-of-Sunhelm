@@ -23,7 +23,6 @@ namespace VNCreator
         public Button previousBtn;
         public Button saveBtn;
         public Button menuButton;
-        public Button skipBtn;
         [Header("Choices")]
         public Button choiceBtn1;
         public Button choiceBtn2;
@@ -33,8 +32,6 @@ namespace VNCreator
         [Header("Main menu")]
         [Scene]
         public string mainMenu;
-        [Scene]
-        public string nextScene;
 
         void Start()
         {
@@ -43,10 +40,8 @@ namespace VNCreator
                 previousBtn.onClick.AddListener(Previous);
             if(saveBtn != null)
                 saveBtn.onClick.AddListener(Save);
-            if(menuButton != null)
+            if (menuButton != null)
                 menuButton.onClick.AddListener(ExitGame);
-            if(skipBtn != null)
-                skipBtn.onClick.AddListener(SkipStory);
 
             if(choiceBtn1 != null)
                 choiceBtn1.onClick.AddListener(delegate { NextNode(0); });
@@ -155,12 +150,6 @@ namespace VNCreator
         void ExitGame()
         {
             SceneManager.LoadScene(mainMenu, LoadSceneMode.Single);
-        }
-
-        void SkipStory()
-        {
-                PlayerPrefs.SetInt("PrimeraVez", 0);
-                SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
         }
     }
 }
