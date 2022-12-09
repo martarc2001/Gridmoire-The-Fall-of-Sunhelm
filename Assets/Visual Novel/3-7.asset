@@ -41,7 +41,7 @@ MonoBehaviour:
   - guid: c79257fe-942d-4e16-adc8-9181d31fafa0
     characterSpr: {fileID: 0}
     characterName: Goblin
-    dialogueText: 
+    dialogueText: "M-maeshtro...ggg...Eshtamosh aqu\xED."
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   - guid: fe543681-fecc-4d9e-9fdd-88791cdbc70d
     characterSpr: {fileID: 0}
     characterName: Goblin
-    dialogueText: 
+    dialogueText: N-nosh-shotrosh no... Maeshtro noshotrosh...
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
   - guid: 9c77a70c-8584-4f5b-930b-d8672f978ea7
     characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
     characterName: Artem
-    dialogueText: 
+    dialogueText: "\xBFYa est\xE1n en Muddybog? Ugh..."
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 1
     endNode: 0
@@ -95,7 +95,8 @@ MonoBehaviour:
   - guid: dbcdf9a7-6091-4ac2-b17c-7bfdb0ba55f4
     characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
     characterName: Artem
-    dialogueText: 
+    dialogueText: "\xA1\xBFD\xF3nde est\xE1n los goblins?! Como me hagan esperar
+      m\xE1s les voy a..."
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 0
@@ -113,7 +114,8 @@ MonoBehaviour:
   - guid: dd707d8e-ea53-4795-b46f-717c835cc96a
     characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
     characterName: Artem
-    dialogueText: 
+    dialogueText: "Lleg\xE1is tarde, \xBFqu\xE9 est\xE1 pasando en Muddybog? \xBFPor
+      qu\xE9 no hab\xE9is eliminado a esas dos molestias?"
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 0
@@ -131,7 +133,7 @@ MonoBehaviour:
   - guid: 9fd51fc5-8459-4ede-a497-06cf1575b5c5
     characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
     characterName: Artem
-    dialogueText: 
+    dialogueText: "Ya pod\xE9is tener una buena raz\xF3n..."
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 0
@@ -149,7 +151,7 @@ MonoBehaviour:
   - guid: 225eb0a9-c700-4949-919c-07a7ea075072
     characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
     characterName: Artem
-    dialogueText: 
+    dialogueText: Ugh, silencio, volved a la batalla y paradles a toda costa.
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 0
@@ -167,7 +169,8 @@ MonoBehaviour:
   - guid: ec7bebbf-cd3d-4bd4-9201-c0e5681b1eff
     characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
     characterName: Artem
-    dialogueText: 
+    dialogueText: "No deben ganar esta pelea, tengo que hacerles ver a todos la corrupci\xF3n
+      de nuestra sociedad..."
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 0
@@ -185,7 +188,7 @@ MonoBehaviour:
   - guid: 6c15396e-fdf6-4f7c-b238-8477df657efa
     characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
     characterName: Artem
-    dialogueText: 
+    dialogueText: Y arrancarla de cuajo.
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 1

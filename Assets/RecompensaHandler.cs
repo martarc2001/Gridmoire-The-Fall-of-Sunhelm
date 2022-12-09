@@ -50,10 +50,12 @@ public class RecompensaHandler : MonoBehaviour
 
         SerializableEstadoList estados = JsonUtility.FromJson<SerializableEstadoList>(estadosString);
 
-        estados.list[nivelData.GetID() - 1] = Estado.JUGADO;
-        if(nivelData.GetID() < 30)
+        var idx = (nivelData.GetMundo() - 1) * 10 + nivelData.GetID();
+
+        estados.list[idx] = Estado.JUGADO;
+        if(idx < 30)
         {
-            estados.list[nivelData.GetID()] = Estado.NO_JUGADO;
+            estados.list[idx] = Estado.NO_JUGADO;
         }
         //else
         //{

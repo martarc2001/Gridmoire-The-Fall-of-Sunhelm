@@ -222,7 +222,9 @@ MonoBehaviour:
   - guid: 5260447b-7074-4a66-99fc-3d8b4af3c734
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Raley
-    dialogueText: 
+    dialogueText: "Bueno... la magia de las hadas no puede provocar da\xF1o en los
+      seres vivos. Solo pudo ocultar a las criaturas del bosque a los ojos de los
+      monstruos, nada m\xE1s."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0
