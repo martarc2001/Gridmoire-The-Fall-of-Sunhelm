@@ -55,14 +55,14 @@ TagManager:
   - name: Ropa
     uniqueID: 7902405
     locked: 0
-  - name: Cara
-    uniqueID: 2871864043
-    locked: 0
   - name: Pestanhas
     uniqueID: 536924473
     locked: 0
   - name: Pelo
     uniqueID: 642155027
+    locked: 0
+  - name: Cara
+    uniqueID: 2871864043
     locked: 0
   - name: Ojos-Iris
     uniqueID: 3433529199
@@ -76,14 +76,14 @@ TagManager:
   - name: Orejas
     uniqueID: 3705025067
     locked: 0
-  - name: Flequillo
-    uniqueID: 3857822035
-    locked: 0
   - name: Nariz
     uniqueID: 3355374953
     locked: 0
   - name: Extra
     uniqueID: 4030824251
+    locked: 0
+  - name: Flequillo
+    uniqueID: 3857822035
     locked: 0
   - name: Boca
     uniqueID: 3740376789
