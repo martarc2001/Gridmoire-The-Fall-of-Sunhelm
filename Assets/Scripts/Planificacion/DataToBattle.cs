@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Threading;
 
 public class DataToBattle : MonoBehaviour
 {
@@ -10,10 +11,13 @@ public class DataToBattle : MonoBehaviour
     private Celda[] listaCeldas;
     private List<CeldaManager> listCeldas = new List<CeldaManager>();
 
+    public GameObject fadeEffect;
+
     public void putGrid()
     {
+        fadeEffect.SetActive(true);
 
-        if(listCeldas.Count > 0)
+        if (listCeldas.Count > 0)
         {
             var i = 0;
             listaCeldas = new Celda[listCeldas.Count];
@@ -29,7 +33,8 @@ public class DataToBattle : MonoBehaviour
             }
 
             DontDestroyOnLoad(gameObject);
-            SceneManager.LoadScene("Batalla");
+
+            Invoke("CargaBatalla", fadeEffect.GetComponent<GDTFadeEffect>().timeEffect);
         }
         
     }
@@ -90,10 +95,17 @@ public class DataToBattle : MonoBehaviour
         SerializablePlayer sp = new SerializablePlayer(int.Parse(fn),int.Parse(newPelo),int.Parse(newPestanhas),int.Parse(newOrejas)
             ,int.Parse(newNarices),int.Parse(newBoca)
             ,int.Parse(newExtra),int.Parse(newCejas),int.Parse(ropa),int.Parse(arma_delante),int.Parse(arma_detras),rc,gc,bc,rp,gp,bp,ri,gi,bi,person.GetAtaque(),
-            person.GetDefensa(),person.GetVida(),person.getVidaMax(),(int)person.GetTipoAtaque(),person.GetNombre(),(int)person.GetRareza(),
-            person.GetNivel(),person.GetXp(),person.GetXpSubida(),person.GetXpSubidaPrev());
+            person.GetDefensa(),person.GetVida(),person.getVidaMax(),(int)person.GetTipoAtaque(),
+            person.GetAtaqueBase(),person.GetDefensaBase(),person.GetVidaBase(),person.GetNombre(),(int)person.GetRareza(),
+            person.GetNivel(),person.GetXp(),person.GetXpSubida());
 
 
         lsp.list.Add(sp);
+    }
+
+    private void CargaBatalla()
+    {
+        SigEscena.CrossSceneInformation = "Batalla";
+        SceneManager.LoadScene("PantallaCarga2");
     }
 }
