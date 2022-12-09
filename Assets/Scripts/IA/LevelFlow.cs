@@ -351,7 +351,7 @@ public class LevelFlow : MonoBehaviour
 
         ia.SetEjercito(ejercitoEnemigo);
 
-        ejercitoCompletoJugador = ejercitoJugador;
+        //ejercitoCompletoJugador = ejercitoJugador;
         initialize = true;
     }
 
