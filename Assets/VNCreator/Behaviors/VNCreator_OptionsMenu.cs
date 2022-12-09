@@ -42,10 +42,7 @@ namespace VNCreator
                 instantTextToggle.onValueChanged.AddListener(GameOptions.SetInstantText);
             }
 
-            if(backButton != null)
-            {
-                backButton.onClick.AddListener(Back);
-            }
+            backButton.onClick.AddListener(Back);
         }
 
         void Back()
