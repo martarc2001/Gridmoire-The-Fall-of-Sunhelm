@@ -27,6 +27,7 @@ public class LevelFlow : MonoBehaviour
     [SerializeField] private List<float> vidasJugador = new List<float>();
 
     [SerializeField] private TextMeshProUGUI textoTurno;
+    private int n_turno = 0;
 
     private NivelDataHandler datosBatalla;
 
@@ -127,15 +128,16 @@ public class LevelFlow : MonoBehaviour
             QuedanAliados(ejercitoJugador);
             textoTurno.SetText("Turno Enemigos");
             personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.blue;
-            ia.resaltarAtaque(gridIA, gridPlayer, personaje);
+            ia.resaltarAtaque(gridIA, gridPlayer, personaje, n_turno);
             yield return new WaitForSeconds(0.25f);
-            ia.Atacar(gridIA, gridPlayer, personaje);
+            ia.Atacar(gridIA, gridPlayer, personaje, n_turno);
             yield return new WaitForSeconds(0.25f);
             ia.resetResalto(gridIA, gridPlayer);
             personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.gray;
             yield return new WaitForSeconds(0.25f);
             
         }
+        n_turno++;
 
         textoTurno.SetText("Turno Jugador");
         ia.resetEnemigos();
@@ -349,7 +351,7 @@ public class LevelFlow : MonoBehaviour
 
         ia.SetEjercito(ejercitoEnemigo);
 
-        ejercitoCompletoJugador = ejercitoJugador;
+        //ejercitoCompletoJugador = ejercitoJugador;
         initialize = true;
     }
 

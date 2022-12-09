@@ -169,7 +169,6 @@ public class EjercitoShow : MonoBehaviour
         personaje.SetNivel(sp.nivel);
         personaje.SetXp(sp.xp);
         personaje.SetXpSubida(sp.xpSubida);
-        personaje.SetXpSubidaPrev(sp.xpSubidaPrev);
         newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
         var nombreStats = "Nombre: " + sp.nombre;
