@@ -2598,7 +2598,7 @@ MonoBehaviour:
   choiceBtn2: {fileID: 1588672136}
   choiceBtn3: {fileID: 505797634}
   endScreen: {fileID: 14731550}
-  mainMenu: Assets/Scenes/Menu.unity
+  mainMenu: Assets/Scenes/Seleccion de niveles.unity
   nextScene: Assets/Scenes/Planificacion.unity
 --- !u!4 &1705209802
 Transform:
