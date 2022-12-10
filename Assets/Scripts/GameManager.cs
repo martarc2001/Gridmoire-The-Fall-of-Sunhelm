@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         audioSorce.Stop();
         audioSorce.PlayOneShot(clip);
         audioSorce.volume = 1;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(clip.length);
         audioSorce.Stop();
         audioSorce.volume = volumenGeneral;
         audioSorce.clip = clipMenu;
