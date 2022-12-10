@@ -17,10 +17,7 @@ public class OptionsManager : MonoBehaviour
     {
         var slider = opciones.GetComponentInChildren<Slider>() as Slider;
 
-        float aux;
-        mainMixer.GetFloat("VolumenGeneral", out aux);
-
-        slider.value = aux;
+        slider.value = GameManager.instance.GetAudioSource().volume;
 
 
         var toggle = opciones.GetComponentInChildren<Toggle>() as Toggle;

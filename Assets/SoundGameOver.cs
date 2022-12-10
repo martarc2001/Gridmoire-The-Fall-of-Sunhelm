@@ -7,8 +7,9 @@ public class SoundGameOver : MonoBehaviour
 
     [SerializeField] private AudioClip clip;
 
-    private void Awake()
+    private void Start()
     {
-        GameManager.instance.playSound(clip);
+        StartCoroutine(GameManager.instance.playSound(clip));
+       
     }
 }
