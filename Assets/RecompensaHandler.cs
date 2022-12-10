@@ -138,7 +138,7 @@ public class RecompensaHandler : MonoBehaviour
                 {
                     p.ataque = personaje.GetAtaque();
                     p.defensa = personaje.GetDefensa();
-                    p.vida = personaje.GetVida();
+                    p.vida = personaje.getVidaMax();
                     p.vidaMax = personaje.getVidaMax();
                     p.nivel = personaje.GetNivel();
                     p.xp = personaje.GetXp();

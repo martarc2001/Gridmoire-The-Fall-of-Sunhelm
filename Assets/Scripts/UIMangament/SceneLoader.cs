@@ -9,6 +9,19 @@ public class SceneLoader : MonoBehaviour
     public void LoadScene(string scene)
     {
         SigEscena.CrossSceneInformation = scene;
+        if(scene.Equals("Seleccion de niveles"))
+        {
+            if (FindObjectOfType<NivelDataHandler>() != null)
+                Destroy(FindObjectOfType<NivelDataHandler>().gameObject);
+
+            if (FindObjectOfType<DataToBattle>() != null)
+                Destroy(FindObjectOfType<DataToBattle>().gameObject);
+
+            if (FindObjectOfType<HistoriaManager>() != null)
+                Destroy(FindObjectOfType<HistoriaManager>().gameObject);
+        }
+        
+        
         SceneManager.LoadScene("PantallaCarga");
     }
 
