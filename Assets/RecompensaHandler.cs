@@ -52,7 +52,7 @@ public class RecompensaHandler : MonoBehaviour
 
         var idx = (nivelData.GetMundo() - 1) * 10 + nivelData.GetID();
 
-        estados.list[idx] = Estado.JUGADO;
+        estados.list[idx-1] = Estado.JUGADO;
         if(idx < 30)
         {
             estados.list[idx] = Estado.NO_JUGADO;

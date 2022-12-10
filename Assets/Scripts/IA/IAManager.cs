@@ -272,8 +272,7 @@ public class IAManager
                 resaltarRow(gridEnemigo, celdaObj.GetX());
                 break;
             case TipoAtaque.HEAL:
-                if (celdaObj.GetPersonaje() == null)
-                    celdaObj = ComprubeaHeal(gridAliado);
+                celdaObj = ComprubeaHeal(gridAliado);
                 resaltarHeal(gridAliado, celdaObj);
                 break;
             default:

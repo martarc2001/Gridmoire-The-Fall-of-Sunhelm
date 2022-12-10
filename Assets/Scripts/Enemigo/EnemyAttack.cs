@@ -163,6 +163,7 @@ public class EnemyAttack : MonoBehaviour
 
     public void healAttack(Celda celda)
     {
+        Debug.Log(celda);
         var damage = GetComponent<EnemigoController>().getEnemigo().GetAtaque();
         if (celda.GetPersonaje() != null)
         {

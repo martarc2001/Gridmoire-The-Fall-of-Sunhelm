@@ -108,18 +108,21 @@ public class NivelesManager : MonoBehaviour
 
         SerializableEstadoList estados = JsonUtility.FromJson<SerializableEstadoList>(estadosString);
 
+
         for (int i = 0; i < botonesSeleccion.Count; i++)
         {
-            var imagen = botonesSeleccion[i].GetComponent<Image>() as Image;
+            var imagen = botonesSeleccion[i].GetComponent<Image>();
 
-            if (estados.list[i] == 0)
+            if (estados.list[i] == Estado.BLOQUEADO)
             {
                 imagen.sprite = imgBloqueado;
 
                 botonesSeleccion[i].enabled = false;
+                
             } else
             {
                 imagen.sprite = imgDesbloqueado;
+                botonesSeleccion[i].enabled = true;
             }
         }
     }

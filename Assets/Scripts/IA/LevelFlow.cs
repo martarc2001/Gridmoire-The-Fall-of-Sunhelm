@@ -194,11 +194,14 @@ public class LevelFlow : MonoBehaviour
     {
         var result = false;
         List<EnemigoController> persEliminar = new List<EnemigoController>();
+        List<CeldaManager> celdaVaciar = new List<CeldaManager>();
+
         foreach (var personaje in comprobar)
         {
             if (personaje.getEnemigo().GetVida() <= 0)
             {
                 persEliminar.Add(personaje);
+                celdaVaciar.Add(personaje.GetComponentInParent<CeldaManager>());
             }
             if (personaje.getEnemigo().GetVida() > 0)
             {
@@ -210,6 +213,18 @@ public class LevelFlow : MonoBehaviour
         {
             comprobar.Remove(eliminados);
             Destroy(eliminados.gameObject);
+        }
+
+        foreach (var celda in celdaVaciar)
+        {
+            foreach (var cell in gridIA.getCeldas())
+            {
+                if (celda.getCelda().GetX() == cell.getCelda().GetX() && celda.getCelda().GetY() == cell.getCelda().GetY())
+                {
+                    cell.getCelda().SetPersonaje(null);
+                    cell.getCelda().ChangeOccupied();
+                }
+            }
         }
         return result;
     }
