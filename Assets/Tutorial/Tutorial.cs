@@ -7,22 +7,26 @@ public class Tutorial : MonoBehaviour
 {
     private int actual;
     private int MAX_IMAGEN;
-    private int MIN_IMAGEN;
-    private string localizacion;
+    private int MIN_IMAGEN=0;
+    //private string localizacion;
     [SerializeField] private GameObject imagen;
-    private Object imagenElegida;
     [SerializeField] private List<Sprite> listaSprites;
+    private SpriteRenderer imagenElegida;
+    [SerializeField] GameObject bRegreso;
+    [SerializeField] GameObject bAvance;
 
     // Start is called before the first frame update
     void Start()
     {
-        localizacion = "Tutorial\\Imagenes\\";
-        MIN_IMAGEN = 2;
-        MAX_IMAGEN = 2;
+        //localizacion = "Tutorial\\Imagenes\\";
+
+        
+        MAX_IMAGEN = listaSprites.Count-1;
         actual = MIN_IMAGEN;
 
-        imagenElegida=imagen.GetComponent<SpriteRenderer>().sprite;
-        imagenElegida = listaSprites[actual+1];
+        imagenElegida=imagen.GetComponent<SpriteRenderer>();
+        imagenElegida.sprite = listaSprites[actual];
+        bRegreso.SetActive(false);
         
         /*
         imagenElegida = Resources.Load(localizacion + actual);
@@ -35,24 +39,35 @@ public class Tutorial : MonoBehaviour
         */
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
 
 
     public void Avanzar()
     {
+        Debug.Log("Avanza");
         if (actual != MAX_IMAGEN)
         {
+            actual += 1;
+            if (actual == MAX_IMAGEN) { bAvance.SetActive(false);}
+            if (!bRegreso.activeSelf) bRegreso.SetActive(true);
 
+            imagenElegida.sprite = listaSprites[actual];
         }
+        
     }
 
-    public void Retrasar()
+    public void Regresar()
     {
-
+        Debug.Log("Regresa");
+        if (actual != MIN_IMAGEN)
+        {   
+            actual -= 1;
+            if (actual == MIN_IMAGEN) { bRegreso.SetActive(false);}
+            if (!bAvance.activeSelf) bAvance.SetActive(true);
+            
+            imagenElegida.sprite = listaSprites[actual];
+        }
+        
     }
 }
 
