@@ -28,9 +28,11 @@ public class SerializableLevel
     public List<int> celdaX;
     public List<int> celdaY;
 
+    public int fondo;
+
     public SerializableLevel() { }
 
-    public SerializableLevel(int mundo, int id, string nombre, List<int> enemigos, List<int> tipoAtaque, int monedas, int xp, int historia, List<int> celdaX, List<int> celdaY)
+    public SerializableLevel(int mundo, int id, string nombre, List<int> enemigos, List<int> tipoAtaque, int monedas, int xp, int historia, List<int> celdaX, List<int> celdaY, int fondo)
     {
         this.mundo = mundo;
         this.id = id;
@@ -42,5 +44,6 @@ public class SerializableLevel
         this.historia = historia;
         this.celdaX = celdaX;
         this.celdaY = celdaY;
+        this.fondo = fondo;
     }
 }

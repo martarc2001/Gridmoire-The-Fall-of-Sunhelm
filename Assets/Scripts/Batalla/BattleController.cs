@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class BattleController : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class BattleController : MonoBehaviour
 
     private Dictionary<int, List<Color>> colores = new Dictionary<int, List<Color>>();
     [SerializeField] private CeldaManager cellSelected;
+
+    [Header("Fondo")]
+    [SerializeField] private List<Sprite> fondos;
+    [SerializeField] private SpriteRenderer fondo;
     int keyDic = 0;
 
     private void Awake()
@@ -25,6 +30,11 @@ public class BattleController : MonoBehaviour
     }
     private void Start()
     {
+        var obj = FindObjectOfType<NivelDataHandler>();
+
+        fondo.sprite = fondos[obj.GetFondo()];
+
+
         gridEnemigo = GetComponent<LevelFlow>().GetGridIA();
         gridAliado = GetComponent<LevelFlow>().GetGridPlayer();
     }

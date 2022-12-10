@@ -24,4 +24,6 @@ public class NivelDataHandler : MonoBehaviour
 
     public List<int> GetCeldasX() { return nivel.celdaX; }
     public List<int> GetCeldasY() { return nivel.celdaY; }
+
+    public int GetFondo() { return nivel.fondo; }
 }

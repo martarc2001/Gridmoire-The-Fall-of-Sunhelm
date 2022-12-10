@@ -4686,6 +4686,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 3d7957efbaece49488b59f2f81803383, type: 3}
   cellSelected: {fileID: 0}
+  fondos:
+  - {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+  - {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+  - {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+  fondo: {fileID: 499462306}
 --- !u!4 &901621128
 Transform:
   m_ObjectHideFlags: 0

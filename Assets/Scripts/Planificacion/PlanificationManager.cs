@@ -16,6 +16,9 @@ public class PlanificationManager : MonoBehaviour
     private List<string> nombres = new List<string>();
     [SerializeField] private CargarPersonajes cargarScript;
 
+    [Header("Fondo")]
+    [SerializeField] private List<Sprite> fondos;
+    [SerializeField] private SpriteRenderer fondo;
     public List<string> getNombres() { return nombres; }
 
     private List<CeldaManager> celdasToRemove= new List<CeldaManager>();
@@ -23,6 +26,8 @@ public class PlanificationManager : MonoBehaviour
     void Start()
     {
         var obj = FindObjectOfType<NivelDataHandler>();
+
+        fondo.sprite = fondos[obj.GetFondo()];
 
         foreach(var celda in grid.getCeldas())
         {
