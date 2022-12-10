@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int dineroJugador = 2500;
     private AudioClip clipMenu;
     private int mundoSeleccionado = 1;
+    private AudioSource audioSorce;
     public GameManager Instance
     {
         get
@@ -37,7 +38,10 @@ public class GameManager : MonoBehaviour
         
         DontDestroyOnLoad(gameObject);
 
-        clipMenu = GetComponent<AudioSource>().clip;
+        
+        audioSorce = GetComponent<AudioSource>();
+        audioSorce.volume = 1;
+        clipMenu = audioSorce.clip;
     }
 
     private void Start()
@@ -71,20 +75,27 @@ public class GameManager : MonoBehaviour
 
     public int GetMundoSeleccionado() { return mundoSeleccionado; }
 
+    public AudioSource GetAudioSource() { return audioSorce; }
+
     public void setClip(AudioClip clip) {
-        if (clip.name != GetComponent<AudioSource>().clip.name)
+        if (clip.name != audioSorce.clip.name)
         {
-            GetComponent<AudioSource>().clip = clip;
-            GetComponent<AudioSource>().Play();
+            audioSorce.clip = clip;
+            audioSorce.Play();
         }
     }
 
-    public void playSound(AudioClip clip)
+    public IEnumerator playSound(AudioClip clip)
     {
-        var audio = GetComponent<AudioSource>().clip;
-        GetComponent<AudioSource>().Stop() ;
-        GetComponent<AudioSource>().PlayOneShot(clip);
-        GetComponent<AudioSource>().clip = clipMenu;
-        GetComponent<AudioSource>().Play();
+        var volumenGeneral = audioSorce.volume;
+        audioSorce.Stop();
+        audioSorce.PlayOneShot(clip);
+        audioSorce.volume = 1;
+        yield return new WaitForSeconds(5f);
+        audioSorce.Stop();
+        audioSorce.volume = volumenGeneral;
+        audioSorce.clip = clipMenu;
+        audioSorce.Play();
     }
+    
 }

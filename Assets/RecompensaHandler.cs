@@ -11,13 +11,12 @@ public class RecompensaHandler : MonoBehaviour
 
     [SerializeField] private AudioClip clip;
 
-    private void Awake()
-    {
-        GameManager.instance.playSound(clip);
-    }
+    
     // Start is called before the first frame update
     void Start()
     {
+
+        StartCoroutine(GameManager.instance.playSound(clip));
         var nivelData = FindObjectOfType<NivelDataHandler>();
         GameManager.instance.sumarDinero(nivelData.GetMonedas());
 
