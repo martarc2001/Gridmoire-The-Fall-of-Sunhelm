@@ -94,7 +94,7 @@ public class IAManager
                 if (cell.getCelda().GetPersonaje().GetComponent<EnemigoController>().getEnemigo().GetVida() <= PeorVida)
                 {
                     objetivo = cell.getCelda();
-                    //Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
+                    Debug.Log("Celda seleccionada: " + objetivo.GetX() + "-" + objetivo.GetY());
                 }
             }
         }
@@ -272,7 +272,8 @@ public class IAManager
                 resaltarRow(gridEnemigo, celdaObj.GetX());
                 break;
             case TipoAtaque.HEAL:
-                celdaObj = ComprubeaHeal(gridAliado);
+                if (celdaObj.GetPersonaje() == null)
+                    celdaObj = ComprubeaHeal(gridAliado);
                 resaltarHeal(gridAliado, celdaObj);
                 break;
             default:

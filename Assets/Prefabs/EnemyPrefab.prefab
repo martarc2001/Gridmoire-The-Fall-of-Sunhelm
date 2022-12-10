@@ -217,10 +217,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spritesEnemigos:
   - {fileID: 21300000, guid: ba66ae5746f15bd459a82eaf6c691368, type: 3}
+  - {fileID: 21300000, guid: 36eecb9d328636e4195b30c52bd33eef, type: 3}
+  - {fileID: 21300000, guid: 65d8c37dd466e944f9bd425eac4bf7c4, type: 3}
   - {fileID: 21300000, guid: ee3c985245023c84ba2b7c491b99d024, type: 3}
+  - {fileID: 21300000, guid: 133675c67d6944440bfd292b6c27a5a3, type: 3}
+  - {fileID: 21300000, guid: 49692e4475f510546a99a1ab92991b65, type: 3}
   - {fileID: 21300000, guid: 59dfba18034d0334192718cce4dafa33, type: 3}
+  - {fileID: 21300000, guid: b6d01cc3c996aec4ca9f18d6a70a8687, type: 3}
+  - {fileID: 21300000, guid: b03258fb7ae2bf54ba513249ccda4646, type: 3}
   - {fileID: 21300000, guid: 71dff2830059e9b45a969ebe4769ea88, type: 3}
+  - {fileID: 21300000, guid: b767aecc016d56d4b857f28bf12e54b5, type: 3}
+  - {fileID: 21300000, guid: 226c8c21f4069594e8a74fa623da22b3, type: 3}
   - {fileID: 21300000, guid: 1b9c2143c0ea5e04494cf717b0ebea4d, type: 3}
+  - {fileID: 21300000, guid: a70440f2888cdd44b8448de6a27bee9e, type: 3}
+  - {fileID: 21300000, guid: baf26442216e65d45ad31d60634bc9d1, type: 3}
 --- !u!114 &757237588410537931
 MonoBehaviour:
   m_ObjectHideFlags: 0
