@@ -14,6 +14,7 @@ public class Tutorial : MonoBehaviour
     private SpriteRenderer imagenElegida;
     [SerializeField] GameObject bRegreso;
     [SerializeField] GameObject bAvance;
+    [SerializeField] GameObject animBatalla;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,7 @@ public class Tutorial : MonoBehaviour
         if (actual != MAX_IMAGEN)
         {
             actual += 1;
+            Batalla();
             if (actual == MAX_IMAGEN) { bAvance.SetActive(false);}
             if (!bRegreso.activeSelf) bRegreso.SetActive(true);
 
@@ -62,12 +64,28 @@ public class Tutorial : MonoBehaviour
         if (actual != MIN_IMAGEN)
         {   
             actual -= 1;
+            Batalla();
             if (actual == MIN_IMAGEN) { bRegreso.SetActive(false);}
             if (!bAvance.activeSelf) bAvance.SetActive(true);
             
             imagenElegida.sprite = listaSprites[actual];
         }
         
+    }
+
+
+    public void Batalla()
+    {
+        if (actual == 3)
+        {
+            animBatalla.SetActive(true);
+            animBatalla.GetComponent<Animator>().enabled = true;
+        }
+        else
+        {
+            animBatalla.SetActive(false);
+            animBatalla.GetComponent<Animator>().enabled = false;
+        }
     }
 }
 
