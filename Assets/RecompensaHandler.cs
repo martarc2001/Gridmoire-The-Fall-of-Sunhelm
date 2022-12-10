@@ -148,6 +148,7 @@ public class RecompensaHandler : MonoBehaviour
                 newList.list.Add(p);
 
             }
+            PlayerPrefs.SetString("superRares", JsonUtility.ToJson(newList));
         }
     }
 
