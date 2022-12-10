@@ -82,7 +82,7 @@ public class PlanificationManager : MonoBehaviour
                         if(playerSelected.transform.Find("Character").GetComponent<PlayerController>().getPersonaje().GetRareza() == cargarScript.getRarezaAtual())
                         {
                             playerSelected.transform.SetParent(canvasParent.transform);
-                            playerSelected.transform.localScale = new Vector3(3, 3, 3);
+                            playerSelected.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
 
                             playerSelected.transform.Find("Ataque").gameObject.SetActive(true);
                             playerSelected.transform.Find("Defensa").gameObject.SetActive(true);
