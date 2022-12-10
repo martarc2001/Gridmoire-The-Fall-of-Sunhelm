@@ -56,4 +56,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PantallaCarga2.unity
     guid: fc8a8f9446117244fb9bdb864a8133aa
+  - enabled: 1
+    path: Assets/Scenes/Historia 2-1.unity
+    guid: d66b78f2bd8404f47b89ad3f70a958ad
+  - enabled: 1
+    path: Assets/Scenes/Historia 2-5.unity
+    guid: ccb11b69e296e84478e77d3e23bd7a48
+  - enabled: 1
+    path: Assets/Scenes/Historia 2-7.unity
+    guid: 2096a5fbc90cbe049a003e7770dbe672
+  - enabled: 1
+    path: Assets/Scenes/Historia 2-10.unity
+    guid: a0e5e152fb909f54898fdaa9d402132d
+  - enabled: 1
+    path: Assets/Scenes/Historia 3-3.unity
+    guid: 31381bf39e8a3ac4a904fc8f16f36f50
+  - enabled: 1
+    path: Assets/Scenes/Historia 3-7.unity
+    guid: 6b135f6de203af947bf49426698c39ff
+  - enabled: 1
+    path: Assets/Scenes/Historia 3-10.unity
+    guid: ebe823d30fc1fb6478ffcbd74d6dca78
   m_configObjects: {}
