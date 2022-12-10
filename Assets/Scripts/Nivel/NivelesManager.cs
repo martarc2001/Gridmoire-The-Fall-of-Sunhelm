@@ -104,6 +104,8 @@ public class NivelesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        CambiaMundo(GameManager.instance.GetMundoSeleccionado());
         string estadosString = PlayerPrefs.GetString("Estados Niveles");
 
         SerializableEstadoList estados = JsonUtility.FromJson<SerializableEstadoList>(estadosString);
@@ -194,6 +196,7 @@ public class NivelesManager : MonoBehaviour
 
     public void CambiaMundo(int mundo)
     {
+        GameManager.instance.cambiarMundo(mundo);
         fondo.GetComponent<SpriteRenderer>().sprite = fondosMundo[mundo - 1];
 
         for (int i = 0; i < nMundos; i++)

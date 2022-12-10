@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] private int dineroJugador = 2500;
     private AudioClip clipMenu;
+    private int mundoSeleccionado = 1;
     public GameManager Instance
     {
         get
@@ -64,7 +65,11 @@ public class GameManager : MonoBehaviour
     public void restarDinero(int dinero) { dineroJugador -= dinero; }
     public void sumarDinero(int dinero) { dineroJugador += dinero; }
 
+    public void cambiarMundo(int mundo) { mundoSeleccionado = mundo; }
+
     public int getDineroJugador() { return dineroJugador; }
+
+    public int GetMundoSeleccionado() { return mundoSeleccionado; }
 
     public void setClip(AudioClip clip) {
         if (clip.name != GetComponent<AudioSource>().clip.name)
