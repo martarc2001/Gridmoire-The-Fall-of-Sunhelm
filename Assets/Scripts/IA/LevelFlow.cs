@@ -46,6 +46,8 @@ public class LevelFlow : MonoBehaviour
     public GridManager GetGridIA() { return gridIA; }
     public GridManager GetGridPlayer() { return gridPlayer; }
     public IAManager GetIAManager() { return ia; }
+
+    public Audio GetScriptAudio() { return audioScript; }
     public bool isInitialized() { return initialize; }
 
     private bool turnoIATomado = false;
