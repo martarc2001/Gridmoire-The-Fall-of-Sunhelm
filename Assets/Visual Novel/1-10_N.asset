@@ -205,7 +205,7 @@ MonoBehaviour:
   - guid: 49af3d6f-4677-4eb9-8bd0-10eafb70531c
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
-    dialogueText: "\xBFEntonces no podemos descansar? Esto de ser un h\xE9roe cansa
+    dialogueText: "\xBFEntonces no podemos descansar? Esto de ser une h\xE9roe cansa
       mucho..."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0

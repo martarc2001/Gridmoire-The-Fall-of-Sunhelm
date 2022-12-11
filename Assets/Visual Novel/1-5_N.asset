@@ -187,7 +187,7 @@ MonoBehaviour:
   - guid: 97b89c1a-7787-49c9-ac59-edf01ef8d355
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
-    dialogueText: "Ehh...creo que es para poder protegerse de- Oye, una pregunta,
+    dialogueText: "Ehh... Creo que es para poder protegerse de- Oye, una pregunta,
       \xBFC\xF3mo es que nadie lucha por aqu\xED?"
     backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
     startNode: 0
