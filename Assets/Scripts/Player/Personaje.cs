@@ -81,7 +81,7 @@ public class Personaje
         this.nivel = 1;
         this.xp = 0;
 
-        this.xpSubida = (int)1600/5;
+        this.xpSubida = (int)400/5;
     }
 
 
@@ -201,7 +201,7 @@ public class Personaje
             {
                 this.SubirNivel();
 
-                this.xpSubida = (int)((4 * (Math.Pow(this.nivel + 1, 2))) / 5) * 100;
+                this.xpSubida = (int)((4 * (Math.Pow(this.nivel, 2))) / 5) * 100;
             }
         }
         

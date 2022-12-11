@@ -19,6 +19,8 @@ public class BattleController : MonoBehaviour
     private Dictionary<int, List<Color>> colores = new Dictionary<int, List<Color>>();
     [SerializeField] private CeldaManager cellSelected;
 
+    [SerializeField] private List<AudioClip> efectosSonido;
+
     [Header("Fondo")]
     [SerializeField] private List<Sprite> fondos;
     [SerializeField] private SpriteRenderer fondo;
@@ -92,7 +94,8 @@ public class BattleController : MonoBehaviour
                         }
 
 
-                        }
+                    }
+                    GetComponent<LevelFlow>().GetScriptAudio().PlaySound(efectosSonido[0]);
                     playerSelected = hit.collider.gameObject;
                     var listacolores = new List<Color>();
                     foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
