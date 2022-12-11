@@ -5602,6 +5602,18 @@ MonoBehaviour:
           m_StringArgument: Ejercito
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 912038454}
+        m_TargetAssemblyTypeName: Audio, Assembly-CSharp
+        m_MethodName: PlaySoundCambioEscena
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: d2f54b81f6e241a4c9edbd4b08e3153f, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1098785431
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5980,6 +5992,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Tienda
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 912038454}
+        m_TargetAssemblyTypeName: Audio, Assembly-CSharp
+        m_MethodName: PlaySoundCambioEscena
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: d2f54b81f6e241a4c9edbd4b08e3153f, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!95 &1193388590
@@ -7708,6 +7732,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Menu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 912038454}
+        m_TargetAssemblyTypeName: Audio, Assembly-CSharp
+        m_MethodName: PlaySoundCambioEscena
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: d2f54b81f6e241a4c9edbd4b08e3153f, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &1378019209
