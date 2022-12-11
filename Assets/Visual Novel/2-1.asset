@@ -75,7 +75,7 @@ MonoBehaviour:
   - guid: a5ac334e-2e53-42c8-9000-2345e661ea61
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
-    dialogueText: "Confianza... \xA1Y polvo de hadas!"
+    dialogueText: "confianza... \xA1y polvo de hadas!"
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0

@@ -89,24 +89,6 @@ MonoBehaviour:
       height: 305
     soundEffect: {fileID: 0}
     backgroundMusic: {fileID: 0}
-  - guid: a40a736e-9e39-4c60-b49d-195b307d2cd4
-    characterSpr: {fileID: 0}
-    characterName: '*Luz misteriosa*'
-    dialogueText: ...
-    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
-    startNode: 0
-    endNode: 0
-    choices: 1
-    choiceOptions:
-    - 
-    nodePosition:
-      serializedVersion: 2
-      x: 4045
-      y: 251
-      width: 499
-      height: 305
-    soundEffect: {fileID: 0}
-    backgroundMusic: {fileID: 0}
   - guid: 60774c03-f6d7-477b-a5f8-07292a757aac
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
@@ -176,6 +158,24 @@ MonoBehaviour:
     nodePosition:
       serializedVersion: 2
       x: 5477
+      y: 251
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: a40a736e-9e39-4c60-b49d-195b307d2cd4
+    characterSpr: {fileID: 21300000, guid: 7e558b68cc064ab499bf4e2f6a0e3559, type: 3}
+    characterName: '*Luz misteriosa*'
+    dialogueText: ...
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 4045
       y: 251
       width: 499
       height: 305
