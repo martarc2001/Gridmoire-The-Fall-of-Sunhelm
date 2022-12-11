@@ -178,7 +178,7 @@ public class Attack : MonoBehaviour
             particles.transform.parent = aliado.transform;
             particles.transform.localScale = Vector3.one;
             particles.Play();
-            aliado.GetComponent<PlayerController>().getPersonaje().curar(damageTotal);
+            aliado.GetComponent<PlayerController>().getPersonaje().curar(damage);
 
         }
     }

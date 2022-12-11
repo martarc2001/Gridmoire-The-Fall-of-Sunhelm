@@ -53,16 +53,16 @@ public class EnemyAttack : MonoBehaviour
             {
                 if (enemigo.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque() == TipoAtaque.ROW)
                 {
-                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal + 0.25f - defEnemigo);
+                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage + 0.25f - defEnemigo / 2);
                 }
                 else
                 {
-                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal - defEnemigo);
+                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage - defEnemigo / 2);
                 }
             }
             else
             {
-                enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal * 2 / 5);
+                enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage * 3 / 5);
             }
         }
 
@@ -83,16 +83,16 @@ public class EnemyAttack : MonoBehaviour
                 {
                     if (enemigo.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque() == TipoAtaque.GRID)
                     {
-                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal + 0.25f - defEnemigo);
+                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage + 0.25f - defEnemigo / 2);
                     }
                     else
                     {
-                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal - defEnemigo);
+                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage - defEnemigo / 2);
                     }
                 }
                 else
                 {
-                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal * 2 / 5);
+                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage * 3 / 5);
                 }
             }
 
@@ -114,16 +114,16 @@ public class EnemyAttack : MonoBehaviour
                 {
                     if (enemigo.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque() == TipoAtaque.COLUMN)
                     {
-                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal + 0.25f - defEnemigo);
+                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage + 0.25f - defEnemigo / 2);
                     }
                     else
                     {
-                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal - defEnemigo);
+                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage - defEnemigo / 2);
                     }
                 }
                 else
                 {
-                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal * 2 / 5);
+                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage * 3 / 5);
                 }
             }
 
@@ -145,16 +145,16 @@ public class EnemyAttack : MonoBehaviour
                 {
                     if (enemigo.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque() == TipoAtaque.SINGLE)
                     {
-                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal + 0.25f - defEnemigo);
+                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage + 0.25f - defEnemigo / 2);
                     }
                     else
                     {
-                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal - defEnemigo);
+                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage - defEnemigo / 2);
                     }
                 }
                 else
                 {
-                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal * 2 / 5);
+                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage * 3 / 5);
                 }
             }
 
@@ -169,7 +169,7 @@ public class EnemyAttack : MonoBehaviour
         {
             var enemigo = celda.GetPersonaje();
             var damageTotal = damage * Random.Range(0.05f, 0.15f);
-            enemigo.GetComponent<EnemigoController>().getEnemigo().curar(damageTotal);
+            enemigo.GetComponent<EnemigoController>().getEnemigo().curar(damage);
         }
     }
 }
