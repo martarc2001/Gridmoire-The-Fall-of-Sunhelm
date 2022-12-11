@@ -2582,7 +2582,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19bffdf8e809ebd439aaf9f444d2ea04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: {fileID: 11400000, guid: 5e2962b431f8d944f8da7ca3ca12721f, type: 2}
+  historias:
+  - {fileID: 11400000, guid: 5e2962b431f8d944f8da7ca3ca12721f, type: 2}
+  - {fileID: 11400000, guid: b155ef95c1cb0e640b8bf90b1c5a340e, type: 2}
+  - {fileID: 11400000, guid: eea696009c1f4ac4ea2a0fd3f09df1a1, type: 2}
   characterNameTxt: {fileID: 1739009363}
   dialogueTxt: {fileID: 690447186}
   characterImg: {fileID: 1666865173}

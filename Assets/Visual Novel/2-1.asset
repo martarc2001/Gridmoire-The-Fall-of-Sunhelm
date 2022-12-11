@@ -10,70 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80d55d090c78b6240aa6dccd6042a022, type: 3}
-  m_Name: 2-10_M
+  m_Name: 2-1
   m_EditorClassIdentifier: 
   links:
-  - guid: f29c16b4-56ac-47ca-a72f-b85cce2cc1a4
-    targetGuid: 64e05ce8-53e7-4894-bfd9-81e906884be2
+  - guid: d9e0352f-3c61-43ab-aeff-81c2a65a0eb7
+    targetGuid: 3a048f6e-9c16-4879-b5cb-1d1d88c3a381
     portId: 0
-  - guid: 97e0dfe9-e8b9-4a68-9b62-b44834cdeab9
-    targetGuid: e27133f9-9251-4552-9f14-6068cc34aa83
+  - guid: 59e98596-56de-4b05-af99-86150c02f863
+    targetGuid: a5ac334e-2e53-42c8-9000-2345e661ea61
     portId: 1
-  - guid: e27133f9-9251-4552-9f14-6068cc34aa83
-    targetGuid: 53fbed3f-8446-4032-b246-8902fed0e27e
+  - guid: a5ac334e-2e53-42c8-9000-2345e661ea61
+    targetGuid: e7d5b253-62e1-42cd-abbf-59ed7f4430b1
     portId: 2
-  - guid: 96ad40ea-47ac-4a88-8a86-e799c4d4e56a
-    targetGuid: 5cf662b0-5bc4-47c8-b1fc-0009589e1c79
+  - guid: 4c7ab36b-249e-4216-b2ae-44c1c8436c2b
+    targetGuid: f0268bb8-a4cb-423b-92c7-f9cf7045887f
     portId: 3
-  - guid: 5cf662b0-5bc4-47c8-b1fc-0009589e1c79
-    targetGuid: f29c16b4-56ac-47ca-a72f-b85cce2cc1a4
+  - guid: f0268bb8-a4cb-423b-92c7-f9cf7045887f
+    targetGuid: 59e98596-56de-4b05-af99-86150c02f863
     portId: 4
-  - guid: 64e05ce8-53e7-4894-bfd9-81e906884be2
-    targetGuid: 97e0dfe9-e8b9-4a68-9b62-b44834cdeab9
+  - guid: e7d5b253-62e1-42cd-abbf-59ed7f4430b1
+    targetGuid: e8ceb583-6f7b-45e2-823f-32a55f00cfc1
     portId: 5
+  - guid: 3a048f6e-9c16-4879-b5cb-1d1d88c3a381
+    targetGuid: 4c7ab36b-249e-4216-b2ae-44c1c8436c2b
+    portId: 6
   nodes:
-  - guid: f29c16b4-56ac-47ca-a72f-b85cce2cc1a4
+  - guid: d9e0352f-3c61-43ab-aeff-81c2a65a0eb7
     characterSpr: {fileID: 0}
-    characterName: "T\xFA"
-    dialogueText: "Espero que no haya ning\xFAn ogro cascarrabias con amor por la
-      cebolla..."
-    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
-    startNode: 0
-    endNode: 0
-    choices: 1
-    choiceOptions:
-    - 
-    nodePosition:
-      serializedVersion: 2
-      x: -1825
-      y: 687
-      width: 499
-      height: 305
-    soundEffect: {fileID: 0}
-    backgroundMusic: {fileID: 0}
-  - guid: e27133f9-9251-4552-9f14-6068cc34aa83
-    characterSpr: {fileID: 0}
-    characterName: "T\xFA"
-    dialogueText: "En fin, nada a lo que no podamos vencer. \xA1Vamos Raley! Te echo
-      una carrera."
-    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
-    startNode: 0
-    endNode: 0
-    choices: 1
-    choiceOptions:
-    - 
-    nodePosition:
-      serializedVersion: 2
-      x: 92
-      y: 687
-      width: 499
-      height: 305
-    soundEffect: {fileID: 0}
-    backgroundMusic: {fileID: 0}
-  - guid: 96ad40ea-47ac-4a88-8a86-e799c4d4e56a
-    characterSpr: {fileID: 0}
-    characterName: "T\xFA"
-    dialogueText: "Raley... \xBFpor qu\xE9 est\xE1 todo tan oscuro?"
+    characterName: Tu
+    dialogueText: "As\xED que este es el bosque m\xE1gico de Thelia..."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 1
     endNode: 0
@@ -82,17 +47,17 @@ MonoBehaviour:
     - 
     nodePosition:
       serializedVersion: 2
-      x: -3103
-      y: 687
+      x: 112
+      y: 374
       width: 499
       height: 305
     soundEffect: {fileID: 0}
     backgroundMusic: {fileID: 0}
-  - guid: 5cf662b0-5bc4-47c8-b1fc-0009589e1c79
-    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
-    characterName: Raley
-    dialogueText: "Nos estamos adentrando en Muddybog, la ci\xE9naga que se encuentra
-      tras el bosque de Thelia."
+  - guid: 59e98596-56de-4b05-af99-86150c02f863
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: Siempre he querido ver un hada de verdad. Ya sabes, poder volar
+      con un poco de fe...
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0
@@ -101,16 +66,16 @@ MonoBehaviour:
     - 
     nodePosition:
       serializedVersion: 2
-      x: -2477
-      y: 687
+      x: 2952
+      y: 374
       width: 499
       height: 305
     soundEffect: {fileID: 0}
     backgroundMusic: {fileID: 0}
-  - guid: 64e05ce8-53e7-4894-bfd9-81e906884be2
-    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
-    characterName: Raley
-    dialogueText: "Ogros no se, pero dicen que est\xE1 infestado de goblins."
+  - guid: a5ac334e-2e53-42c8-9000-2345e661ea61
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "Confianza... \xA1Y polvo de hadas!"
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0
@@ -119,16 +84,16 @@ MonoBehaviour:
     - 
     nodePosition:
       serializedVersion: 2
-      x: -1180
-      y: 687
+      x: 3656
+      y: 374
       width: 499
       height: 305
     soundEffect: {fileID: 0}
     backgroundMusic: {fileID: 0}
-  - guid: 53fbed3f-8446-4032-b246-8902fed0e27e
-    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
-    characterName: Raley
-    dialogueText: "Y ah\xED va de nuevo. Esto ya se empeiza a hacer costumbre..."
+  - guid: e8ceb583-6f7b-45e2-823f-32a55f00cfc1
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "\xA1Vamos Raley! \xA1No hay tiempo que perder!"
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 1
@@ -137,16 +102,17 @@ MonoBehaviour:
     - 
     nodePosition:
       serializedVersion: 2
-      x: 758
-      y: 687
+      x: 5070
+      y: 374
       width: 499
       height: 305
     soundEffect: {fileID: 0}
     backgroundMusic: {fileID: 0}
-  - guid: 97e0dfe9-e8b9-4a68-9b62-b44834cdeab9
-    characterSpr: {fileID: 0}
-    characterName: "T\xFA"
-    dialogueText: Genial, ogros en mianiatura cabreados...
+  - guid: 4c7ab36b-249e-4216-b2ae-44c1c8436c2b
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Sol\xEDa ser un lugar tranquilo y bello... Ahora apenas se aprecia
+      la magia."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0
@@ -155,8 +121,63 @@ MonoBehaviour:
     - 
     nodePosition:
       serializedVersion: 2
-      x: -545
-      y: 687
+      x: 1591
+      y: 374
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: f0268bb8-a4cb-423b-92c7-f9cf7045887f
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "Hmmm, bueno, seguro que arreglamos eso pronto. Adem\xE1s..."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 2294
+      y: 374
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: e7d5b253-62e1-42cd-abbf-59ed7f4430b1
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Eh... creo que te est\xE1s equivocando de franquicia..."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 4364
+      y: 374
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 3a048f6e-9c16-4879-b5cb-1d1d88c3a381
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "En efecto, el hogar de la mayor\xEDa de criaturas m\xE1gicas de
+      Sunhelm."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 844
+      y: 374
       width: 499
       height: 305
     soundEffect: {fileID: 0}
