@@ -136,50 +136,61 @@ public class Personaje
     {
         this.nivel += 1;
 
-        switch (rareza)
-        {
-            case Rareza.COMUN:
-                
-                this.vidaMax += (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10));
+        //switch (rareza)
+        //{
+        //    case Rareza.COMUN:
 
-                this.ataque += (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10));
+        //        this.vidaMax = this.vidaBase + (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10)) < 1 ? 1 :
+        //            (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10));
 
-                this.defensa += (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10)) ;
+        //        this.ataque = this.ataqueBase + (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10)) < 1 ? 1 :
+        //            (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10));
 
-                this.vida = this.vidaMax;
-                break;
-            case Rareza.RARO:
+        //        this.defensa = this.defensaBase + (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10)) < 1 ? 1 :
+        //            (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10)) ;
 
-                this.vidaMax += (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10));
+        //        this.vida = this.vidaMax;
+        //        break;
+        //    case Rareza.RARO:
 
-                this.ataque += (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10));
+        //        this.vidaMax = this.vidaBase + (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10)) < 1 ? 1 :
+        //            (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10));
 
-                this.defensa += (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10));
+        //        this.ataque = this.ataqueBase + (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10)) < 1 ? 1 :
+        //            (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10));
 
-                this.vida = this.vidaMax;
-                break;
-            case Rareza.SUPER_RARO:
+        //        this.defensa = this.defensaBase + (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10)) < 1 ? 1 :
+        //            (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10));
 
-                this.vidaMax += (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10));
+        //        this.vida = this.vidaMax;
+        //        break;
+        //    case Rareza.SUPER_RARO:
 
-                this.ataque += (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10));
+        //        this.vidaMax = this.vidaBase + (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10)) < 1 ? 1 :
+        //            (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10));
 
-                this.defensa += (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10)) < 1 ? 1 :
-                    (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10));
+        //        this.ataque = this.ataqueBase + (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10)) < 1 ? 1 :
+        //            (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10));
 
-                this.vida = this.vidaMax;
-                break;
-            default:
-                break;
-        }
+        //        this.defensa = this.defensaBase + (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10)) < 1 ? 1 :
+        //            (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10));
+
+        //        this.vida = this.vidaMax;
+        //        break;
+        //    default:
+        //        break;
+        //}
+
+        this.vidaMax = (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10)) < 1 ? this.vidaBase + 1 :
+                    this.vidaBase + (float)Math.Pow(this.nivel, 2) / (6 - (this.vidaBase / 10));
+
+        this.ataque = (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10)) < 1 ? this.ataqueBase + 1 :
+            this.ataqueBase + (float)Math.Pow(this.nivel, 2) / (6 - (this.ataqueBase / 10));
+
+        this.defensa = (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10)) < 1 ? this.defensaBase + 1 :
+            this.defensaBase + (float)Math.Pow(this.nivel, 2) / (6 - (this.defensaBase / 10));
+
+        this.vida = this.vidaMax;
     }
 
     public void ComprobarNivel()

@@ -83,8 +83,11 @@ public class RecompensaHandler : MonoBehaviour
                 if (p.nombre.Equals(personaje.GetNombre()))
                 {
                     p.ataque = personaje.GetAtaque();
+                    p.ataqueBase = personaje.GetAtaqueBase();
                     p.defensa = personaje.GetDefensa();
+                    p.defensaBase = personaje.GetDefensaBase();
                     p.vida = personaje.GetVida();
+                    p.vidaBase = personaje.GetVidaBase();
                     p.vidaMax = personaje.getVidaMax();
                     p.nivel = personaje.GetNivel();
                     p.xp = personaje.GetXp();
@@ -110,12 +113,15 @@ public class RecompensaHandler : MonoBehaviour
                 if (p.nombre.Equals(personaje.GetNombre()))
                 {
                     p.ataque = personaje.GetAtaque();
+                    p.ataqueBase = personaje.GetAtaqueBase();
                     p.defensa = personaje.GetDefensa();
+                    p.defensaBase = personaje.GetDefensaBase();
                     p.vida = personaje.GetVida();
+                    p.vidaBase = personaje.GetVidaBase();
                     p.vidaMax = personaje.getVidaMax();
                     p.nivel = personaje.GetNivel();
                     p.xp = personaje.GetXp();
-                    p.xpSubida = personaje.GetXpSubida();;
+                    p.xpSubida = personaje.GetXpSubida();
                 }
                 newList.list.Add(p);
             }
@@ -138,8 +144,11 @@ public class RecompensaHandler : MonoBehaviour
                 if (p.nombre.Equals(personaje.GetNombre()))
                 {
                     p.ataque = personaje.GetAtaque();
+                    p.ataqueBase = personaje.GetAtaqueBase();
                     p.defensa = personaje.GetDefensa();
-                    p.vida = personaje.getVidaMax();
+                    p.defensaBase = personaje.GetDefensaBase();
+                    p.vida = personaje.GetVida();
+                    p.vidaBase = personaje.GetVidaBase();
                     p.vidaMax = personaje.getVidaMax();
                     p.nivel = personaje.GetNivel();
                     p.xp = personaje.GetXp();
