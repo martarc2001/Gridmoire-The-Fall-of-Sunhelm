@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80d55d090c78b6240aa6dccd6042a022, type: 3}
-  m_Name: Intro
+  m_Name: Intro_F
   m_EditorClassIdentifier: 
   links:
   - guid: a445cc84-2d6a-4225-897a-fd2ff27d6c8d
@@ -58,68 +58,68 @@ MonoBehaviour:
   - guid: 25def71b-2d32-4cbe-af7a-2ba24c18d537
     targetGuid: 2418f353-d5de-4e1a-a93b-0fe41b5b8fed
     portId: 14
-  - guid: c8c6bcfa-a5bb-4ab7-9aa8-ce40fc023914
-    targetGuid: 74ee42d1-cc12-4e44-9a61-0dc3e7119f78
-    portId: 15
-  - guid: fcdce253-fb70-4f93-a009-5244898f00f8
-    targetGuid: eaf1e1d1-fb56-4a18-964c-c4111837c30d
-    portId: 16
-  - guid: eaf1e1d1-fb56-4a18-964c-c4111837c30d
-    targetGuid: 2bc2cac8-83b4-45c2-a20c-96357ddfc2b6
-    portId: 17
-  - guid: 2bc2cac8-83b4-45c2-a20c-96357ddfc2b6
-    targetGuid: c8c6bcfa-a5bb-4ab7-9aa8-ce40fc023914
-    portId: 18
   - guid: 57a0fa2c-945e-478b-98c0-72d023a0acfc
     targetGuid: 9826e00c-eae3-48ae-ae5c-1eed2dcf275d
-    portId: 19
+    portId: 15
   - guid: 9826e00c-eae3-48ae-ae5c-1eed2dcf275d
     targetGuid: 2515c4cd-4884-41f1-a58a-ff3484073a93
-    portId: 20
+    portId: 16
   - guid: 2515c4cd-4884-41f1-a58a-ff3484073a93
     targetGuid: 43d01ffb-d0cc-489a-ac73-8b9bd097bc09
-    portId: 21
+    portId: 17
   - guid: 43d01ffb-d0cc-489a-ac73-8b9bd097bc09
     targetGuid: 069cd0b2-2604-4a84-a820-0e0d78b4284e
-    portId: 22
+    portId: 18
   - guid: 069cd0b2-2604-4a84-a820-0e0d78b4284e
     targetGuid: a46766d5-0b9a-49fa-a92e-68f6f386e410
-    portId: 23
+    portId: 19
   - guid: 0af98f7a-b2e4-4f43-9b1d-62a33f3b690e
     targetGuid: 2a47e1f5-27b6-4d57-a81e-66c295841684
-    portId: 24
+    portId: 20
   - guid: 0598e9c9-f3cb-4b5d-9b3f-86f1d64e8efc
     targetGuid: 586b97d8-675d-44e1-a862-604e9097b458
-    portId: 25
+    portId: 21
   - guid: 9cf021c1-ed70-4a1d-a0ab-868df07644ac
     targetGuid: 25def71b-2d32-4cbe-af7a-2ba24c18d537
-    portId: 26
+    portId: 22
   - guid: 46fc2a9b-0412-45c6-a9ff-b93093561fe7
     targetGuid: 0267050a-9745-4288-966b-e9f6d1d967cb
-    portId: 27
+    portId: 23
   - guid: 2365f140-3cea-4576-a57a-6ed9e77cc1d1
     targetGuid: 6b342d37-f288-4171-a1bc-40d341a89d73
-    portId: 28
+    portId: 24
   - guid: cbf73fd9-ae9a-4e31-87b0-bb5d6cc353a6
     targetGuid: 386921f2-83fd-4dcf-a7e1-68285cc84431
-    portId: 29
+    portId: 25
   - guid: 386921f2-83fd-4dcf-a7e1-68285cc84431
     targetGuid: 2a660fd9-7e32-4845-95b9-7356ee30ebd4
-    portId: 30
+    portId: 26
   - guid: 2a660fd9-7e32-4845-95b9-7356ee30ebd4
     targetGuid: 075b314b-890b-4055-befc-b13ef92842e6
-    portId: 31
+    portId: 27
   - guid: e8c8cbad-634d-4508-84f9-c31c7efcc3c6
     targetGuid: a22c5511-88ff-4519-a5d4-faa1ff430fd7
-    portId: 32
+    portId: 28
   - guid: e2f917bc-82fa-4ce5-89d8-ef66f4af5589
     targetGuid: 9bdd243f-cad1-4689-8faf-bb51f67e5950
-    portId: 33
+    portId: 29
   - guid: 44271d21-c3a9-4764-9dab-0bcd1803adbc
     targetGuid: a48f1e5c-c422-47f8-b6e1-1f57aaf6213f
-    portId: 34
+    portId: 30
   - guid: a46766d5-0b9a-49fa-a92e-68f6f386e410
     targetGuid: a445cc84-2d6a-4225-897a-fd2ff27d6c8d
+    portId: 31
+  - guid: c8c6bcfa-a5bb-4ab7-9aa8-ce40fc023914
+    targetGuid: 74ee42d1-cc12-4e44-9a61-0dc3e7119f78
+    portId: 32
+  - guid: fcdce253-fb70-4f93-a009-5244898f00f8
+    targetGuid: eaf1e1d1-fb56-4a18-964c-c4111837c30d
+    portId: 33
+  - guid: eaf1e1d1-fb56-4a18-964c-c4111837c30d
+    targetGuid: 2bc2cac8-83b4-45c2-a20c-96357ddfc2b6
+    portId: 34
+  - guid: 2bc2cac8-83b4-45c2-a20c-96357ddfc2b6
+    targetGuid: c8c6bcfa-a5bb-4ab7-9aa8-ce40fc023914
     portId: 35
   - guid: 74ee42d1-cc12-4e44-9a61-0dc3e7119f78
     targetGuid: 57a0fa2c-945e-478b-98c0-72d023a0acfc
@@ -222,7 +222,7 @@ MonoBehaviour:
   - guid: 2418f353-d5de-4e1a-a93b-0fe41b5b8fed
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Chica misteriosa
-    dialogueText: "\xA1\xBFT\xFA no eres el Caballero de la Luna?!"
+    dialogueText: "\xA1\xBFT\xFA no eres la Caballera de la Luna?!"
     backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
     startNode: 0
     endNode: 0
@@ -573,7 +573,7 @@ MonoBehaviour:
   - guid: 46fc2a9b-0412-45c6-a9ff-b93093561fe7
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
-    dialogueText: Mmm... Definitivamente te has equivocado de persona
+    dialogueText: Mmm... Definitivamente te has equivocado de persona.
     backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
     startNode: 0
     endNode: 0
@@ -650,7 +650,7 @@ MonoBehaviour:
   - guid: 2a660fd9-7e32-4845-95b9-7356ee30ebd4
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
-    dialogueText: "(Y cuando ganemos, ser\xE9 un h\xE9roe como siempre he so\xF1ado.
+    dialogueText: "(Y cuando ganemos, ser\xE9 una hero\xEDna como siempre he so\xF1ado.
       Hora de mover mis hilos...)"
     backgroundSpr: {fileID: 21300000, guid: f80aab48e5eba6f488bc4d83debe24ef, type: 3}
     startNode: 0
@@ -688,9 +688,9 @@ MonoBehaviour:
   - guid: e2f917bc-82fa-4ce5-89d8-ef66f4af5589
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
-    dialogueText: "Encantado Raley, s\xE9 que est\xE1s nerviosa pero no te preocupes.
-      Aunque no sea el h\xE9roe que buscabas, te prometo que te ayudar\xE9 y te llevar\xE9
-      a la victoria."
+    dialogueText: "Encantada Raley, s\xE9 que est\xE1s nerviosa pero no te preocupes.
+      Aunque no sea la hero\xEDna que buscabas, te prometo que te ayudar\xE9 y te
+      llevar\xE9 a la victoria."
     backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
     startNode: 0
     endNode: 0
@@ -762,7 +762,7 @@ MonoBehaviour:
   - guid: fcdce253-fb70-4f93-a009-5244898f00f8
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
-    dialogueText: "Todo empez\xF3 aquel d\xEDa... Estaba tranquilo jugando en mi
+    dialogueText: "Todo empez\xF3 aquel d\xEDa... Estaba tranquila jugando en mi
       consola Mytendo Snitch al aclamado juego de estrategia Fatal Fallacy XX cuando..."
     backgroundSpr: {fileID: 21300000, guid: f80aab48e5eba6f488bc4d83debe24ef, type: 3}
     startNode: 1
@@ -799,7 +799,7 @@ MonoBehaviour:
   - guid: 2bc2cac8-83b4-45c2-a20c-96357ddfc2b6
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
-    dialogueText: "Fui absorbido a trav\xE9s de mi pantalla a otro mundo..."
+    dialogueText: "Fui absorbida a trav\xE9s de mi pantalla a otro mundo..."
     backgroundSpr: {fileID: 21300000, guid: f80aab48e5eba6f488bc4d83debe24ef, type: 3}
     startNode: 0
     endNode: 0

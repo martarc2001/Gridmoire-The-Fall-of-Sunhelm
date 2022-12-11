@@ -10,38 +10,74 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80d55d090c78b6240aa6dccd6042a022, type: 3}
-  m_Name: 3-3
+  m_Name: 3-7_M
   m_EditorClassIdentifier: 
   links:
-  - guid: 3f460ccb-85cd-4b31-b7ef-79d889bb74e9
-    targetGuid: 85214258-26ff-4594-af87-080f5254688e
+  - guid: 9c77a70c-8584-4f5b-930b-d8672f978ea7
+    targetGuid: dbcdf9a7-6091-4ac2-b17c-7bfdb0ba55f4
     portId: 0
-  - guid: 85214258-26ff-4594-af87-080f5254688e
-    targetGuid: 11a86bcc-8657-456f-b3e3-791005ed2fd5
+  - guid: dbcdf9a7-6091-4ac2-b17c-7bfdb0ba55f4
+    targetGuid: c79257fe-942d-4e16-adc8-9181d31fafa0
     portId: 1
-  - guid: 11a86bcc-8657-456f-b3e3-791005ed2fd5
-    targetGuid: 7fc14b86-f068-4b54-9f7b-a9be45750a0b
+  - guid: c79257fe-942d-4e16-adc8-9181d31fafa0
+    targetGuid: dd707d8e-ea53-4795-b46f-717c835cc96a
     portId: 2
-  - guid: 7fc14b86-f068-4b54-9f7b-a9be45750a0b
-    targetGuid: d5a5cc6a-5358-4732-b214-0c1a9dcbace7
+  - guid: dd707d8e-ea53-4795-b46f-717c835cc96a
+    targetGuid: 9fd51fc5-8459-4ede-a497-06cf1575b5c5
     portId: 3
-  - guid: d5a5cc6a-5358-4732-b214-0c1a9dcbace7
-    targetGuid: 1876568f-2f59-4000-90a5-a07ccd372b08
+  - guid: 9fd51fc5-8459-4ede-a497-06cf1575b5c5
+    targetGuid: fe543681-fecc-4d9e-9fdd-88791cdbc70d
     portId: 4
-  - guid: 1876568f-2f59-4000-90a5-a07ccd372b08
-    targetGuid: 38472cc2-ef07-44a9-94bd-2c28146f9621
+  - guid: fe543681-fecc-4d9e-9fdd-88791cdbc70d
+    targetGuid: 225eb0a9-c700-4949-919c-07a7ea075072
     portId: 5
-  - guid: 38472cc2-ef07-44a9-94bd-2c28146f9621
-    targetGuid: d1ea672c-5be7-4314-9e2c-293ae19cb4e5
+  - guid: 225eb0a9-c700-4949-919c-07a7ea075072
+    targetGuid: ec7bebbf-cd3d-4bd4-9201-c0e5681b1eff
     portId: 6
-  - guid: d1ea672c-5be7-4314-9e2c-293ae19cb4e5
-    targetGuid: 655903f7-8d81-4ff0-ab38-e9c56e9dbde7
+  - guid: ec7bebbf-cd3d-4bd4-9201-c0e5681b1eff
+    targetGuid: 6c15396e-fdf6-4f7c-b238-8477df657efa
     portId: 7
   nodes:
-  - guid: 3f460ccb-85cd-4b31-b7ef-79d889bb74e9
+  - guid: c79257fe-942d-4e16-adc8-9181d31fafa0
     characterSpr: {fileID: 0}
-    characterName: "T\xFA"
-    dialogueText: Puaj, odio este sitio. Encima huele fatal...
+    characterName: Goblin
+    dialogueText: "M-maeshtro...ggg...Eshtamosh aqu\xED."
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: -730
+      y: 326
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: fe543681-fecc-4d9e-9fdd-88791cdbc70d
+    characterSpr: {fileID: 0}
+    characterName: Goblin
+    dialogueText: N-nosh-shotrosh no... Maeshtro noshotrosh...
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1311
+      y: 326
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 9c77a70c-8584-4f5b-930b-d8672f978ea7
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: "\xBFYa est\xE1n en Muddybog? Ugh..."
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 1
     endNode: 0
@@ -50,17 +86,17 @@ MonoBehaviour:
     - 
     nodePosition:
       serializedVersion: 2
-      x: -298
-      y: 199
+      x: -2118
+      y: 326
       width: 499
       height: 305
     soundEffect: {fileID: 0}
     backgroundMusic: {fileID: 0}
-  - guid: d1ea672c-5be7-4314-9e2c-293ae19cb4e5
-    characterSpr: {fileID: 0}
-    characterName: "T\xFA"
-    dialogueText: '*Suspiro* Pues venga, poquito a poco, pasito a paso, va caminando
-      la humanidad...'
+  - guid: dbcdf9a7-6091-4ac2-b17c-7bfdb0ba55f4
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: "\xA1\xBFD\xF3nde est\xE1n los goblins?! Como me hagan esperar
+      m\xE1s les voy a..."
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 0
@@ -69,17 +105,17 @@ MonoBehaviour:
     - 
     nodePosition:
       serializedVersion: 2
-      x: 4147
-      y: 199
+      x: -1399
+      y: 326
       width: 499
       height: 305
     soundEffect: {fileID: 0}
     backgroundMusic: {fileID: 0}
-  - guid: 85214258-26ff-4594-af87-080f5254688e
-    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
-    characterName: Raley
-    dialogueText: "S\xED, ten cuidado de no ingerir barro de este sitio por error.
-      Podr\xEDa ser potencialmente venenoso."
+  - guid: dd707d8e-ea53-4795-b46f-717c835cc96a
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: "Lleg\xE1is tarde, \xBFqu\xE9 est\xE1 pasando en Muddybog? \xBFPor
+      qu\xE9 no hab\xE9is eliminado a esas dos molestias?"
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 0
@@ -88,17 +124,16 @@ MonoBehaviour:
     - 
     nodePosition:
       serializedVersion: 2
-      x: 342
-      y: 199
+      x: -59
+      y: 326
       width: 499
       height: 305
     soundEffect: {fileID: 0}
     backgroundMusic: {fileID: 0}
-  - guid: 11a86bcc-8657-456f-b3e3-791005ed2fd5
-    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
-    characterName: Raley
-    dialogueText: "Nunca he entendido como un sitio as\xED puede encontrarse al lado
-      del bosque de Thelia."
+  - guid: 9fd51fc5-8459-4ede-a497-06cf1575b5c5
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: "Ya pod\xE9is tener una buena raz\xF3n..."
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 0
@@ -107,17 +142,16 @@ MonoBehaviour:
     - 
     nodePosition:
       serializedVersion: 2
-      x: 990
-      y: 199
+      x: 610
+      y: 326
       width: 499
       height: 305
     soundEffect: {fileID: 0}
     backgroundMusic: {fileID: 0}
-  - guid: d5a5cc6a-5358-4732-b214-0c1a9dcbace7
-    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
-    characterName: Raley
-    dialogueText: "No, no, avancemos. No deber\xEDa quedarnos mucho para llegar a
-      Semh Hal-a."
+  - guid: 225eb0a9-c700-4949-919c-07a7ea075072
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: Ugh, silencio, volved a la batalla y paradles a toda costa.
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 0
@@ -126,17 +160,17 @@ MonoBehaviour:
     - 
     nodePosition:
       serializedVersion: 2
-      x: 2252
-      y: 199
+      x: 2001
+      y: 326
       width: 499
       height: 305
     soundEffect: {fileID: 0}
     backgroundMusic: {fileID: 0}
-  - guid: 38472cc2-ef07-44a9-94bd-2c28146f9621
-    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
-    characterName: Raley
-    dialogueText: Si, tendremos que atravesarla para llegar a las zonas muertas,
-      donde se encuentra el castillo de Artem...
+  - guid: ec7bebbf-cd3d-4bd4-9201-c0e5681b1eff
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: "No deben ganar esta pelea, tengo que hacerles ver a todos la corrupci\xF3n
+      de nuestra sociedad..."
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 0
@@ -145,16 +179,16 @@ MonoBehaviour:
     - 
     nodePosition:
       serializedVersion: 2
-      x: 3520
-      y: 199
+      x: 2730
+      y: 326
       width: 499
       height: 305
     soundEffect: {fileID: 0}
     backgroundMusic: {fileID: 0}
-  - guid: 655903f7-8d81-4ff0-ab38-e9c56e9dbde7
-    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
-    characterName: Raley
-    dialogueText: A veces no te entiendo...
+  - guid: 6c15396e-fdf6-4f7c-b238-8477df657efa
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: Y arrancarla de cuajo.
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 1
@@ -163,45 +197,8 @@ MonoBehaviour:
     - 
     nodePosition:
       serializedVersion: 2
-      x: 4795
-      y: 199
-      width: 499
-      height: 305
-    soundEffect: {fileID: 0}
-    backgroundMusic: {fileID: 0}
-  - guid: 7fc14b86-f068-4b54-9f7b-a9be45750a0b
-    characterSpr: {fileID: 0}
-    characterName: "T\xFA"
-    dialogueText: "Yo, por m\xED, nos damos la vuelta..."
-    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
-    startNode: 0
-    endNode: 0
-    choices: 1
-    choiceOptions:
-    - 
-    nodePosition:
-      serializedVersion: 2
-      x: 1631
-      y: 199
-      width: 499
-      height: 305
-    soundEffect: {fileID: 0}
-    backgroundMusic: {fileID: 0}
-  - guid: 1876568f-2f59-4000-90a5-a07ccd372b08
-    characterSpr: {fileID: 0}
-    characterName: "T\xFA"
-    dialogueText: "\xBFLa monta\xF1a que se ve desde... pr\xE1cticamente cualquier
-      sitio?"
-    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
-    startNode: 0
-    endNode: 0
-    choices: 1
-    choiceOptions:
-    - 
-    nodePosition:
-      serializedVersion: 2
-      x: 2898
-      y: 199
+      x: 3490
+      y: 326
       width: 499
       height: 305
     soundEffect: {fileID: 0}
