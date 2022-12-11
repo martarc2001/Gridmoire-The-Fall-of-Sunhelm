@@ -188,7 +188,7 @@ public class CargarPersonajes : MonoBehaviour
         var personaje = new Personaje();
         personaje.SetAtaque(sp.ataque);
         personaje.SetDefensa(sp.defensa);
-        personaje.SetVida(sp.vida);
+        personaje.SetVida(sp.vidaMax);
         personaje.setVidaMax(sp.vidaMax);
         personaje.SetAtaqueBase(sp.ataqueBase);
         personaje.SetDefensaBase(sp.defensaBase);
