@@ -215,17 +215,53 @@ public class BattleController : MonoBehaviour
         {
             personaje.canSelectable();
             var indiceColores = 0;
-            var lista = colores[indice];
-            foreach(var sprite in personaje.GetComponentsInChildren<SpriteRenderer>())
+            if(colores.Count > 0)
             {
-                sprite.color = lista[indiceColores];
-                indiceColores++;
+
+                if (colores.ContainsKey(indice))
+                {
+                    var lista = colores[indice];
+                    foreach (var sprite in personaje.GetComponentsInChildren<SpriteRenderer>())
+                    {
+                        sprite.color = lista[indiceColores];
+                        indiceColores++;
+                    }
+                }
+                
+                indice++;
             }
-            indice++;
+            
         }
         keyDic = 0;
         colores.Clear();
         seleccionables.Clear();
+    }
+
+    public void resetColores(SeleccionableManager muerto)
+    {
+        Dictionary<int, List<Color>> copia = new Dictionary<int, List<Color>>();
+
+        var indice = 0;
+        var key = 0;
+
+        foreach (var personaje in seleccionables)
+        {
+            if (personaje.Equals(muerto))
+            {
+                
+            }
+            else
+            {
+                copia.Add(key, colores[indice]);
+                key++;
+            }
+            indice++;
+
+        }
+        Debug.Log(copia.Keys);
+        colores.Clear();
+        colores = copia;
+        Debug.Log(colores.Keys);
     }
 
     private void resaltarSingle(CeldaManager celda) 
