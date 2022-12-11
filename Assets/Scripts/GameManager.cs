@@ -99,4 +99,9 @@ public class GameManager : MonoBehaviour
         audioSorce.Play();
     }
     
+    public IEnumerator playOnce(AudioClip clip)
+    {
+        audioSorce.PlayOneShot(clip);
+        yield return new WaitForSeconds(clip.length);
+    }
 }
