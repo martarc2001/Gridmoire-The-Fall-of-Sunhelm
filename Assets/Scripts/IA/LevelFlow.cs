@@ -171,6 +171,7 @@ public class LevelFlow : MonoBehaviour
 
         foreach(var eliminados in persEliminar)
         {
+            GetComponent<BattleController>().resetColores(eliminados.GetComponent<SeleccionableManager>());
             comprobar.Remove(eliminados);
             GetComponent<BattleController>().eliminarMuerto(eliminados.GetComponent<SeleccionableManager>());
             Destroy(eliminados.gameObject);
