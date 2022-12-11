@@ -81,7 +81,7 @@ public class Personaje
         this.nivel = 1;
         this.xp = 0;
 
-        this.xpSubida = (int)400/5;
+        this.xpSubida = 80;
     }
 
 
