@@ -3704,6 +3704,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6c4e0432a1e2e0f448b23127e4d608cf, type: 3}
   prev: {fileID: 335975756}
   next: {fileID: 560957259}
+  menuClip: {fileID: 8300000, guid: 4dae57861891dd244a1be657e2383540, type: 3}
 --- !u!1 &723147166
 GameObject:
   m_ObjectHideFlags: 0

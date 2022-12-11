@@ -55,21 +55,21 @@ public class EnemyAttack : MonoBehaviour
         {
             var enemigo = celda.GetPersonaje();
             var defEnemigo = enemigo.GetComponent<PlayerController>().getPersonaje().GetDefensa();
-            var damageTotal = damage * Random.Range(0.75f, 1);
-            if (damageTotal - defEnemigo > 0)
+            var damageTotal = damage * Random.Range(1.05f, 1.1f);
+            if (damage - defEnemigo > 0)
             {
                 if (enemigo.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque() == TipoAtaque.ROW)
                 {
-                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage + 0.25f - defEnemigo / 2);
+                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal + 0.25f - defEnemigo / 2);
                 }
                 else
                 {
-                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage - defEnemigo / 2);
+                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal - defEnemigo / 2);
                 }
             }
             else
             {
-                enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage * 3 / 5);
+                enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal * 3 / 5);
             }
         }
 
@@ -86,8 +86,7 @@ public class EnemyAttack : MonoBehaviour
             {
                 var enemigo = celda.GetPersonaje();
                 var defEnemigo = enemigo.GetComponent<PlayerController>().getPersonaje().GetDefensa();
-                var damageTotal = damage * Random.Range(0.5f, 0.75f);
-                if (damageTotal - defEnemigo > 0)
+                if (damage - defEnemigo > 0)
                 {
                     if (enemigo.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque() == TipoAtaque.GRID)
                     {
@@ -117,8 +116,7 @@ public class EnemyAttack : MonoBehaviour
             {
                 var enemigo = celda.GetPersonaje();
                 var defEnemigo = enemigo.GetComponent<PlayerController>().getPersonaje().GetDefensa();
-                var damageTotal = damage * Random.Range(0.5f, 0.75f);
-                if (damageTotal - defEnemigo > 0)
+                if (damage - defEnemigo > 0)
                 {
                     if (enemigo.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque() == TipoAtaque.COLUMN)
                     {
@@ -148,21 +146,21 @@ public class EnemyAttack : MonoBehaviour
             {
                 var enemigo = celda.GetPersonaje();
                 var defEnemigo = enemigo.GetComponent<PlayerController>().getPersonaje().GetDefensa();
-                var damageTotal = damage * Random.Range(0.25f, 0.5f);
-                if (damageTotal - defEnemigo > 0)
+                var damageTotal = damage * Random.Range(0.9f, 0.95f);
+                if (damage - defEnemigo > 0)
                 {
                     if (enemigo.GetComponent<PlayerController>().getPersonaje().GetTipoAtaque() == TipoAtaque.SINGLE)
                     {
-                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage + 0.25f - defEnemigo / 2);
+                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal + 0.25f - defEnemigo / 2);
                     }
                     else
                     {
-                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage - defEnemigo / 2);
+                        enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal - defEnemigo / 2);
                     }
                 }
                 else
                 {
-                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damage * 3 / 5);
+                    enemigo.GetComponent<PlayerController>().getPersonaje().takeDamage(damageTotal * 3 / 5);
                 }
             }
 
@@ -177,12 +175,12 @@ public class EnemyAttack : MonoBehaviour
         if (celda.GetPersonaje() != null)
         {
             var enemigo = celda.GetPersonaje();
-            var damageTotal = damage * Random.Range(0.05f, 0.15f);
+            var damageTotal = damage * Random.Range(0.35f, 0.5f);
             var particles = Instantiate(particulasCurar, enemigo.transform.position, Quaternion.Euler(-90, 0, 0));
             particles.transform.parent = enemigo.transform;
             particles.transform.localScale = Vector3.one;
             particles.Play();
-            enemigo.GetComponent<EnemigoController>().getEnemigo().curar(damage);
+            enemigo.GetComponent<EnemigoController>().getEnemigo().curar(damageTotal);
         }
     }
 }

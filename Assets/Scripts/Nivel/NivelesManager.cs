@@ -50,6 +50,8 @@ public class NivelesManager : MonoBehaviour
     [SerializeField] private GameObject prev;
     [SerializeField] private GameObject next;
 
+    [Header("Audio menú")]
+    [SerializeField] private AudioClip menuClip;
 
     // GETTERS & SETTERS
 
@@ -76,6 +78,7 @@ public class NivelesManager : MonoBehaviour
     // Awake se llama al cargar la instancia del script
     private void Awake()
     {
+        GameManager.instance.setClip(menuClip);
         nMundos = fondosMundo.Count;
         Debug.Log(nMundos);
 
