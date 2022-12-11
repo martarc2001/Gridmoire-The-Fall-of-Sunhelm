@@ -4821,6 +4821,8 @@ MonoBehaviour:
   - {fileID: 1193388589}
   - {fileID: 560957263}
   - {fileID: 335975760}
+  - {fileID: 548905027}
+  - {fileID: 1098785430}
   botonesSeleccion:
   - {fileID: 723147168}
   - {fileID: 1268306096}
@@ -10009,10 +10011,10 @@ MonoBehaviour:
   mainMixer: {fileID: 24100000, guid: 2cdae63a47a93a64a993aac549705f29, type: 2}
   opciones: {fileID: 1300003965}
   botones:
-  - {fileID: 1378019208}
   - {fileID: 548905027}
-  - {fileID: 1193388589}
   - {fileID: 1098785430}
+  - {fileID: 1378019208}
+  - {fileID: 1193388589}
   - {fileID: 560957263}
   - {fileID: 335975760}
   - {fileID: 723147168}
