@@ -37,6 +37,10 @@ public class LevelFlow : MonoBehaviour
 
     [SerializeField] private List<Sprite> ataques;
 
+    [SerializeField] private List<AudioClip> efectosSonido;
+
+    [SerializeField] private Audio audioScript;
+
     // getter & setters
 
     public GridManager GetGridIA() { return gridIA; }
@@ -171,6 +175,7 @@ public class LevelFlow : MonoBehaviour
 
         foreach(var eliminados in persEliminar)
         {
+            audioScript.src.PlayOneShot(efectosSonido[0]);
             GetComponent<BattleController>().resetColores(eliminados.GetComponent<SeleccionableManager>());
             comprobar.Remove(eliminados);
             GetComponent<BattleController>().eliminarMuerto(eliminados.GetComponent<SeleccionableManager>());
@@ -212,6 +217,7 @@ public class LevelFlow : MonoBehaviour
 
         foreach (var eliminados in persEliminar)
         {
+            audioScript.src.PlayOneShot(efectosSonido[1]);
             comprobar.Remove(eliminados);
             Destroy(eliminados.gameObject);
         }

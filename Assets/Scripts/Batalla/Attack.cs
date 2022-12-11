@@ -6,6 +6,7 @@ public class Attack : MonoBehaviour
 {
     private TipoAtaque tipoAtaque;
     [SerializeField] private ParticleSystem particulasCurar;
+    [SerializeField] private List<AudioClip> efectosSonido;
 
     void Start()
     {
@@ -22,18 +23,23 @@ public class Attack : MonoBehaviour
             {
                 case TipoAtaque.SINGLE:
                     singleAttack(objetivo);
+                    GameManager.instance.GetAudioSource().PlayOneShot(efectosSonido[0]);
                     break;
                 case TipoAtaque.COLUMN:
                     columnAttack(grid, objetivo);
+                    GameManager.instance.GetAudioSource().PlayOneShot(efectosSonido[0]);
                     break;
                 case TipoAtaque.ROW:
                     rowAttack(grid, objetivo);
+                    GameManager.instance.GetAudioSource().PlayOneShot(efectosSonido[0]);
                     break;
                 case TipoAtaque.GRID:
                     gridAttack(grid);
+                    GameManager.instance.GetAudioSource().PlayOneShot(efectosSonido[0]);
                     break;
                 case TipoAtaque.HEAL:
                     healAttack(objetivo);
+                    GameManager.instance.GetAudioSource().PlayOneShot(efectosSonido[1]);
                     break;
             }
         }
