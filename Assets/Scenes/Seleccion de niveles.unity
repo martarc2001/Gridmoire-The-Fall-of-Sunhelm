@@ -3621,6 +3621,8 @@ MonoBehaviour:
   - {fileID: 1651219264}
   - {fileID: 1582946201}
   - {fileID: 1193388589}
+  - {fileID: 560957263}
+  - {fileID: 335975760}
   botonesSeleccion:
   - {fileID: 723147168}
   - {fileID: 1268306096}
