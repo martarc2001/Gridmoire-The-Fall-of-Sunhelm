@@ -26,32 +26,32 @@ public class Enemigo
         {
             case TipoEnemigo.PERRO_INFERNAL:
                 ataque = UnityEngine.Random.Range(2, 4);
-                ataque = (float)Math.Pow(nivel, 2) / (6 - (ataque / 10)) < 1 ? 1 :
-                    (float)Math.Pow(nivel, 2) / (6 - (ataque / 10));
+                ataque += (float)Math.Pow(nivel, 2) / (6 - (ataque / 15)) < 1 ? 1 :
+                    (float)Math.Pow(nivel, 2) / (6 - (ataque / 15));
 
                 defensa = UnityEngine.Random.Range(1, 3);
-                defensa = (float)Math.Pow(nivel, 2) / (6 - (defensa / 10)) < 1 ? 1 :
-                    (float)Math.Pow(nivel, 2) / (6 - (defensa / 10));
+                defensa += (float)Math.Pow(nivel, 2) / (6 - (defensa / 15)) < 1 ? 1 :
+                    (float)Math.Pow(nivel, 2) / (6 - (defensa / 15));
 
-                vida = UnityEngine.Random.Range(13, 24);
-                vida = (float)Math.Pow(nivel, 2) / (6 - (vida / 10)) < 1 ? 1 :
-                    (float)Math.Pow(nivel, 2) / (6 - (vida / 10));
+                vida = UnityEngine.Random.Range(7, 15);
+                vida += (float)Math.Pow(nivel, 2) / (6 - (vida / 15)) < 1 ? 1 :
+                    (float)Math.Pow(nivel, 2) / (6 - (vida / 15));
                 vidaMax = vida;
                 this.tipoAtaque = tipoAtaque;
                 break;
 
             case TipoEnemigo.MURICELAGO_VAMPIRO:
                 ataque = UnityEngine.Random.Range(3, 5);
-                ataque = (float)Math.Pow(nivel, 2) / (6 - (ataque / 10)) < 1 ? 1 :
-                    (float)Math.Pow(nivel, 2) / (6 - (ataque / 10));
+                ataque += (float)Math.Pow(nivel, 2) / (6 - (ataque / 15)) < 1 ? 1 :
+                    (float)Math.Pow(nivel, 2) / (6 - (ataque / 15));
 
                 defensa = UnityEngine.Random.Range(3, 5);
-                defensa = (float)Math.Pow(nivel, 2) / (6 - (defensa / 10)) < 1 ? 1 :
-                    (float)Math.Pow(nivel, 2) / (6 - (defensa / 10));
+                defensa += (float)Math.Pow(nivel, 2) / (6 - (defensa / 15)) < 1 ? 1 :
+                    (float)Math.Pow(nivel, 2) / (6 - (defensa / 15));
 
-                vida = UnityEngine.Random.Range(15, 28);
-                vida = (float)Math.Pow(nivel, 2) / (6 - (vida / 10)) < 1 ? 1 :
-                    (float)Math.Pow(nivel, 2) / (6 - (vida / 10));
+                vida = UnityEngine.Random.Range(9, 19);
+                vida += (float)Math.Pow(nivel, 2) / (6 - (vida / 15)) < 1 ? 1 :
+                    (float)Math.Pow(nivel, 2) / (6 - (vida / 15));
 
                 vidaMax = vida;
                 this.tipoAtaque = tipoAtaque;
@@ -59,16 +59,16 @@ public class Enemigo
 
             case TipoEnemigo.GOBLIN:
                 ataque = UnityEngine.Random.Range(5, 10);
-                ataque = (float)Math.Pow(nivel, 2) / (6 - (ataque / 10)) < 1 ? 1 :
-                    (float)Math.Pow(nivel, 2) / (6 - (ataque / 10));
+                ataque += (float)Math.Pow(nivel, 2) / (6 - (ataque / 15)) < 1 ? 1 :
+                    (float)Math.Pow(nivel, 2) / (6 - (ataque / 15));
 
                 defensa = UnityEngine.Random.Range(4, 8);
-                defensa = (float)Math.Pow(nivel, 2) / (6 - (defensa / 10)) < 1 ? 1 :
-                    (float)Math.Pow(nivel, 2) / (6 - (defensa / 10));
+                defensa += (float)Math.Pow(nivel, 2) / (6 - (defensa / 15)) < 1 ? 1 :
+                    (float)Math.Pow(nivel, 2) / (6 - (defensa / 15));
 
                 vida = UnityEngine.Random.Range(19, 29);
-                vida = (float)Math.Pow(nivel, 2) / (6 - (vida / 10)) < 1 ? 1 :
-                    (float)Math.Pow(nivel, 2) / (6 - (vida / 10));
+                vida += (float)Math.Pow(nivel, 2) / (6 - (vida / 15)) < 1 ? 1 :
+                    (float)Math.Pow(nivel, 2) / (6 - (vida / 15));
 
                 vidaMax = vida;
                 this.tipoAtaque = tipoAtaque;
@@ -76,16 +76,16 @@ public class Enemigo
 
             case TipoEnemigo.DEMONIO_HEMBRA:
                 ataque = UnityEngine.Random.Range(11, 17);
-                ataque += (float)Math.Pow(nivel, 2) / (6 - (ataque / 10)) < 1 ? 1 :
-                    (float)Math.Pow(nivel, 2) / (6 - (ataque / 10));
+                ataque += (float)Math.Pow(nivel, 2) / (6 - (ataque / 15)) < 1 ? 1 :
+                    (float)Math.Pow(nivel, 2) / (6 - (ataque / 15));
 
                 defensa = UnityEngine.Random.Range(6, 10);
-                defensa += (float)Math.Pow(nivel, 2) / (6 - (defensa / 10)) < 1 ? 1 :
-                    (float)Math.Pow(nivel, 2) / (6 - (defensa / 10));
+                defensa += (float)Math.Pow(nivel, 2) / (6 - (defensa / 15)) < 1 ? 1 :
+                    (float)Math.Pow(nivel, 2) / (6 - (defensa / 15));
 
                 vida = UnityEngine.Random.Range(24, 38);
-                vida += (float)Math.Pow(nivel, 2) / (6 - (vida / 10)) < 1 ? 1 :
-                    (float)Math.Pow(nivel, 2) / (6 - (vida / 10));
+                vida += (float)Math.Pow(nivel, 2) / (6 - (vida / 15)) < 1 ? 1 :
+                    (float)Math.Pow(nivel, 2) / (6 - (vida / 15));
 
                 vidaMax = vida;
                 this.tipoAtaque = tipoAtaque;
@@ -93,21 +93,23 @@ public class Enemigo
 
             case TipoEnemigo.DEMONIO_MACHO:
                 ataque = UnityEngine.Random.Range(10, 14);
-                ataque += (float)Math.Pow(nivel, 2) / (6 - (ataque / 10)) < 1 ? 1 :
-                    (float)Math.Pow(nivel, 2) / (6 - (ataque / 10));
+                ataque += (float)Math.Pow(nivel, 2) / (6 - (ataque / 15)) < 1 ? 1 :
+                    (float)Math.Pow(nivel, 2) / (6 - (ataque / 15));
 
                 defensa = UnityEngine.Random.Range(8, 12);
-                defensa += (float)Math.Pow(nivel, 2) / (6 - (defensa / 10)) < 1 ? 1 :
-                    (float)Math.Pow(nivel, 2) / (6 - (defensa / 10));
+                defensa += (float)Math.Pow(nivel, 2) / (6 - (defensa / 15)) < 1 ? 1 :
+                    (float)Math.Pow(nivel, 2) / (6 - (defensa / 15));
 
                 vida = UnityEngine.Random.Range(24, 38);
-                vida += (float)Math.Pow(nivel, 2) / (6 - (vida / 10)) < 1 ? 1 :
-                    (float)Math.Pow(nivel, 2) / (6 - (vida / 10));
+                vida += (float)Math.Pow(nivel, 2) / (6 - (vida / 15)) < 1 ? 1 :
+                    (float)Math.Pow(nivel, 2) / (6 - (vida / 15));
 
                 vidaMax = vida;
                 this.tipoAtaque = tipoAtaque;
                 break;
         }
+
+        Debug.Log(ataque + " " + defensa + " " + vida);
     }
 
     public float GetVida() { return this.vida; }
