@@ -320,7 +320,26 @@ public class StoreManager : MonoBehaviour
         var vidaStats = "Vida: " + pers.GetVida();
         var ataqueStats = "Ataque: " + pers.GetAtaque();
         var defensaStats = "Defensa: " + pers.GetDefensa();
-        var tipoAtaqueStats = "Tipo de ataque: " + pers.GetTipoAtaque();
+        var tipoAtaqueStats = "Tipo de ataque: ";
+        switch (pers.GetTipoAtaque())
+        {
+            case TipoAtaque.SINGLE:
+                tipoAtaqueStats = "Tipo de ataque: MONO OBJETIVO";
+                break;
+            case TipoAtaque.COLUMN:
+                tipoAtaqueStats = "Tipo de ataque: COLUMNA";
+                break;
+            case TipoAtaque.ROW:
+                tipoAtaqueStats = "Tipo de ataque: FILA";
+                break;
+            case TipoAtaque.GRID:
+                tipoAtaqueStats = "Tipo de ataque: ÁREA";
+                break;
+            case TipoAtaque.HEAL:
+                tipoAtaqueStats = "Tipo de ataque: CURAR";
+                break;
+        }
+        
 
         stats.transform.Find("Nombre").GetComponent<TextMeshProUGUI>().text = nombreStats;
         stats.transform.Find("Vida").GetComponent<TextMeshProUGUI>().text = vidaStats;

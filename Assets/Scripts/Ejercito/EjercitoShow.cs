@@ -173,9 +173,9 @@ public class EjercitoShow : MonoBehaviour
         newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
         var nombreStats = "Nombre: " + sp.nombre;
-        var vidaStats = "Vida: " + sp.vidaMax;
-        var ataqueStats = "Ataque: " + sp.ataque;
-        var defensaStats = "Defensa: " + sp.defensa;
+        var vidaStats = "Vida: " + (int)sp.vidaMax;
+        var ataqueStats = "Ataque: " + (int)sp.ataque;
+        var defensaStats = "Defensa: " + (int)sp.defensa;
         var nivelStats = "Nivel: " + sp.nivel;
         var xpStats = "Experiencia: " + sp.xp + "/"+sp.xpSubida;
 
