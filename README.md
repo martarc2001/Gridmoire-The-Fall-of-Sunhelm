@@ -147,39 +147,7 @@ Finalmente, se repite este ciclo hasta que uno de los dos haya derrotado a todos
 Para terminar, dentro de la partida se podrá acceder a un menú de pausa, en el que no solo se tendrán de nuevo los ajustes sino que también se podrá salir del nivel para volver al menú de selección de nivel.
 
 ### Diagrama de flujo ###
-![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Flujo.png)
-
-
-### Mock-ups ###
-* Menú principal
-   * Invoca: Créditos, , Empezar partida, Selección de nivel, Ajustes [base]
-   * Invocable por: Créditos, Selección de nivel
-![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Mock-ups/Inicio.jpg)
-* Créditos
-   * Invoca: Menú principal
-   * Invocable por: Menú principal
-![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Mock-ups/Cr%C3%A9ditos.jpg)
-* Ajustes [base]
-   * Invoca: Menú principal, Selección de nivel, Tienda
-   * Invocable por: Menú principal, Selección de nivel, Tienda
-![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Mock-ups/Ajustes%201.jpg) 
-* Ajustes [con botón de abandono de partida]
-   * Invoca: Nivel, Selección de nivel
-   * Invocable por: Nivel
-![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Mock-ups/Ajustes%202.jpg)
-* Selección de nivel
-   * Invoca: Nivel, Ajustes [base], Menú principal, Tienda
-   * Invocable por: Nivel, Ajustes [base], Menú principal, Tienda
-![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Mock-ups/Selector%20nivel.jpg)
-* Nivel
-   * Invoca: Ajustes [con botón de abandono de partida], Selección de nivel
-   * Invocable por: Selección de nivel, Ajustes [con botón de abandono de partida]
-![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Mock-ups/Planificaci%C3%B3n.jpg)
-![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Mock-ups/Partida.jpg)
-* Tienda
-   * Invoca: Ajustes [base], Selección de nivel
-   * Invocable por: Selección de nivel
-![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Mock-ups/Tienda.jpg)
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Diagrama_en_blanco.png)
 
 ## NIVELES ##
 El juego se dividirá en 5 zonas inicialmente que, a su vez, están divididas en 10 niveles.
@@ -194,14 +162,17 @@ Vencer en un nivel ofrecerá entre 50 y 140 monedas, dependiendo de cuán avanza
 Segunda zona de nuestro juego. En esta zona, el enemigo principal serán “Murciélagos vampiros”, pero también aparecerán “Perros infernales”. en los niveles finales, también aparecerá algún “Goblin” que otro. Estos son atraídos por las criaturas mágicas del bosque, por lo que el jugador deberá defender el segundo lugar de ataque de las tropas de Artem.
 <br>
 Vencer en un nivel ofrecerá entre 150 y 240 monedas, dependiendo de cuán avanzado sea el nivel de zona. Además, también recompensará con experiencia a cada personaje con valores entre 470 y 920, dependiendo del nivel.
-
+<br>
 ![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Bosque.jpg)
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/mapa_2oCap.jpg)
 
 * Muddybog, la ciénaga perdida<br>
 Tercera zona del juego. Aparecerá con más frecuencia el nuevo tipo de enemigo “Goblin”, el cuál empezará a exigir algo más de nivel al jugador, fomentando así la rejugabilidad de niveles anteriores. Además de incluir un “Demonio F” en el último nivel, el enemigo más fuerte que verá el jugador hasta dicho momento.
 <br>
 Vencer en un nivel ofrecerá entre 250 y 340 monedas, dependiendo de cuán avanzado sea el nivel de zona. Además, también recompensará con experiencia a cada personaje con valores entre 960 y 1540, dependiendo del nivel.
-
+<br>
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Pantano.jpg)
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/mapa_3erCap.jpg)
 
 * Semh Hal-a, el pico del norte<br>
 Cuarta zona del juego. Dejarán de aparecer los enemigos “Perro Infernal”, por lo que el nivel de dificultad aumentará al quedar solo los enemigos más difíciles hasta el momento. Estos niveles servirán de preparación al jugador para la zona final.
