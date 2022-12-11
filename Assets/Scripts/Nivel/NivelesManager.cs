@@ -32,6 +32,7 @@ public class NivelesManager : MonoBehaviour
     [SerializeField] private List<Sprite> fondosMundo;
     [SerializeField] private List<GameObject> iconosNiveles;
     [SerializeField] private List<GameObject> flechasNiveles;
+    [SerializeField] private TextMeshProUGUI textoMundo;
     private int nMundos;
 
     [Header("Historia")]
@@ -146,6 +147,19 @@ public class NivelesManager : MonoBehaviour
                 botonesSeleccion[i].enabled = true;
             }
         }
+
+        switch (GameManager.instance.GetMundoSeleccionado())
+        {
+            case 1:
+                textoMundo.SetText("Cantermahl");
+                break;
+            case 2:
+                textoMundo.SetText("Thelia");
+                break;
+            case 3:
+                textoMundo.SetText("Muddybog");
+                break;
+        }
     }
 
 
@@ -198,15 +212,15 @@ public class NivelesManager : MonoBehaviour
     {
         SerializableLevel sl = niveles[this.seleccion];
 
-        /*var mundo = infoNivel.transform.Find("Mundo");
         var id = infoNivel.transform.Find("ID");
         var nombre = infoNivel.transform.Find("Nombre");
 
-        mundo.GetComponent<TextMeshProUGUI>().SetText("Mundo: " + sl.mundo);
-        id.GetComponent<TextMeshProUGUI>().SetText("ID: " + sl.id);
-        nombre.GetComponent<TextMeshProUGUI>().SetText("Nombre: " + sl.nombre);*/
+        id.GetComponent<TextMeshProUGUI>().SetText(sl.mundo + "-" + sl.id);
+        nombre.GetComponent<TextMeshProUGUI>().SetText(sl.nombre);
+        
+        
 
-        for(var i=0; i < 3; i++)
+        for (var i=0; i < 3; i++)
         {
             enemigos[i].sprite = spriteEnemigos[sl.enemigos[i]];
             tipoAtaque[i].sprite = spriteAtaques[sl.tipoAtaque[i]];
@@ -262,7 +276,20 @@ public class NivelesManager : MonoBehaviour
             if (!prev.activeSelf) prev.SetActive(true);
 
         }
-        
+
+        switch (mundo)
+        {
+            case 1:
+                textoMundo.SetText("Cantermahl");
+                break;
+            case 2:
+                textoMundo.SetText("Thelia");
+                break;
+            case 3:
+                textoMundo.SetText("Muddybog");
+                break;
+        }
+
     }
 
     public void prevMundo()
@@ -291,6 +318,19 @@ public class NivelesManager : MonoBehaviour
 
             if (mundo == 1) { prev.SetActive(false); }
             if (!next.activeSelf) next.SetActive(true);
+        }
+
+        switch (mundo)
+        {
+            case 1:
+                textoMundo.SetText("Cantermahl");
+                break;
+            case 2:
+                textoMundo.SetText("Thelia");
+                break;
+            case 3:
+                textoMundo.SetText("Muddybog");
+                break;
         }
     }
 }
