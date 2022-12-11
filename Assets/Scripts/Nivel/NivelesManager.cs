@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using VNCreator;
@@ -43,6 +44,10 @@ public class NivelesManager : MonoBehaviour
 
     [SerializeField] private List<Sprite> spriteEnemigos;
     [SerializeField] private List<Sprite> spriteAtaques;
+
+    [Header("Flechas cambio mundo")]
+    [SerializeField] private GameObject prev;
+    [SerializeField] private GameObject next;
 
 
     // GETTERS & SETTERS
@@ -212,6 +217,66 @@ public class NivelesManager : MonoBehaviour
                 iconosNiveles[i].SetActive(false);
                 flechasNiveles[i].SetActive(false);
             }
+        }
+    }
+
+    public void nextMundo()
+    {
+        var mundo = GameManager.instance.GetMundoSeleccionado();
+        if ( mundo < 3)
+        {
+            mundo++;
+            GameManager.instance.cambiarMundo(mundo);
+            fondo.GetComponent<SpriteRenderer>().sprite = fondosMundo[mundo - 1];
+
+            for (int i = 0; i < nMundos; i++)
+            {
+                if (i == (mundo - 1))
+                {
+                    fondo.GetComponent<SpriteRenderer>().sprite = fondosMundo[i];
+                    iconosNiveles[i].SetActive(true);
+                    flechasNiveles[i].SetActive(true);
+                }
+                else
+                {
+                    iconosNiveles[i].SetActive(false);
+                    flechasNiveles[i].SetActive(false);
+                }
+            }
+
+            if (mundo == 3) { next.SetActive(false); }
+            if (!prev.activeSelf) prev.SetActive(true);
+
+        }
+        
+    }
+
+    public void prevMundo()
+    {
+        var mundo = GameManager.instance.GetMundoSeleccionado();
+        if(mundo > 1)
+        {
+            mundo--;
+            GameManager.instance.cambiarMundo(mundo);
+            fondo.GetComponent<SpriteRenderer>().sprite = fondosMundo[mundo - 1];
+
+            for (int i = 0; i < nMundos; i++)
+            {
+                if (i == (mundo - 1))
+                {
+                    fondo.GetComponent<SpriteRenderer>().sprite = fondosMundo[i];
+                    iconosNiveles[i].SetActive(true);
+                    flechasNiveles[i].SetActive(true);
+                }
+                else
+                {
+                    iconosNiveles[i].SetActive(false);
+                    flechasNiveles[i].SetActive(false);
+                }
+            }
+
+            if (mundo == 1) { prev.SetActive(false); }
+            if (!next.activeSelf) next.SetActive(true);
         }
     }
 }
