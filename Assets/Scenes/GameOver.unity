@@ -316,9 +316,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1463187670}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 2062182034}
+        m_TargetAssemblyTypeName: SoundGameOver, Assembly-CSharp
+        m_MethodName: terminarRecompensa
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

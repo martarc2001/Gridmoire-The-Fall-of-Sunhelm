@@ -111,6 +111,20 @@ public class NivelesManager : MonoBehaviour
     {
 
         CambiaMundo(GameManager.instance.GetMundoSeleccionado());
+
+        if(GameManager.instance.GetMundoSeleccionado() > 1 && GameManager.instance.GetMundoSeleccionado() < 3)
+        {
+            if (!prev.activeSelf) prev.SetActive(true);
+        }else if(GameManager.instance.GetMundoSeleccionado() >= 3)
+        {
+            if(next.activeSelf) next.SetActive(false);
+            if(!prev.activeSelf) prev.SetActive(true);
+        }
+        else if(GameManager.instance.GetMundoSeleccionado() <= 1)
+        {
+            if (!next.activeSelf) next.SetActive(true);
+            if (prev.activeSelf) prev.SetActive(false);
+        }
         string estadosString = PlayerPrefs.GetString("Estados Niveles");
 
         SerializableEstadoList estados = JsonUtility.FromJson<SerializableEstadoList>(estadosString);
