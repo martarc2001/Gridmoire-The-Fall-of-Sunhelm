@@ -75,7 +75,7 @@ MonoBehaviour:
   - guid: 5181ff1c-037a-4cb1-8310-fc285d9f6fb5
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
-    dialogueText: Como en Fatal Fallacy 14.
+    dialogueText: Como en Fatal Fallacy XIV.
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0
@@ -85,24 +85,6 @@ MonoBehaviour:
     nodePosition:
       serializedVersion: 2
       x: 3212
-      y: 336
-      width: 499
-      height: 305
-    soundEffect: {fileID: 0}
-    backgroundMusic: {fileID: 0}
-  - guid: 080dffc0-4fe5-475c-b407-29bae6df277e
-    characterSpr: {fileID: 0}
-    characterName: '*Luz misteriosa*'
-    dialogueText: ...
-    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
-    startNode: 0
-    endNode: 0
-    choices: 1
-    choiceOptions:
-    - 
-    nodePosition:
-      serializedVersion: 2
-      x: 5131
       y: 336
       width: 499
       height: 305
@@ -148,7 +130,7 @@ MonoBehaviour:
   - guid: 4aec048c-32dc-4223-9ad8-120cd1d2cda1
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
-    dialogueText: "Esta bien... \xA1All\xE1 voy!"
+    dialogueText: "Est\xE1 bien... \xA1All\xE1 voy!"
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 1
@@ -279,7 +261,7 @@ MonoBehaviour:
   - guid: 7528a411-3fcb-44de-9945-232c4c960025
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Raley
-    dialogueText: "Cu\xE1ntos colores... El poblados de las hadas debe ser precioso
+    dialogueText: "Cu\xE1ntos colores... El poblado de las hadas debe ser precioso
       de noche."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
@@ -308,6 +290,24 @@ MonoBehaviour:
     nodePosition:
       serializedVersion: 2
       x: 7713
+      y: 336
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 080dffc0-4fe5-475c-b407-29bae6df277e
+    characterSpr: {fileID: 21300000, guid: 7e558b68cc064ab499bf4e2f6a0e3559, type: 3}
+    characterName: '*Luz misteriosa*'
+    dialogueText: ...
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 5131
       y: 336
       width: 499
       height: 305
