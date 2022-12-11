@@ -2012,8 +2012,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e440f7a4da172f343a6ca286b970d004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eleccion: {fileID: 0}
-  continuar: {fileID: 0}
+  eleccion: {fileID: 507133830}
+  continuar: {fileID: 962914628}
 --- !u!4 &2023216881
 Transform:
   m_ObjectHideFlags: 0
