@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RecompensaHandler : MonoBehaviour
 {
@@ -151,9 +152,28 @@ public class RecompensaHandler : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void terminarRecompensa(string scene)
     {
-        
+        SigEscena.CrossSceneInformation = scene;
+        if (scene.Equals("Seleccion de niveles"))
+        {
+            if (FindObjectOfType<NivelDataHandler>() != null)
+                Destroy(FindObjectOfType<NivelDataHandler>().gameObject);
+
+            if (FindObjectOfType<DataToBattle>() != null)
+                Destroy(FindObjectOfType<DataToBattle>().gameObject);
+
+            if (FindObjectOfType<HistoriaManager>() != null)
+                Destroy(FindObjectOfType<HistoriaManager>().gameObject);
+
+
+            StopAllCoroutines();
+            GameManager.instance.GetAudioSource().Stop();
+            GameManager.instance.GetAudioSource().clip = GameManager.instance.GetClipMenu();
+            GameManager.instance.GetAudioSource().Play();
+        }
+
+
+        SceneManager.LoadScene("PantallaCarga");
     }
 }

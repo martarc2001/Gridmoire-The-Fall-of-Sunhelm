@@ -19,6 +19,12 @@ public class SceneLoader : MonoBehaviour
 
             if (FindObjectOfType<HistoriaManager>() != null)
                 Destroy(FindObjectOfType<HistoriaManager>().gameObject);
+
+            //GameManager.instance.StopCoroutine(GameManager.instance.playSound(GameManager.instance.GetClipMenu()));
+            GameManager.instance.StopAllCoroutines();
+            GameManager.instance.GetAudioSource().Stop();
+            GameManager.instance.GetAudioSource().clip = GameManager.instance.GetClipMenu();
+            GameManager.instance.GetAudioSource().Play();
         }
         
         

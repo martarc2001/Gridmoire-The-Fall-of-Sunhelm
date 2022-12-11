@@ -75,11 +75,14 @@ public class GameManager : MonoBehaviour
 
     public int GetMundoSeleccionado() { return mundoSeleccionado; }
 
+    public AudioClip GetClipMenu() { return clipMenu; }
+
     public AudioSource GetAudioSource() { return audioSorce; }
 
     public void setClip(AudioClip clip) {
         if (clip.name != audioSorce.clip.name)
         {
+            audioSorce.Stop();
             audioSorce.clip = clip;
             audioSorce.Play();
         }
@@ -87,14 +90,12 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator playSound(AudioClip clip)
     {
-        var volumenGeneral = audioSorce.volume;
+        audioSorce.clip = clip;
         audioSorce.Stop();
-        audioSorce.PlayOneShot(clip);
-        audioSorce.volume = 1;
+        audioSorce.Play();
         yield return new WaitForSeconds(clip.length);
-        audioSorce.Stop();
-        audioSorce.volume = volumenGeneral;
         audioSorce.clip = clipMenu;
+        audioSorce.Stop();
         audioSorce.Play();
     }
     
