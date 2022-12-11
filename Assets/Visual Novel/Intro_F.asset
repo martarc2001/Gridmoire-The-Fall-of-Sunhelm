@@ -591,7 +591,7 @@ MonoBehaviour:
   - guid: 2365f140-3cea-4576-a57a-6ed9e77cc1d1
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
-    dialogueText: "Ey, ey, tranquila. Aqu\xED donde me tienes soy un genio de los
+    dialogueText: "Ey, ey, tranquila. Aqu\xED donde me tienes soy una genio de los
       videojuegos de estrategia. No hay nada que temer."
     backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
     startNode: 0
