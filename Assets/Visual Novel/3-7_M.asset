@@ -1,0 +1,205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d55d090c78b6240aa6dccd6042a022, type: 3}
+  m_Name: 3-7_M
+  m_EditorClassIdentifier: 
+  links:
+  - guid: 9c77a70c-8584-4f5b-930b-d8672f978ea7
+    targetGuid: dbcdf9a7-6091-4ac2-b17c-7bfdb0ba55f4
+    portId: 0
+  - guid: dbcdf9a7-6091-4ac2-b17c-7bfdb0ba55f4
+    targetGuid: c79257fe-942d-4e16-adc8-9181d31fafa0
+    portId: 1
+  - guid: dd707d8e-ea53-4795-b46f-717c835cc96a
+    targetGuid: 9fd51fc5-8459-4ede-a497-06cf1575b5c5
+    portId: 2
+  - guid: 9fd51fc5-8459-4ede-a497-06cf1575b5c5
+    targetGuid: fe543681-fecc-4d9e-9fdd-88791cdbc70d
+    portId: 3
+  - guid: 225eb0a9-c700-4949-919c-07a7ea075072
+    targetGuid: ec7bebbf-cd3d-4bd4-9201-c0e5681b1eff
+    portId: 4
+  - guid: ec7bebbf-cd3d-4bd4-9201-c0e5681b1eff
+    targetGuid: 6c15396e-fdf6-4f7c-b238-8477df657efa
+    portId: 5
+  - guid: fe543681-fecc-4d9e-9fdd-88791cdbc70d
+    targetGuid: 225eb0a9-c700-4949-919c-07a7ea075072
+    portId: 6
+  - guid: c79257fe-942d-4e16-adc8-9181d31fafa0
+    targetGuid: dd707d8e-ea53-4795-b46f-717c835cc96a
+    portId: 7
+  nodes:
+  - guid: 9c77a70c-8584-4f5b-930b-d8672f978ea7
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: "\xBFYa est\xE1n en Muddybog? Ugh..."
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 1
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: -2118
+      y: 326
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: dbcdf9a7-6091-4ac2-b17c-7bfdb0ba55f4
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: "\xA1\xBFD\xF3nde est\xE1n los goblins?! Como me hagan esperar
+      m\xE1s, les voy a..."
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: -1399
+      y: 326
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: dd707d8e-ea53-4795-b46f-717c835cc96a
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: "Lleg\xE1is tarde, \xBFqu\xE9 est\xE1 pasando en Muddybog? \xBFPor
+      qu\xE9 no hab\xE9is eliminado a esas dos molestias?"
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: -59
+      y: 326
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 9fd51fc5-8459-4ede-a497-06cf1575b5c5
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: "Ya pod\xE9is tener una buena raz\xF3n..."
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 610
+      y: 326
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 225eb0a9-c700-4949-919c-07a7ea075072
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: Ugh, silencio, volved a la batalla y paradles a toda costa.
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 2001
+      y: 326
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: ec7bebbf-cd3d-4bd4-9201-c0e5681b1eff
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: "No deben ganar esta pelea, tengo que hacerles ver a todos la corrupci\xF3n
+      de nuestra sociedad..."
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 2730
+      y: 326
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 6c15396e-fdf6-4f7c-b238-8477df657efa
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: y arrancarla de cuajo.
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 1
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 3490
+      y: 326
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: c79257fe-942d-4e16-adc8-9181d31fafa0
+    characterSpr: {fileID: 21300000, guid: 95cb76b7526a72f4a8c51dd5ae2dea25, type: 3}
+    characterName: Goblin
+    dialogueText: "M-maeshtro... ggg... Eshtamosh aqu\xED."
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: -730
+      y: 326
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: fe543681-fecc-4d9e-9fdd-88791cdbc70d
+    characterSpr: {fileID: 21300000, guid: 95cb76b7526a72f4a8c51dd5ae2dea25, type: 3}
+    characterName: Goblin
+    dialogueText: N-nosh-shotrosh no... Maeshtro, noshotrosh...
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1311
+      y: 326
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}

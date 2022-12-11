@@ -8,7 +8,27 @@ public class SceneLoader : MonoBehaviour
 {
     public void LoadScene(string scene)
     {
-        SceneManager.LoadScene(scene);
+        SigEscena.CrossSceneInformation = scene;
+        if(scene.Equals("Seleccion de niveles"))
+        {
+            if (FindObjectOfType<NivelDataHandler>() != null)
+                Destroy(FindObjectOfType<NivelDataHandler>().gameObject);
+
+            if (FindObjectOfType<DataToBattle>() != null)
+                Destroy(FindObjectOfType<DataToBattle>().gameObject);
+
+            if (FindObjectOfType<HistoriaManager>() != null)
+                Destroy(FindObjectOfType<HistoriaManager>().gameObject);
+
+            //GameManager.instance.StopCoroutine(GameManager.instance.playSound(GameManager.instance.GetClipMenu()));
+            GameManager.instance.StopAllCoroutines();
+            GameManager.instance.GetAudioSource().Stop();
+            GameManager.instance.GetAudioSource().clip = GameManager.instance.GetClipMenu();
+            GameManager.instance.GetAudioSource().Play();
+        }
+        
+        
+        SceneManager.LoadScene("PantallaCarga");
     }
 
     public void LoadBattleScene(string scene)
@@ -24,7 +44,9 @@ public class SceneLoader : MonoBehaviour
 
         DontDestroyOnLoad(nivelDH);
 
-        SceneManager.LoadScene(scene);
+        SigEscena.CrossSceneInformation = scene;
+        SceneManager.LoadScene("PantallaCarga");
+        //SceneManager.LoadScene(scene);
     }
 
     public void LoadMainMenu(string scene)
@@ -40,17 +62,23 @@ public class SceneLoader : MonoBehaviour
             Destroy(FindObjectOfType<EjercitoRecompensa>().gameObject);
         }
 
-        SceneManager.LoadScene(scene);
+        SigEscena.CrossSceneInformation = scene;
+        SceneManager.LoadScene("PantallaCarga");
+        //SceneManager.LoadScene(scene);
     }
 
     public void LoadSeleccionNiveles()
     {
         if(PlayerPrefs.GetInt("PrimeraVez") == 1)
         {
-            SceneManager.LoadScene("Intro Visual Novel");
+            SigEscena.CrossSceneInformation = "Eleccion de genero";
+            SceneManager.LoadScene("PantallaCarga");
+            //SceneManager.LoadScene("Intro Visual Novel");
         } else
         {
-            SceneManager.LoadScene("Seleccion de niveles");
+            SigEscena.CrossSceneInformation = "Seleccion de niveles";
+            SceneManager.LoadScene("PantallaCarga");
+            //SceneManager.LoadScene("Seleccion de niveles");
         }
     }
 
@@ -73,11 +101,16 @@ public class SceneLoader : MonoBehaviour
         if (manager.TieneHistoria())
         {
             DontDestroyOnLoad(historiaManager.gameObject);
-            SceneManager.LoadScene("Historia " + manager.GetHistoria());
+
+            SigEscena.CrossSceneInformation = "Historia " + manager.GetHistoria();
+            SceneManager.LoadScene("PantallaCarga");
+            //SceneManager.LoadScene("Historia " + manager.GetHistoria());
         }
         else
         {
-            SceneManager.LoadScene("Planificacion");
+            SigEscena.CrossSceneInformation = "Planificacion";
+            SceneManager.LoadScene("PantallaCarga");
+            //SceneManager.LoadScene("Planificacion");
         }
     }
 }

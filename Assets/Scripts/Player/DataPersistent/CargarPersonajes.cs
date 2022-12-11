@@ -132,41 +132,41 @@ public class CargarPersonajes : MonoBehaviour
 
         /////// CHARACTER CUSTOMIZATION ///////
 
-        var newFlequillo = newCharacter.transform.Find("Flequillo").GetComponent<Image>();
+        var newFlequillo = newCharacter.transform.Find("Flequillo").GetComponent<SpriteRenderer>();
         newFlequillo.sprite = flequillos[sp.flequillo];
 
-        var newPelo = newCharacter.transform.Find("Pelo").GetComponent<Image>();
+        var newPelo = newCharacter.transform.Find("Pelo").GetComponent<SpriteRenderer>();
         newPelo.sprite = pelos[sp.pelo];
 
-        var newPestanhas = newCharacter.transform.Find("Pestanhas").GetComponent<Image>();
+        var newPestanhas = newCharacter.transform.Find("Pestanhas").GetComponent<SpriteRenderer>();
         newPestanhas.sprite = pestanhas[sp.pestanha];
 
-        var newOrejas = newCharacter.transform.Find("Orejas").GetComponent<Image>();
+        var newOrejas = newCharacter.transform.Find("Orejas").GetComponent<SpriteRenderer>();
         newOrejas.sprite = orejas[sp.orejas];
 
-        var newNarices = newCharacter.transform.Find("Nariz").GetComponent<Image>();
+        var newNarices = newCharacter.transform.Find("Nariz").GetComponent<SpriteRenderer>();
         newNarices.sprite = narices[sp.narices];
 
-        var newBoca = newCharacter.transform.Find("Boca").GetComponent<Image>();
+        var newBoca = newCharacter.transform.Find("Boca").GetComponent<SpriteRenderer>();
         newBoca.sprite = bocas[sp.bocas];
 
-        var newExtra = newCharacter.transform.Find("Extra").GetComponent<Image>();
+        var newExtra = newCharacter.transform.Find("Extra").GetComponent<SpriteRenderer>();
         newExtra.sprite = extras[sp.extras];
 
-        var newCejas = newCharacter.transform.Find("Cejas").GetComponent<Image>();
+        var newCejas = newCharacter.transform.Find("Cejas").GetComponent<SpriteRenderer>();
         newCejas.sprite = cejas[sp.cejas];
 
-        var ropa = newCharacter.transform.Find("Ropa").GetComponent<Image>();
+        var ropa = newCharacter.transform.Find("Ropa").GetComponent<SpriteRenderer>();
         ropa.sprite = ropas[sp.ropa];
 
-        var arma_delante = newCharacter.transform.Find("Arma_delante").GetComponent<Image>();
+        var arma_delante = newCharacter.transform.Find("Arma_delante").GetComponent<SpriteRenderer>();
         arma_delante.sprite = armas_delante[sp.arma_delante];
 
-        var arma_detras = newCharacter.transform.Find("Arma_detras").GetComponent<Image>();
+        var arma_detras = newCharacter.transform.Find("Arma_detras").GetComponent<SpriteRenderer>();
         arma_detras.sprite = armas_detras[sp.arma_detras];
 
 
-        var cuerpo = newCharacter.transform.Find("CUERPO BASE").GetComponent<Image>();
+        var cuerpo = newCharacter.transform.Find("CUERPO BASE").GetComponent<SpriteRenderer>();
         cuerpo.color = new Color(sp.rc, sp.gc, sp.bc);
         newOrejas.color = new Color(sp.rc, sp.gc, sp.bc);
 
@@ -174,28 +174,31 @@ public class CargarPersonajes : MonoBehaviour
         newFlequillo.color = new Color(sp.rp, sp.gp, sp.bp);
         newPelo.color = new Color(sp.rp, sp.gp, sp.bp);
         newCejas.color = new Color(sp.rp, sp.gp, sp.bp);
+        newExtra.color = new Color(sp.rp, sp.gp, sp.bp);
 
-        var newIris = newCharacter.transform.Find("Ojos").transform.Find("Iris").GetComponent<Image>();
+        var newIris = newCharacter.transform.Find("Ojos").transform.Find("Iris").GetComponent<SpriteRenderer>();
         newIris.color = new Color(sp.rp, sp.gi, sp.bi);
 
         uiCharacter.transform.Find("Nivel").GetComponent<TextMeshProUGUI>().text = "Nivel: "+sp.nivel;
-        uiCharacter.transform.Find("Ataque").GetComponent<TextMeshProUGUI>().text = "Ataque: " + sp.ataque;
-        uiCharacter.transform.Find("Defensa").GetComponent<TextMeshProUGUI>().text = "Defensa: " + sp.defensa;
-        uiCharacter.transform.Find("HP").GetComponent<TextMeshProUGUI>().text = "HP: " + sp.vidaMax;
-        uiCharacter.transform.Find("TipoAtaque").GetComponent<Image>().sprite = tiposAtaque[sp.tipoAtaque];
+        uiCharacter.transform.Find("Ataque").GetComponent<TextMeshProUGUI>().text = "Ataque: " + (int)sp.ataque;
+        uiCharacter.transform.Find("Defensa").GetComponent<TextMeshProUGUI>().text = "Defensa: " + (int)sp.defensa;
+        uiCharacter.transform.Find("HP").GetComponent<TextMeshProUGUI>().text = "HP: " + (int)sp.vidaMax;
+        uiCharacter.transform.Find("TipoAtaque").GetComponent<SpriteRenderer>().sprite = tiposAtaque[sp.tipoAtaque];
 
         var personaje = new Personaje();
         personaje.SetAtaque(sp.ataque);
         personaje.SetDefensa(sp.defensa);
-        personaje.SetVida(sp.vida);
+        personaje.SetVida(sp.vidaMax);
         personaje.setVidaMax(sp.vidaMax);
+        personaje.SetAtaqueBase(sp.ataqueBase);
+        personaje.SetDefensaBase(sp.defensaBase);
+        personaje.SetVidaBase(sp.vidaBase);
         personaje.SetTipoAtaque((TipoAtaque)sp.tipoAtaque);
         personaje.SetRareza((Rareza)sp.rareza);
         personaje.SetNombre(sp.nombre);
         personaje.SetNivel(sp.nivel);
         personaje.SetXp(sp.xp);
         personaje.SetXpSubida(sp.xpSubida);
-        personaje.SetXpSubidaPrev(sp.xpSubidaPrev);
         newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
 

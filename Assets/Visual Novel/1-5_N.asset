@@ -1,0 +1,336 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d55d090c78b6240aa6dccd6042a022, type: 3}
+  m_Name: 1-5_N
+  m_EditorClassIdentifier: 
+  links:
+  - guid: 49773ad1-5fc3-451d-9473-706b1426557e
+    targetGuid: 0c735fc4-13ce-4f51-82d3-0605ee80c572
+    portId: 0
+  - guid: 1690f971-f548-405a-a839-46ad634ef9bd
+    targetGuid: e2dbbbfc-970f-405d-adec-e5e9e86eca6c
+    portId: 1
+  - guid: 0c735fc4-13ce-4f51-82d3-0605ee80c572
+    targetGuid: 2b848a39-7f62-4886-95d0-a43f1bc22c91
+    portId: 2
+  - guid: 2b848a39-7f62-4886-95d0-a43f1bc22c91
+    targetGuid: f382df18-3e92-419a-8dd6-94971f0d2566
+    portId: 3
+  - guid: f382df18-3e92-419a-8dd6-94971f0d2566
+    targetGuid: 470a4e89-0339-4cfe-a652-d1a9ee5ad99e
+    portId: 4
+  - guid: 470a4e89-0339-4cfe-a652-d1a9ee5ad99e
+    targetGuid: 1690f971-f548-405a-a839-46ad634ef9bd
+    portId: 5
+  - guid: e2dbbbfc-970f-405d-adec-e5e9e86eca6c
+    targetGuid: 09c9a4b7-4626-4191-a2bf-21a246d7a59d
+    portId: 6
+  - guid: 97b89c1a-7787-49c9-ac59-edf01ef8d355
+    targetGuid: 5d60d0a1-5833-40ca-872a-532dada144e6
+    portId: 7
+  - guid: 09c9a4b7-4626-4191-a2bf-21a246d7a59d
+    targetGuid: bd3ad3f7-34c9-4c51-b8ab-96f108507e76
+    portId: 8
+  - guid: 3ac82782-45e4-4611-be33-9748873fe0d1
+    targetGuid: f7b7524f-9e0f-4301-8078-964736221a45
+    portId: 9
+  - guid: bd3ad3f7-34c9-4c51-b8ab-96f108507e76
+    targetGuid: 3ac82782-45e4-4611-be33-9748873fe0d1
+    portId: 10
+  - guid: f7b7524f-9e0f-4301-8078-964736221a45
+    targetGuid: 97b89c1a-7787-49c9-ac59-edf01ef8d355
+    portId: 11
+  - guid: 5d60d0a1-5833-40ca-872a-532dada144e6
+    targetGuid: 0f91c78c-469a-42a5-a868-ef63ea3b0156
+    portId: 12
+  - guid: 0f91c78c-469a-42a5-a868-ef63ea3b0156
+    targetGuid: 679eef27-6c71-4899-b9b5-0238fae2b794
+    portId: 13
+  nodes:
+  - guid: 49773ad1-5fc3-451d-9473-706b1426557e
+    characterSpr: {fileID: 0}
+    characterName: Hombre misterioso
+    dialogueText: "Heh... Dentro de poco Sunhelm estar\xE1 bajo mis pies."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 1
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 153
+      y: 407
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 1690f971-f548-405a-a839-46ad634ef9bd
+    characterSpr: {fileID: 0}
+    characterName: 
+    dialogueText: ...
+    backgroundSpr: {fileID: 21300000, guid: f80aab48e5eba6f488bc4d83debe24ef, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 3070
+      y: 407
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 0c735fc4-13ce-4f51-82d3-0605ee80c572
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Hombre misterioso
+    dialogueText: "No veo ning\xFAn fallo en mi plan. Esa Raley... *Risa mal\xE9fica*"
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 741
+      y: 407
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 2b848a39-7f62-4886-95d0-a43f1bc22c91
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: "Nunca sabr\xE1 que fui yo, Artem, quien modific\xF3 su conjuro
+      para invocar a un h\xE9roe."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1348
+      y: 407
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: f382df18-3e92-419a-8dd6-94971f0d2566
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: "Y ahora mi victoria est\xE1 asegurada. Pobre de aquella alma inocente
+      que haya sido tra\xEDda aqu\xED..."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1945
+      y: 407
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 470a4e89-0339-4cfe-a652-d1a9ee5ad99e
+    characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
+    characterName: Artem
+    dialogueText: "para morir *Risa mal\xE9fica*"
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 2513
+      y: 407
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: e2dbbbfc-970f-405d-adec-e5e9e86eca6c
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "Puff, las batallas se est\xE1n complicando un poco..."
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 3633
+      y: 407
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 97b89c1a-7787-49c9-ac59-edf01ef8d355
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "Ehh... Creo que es para poder protegerse de- Oye, una pregunta,
+      \xBFC\xF3mo es que nadie lucha por aqu\xED?"
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 6363
+      y: 407
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 679eef27-6c71-4899-b9b5-0238fae2b794
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "Ah, s\xED, claro. \xA1A la batalla!"
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 1
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 8024
+      y: 407
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 09c9a4b7-4626-4191-a2bf-21a246d7a59d
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Hmmm, ya sabes que por unas pocas monedas puedo invocar m\xE1s
+      h\xE9roes..."
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 4183
+      y: 407
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 3ac82782-45e4-4611-be33-9748873fe0d1
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "S\xED, Artem decidi\xF3 ir al grano y atacar directamente a la
+      capital."
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 5271
+      y: 407
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: bd3ad3f7-34c9-4c51-b8ab-96f108507e76
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "\xA1Cambiando de tema! Hay muchos monstruos cerca de la ciudad,
+      \xBFno?"
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 4716
+      y: 407
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: f7b7524f-9e0f-4301-8078-964736221a45
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Aunque tambi\xE9n hay monstruos perdidos de camino a su castillo.
+      No s\xE9 por qu\xE9 si nadie va por ah\xED."
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 5819
+      y: 407
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 5d60d0a1-5833-40ca-872a-532dada144e6
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Bueno, Sunhelm siempre ha sido un reino pac\xEDfico y sin problemas,
+      por lo que nunca han hecho falta guerreros."
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 6913
+      y: 407
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 0f91c78c-469a-42a5-a868-ef63ea3b0156
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Pero ahora nos tienen a nosotres. As\xED que continuemos el viaje."
+    backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 7449
+      y: 407
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}

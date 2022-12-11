@@ -1,0 +1,315 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d55d090c78b6240aa6dccd6042a022, type: 3}
+  m_Name: 2-7
+  m_EditorClassIdentifier: 
+  links:
+  - guid: 0d41ee67-7368-4249-a257-64310478d813
+    targetGuid: 5181ff1c-037a-4cb1-8310-fc285d9f6fb5
+    portId: 0
+  - guid: 5181ff1c-037a-4cb1-8310-fc285d9f6fb5
+    targetGuid: fd51b6a0-f5c1-4b54-b506-8f77c35e81bb
+    portId: 1
+  - guid: 080dffc0-4fe5-475c-b407-29bae6df277e
+    targetGuid: a6087fef-68b7-41a2-8309-a644ccbbd410
+    portId: 2
+  - guid: a6087fef-68b7-41a2-8309-a644ccbbd410
+    targetGuid: 7528a411-3fcb-44de-9945-232c4c960025
+    portId: 3
+  - guid: 178f45ab-ff82-4333-ab22-5582b34cc9b4
+    targetGuid: 8d8aa64a-7dde-4f92-8af7-6b78305192c0
+    portId: 4
+  - guid: 1581d083-62c7-46c6-b53d-22a325898031
+    targetGuid: 30f5d152-6481-4433-93b7-4721d2112014
+    portId: 5
+  - guid: 30f5d152-6481-4433-93b7-4721d2112014
+    targetGuid: c4162706-45e8-48b8-a9bc-18b3343882f0
+    portId: 6
+  - guid: c4162706-45e8-48b8-a9bc-18b3343882f0
+    targetGuid: 5260447b-7074-4a66-99fc-3d8b4af3c734
+    portId: 7
+  - guid: 5260447b-7074-4a66-99fc-3d8b4af3c734
+    targetGuid: 0d41ee67-7368-4249-a257-64310478d813
+    portId: 8
+  - guid: fd51b6a0-f5c1-4b54-b506-8f77c35e81bb
+    targetGuid: a31408fc-65d7-444c-8fe3-210f23b9b2e7
+    portId: 9
+  - guid: a31408fc-65d7-444c-8fe3-210f23b9b2e7
+    targetGuid: 080dffc0-4fe5-475c-b407-29bae6df277e
+    portId: 10
+  - guid: 7528a411-3fcb-44de-9945-232c4c960025
+    targetGuid: 178f45ab-ff82-4333-ab22-5582b34cc9b4
+    portId: 11
+  - guid: 8d8aa64a-7dde-4f92-8af7-6b78305192c0
+    targetGuid: 4aec048c-32dc-4223-9ad8-120cd1d2cda1
+    portId: 12
+  nodes:
+  - guid: 0d41ee67-7368-4249-a257-64310478d813
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "Vaya... cre\xEDa que las hadas eran unos seres graciosetes que
+      hac\xEDan bromas a la gente, o incluso les convert\xEDan en arbustos."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 2581
+      y: 336
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 5181ff1c-037a-4cb1-8310-fc285d9f6fb5
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: Como en Fatal Fallacy XIV.
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 3212
+      y: 336
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: a6087fef-68b7-41a2-8309-a644ccbbd410
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: Guau.... Son preciosas...
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 5747
+      y: 336
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 178f45ab-ff82-4333-ab22-5582b34cc9b4
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "Si... \xA1Cuando salvemos a Sunhelm deber\xEDamos volver para
+      verlo!"
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 6990
+      y: 336
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 4aec048c-32dc-4223-9ad8-120cd1d2cda1
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "Est\xE1 bien... \xA1All\xE1 voy!"
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 1
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 8397
+      y: 336
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 1581d083-62c7-46c6-b53d-22a325898031
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "\xBFSabes? Este bosque es el territorio de la reina de las hadas,
+      Cirene."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 1
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: -49
+      y: 336
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 30f5d152-6481-4433-93b7-4721d2112014
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Es un hada incre\xEDblemente poderosa. Tanto que hizo crecer este
+      bosque como refugio para todas las criaturas m\xE1gicas."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 640
+      y: 336
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: c4162706-45e8-48b8-a9bc-18b3343882f0
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "\xBFY por qu\xE9 no han protegido el bosque?"
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1290
+      y: 336
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 5260447b-7074-4a66-99fc-3d8b4af3c734
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Bueno... la magia de las hadas no puede provocar da\xF1o en los
+      seres vivos. Solo pudo ocultar a las criaturas del bosque a los ojos de los
+      monstruos, nada m\xE1s."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1970
+      y: 336
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: fd51b6a0-f5c1-4b54-b506-8f77c35e81bb
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Bueno, alguna broma s\xED que hacen, pero nunca con \xE1nimo de
+      da\xF1ar a otros."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 3850
+      y: 336
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: a31408fc-65d7-444c-8fe3-210f23b9b2e7
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Ah, \xA1mira! Eso son... \xA1Se est\xE1n acercando a nosotros!"
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 4480
+      y: 336
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 7528a411-3fcb-44de-9945-232c4c960025
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Cu\xE1ntos colores... El poblado de las hadas debe ser precioso
+      de noche."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 6371
+      y: 336
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 8d8aa64a-7dde-4f92-8af7-6b78305192c0
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "\xBFEh? Hmm.... \xA1Vale! Pero centr\xE9monos en salvarlo primero."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 7713
+      y: 336
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 080dffc0-4fe5-475c-b407-29bae6df277e
+    characterSpr: {fileID: 21300000, guid: 7e558b68cc064ab499bf4e2f6a0e3559, type: 3}
+    characterName: '*Luz misteriosa*'
+    dialogueText: ...
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 5131
+      y: 336
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}

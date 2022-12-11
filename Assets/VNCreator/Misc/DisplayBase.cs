@@ -7,7 +7,10 @@ namespace VNCreator
 {
     public class DisplayBase : MonoBehaviour
     {
-        public StoryObject story;
+        private StoryObject story;
+
+        [Header("Stories")]
+        public List<StoryObject> historias;
 
         protected NodeData currentNode;
         protected bool lastNode;
@@ -16,6 +19,11 @@ namespace VNCreator
 
         void Awake()
         {
+            if (PlayerPrefs.HasKey("Genero"))
+            {
+                this.story = historias[PlayerPrefs.GetInt("Genero")];
+            }
+
             if (PlayerPrefs.GetString(GameSaveManager.currentLoadName) == string.Empty)
             {
                 currentNode = story.GetFirstNode();

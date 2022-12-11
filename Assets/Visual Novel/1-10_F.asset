@@ -10,53 +10,53 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80d55d090c78b6240aa6dccd6042a022, type: 3}
-  m_Name: 1-10
+  m_Name: 1-10_F
   m_EditorClassIdentifier: 
   links:
-  - guid: 4856a0fe-6490-405c-a7c5-e8d59f8c3ebf
-    targetGuid: b416b6e7-1f2a-4d1b-9531-b054cafd5fe8
-    portId: 0
   - guid: b416b6e7-1f2a-4d1b-9531-b054cafd5fe8
     targetGuid: 556bf1c8-0a81-43a4-9403-72583a96c763
-    portId: 1
+    portId: 0
   - guid: 556bf1c8-0a81-43a4-9403-72583a96c763
     targetGuid: 27a40385-3725-497a-9eb5-f12707332989
-    portId: 2
+    portId: 1
   - guid: 27a40385-3725-497a-9eb5-f12707332989
     targetGuid: 48e157fe-b9f9-4cb9-8301-892bf838780b
-    portId: 3
+    portId: 2
   - guid: 48e157fe-b9f9-4cb9-8301-892bf838780b
     targetGuid: 778e0536-527d-4293-948a-b57c0f440e01
-    portId: 4
+    portId: 3
   - guid: 778e0536-527d-4293-948a-b57c0f440e01
     targetGuid: bd886f1f-0810-4cad-814f-7db44a88b15e
-    portId: 5
+    portId: 4
   - guid: bd886f1f-0810-4cad-814f-7db44a88b15e
     targetGuid: b1bfabc9-1a55-4b0c-93d6-ba8068143682
-    portId: 6
+    portId: 5
   - guid: b1bfabc9-1a55-4b0c-93d6-ba8068143682
     targetGuid: 0b722c6b-55b0-47bd-9e81-7070a3173714
-    portId: 7
+    portId: 6
   - guid: 0b722c6b-55b0-47bd-9e81-7070a3173714
     targetGuid: 49af3d6f-4677-4eb9-8bd0-10eafb70531c
-    portId: 8
+    portId: 7
   - guid: 49af3d6f-4677-4eb9-8bd0-10eafb70531c
     targetGuid: 2104d737-91d8-4e3a-83e7-9a67162d7e61
-    portId: 9
+    portId: 8
   - guid: 2104d737-91d8-4e3a-83e7-9a67162d7e61
     targetGuid: 96761494-07c9-4908-b259-b60774b4ab5a
-    portId: 10
+    portId: 9
   - guid: 96761494-07c9-4908-b259-b60774b4ab5a
     targetGuid: c461b8ea-d1c7-40a4-98ca-b652851b1248
-    portId: 11
+    portId: 10
   - guid: c461b8ea-d1c7-40a4-98ca-b652851b1248
     targetGuid: bba39bc4-ddca-41a7-91df-23188b5c94ae
+    portId: 11
+  - guid: 4856a0fe-6490-405c-a7c5-e8d59f8c3ebf
+    targetGuid: b416b6e7-1f2a-4d1b-9531-b054cafd5fe8
     portId: 12
   nodes:
   - guid: b416b6e7-1f2a-4d1b-9531-b054cafd5fe8
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Raley
-    dialogueText: "No... No queda ningun monstruo m\xE1s en la capital..."
+    dialogueText: "No... No queda ning\xFAn monstruo m\xE1s en la capital..."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0
@@ -167,8 +167,8 @@ MonoBehaviour:
   - guid: b1bfabc9-1a55-4b0c-93d6-ba8068143682
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Raley
-    dialogueText: "Nuestro siguiente paso es ir al bosque de Thelia. All\xED es dondeviven
-      las hadas y duendes de Sunhelm."
+    dialogueText: "Nuestro siguiente paso es ir al bosque de Thelia. All\xED es donde
+      viven las hadas y duendes de Sunhelm."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0
@@ -205,8 +205,8 @@ MonoBehaviour:
   - guid: 49af3d6f-4677-4eb9-8bd0-10eafb70531c
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
-    dialogueText: "\xBFEntonces no podemos descansar? Esto de ser un h\xE9roe cansa
-      mucho..."
+    dialogueText: "\xBFEntonces no podemos descansar? Esto de ser una hero\xEDna
+      cansa mucho..."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0
@@ -224,8 +224,8 @@ MonoBehaviour:
   - guid: 2104d737-91d8-4e3a-83e7-9a67162d7e61
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Raley
-    dialogueText: "Oh, \xA1venga! Piensa en que ser\xE1s el h\xE9roe tambi\xE9n de
-      las criaturas m\xE1gicas de Thelia"
+    dialogueText: "Oh, \xA1venga! Piensa en que ser\xE1s la hero\xEDna tambi\xE9n
+      de las criaturas m\xE1gicas de Thelia."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0
@@ -261,7 +261,7 @@ MonoBehaviour:
   - guid: c461b8ea-d1c7-40a4-98ca-b652851b1248
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
-    dialogueText: "Bueno, pens\xE1ndolo as\xED, ya no me siento tan cansado."
+    dialogueText: "Bueno, pens\xE1ndolo as\xED, ya no me siento tan cansada."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0

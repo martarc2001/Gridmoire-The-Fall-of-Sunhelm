@@ -5,14 +5,19 @@ using UnityEngine;
 public class CargarPersBatalla : MonoBehaviour
 {
     private ListaPlayerSerializable grid;
+    [Header("Prefab")]
     [SerializeField] private GameObject prefab;
+
+    [Header("Cabezas info")]
     [SerializeField] private List<CeldaManager> headPosition;
     [SerializeField] private List<GameObject> cabezasInfo;
 
+    [Header("Level info")]
     [SerializeField] private GridManager gridPlayer;
 
     [SerializeField] private LevelFlow level;
 
+    [Header("Sprites personaje")]
     [SerializeField] private List<Sprite> flequillos;
     [SerializeField] private List<Sprite> pelos;
     [SerializeField] private List<Sprite> pestanhas;
@@ -28,7 +33,10 @@ public class CargarPersBatalla : MonoBehaviour
 
     [SerializeField] private List<Sprite> tiposAtaque;
 
+    [Header("Sprites cabeza")]
+    [SerializeField] private List<Sprite> pelosCabeza;
 
+    [Header("UI vidas personajes")]
     [SerializeField] private List<LifeUI> listaVidas;
     private void Start()
     {
@@ -174,6 +182,7 @@ public class CargarPersBatalla : MonoBehaviour
         newFlequillo.color = new Color(sp.rp, sp.gp, sp.bp);
         newPelo.color = new Color(sp.rp, sp.gp, sp.bp);
         newCejas.color = new Color(sp.rp, sp.gp, sp.bp);
+        newExtra.color = new Color(sp.rp, sp.gp, sp.bp);
 
         var newIris = newCharacter.transform.Find("Ojos").transform.Find("Iris").GetComponent<SpriteRenderer>();
         newIris.color = new Color(sp.rp, sp.gi, sp.bi);
@@ -185,13 +194,15 @@ public class CargarPersBatalla : MonoBehaviour
         personaje.SetDefensa(sp.defensa);
         personaje.SetVida(sp.vida);
         personaje.setVidaMax(sp.vidaMax);
+        personaje.SetAtaqueBase(sp.ataqueBase);
+        personaje.SetDefensaBase(sp.defensaBase);
+        personaje.SetVidaBase(sp.vidaBase);
         personaje.SetTipoAtaque((TipoAtaque)sp.tipoAtaque);
         personaje.SetNombre(sp.nombre);
         personaje.SetRareza((Rareza)sp.rareza);
         personaje.SetNivel(sp.nivel);
         personaje.SetXp(sp.xp);
         personaje.SetXpSubida(sp.xpSubida);
-        personaje.SetXpSubidaPrev(sp.xpSubidaPrev);
         newCharacter.GetComponent<PlayerController>().setPersonaje(personaje);
 
         gridPlayer.getGridInfo().GetCeldas()[celda.getCelda().GetX(), celda.getCelda().GetY()].SetPersonaje(newCharacter);
@@ -204,6 +215,7 @@ public class CargarPersBatalla : MonoBehaviour
     private void cargarCabeza(SerializablePlayer sp, GameObject cabeza)
     {
         cabeza.transform.Find("Flequillo").GetComponent<SpriteRenderer>().sprite = flequillos[sp.flequillo-1];
+        cabeza.transform.Find("Pelo").GetComponent<SpriteRenderer>().sprite = pelosCabeza[sp.pelo-1];
 
         cabeza.transform.Find("Cejas").GetComponent<SpriteRenderer>().sprite = cejas[sp.cejas - 1];
         cabeza.transform.Find("Extra").GetComponent<SpriteRenderer>().sprite = extras[sp.extras - 1];
@@ -214,7 +226,9 @@ public class CargarPersBatalla : MonoBehaviour
         cabeza.transform.Find("Orejas").GetComponent<SpriteRenderer>().sprite = orejas[sp.orejas - 1];
 
         cabeza.transform.Find("Flequillo").GetComponent<SpriteRenderer>().color = new Color(sp.rp, sp.gp, sp.bp);
+        cabeza.transform.Find("Pelo").GetComponent<SpriteRenderer>().color = new Color(sp.rp, sp.gp, sp.bp);
         cabeza.transform.Find("Cejas").GetComponent<SpriteRenderer>().color = new Color(sp.rp, sp.gp, sp.bp);
+        cabeza.transform.Find("Extra").GetComponent<SpriteRenderer>().color = new Color(sp.rp, sp.gp, sp.bp);
 
         cabeza.transform.Find("Ojos").transform.Find("Iris").GetComponent<SpriteRenderer>().color = new Color(sp.rp, sp.gi, sp.bi);
 

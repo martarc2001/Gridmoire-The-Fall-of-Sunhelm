@@ -11,17 +11,46 @@ public class PlanificationManager : MonoBehaviour
     [SerializeField] private GameObject canvasParent;
     private int personajesSeleccionados = 0;
     [SerializeField] DataToBattle dataBattle;
+    [SerializeField] private GridManager grid;
 
     private List<string> nombres = new List<string>();
     [SerializeField] private CargarPersonajes cargarScript;
 
+    [Header("Fondo")]
+    [SerializeField] private List<Sprite> fondos;
+    [SerializeField] private SpriteRenderer fondo;
     public List<string> getNombres() { return nombres; }
 
+    private List<CeldaManager> celdasToRemove= new List<CeldaManager>();
+
+    [SerializeField] private Audio audioScript;
+    [SerializeField] private List<AudioClip> efectosSonido;
     void Start()
     {
-        var obj = FindObjectOfType<NivelDataHandler>() as NivelDataHandler;
+        var obj = FindObjectOfType<NivelDataHandler>();
 
-        Debug.Log(obj.GetMonedas());
+        fondo.sprite = fondos[obj.GetFondo()];
+
+        foreach(var celda in grid.getCeldas())
+        {
+            Debug.Log(obj.GetCeldasX().Count);
+
+            for (var i = 0; i < obj.GetCeldasX().Count; i++)
+            {
+                Debug.Log("Celda a remover: (" + obj.GetCeldasX()[i] + "," + obj.GetCeldasY()[i] + ")");
+                if (obj.GetCeldasX()[i] == celda.getCelda().GetX() && obj.GetCeldasY()[i] == celda.getCelda().GetY())
+                {
+                    celdasToRemove.Add(celda);
+                }
+            }
+        }
+
+        foreach(var celda in celdasToRemove)
+        {
+            grid.getCeldas().Remove(celda);
+            Destroy(celda.gameObject);
+        }
+        
     }
 
 
@@ -55,7 +84,7 @@ public class PlanificationManager : MonoBehaviour
                         if(playerSelected.transform.Find("Character").GetComponent<PlayerController>().getPersonaje().GetRareza() == cargarScript.getRarezaAtual())
                         {
                             playerSelected.transform.SetParent(canvasParent.transform);
-                            playerSelected.transform.localScale = new Vector3(3, 3, 3);
+                            playerSelected.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
 
                             playerSelected.transform.Find("Ataque").gameObject.SetActive(true);
                             playerSelected.transform.Find("Defensa").gameObject.SetActive(true);
@@ -73,6 +102,7 @@ public class PlanificationManager : MonoBehaviour
                         if (hit.gameObject.transform.Find("Character").GetComponent<SeleccionableManager>().isSelectable())
                             playerSelected = hit.gameObject;
                     }
+                    audioScript.PlaySound(efectosSonido[0]);
                     
                 }
                 else if (hit.gameObject.CompareTag("Cell"))
@@ -95,6 +125,7 @@ public class PlanificationManager : MonoBehaviour
                             playerSelected = null;
                             personajesSeleccionados++;
                             dataBattle.addCelda(hit.gameObject.GetComponent<CeldaManager>());
+                            audioScript.PlaySound(efectosSonido[1]);
                         }
 
                     }
@@ -115,7 +146,7 @@ public class PlanificationManager : MonoBehaviour
                                 hit.gameObject.GetComponent<CeldaManager>().getCelda()
                                 .GetPersonaje().transform.SetParent(canvasParent.transform);
                                 hit.gameObject.GetComponent<CeldaManager>().getCelda()
-                                    .GetPersonaje().transform.localScale = new Vector3(3, 3, 3);
+                                    .GetPersonaje().transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
 
                                 hit.gameObject.GetComponent<CeldaManager>().getCelda()
                                 .GetPersonaje().gameObject.transform.Find("Ataque").gameObject.SetActive(true);
@@ -146,6 +177,7 @@ public class PlanificationManager : MonoBehaviour
                             playerSelected.gameObject.transform.Find("Nivel").gameObject.SetActive(false);
                             playerSelected.gameObject.transform.Find("TipoAtaque").gameObject.SetActive(false);
                             playerSelected.gameObject.transform.position = hit.gameObject.transform.position;
+                            audioScript.PlaySound(efectosSonido[1]);
                             nombres.Add(playerSelected.transform.Find("Character").GetComponent<PlayerController>().getPersonaje().GetNombre());
                             playerSelected = null;
                         }
@@ -157,6 +189,7 @@ public class PlanificationManager : MonoBehaviour
                             hit.gameObject.GetComponent<CeldaManager>().getCelda().ChangeOccupied();
                             dataBattle.removeCelda(hit.gameObject.GetComponent<CeldaManager>());
                             nombres.Remove(playerSelected.transform.Find("Character").GetComponent<PlayerController>().getPersonaje().GetNombre());
+                            audioScript.PlaySound(efectosSonido[0]);
                         }
 
                     }

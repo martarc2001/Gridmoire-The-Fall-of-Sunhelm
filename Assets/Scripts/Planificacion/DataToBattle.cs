@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Threading;
 
 public class DataToBattle : MonoBehaviour
 {
@@ -10,10 +11,13 @@ public class DataToBattle : MonoBehaviour
     private Celda[] listaCeldas;
     private List<CeldaManager> listCeldas = new List<CeldaManager>();
 
+    public GameObject fadeEffect;
+
     public void putGrid()
     {
+        fadeEffect.SetActive(true);
 
-        if(listCeldas.Count > 0)
+        if (listCeldas.Count > 0)
         {
             var i = 0;
             listaCeldas = new Celda[listCeldas.Count];
@@ -29,7 +33,8 @@ public class DataToBattle : MonoBehaviour
             }
 
             DontDestroyOnLoad(gameObject);
-            SceneManager.LoadScene("Batalla");
+
+            Invoke("CargaBatalla", fadeEffect.GetComponent<GDTFadeEffect>().timeEffect);
         }
         
     }
@@ -46,32 +51,32 @@ public class DataToBattle : MonoBehaviour
     private void addSP(GameObject p)
     {
         //Debug.Log("Añadir personaje: " + p);
-        var cuerpo = p.transform.Find("CUERPO BASE").GetComponent<Image>();
+        var cuerpo = p.transform.Find("CUERPO BASE").GetComponent<SpriteRenderer>();
 
-        var newFlequillo = p.transform.Find("Flequillo").GetComponent<Image>();
+        var newFlequillo = p.transform.Find("Flequillo").GetComponent<SpriteRenderer>();
         var fn = newFlequillo.sprite.name;
 
-        var newPelo = p.transform.Find("Pelo").GetComponent<Image>().sprite.name;
+        var newPelo = p.transform.Find("Pelo").GetComponent<SpriteRenderer>().sprite.name;
 
-        var newPestanhas = p.transform.Find("Pestanhas").GetComponent<Image>().sprite.name;
+        var newPestanhas = p.transform.Find("Pestanhas").GetComponent<SpriteRenderer>().sprite.name;
 
-        var newOrejas = p.transform.Find("Orejas").GetComponent<Image>().sprite.name;
+        var newOrejas = p.transform.Find("Orejas").GetComponent<SpriteRenderer>().sprite.name;
 
-        var newNarices = p.transform.Find("Nariz").GetComponent<Image>().sprite.name;
+        var newNarices = p.transform.Find("Nariz").GetComponent<SpriteRenderer>().sprite.name;
 
-        var newBoca = p.transform.Find("Boca").GetComponent<Image>().sprite.name;
+        var newBoca = p.transform.Find("Boca").GetComponent<SpriteRenderer>().sprite.name;
 
-        var newExtra = p.transform.Find("Extra").GetComponent<Image>().sprite.name;
+        var newExtra = p.transform.Find("Extra").GetComponent<SpriteRenderer>().sprite.name;
 
-        var newCejas = p.transform.Find("Cejas").GetComponent<Image>().sprite.name;
+        var newCejas = p.transform.Find("Cejas").GetComponent<SpriteRenderer>().sprite.name;
 
-        var ropa = p.transform.Find("Ropa").GetComponent<Image>().sprite.name;
+        var ropa = p.transform.Find("Ropa").GetComponent<SpriteRenderer>().sprite.name;
 
-        var arma_delante = p.transform.Find("Arma_delante").GetComponent<Image>().sprite.name;
+        var arma_delante = p.transform.Find("Arma_delante").GetComponent<SpriteRenderer>().sprite.name;
 
-        var arma_detras = p.transform.Find("Arma_detras").GetComponent<Image>().sprite.name;
+        var arma_detras = p.transform.Find("Arma_detras").GetComponent<SpriteRenderer>().sprite.name;
 
-        var newIris = p.transform.Find("Ojos").transform.Find("Iris").GetComponent<Image>();
+        var newIris = p.transform.Find("Ojos").transform.Find("Iris").GetComponent<SpriteRenderer>();
 
         var rc = cuerpo.color.r;
         var gc = cuerpo.color.g;
@@ -90,10 +95,17 @@ public class DataToBattle : MonoBehaviour
         SerializablePlayer sp = new SerializablePlayer(int.Parse(fn),int.Parse(newPelo),int.Parse(newPestanhas),int.Parse(newOrejas)
             ,int.Parse(newNarices),int.Parse(newBoca)
             ,int.Parse(newExtra),int.Parse(newCejas),int.Parse(ropa),int.Parse(arma_delante),int.Parse(arma_detras),rc,gc,bc,rp,gp,bp,ri,gi,bi,person.GetAtaque(),
-            person.GetDefensa(),person.GetVida(),person.getVidaMax(),(int)person.GetTipoAtaque(),person.GetNombre(),(int)person.GetRareza(),
-            person.GetNivel(),person.GetXp(),person.GetXpSubida(),person.GetXpSubidaPrev());
+            person.GetDefensa(),person.GetVida(),person.getVidaMax(),(int)person.GetTipoAtaque(),
+            person.GetAtaqueBase(),person.GetDefensaBase(),person.GetVidaBase(),person.GetNombre(),(int)person.GetRareza(),
+            person.GetNivel(),person.GetXp(),person.GetXpSubida());
 
 
         lsp.list.Add(sp);
+    }
+
+    private void CargaBatalla()
+    {
+        SigEscena.CrossSceneInformation = "Batalla";
+        SceneManager.LoadScene("PantallaCarga2");
     }
 }

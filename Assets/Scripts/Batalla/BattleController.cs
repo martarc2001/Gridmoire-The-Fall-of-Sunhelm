@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class BattleController : MonoBehaviour
 {
@@ -17,6 +18,12 @@ public class BattleController : MonoBehaviour
 
     private Dictionary<int, List<Color>> colores = new Dictionary<int, List<Color>>();
     [SerializeField] private CeldaManager cellSelected;
+
+    [SerializeField] private List<AudioClip> efectosSonido;
+
+    [Header("Fondo")]
+    [SerializeField] private List<Sprite> fondos;
+    [SerializeField] private SpriteRenderer fondo;
     int keyDic = 0;
 
     private void Awake()
@@ -25,6 +32,11 @@ public class BattleController : MonoBehaviour
     }
     private void Start()
     {
+        var obj = FindObjectOfType<NivelDataHandler>();
+
+        fondo.sprite = fondos[obj.GetFondo()];
+
+
         gridEnemigo = GetComponent<LevelFlow>().GetGridIA();
         gridAliado = GetComponent<LevelFlow>().GetGridPlayer();
     }
@@ -62,9 +74,9 @@ public class BattleController : MonoBehaviour
             {
                 if (hit.collider.gameObject.GetComponent<SeleccionableManager>().isSelectable())
                 {
-                    if(playerSelected != null)
+                    if (playerSelected != null)
                     {
-                        Debug.Log("Hola");
+                        //Debug.Log("Hola");
                         keyDic--;
                         var lista = colores[keyDic];
                         var indice = 0;
@@ -74,14 +86,20 @@ public class BattleController : MonoBehaviour
                             indice++;
                         }
                         colores.Remove(keyDic);
-                        
-                        
+
+                        if(cellSelected != null)
+                        {
+                            cellSelected = null;
+                            resetResalto();
+                        }
+
+
                     }
+                    GetComponent<LevelFlow>().GetScriptAudio().PlaySound(efectosSonido[0]);
                     playerSelected = hit.collider.gameObject;
                     var listacolores = new List<Color>();
                     foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
                     {
-
                         listacolores.Add(sprite.color);
                         if (!sprite.transform.name.Equals("Ataque"))
                             sprite.color = Color.blue;
@@ -92,7 +110,7 @@ public class BattleController : MonoBehaviour
                 else
                 {
                     Debug.Log("Personaje no seleccionable");
-                }
+                }   
 
             }
             else if (hit.collider.CompareTag("CellEnemy"))
@@ -157,25 +175,34 @@ public class BattleController : MonoBehaviour
                 {
                     var celda = hit.collider.gameObject.GetComponent<CeldaManager>();
                     cellSelected = hit.collider.gameObject.GetComponent<CeldaManager>();
-                    foreach (var cell in gridAliado.getCeldas())
-                    {
-                        cell.GetComponent<SpriteRenderer>().color = Color.green;
-                    }
+                    resaltarHeal(cellSelected);
                 }
 
                 else if (cellSelected != null)
                 {
-                    playerSelected.GetComponent<Attack>().performAttack(gridAliado, cellSelected.getCelda());
-                    turnosJugados++;
-                    seleccionables.Add(playerSelected.GetComponent<SeleccionableManager>());
-                    playerSelected.GetComponent<SeleccionableManager>().notSelectable();
-                    foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
+                    var celda = hit.collider.gameObject.GetComponent<CeldaManager>();
+                    var coincide = comprobarSingle(cellSelected,celda);
+                    if(coincide)
                     {
-                        sprite.color = Color.gray;
+                        playerSelected.GetComponent<Attack>().performAttack(gridAliado, cellSelected.getCelda());
+                        turnosJugados++;
+                        seleccionables.Add(playerSelected.GetComponent<SeleccionableManager>());
+                        playerSelected.GetComponent<SeleccionableManager>().notSelectable();
+                        foreach (var sprite in playerSelected.GetComponentsInChildren<SpriteRenderer>())
+                        {
+                            sprite.color = Color.gray;
+                        }
+                        playerSelected = null;
+                        cellSelected = null;
+                        resetResalto();
                     }
-                    playerSelected = null;
-                    cellSelected = null;
-                    resetResalto();
+                    else
+                    {
+                        cellSelected = celda;
+                        resetResalto();
+                        resaltarHeal(cellSelected);
+                    }
+                    
                 }
             }
         }
@@ -191,17 +218,53 @@ public class BattleController : MonoBehaviour
         {
             personaje.canSelectable();
             var indiceColores = 0;
-            var lista = colores[indice];
-            foreach(var sprite in personaje.GetComponentsInChildren<SpriteRenderer>())
+            if(colores.Count > 0)
             {
-                sprite.color = lista[indiceColores];
-                indiceColores++;
+
+                if (colores.ContainsKey(indice))
+                {
+                    var lista = colores[indice];
+                    foreach (var sprite in personaje.GetComponentsInChildren<SpriteRenderer>())
+                    {
+                        sprite.color = lista[indiceColores];
+                        indiceColores++;
+                    }
+                }
+                
+                indice++;
             }
-            indice++;
+            
         }
         keyDic = 0;
         colores.Clear();
         seleccionables.Clear();
+    }
+
+    public void resetColores(SeleccionableManager muerto)
+    {
+        Dictionary<int, List<Color>> copia = new Dictionary<int, List<Color>>();
+
+        var indice = 0;
+        var key = 0;
+
+        foreach (var personaje in seleccionables)
+        {
+            if (personaje.Equals(muerto))
+            {
+                
+            }
+            else
+            {
+                copia.Add(key, colores[indice]);
+                key++;
+            }
+            indice++;
+
+        }
+        Debug.Log(copia.Keys);
+        colores.Clear();
+        colores = copia;
+        Debug.Log(colores.Keys);
     }
 
     private void resaltarSingle(CeldaManager celda) 
@@ -237,6 +300,11 @@ public class BattleController : MonoBehaviour
         {
             cell.GetComponent<SpriteRenderer>().color = Color.red;
         }
+    }
+
+    private void resaltarHeal(CeldaManager celda)
+    {
+        celda.GetComponent<SpriteRenderer>().color = Color.green;
     }
 
     private void resetResalto() 

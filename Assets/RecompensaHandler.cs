@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RecompensaHandler : MonoBehaviour
 {
@@ -11,13 +12,12 @@ public class RecompensaHandler : MonoBehaviour
 
     [SerializeField] private AudioClip clip;
 
-    private void Awake()
-    {
-        GameManager.instance.playSound(clip);
-    }
+    
     // Start is called before the first frame update
     void Start()
     {
+
+        StartCoroutine(GameManager.instance.playSound(clip));
         var nivelData = FindObjectOfType<NivelDataHandler>();
         GameManager.instance.sumarDinero(nivelData.GetMonedas());
 
@@ -32,7 +32,7 @@ public class RecompensaHandler : MonoBehaviour
             personaje.SetXp(nivelData.GetXp());
             personaje.ComprobarNivel();
 
-            Debug.Log(personaje.GetNombre() + " nivel: " + personaje.GetNivel());
+            Debug.Log("Nivel: " + personaje.GetNivel());
             switch (personaje.GetRareza())
             {
                 case Rareza.COMUN:
@@ -51,8 +51,18 @@ public class RecompensaHandler : MonoBehaviour
 
         SerializableEstadoList estados = JsonUtility.FromJson<SerializableEstadoList>(estadosString);
 
-        estados.list[(nivelData.GetMundo() * nivelData.GetID()) - 1] = Estado.JUGADO;
-        estados.list[(nivelData.GetMundo() * nivelData.GetID())] = Estado.NO_JUGADO;
+        var idx = (nivelData.GetMundo() - 1) * 10 + nivelData.GetID();
+
+        estados.list[idx-1] = Estado.JUGADO;
+        if(idx < 30)
+        {
+            estados.list[idx] = Estado.NO_JUGADO;
+        }
+        //else
+        //{
+        //    //esto está porque no hay más de 10 niveles
+        //}
+
 
         PlayerPrefs.SetString("Estados Niveles", JsonUtility.ToJson(estados));
 
@@ -74,13 +84,15 @@ public class RecompensaHandler : MonoBehaviour
                 if (p.nombre.Equals(personaje.GetNombre()))
                 {
                     p.ataque = personaje.GetAtaque();
+                    p.ataqueBase = personaje.GetAtaqueBase();
                     p.defensa = personaje.GetDefensa();
+                    p.defensaBase = personaje.GetDefensaBase();
                     p.vida = personaje.GetVida();
+                    p.vidaBase = personaje.GetVidaBase();
                     p.vidaMax = personaje.getVidaMax();
                     p.nivel = personaje.GetNivel();
                     p.xp = personaje.GetXp();
                     p.xpSubida = personaje.GetXpSubida();
-                    p.xpSubidaPrev = personaje.GetXpSubidaPrev();
                 }
                 newList.list.Add(p);
             }
@@ -102,13 +114,15 @@ public class RecompensaHandler : MonoBehaviour
                 if (p.nombre.Equals(personaje.GetNombre()))
                 {
                     p.ataque = personaje.GetAtaque();
+                    p.ataqueBase = personaje.GetAtaqueBase();
                     p.defensa = personaje.GetDefensa();
+                    p.defensaBase = personaje.GetDefensaBase();
                     p.vida = personaje.GetVida();
+                    p.vidaBase = personaje.GetVidaBase();
                     p.vidaMax = personaje.getVidaMax();
                     p.nivel = personaje.GetNivel();
                     p.xp = personaje.GetXp();
                     p.xpSubida = personaje.GetXpSubida();
-                    p.xpSubidaPrev = personaje.GetXpSubidaPrev();
                 }
                 newList.list.Add(p);
             }
@@ -131,23 +145,45 @@ public class RecompensaHandler : MonoBehaviour
                 if (p.nombre.Equals(personaje.GetNombre()))
                 {
                     p.ataque = personaje.GetAtaque();
+                    p.ataqueBase = personaje.GetAtaqueBase();
                     p.defensa = personaje.GetDefensa();
+                    p.defensaBase = personaje.GetDefensaBase();
                     p.vida = personaje.GetVida();
+                    p.vidaBase = personaje.GetVidaBase();
                     p.vidaMax = personaje.getVidaMax();
                     p.nivel = personaje.GetNivel();
                     p.xp = personaje.GetXp();
                     p.xpSubida = personaje.GetXpSubida();
-                    p.xpSubidaPrev = personaje.GetXpSubidaPrev();
                 }
                 newList.list.Add(p);
 
             }
+            PlayerPrefs.SetString("superRares", JsonUtility.ToJson(newList));
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void terminarRecompensa(string scene)
     {
-        
+        SigEscena.CrossSceneInformation = scene;
+        if (scene.Equals("Seleccion de niveles"))
+        {
+            if (FindObjectOfType<NivelDataHandler>() != null)
+                Destroy(FindObjectOfType<NivelDataHandler>().gameObject);
+
+            if (FindObjectOfType<DataToBattle>() != null)
+                Destroy(FindObjectOfType<DataToBattle>().gameObject);
+
+            if (FindObjectOfType<HistoriaManager>() != null)
+                Destroy(FindObjectOfType<HistoriaManager>().gameObject);
+
+
+            StopAllCoroutines();
+            GameManager.instance.GetAudioSource().Stop();
+            GameManager.instance.GetAudioSource().clip = GameManager.instance.GetClipMenu();
+            GameManager.instance.GetAudioSource().Play();
+        }
+
+
+        SceneManager.LoadScene("PantallaCarga");
     }
 }

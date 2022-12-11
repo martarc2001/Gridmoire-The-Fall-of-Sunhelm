@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d55d090c78b6240aa6dccd6042a022, type: 3}
+  m_Name: 3-10
+  m_EditorClassIdentifier: 
+  links:
+  - guid: 20ee3519-f47f-4bb6-b90c-90a14920c8d4
+    targetGuid: 71dfa2e4-ca0d-49f1-85f6-b78111478a79
+    portId: 0
+  - guid: 71dfa2e4-ca0d-49f1-85f6-b78111478a79
+    targetGuid: 990098aa-c2ca-4c3e-93bc-1b3f388211dc
+    portId: 1
+  - guid: 990098aa-c2ca-4c3e-93bc-1b3f388211dc
+    targetGuid: 01c2176d-fabc-4317-a629-f5c27b9375f5
+    portId: 2
+  - guid: 01c2176d-fabc-4317-a629-f5c27b9375f5
+    targetGuid: 6a5b2cd7-33b7-420c-a8e6-10827d885fbb
+    portId: 3
+  - guid: 6a5b2cd7-33b7-420c-a8e6-10827d885fbb
+    targetGuid: fd267e56-c033-42d1-939a-3ede9d476251
+    portId: 4
+  nodes:
+  - guid: 20ee3519-f47f-4bb6-b90c-90a14920c8d4
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: Cada vez hay menos barro...
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 1
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: -426
+      y: 508
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: fd267e56-c033-42d1-939a-3ede9d476251
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "Raz\xF3n de m\xE1s para avanzar. Venga, \xA1Vamos!"
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 1
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 2895
+      y: 508
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 71dfa2e4-ca0d-49f1-85f6-b78111478a79
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Estamos muy cerca de Semh Hal-a. Deberi\xE1mos prepararnos un
+      poco antes de escalar hacia la cumbre."
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 218
+      y: 508
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 990098aa-c2ca-4c3e-93bc-1b3f388211dc
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Afortunadamente, tengo lo necesario para hacer un picnic. \xBFTe
+      apetece?"
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 884
+      y: 508
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 01c2176d-fabc-4317-a629-f5c27b9375f5
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "Un picnic... \xBFen este sitio? Creo que prefiero seguir avanzando."
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1549
+      y: 508
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 6a5b2cd7-33b7-420c-a8e6-10827d885fbb
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Bueno, como veas, pero el camino s\xF3lo se har\xE1 m\xE1s dif\xEDcil
+      de aqu\xED en adelante."
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 2238
+      y: 508
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}

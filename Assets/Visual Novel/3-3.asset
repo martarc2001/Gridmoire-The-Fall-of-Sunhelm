@@ -1,0 +1,208 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d55d090c78b6240aa6dccd6042a022, type: 3}
+  m_Name: 3-3
+  m_EditorClassIdentifier: 
+  links:
+  - guid: 3f460ccb-85cd-4b31-b7ef-79d889bb74e9
+    targetGuid: 85214258-26ff-4594-af87-080f5254688e
+    portId: 0
+  - guid: d1ea672c-5be7-4314-9e2c-293ae19cb4e5
+    targetGuid: 655903f7-8d81-4ff0-ab38-e9c56e9dbde7
+    portId: 1
+  - guid: 85214258-26ff-4594-af87-080f5254688e
+    targetGuid: 11a86bcc-8657-456f-b3e3-791005ed2fd5
+    portId: 2
+  - guid: 11a86bcc-8657-456f-b3e3-791005ed2fd5
+    targetGuid: 7fc14b86-f068-4b54-9f7b-a9be45750a0b
+    portId: 3
+  - guid: d5a5cc6a-5358-4732-b214-0c1a9dcbace7
+    targetGuid: 1876568f-2f59-4000-90a5-a07ccd372b08
+    portId: 4
+  - guid: 38472cc2-ef07-44a9-94bd-2c28146f9621
+    targetGuid: d1ea672c-5be7-4314-9e2c-293ae19cb4e5
+    portId: 5
+  - guid: 7fc14b86-f068-4b54-9f7b-a9be45750a0b
+    targetGuid: d5a5cc6a-5358-4732-b214-0c1a9dcbace7
+    portId: 6
+  - guid: 1876568f-2f59-4000-90a5-a07ccd372b08
+    targetGuid: 38472cc2-ef07-44a9-94bd-2c28146f9621
+    portId: 7
+  nodes:
+  - guid: 3f460ccb-85cd-4b31-b7ef-79d889bb74e9
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: Puaj, odio este sitio. Encima huele fatal...
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 1
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: -298
+      y: 199
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: d1ea672c-5be7-4314-9e2c-293ae19cb4e5
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: '*Suspiro* Pues venga, poquito a poco, pasito a paso, va caminando
+      la humanidad...'
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 4147
+      y: 199
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 85214258-26ff-4594-af87-080f5254688e
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "S\xED, ten cuidado de no ingerir barro de este sitio por error.
+      Podr\xEDa ser potencialmente venenoso."
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 342
+      y: 199
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 11a86bcc-8657-456f-b3e3-791005ed2fd5
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Nunca he entendido como un sitio as\xED puede encontrarse al lado
+      del bosque de Thelia."
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 990
+      y: 199
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: d5a5cc6a-5358-4732-b214-0c1a9dcbace7
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "No, no, avancemos. No deber\xEDa quedarnos mucho para llegar a
+      Semh Hal-a."
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 2252
+      y: 199
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 38472cc2-ef07-44a9-94bd-2c28146f9621
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "S\xED, tendremos que atravesarla para llegar a las zonas muertas,
+      donde se encuentra el castillo de Artem..."
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 3520
+      y: 199
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 655903f7-8d81-4ff0-ab38-e9c56e9dbde7
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: A veces no te entiendo...
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 1
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 4795
+      y: 199
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 7fc14b86-f068-4b54-9f7b-a9be45750a0b
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "Yo, por m\xED, nos damos la vuelta..."
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1631
+      y: 199
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 1876568f-2f59-4000-90a5-a07ccd372b08
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "\xBFLa monta\xF1a que se ve desde... pr\xE1cticamente cualquier
+      sitio?"
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 2898
+      y: 199
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}

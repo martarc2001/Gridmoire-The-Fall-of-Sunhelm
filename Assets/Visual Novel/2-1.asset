@@ -1,0 +1,184 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d55d090c78b6240aa6dccd6042a022, type: 3}
+  m_Name: 2-1
+  m_EditorClassIdentifier: 
+  links:
+  - guid: d9e0352f-3c61-43ab-aeff-81c2a65a0eb7
+    targetGuid: 3a048f6e-9c16-4879-b5cb-1d1d88c3a381
+    portId: 0
+  - guid: 59e98596-56de-4b05-af99-86150c02f863
+    targetGuid: a5ac334e-2e53-42c8-9000-2345e661ea61
+    portId: 1
+  - guid: a5ac334e-2e53-42c8-9000-2345e661ea61
+    targetGuid: e7d5b253-62e1-42cd-abbf-59ed7f4430b1
+    portId: 2
+  - guid: 4c7ab36b-249e-4216-b2ae-44c1c8436c2b
+    targetGuid: f0268bb8-a4cb-423b-92c7-f9cf7045887f
+    portId: 3
+  - guid: f0268bb8-a4cb-423b-92c7-f9cf7045887f
+    targetGuid: 59e98596-56de-4b05-af99-86150c02f863
+    portId: 4
+  - guid: e7d5b253-62e1-42cd-abbf-59ed7f4430b1
+    targetGuid: e8ceb583-6f7b-45e2-823f-32a55f00cfc1
+    portId: 5
+  - guid: 3a048f6e-9c16-4879-b5cb-1d1d88c3a381
+    targetGuid: 4c7ab36b-249e-4216-b2ae-44c1c8436c2b
+    portId: 6
+  nodes:
+  - guid: d9e0352f-3c61-43ab-aeff-81c2a65a0eb7
+    characterSpr: {fileID: 0}
+    characterName: Tu
+    dialogueText: "As\xED que este es el bosque m\xE1gico de Thelia..."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 1
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 112
+      y: 374
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 59e98596-56de-4b05-af99-86150c02f863
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: Siempre he querido ver un hada de verdad. Ya sabes, poder volar
+      con un poco de fe...
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 2952
+      y: 374
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: a5ac334e-2e53-42c8-9000-2345e661ea61
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "confianza... \xA1y polvo de hadas!"
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 3656
+      y: 374
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: e8ceb583-6f7b-45e2-823f-32a55f00cfc1
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "\xA1Vamos Raley! \xA1No hay tiempo que perder!"
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 1
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 5070
+      y: 374
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 4c7ab36b-249e-4216-b2ae-44c1c8436c2b
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Sol\xEDa ser un lugar tranquilo y bello... Ahora apenas se aprecia
+      la magia."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1591
+      y: 374
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: f0268bb8-a4cb-423b-92c7-f9cf7045887f
+    characterSpr: {fileID: 0}
+    characterName: "T\xFA"
+    dialogueText: "Hmmm, bueno, seguro que arreglamos eso pronto. Adem\xE1s..."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 2294
+      y: 374
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: e7d5b253-62e1-42cd-abbf-59ed7f4430b1
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "Eh... creo que te est\xE1s equivocando de franquicia..."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 4364
+      y: 374
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: 3a048f6e-9c16-4879-b5cb-1d1d88c3a381
+    characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
+    characterName: Raley
+    dialogueText: "En efecto, el hogar de la mayor\xEDa de criaturas m\xE1gicas de
+      Sunhelm."
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 844
+      y: 374
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}

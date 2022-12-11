@@ -27,6 +27,7 @@ public class LevelFlow : MonoBehaviour
     [SerializeField] private List<float> vidasJugador = new List<float>();
 
     [SerializeField] private TextMeshProUGUI textoTurno;
+    private int n_turno = 0;
 
     private NivelDataHandler datosBatalla;
 
@@ -36,11 +37,17 @@ public class LevelFlow : MonoBehaviour
 
     [SerializeField] private List<Sprite> ataques;
 
+    [SerializeField] private List<AudioClip> efectosSonido;
+
+    [SerializeField] private Audio audioScript;
+
     // getter & setters
 
     public GridManager GetGridIA() { return gridIA; }
     public GridManager GetGridPlayer() { return gridPlayer; }
     public IAManager GetIAManager() { return ia; }
+
+    public Audio GetScriptAudio() { return audioScript; }
     public bool isInitialized() { return initialize; }
 
     private bool turnoIATomado = false;
@@ -127,15 +134,16 @@ public class LevelFlow : MonoBehaviour
             QuedanAliados(ejercitoJugador);
             textoTurno.SetText("Turno Enemigos");
             personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.blue;
-            ia.resaltarAtaque(gridIA, gridPlayer, personaje);
+            ia.resaltarAtaque(gridIA, gridPlayer, personaje, n_turno);
             yield return new WaitForSeconds(0.25f);
-            ia.Atacar(gridIA, gridPlayer, personaje);
+            ia.Atacar(gridIA, gridPlayer, personaje, n_turno);
             yield return new WaitForSeconds(0.25f);
             ia.resetResalto(gridIA, gridPlayer);
             personaje.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.gray;
             yield return new WaitForSeconds(0.25f);
             
         }
+        n_turno++;
 
         textoTurno.SetText("Turno Jugador");
         ia.resetEnemigos();
@@ -169,6 +177,8 @@ public class LevelFlow : MonoBehaviour
 
         foreach(var eliminados in persEliminar)
         {
+            audioScript.src.PlayOneShot(efectosSonido[0]);
+            GetComponent<BattleController>().resetColores(eliminados.GetComponent<SeleccionableManager>());
             comprobar.Remove(eliminados);
             GetComponent<BattleController>().eliminarMuerto(eliminados.GetComponent<SeleccionableManager>());
             Destroy(eliminados.gameObject);
@@ -192,11 +202,14 @@ public class LevelFlow : MonoBehaviour
     {
         var result = false;
         List<EnemigoController> persEliminar = new List<EnemigoController>();
+        List<CeldaManager> celdaVaciar = new List<CeldaManager>();
+
         foreach (var personaje in comprobar)
         {
             if (personaje.getEnemigo().GetVida() <= 0)
             {
                 persEliminar.Add(personaje);
+                celdaVaciar.Add(personaje.GetComponentInParent<CeldaManager>());
             }
             if (personaje.getEnemigo().GetVida() > 0)
             {
@@ -206,8 +219,21 @@ public class LevelFlow : MonoBehaviour
 
         foreach (var eliminados in persEliminar)
         {
+            audioScript.src.PlayOneShot(efectosSonido[1]);
             comprobar.Remove(eliminados);
             Destroy(eliminados.gameObject);
+        }
+
+        foreach (var celda in celdaVaciar)
+        {
+            foreach (var cell in gridIA.getCeldas())
+            {
+                if (celda.getCelda().GetX() == cell.getCelda().GetX() && celda.getCelda().GetY() == cell.getCelda().GetY())
+                {
+                    cell.getCelda().SetPersonaje(null);
+                    cell.getCelda().ChangeOccupied();
+                }
+            }
         }
         return result;
     }
@@ -298,7 +324,8 @@ public class LevelFlow : MonoBehaviour
                     objEnemigo.transform.Find("Sprite").GetComponent<SpriteRenderer>().sortingOrder = 2;
                     break;
             }
-            objEnemigo.GetComponent<EnemigoController>().crearEnemigo(datosBatalla.GetEnemigos()[nEnemigos],datosBatalla.GetMundo(),datosBatalla.GetID());
+            objEnemigo.GetComponent<EnemigoController>().crearEnemigo(datosBatalla.GetEnemigos()[nEnemigos],datosBatalla.GetMundo(),
+                datosBatalla.GetID(), datosBatalla.GetTipoAtaque()[nEnemigos]);
             grid.getGridInfo().GetCeldas()[x, y].SetPersonaje(objEnemigo);
             grid.getGridInfo().GetCeldas()[x, y].ChangeOccupied();
 
@@ -348,7 +375,7 @@ public class LevelFlow : MonoBehaviour
 
         ia.SetEjercito(ejercitoEnemigo);
 
-        ejercitoCompletoJugador = ejercitoJugador;
+        //ejercitoCompletoJugador = ejercitoJugador;
         initialize = true;
     }
 

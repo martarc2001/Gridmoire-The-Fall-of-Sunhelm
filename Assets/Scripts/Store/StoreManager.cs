@@ -89,7 +89,7 @@ public class StoreManager : MonoBehaviour
             case "SuperRaro":
                 //activar botón de compra
                 moneda.SetActive(true);
-                textoCompra.GetComponent<TextMeshProUGUI>().text = "Comprar: 2500";
+                textoCompra.GetComponent<TextMeshProUGUI>().text = "Comprar: 1500";
                 textoCompra.GetComponent<Button>().interactable = true;
 
                 //cambio de rareza y carga de PlayerPref de esa rareza
@@ -142,7 +142,7 @@ public class StoreManager : MonoBehaviour
                 }
                 break;
             case Rareza.SUPER_RARO:
-                if (GameManager.instance.getDineroJugador() >= 2500)
+                if (GameManager.instance.getDineroJugador() >= 1500)
                 {
                     textoNoDinero.text = "";
                     generateRandomCharacter();
@@ -245,6 +245,7 @@ public class StoreManager : MonoBehaviour
         newFlequillo.color = new Color(RP, GP, BP);
         newPelo.color = new Color(RP, GP, BP);
         newCejas.color = new Color(RP, GP, BP);
+        newExtra.color = new Color(RP, GP, BP);
 
         //color para ojos
         var RI = Random.Range(0, 255) / 255f;
@@ -289,7 +290,8 @@ public class StoreManager : MonoBehaviour
 
         var sp = new SerializablePlayer(iFlequillo,iPelo,iPest,iOrej,iNari,iBoca,iExtra,iCejas,
             iRopa, iArma, iArmaDetras, piel.r, piel.g, piel.b,RP,GP,BP,RI,GI,BI,pers.GetAtaque(),pers.GetDefensa(),pers.GetVida(),pers.getVidaMax(), 
-            (int)pers.GetTipoAtaque(),pers.GetNombre(),(int)pers.GetRareza(),1,0,500,250);
+            (int)pers.GetTipoAtaque(),pers.GetAtaqueBase(),pers.GetDefensaBase(),pers.GetVidaBase(),
+            pers.GetNombre(),(int)pers.GetRareza(),1,0,500);
 
         spl.list.Add(sp);
 
@@ -304,7 +306,7 @@ public class StoreManager : MonoBehaviour
                 PlayerPrefs.SetString("rares", JsonUtility.ToJson(spl));
                 break;
             case Rareza.SUPER_RARO:
-                GameManager.instance.restarDinero(2500);
+                GameManager.instance.restarDinero(1500);
                 PlayerPrefs.SetString("superRares", JsonUtility.ToJson(spl));
                 
                 break;
@@ -318,7 +320,26 @@ public class StoreManager : MonoBehaviour
         var vidaStats = "Vida: " + pers.GetVida();
         var ataqueStats = "Ataque: " + pers.GetAtaque();
         var defensaStats = "Defensa: " + pers.GetDefensa();
-        var tipoAtaqueStats = "Tipo de ataque: " + pers.GetTipoAtaque();
+        var tipoAtaqueStats = "Tipo de ataque: ";
+        switch (pers.GetTipoAtaque())
+        {
+            case TipoAtaque.SINGLE:
+                tipoAtaqueStats = "Tipo de ataque: MONO OBJETIVO";
+                break;
+            case TipoAtaque.COLUMN:
+                tipoAtaqueStats = "Tipo de ataque: COLUMNA";
+                break;
+            case TipoAtaque.ROW:
+                tipoAtaqueStats = "Tipo de ataque: FILA";
+                break;
+            case TipoAtaque.GRID:
+                tipoAtaqueStats = "Tipo de ataque: ÁREA";
+                break;
+            case TipoAtaque.HEAL:
+                tipoAtaqueStats = "Tipo de ataque: CURAR";
+                break;
+        }
+        
 
         stats.transform.Find("Nombre").GetComponent<TextMeshProUGUI>().text = nombreStats;
         stats.transform.Find("Vida").GetComponent<TextMeshProUGUI>().text = vidaStats;
