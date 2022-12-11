@@ -162,16 +162,16 @@ Vencer en un nivel ofrecerá entre 50 y 140 monedas, dependiendo de cuán avanza
 Segunda zona de nuestro juego. En esta zona, el enemigo principal serán “Murciélagos vampiros”, pero también aparecerán “Perros infernales”. en los niveles finales, también aparecerá algún “Goblin” que otro. Estos son atraídos por las criaturas mágicas del bosque, por lo que el jugador deberá defender el segundo lugar de ataque de las tropas de Artem.
 <br>
 Vencer en un nivel ofrecerá entre 150 y 240 monedas, dependiendo de cuán avanzado sea el nivel de zona. Además, también recompensará con experiencia a cada personaje con valores entre 470 y 920, dependiendo del nivel.
-<br>
-![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Bosque.jpg)
-![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/mapa_2oCap.jpg)
+
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Bosque.jpg)<br>
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/mapa_2oCap.jpg)<br>
 
 * Muddybog, la ciénaga perdida<br>
 Tercera zona del juego. Aparecerá con más frecuencia el nuevo tipo de enemigo “Goblin”, el cuál empezará a exigir algo más de nivel al jugador, fomentando así la rejugabilidad de niveles anteriores. Además de incluir un “Demonio F” en el último nivel, el enemigo más fuerte que verá el jugador hasta dicho momento.
 <br>
 Vencer en un nivel ofrecerá entre 250 y 340 monedas, dependiendo de cuán avanzado sea el nivel de zona. Además, también recompensará con experiencia a cada personaje con valores entre 960 y 1540, dependiendo del nivel.
-<br>
-![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Pantano.jpg)
+
+![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/Pantano.jpg)<br>
 ![image](https://github.com/MooncakeStudio/mooncakestudio.github.io/blob/main/GDD/Assets/mapa_3erCap.jpg)
 
 * Semh Hal-a, el pico del norte<br>
