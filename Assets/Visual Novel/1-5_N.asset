@@ -113,7 +113,7 @@ MonoBehaviour:
   - guid: 2b848a39-7f62-4886-95d0-a43f1bc22c91
     characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
     characterName: Artem
-    dialogueText: "Nunga sabr\xE1 que fui yo, Artem, quien modific\xF3 su conjuro
+    dialogueText: "Nunca sabr\xE1 que fui yo, Artem, quien modific\xF3 su conjuro
       para invocar a un h\xE9roe."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   - guid: 470a4e89-0339-4cfe-a652-d1a9ee5ad99e
     characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
     characterName: Artem
-    dialogueText: "Para morir *Risa mal\xE9fica*"
+    dialogueText: "para morir *Risa mal\xE9fica*"
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   - guid: 679eef27-6c71-4899-b9b5-0238fae2b794
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
-    dialogueText: "Ah, si claro. \xA1A la batalla!"
+    dialogueText: "Ah, s\xED, claro. \xA1A la batalla!"
     backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
     startNode: 0
     endNode: 1
@@ -319,7 +319,7 @@ MonoBehaviour:
   - guid: 0f91c78c-469a-42a5-a868-ef63ea3b0156
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Raley
-    dialogueText: "Pero ahora nos tienen a nosotros. As\xED que continuemos el viaje."
+    dialogueText: "Pero ahora nos tienen a nosotres. As\xED que continuemos el viaje."
     backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
     startNode: 0
     endNode: 0

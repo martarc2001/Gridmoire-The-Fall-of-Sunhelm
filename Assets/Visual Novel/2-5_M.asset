@@ -16,23 +16,23 @@ MonoBehaviour:
   - guid: 1f05c5ec-ca14-45c8-bdce-da76753183b4
     targetGuid: 78d09542-9661-4ba0-b66e-6de33a36be73
     portId: 0
-  - guid: 78d09542-9661-4ba0-b66e-6de33a36be73
-    targetGuid: 00b01f77-0ef1-4995-8729-49d3a85b3d5b
-    portId: 1
   - guid: 00b01f77-0ef1-4995-8729-49d3a85b3d5b
     targetGuid: 148e8483-8ecc-45e1-b900-f00d3eccd904
-    portId: 2
-  - guid: 148e8483-8ecc-45e1-b900-f00d3eccd904
-    targetGuid: 940c0301-e0eb-40f8-8259-95e6262d8aa6
-    portId: 3
+    portId: 1
   - guid: 940c0301-e0eb-40f8-8259-95e6262d8aa6
     targetGuid: a40a736e-9e39-4c60-b49d-195b307d2cd4
-    portId: 4
+    portId: 2
   - guid: a40a736e-9e39-4c60-b49d-195b307d2cd4
     targetGuid: 60774c03-f6d7-477b-a5f8-07292a757aac
-    portId: 5
+    portId: 3
   - guid: 60774c03-f6d7-477b-a5f8-07292a757aac
     targetGuid: 5cac6adb-f003-4466-8ebc-c672455dbfae
+    portId: 4
+  - guid: 78d09542-9661-4ba0-b66e-6de33a36be73
+    targetGuid: 00b01f77-0ef1-4995-8729-49d3a85b3d5b
+    portId: 5
+  - guid: 148e8483-8ecc-45e1-b900-f00d3eccd904
+    targetGuid: 940c0301-e0eb-40f8-8259-95e6262d8aa6
     portId: 6
   nodes:
   - guid: 1f05c5ec-ca14-45c8-bdce-da76753183b4
@@ -84,24 +84,6 @@ MonoBehaviour:
     nodePosition:
       serializedVersion: 2
       x: 3296
-      y: 251
-      width: 499
-      height: 305
-    soundEffect: {fileID: 0}
-    backgroundMusic: {fileID: 0}
-  - guid: a40a736e-9e39-4c60-b49d-195b307d2cd4
-    characterSpr: {fileID: 0}
-    characterName: '*Luz misteriosa*'
-    dialogueText: ...
-    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
-    startNode: 0
-    endNode: 0
-    choices: 1
-    choiceOptions:
-    - 
-    nodePosition:
-      serializedVersion: 2
-      x: 4045
       y: 251
       width: 499
       height: 305
@@ -176,6 +158,24 @@ MonoBehaviour:
     nodePosition:
       serializedVersion: 2
       x: 5477
+      y: 251
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: a40a736e-9e39-4c60-b49d-195b307d2cd4
+    characterSpr: {fileID: 21300000, guid: 7e558b68cc064ab499bf4e2f6a0e3559, type: 3}
+    characterName: '*Luz misteriosa*'
+    dialogueText: ...
+    backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 4045
       y: 251
       width: 499
       height: 305
