@@ -80,4 +80,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 82ea98875ec9ff3429804194b91a0ccc
+  - enabled: 1
+    path: Assets/Scenes/Eleccion de genero.unity
+    guid: f9dc1899fd543c047892421045d26438
   m_configObjects: {}

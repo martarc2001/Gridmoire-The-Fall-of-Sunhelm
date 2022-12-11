@@ -65,7 +65,7 @@ public class SceneLoader : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("PrimeraVez") == 1)
         {
-            SigEscena.CrossSceneInformation = "Intro Visual Novel";
+            SigEscena.CrossSceneInformation = "Eleccion de genero";
             SceneManager.LoadScene("PantallaCarga");
             //SceneManager.LoadScene("Intro Visual Novel");
         } else

@@ -25,7 +25,7 @@ public class GenderManager : MonoBehaviour
     {
         this.SetGenero(genero);
 
-        var textoEleccion = eleccion.GetComponent<TextMeshPro>();
+        var textoEleccion = eleccion.GetComponent<TextMeshProUGUI>();
 
         switch (genero)
         {
