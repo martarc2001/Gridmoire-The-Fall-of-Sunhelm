@@ -222,7 +222,7 @@ MonoBehaviour:
   - guid: 2418f353-d5de-4e1a-a93b-0fe41b5b8fed
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Chica misteriosa
-    dialogueText: "\xA1\xBFT\xFA no eres el Caballere de la Luna?!"
+    dialogueText: "\xA1\xBFT\xFA no eres le Caballero de la Luna?!"
     backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}
     startNode: 0
     endNode: 0
@@ -688,7 +688,7 @@ MonoBehaviour:
   - guid: e2f917bc-82fa-4ce5-89d8-ef66f4af5589
     characterSpr: {fileID: 0}
     characterName: "T\xFA"
-    dialogueText: "Encantado Raley, s\xE9 que est\xE1s nerviosa pero no te preocupes.
+    dialogueText: "Encantade Raley, s\xE9 que est\xE1s nerviosa pero no te preocupes.
       Aunque no sea el h\xE9roe que buscabas, te prometo que te ayudar\xE9 y te llevar\xE9
       a la victoria."
     backgroundSpr: {fileID: 21300000, guid: 46350b2a7f121d740b80bfeab50b54cf, type: 3}

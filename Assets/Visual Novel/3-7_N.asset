@@ -19,61 +19,25 @@ MonoBehaviour:
   - guid: dbcdf9a7-6091-4ac2-b17c-7bfdb0ba55f4
     targetGuid: c79257fe-942d-4e16-adc8-9181d31fafa0
     portId: 1
-  - guid: c79257fe-942d-4e16-adc8-9181d31fafa0
-    targetGuid: dd707d8e-ea53-4795-b46f-717c835cc96a
-    portId: 2
   - guid: dd707d8e-ea53-4795-b46f-717c835cc96a
     targetGuid: 9fd51fc5-8459-4ede-a497-06cf1575b5c5
-    portId: 3
+    portId: 2
   - guid: 9fd51fc5-8459-4ede-a497-06cf1575b5c5
     targetGuid: fe543681-fecc-4d9e-9fdd-88791cdbc70d
-    portId: 4
-  - guid: fe543681-fecc-4d9e-9fdd-88791cdbc70d
-    targetGuid: 225eb0a9-c700-4949-919c-07a7ea075072
-    portId: 5
+    portId: 3
   - guid: 225eb0a9-c700-4949-919c-07a7ea075072
     targetGuid: ec7bebbf-cd3d-4bd4-9201-c0e5681b1eff
-    portId: 6
+    portId: 4
   - guid: ec7bebbf-cd3d-4bd4-9201-c0e5681b1eff
     targetGuid: 6c15396e-fdf6-4f7c-b238-8477df657efa
+    portId: 5
+  - guid: fe543681-fecc-4d9e-9fdd-88791cdbc70d
+    targetGuid: 225eb0a9-c700-4949-919c-07a7ea075072
+    portId: 6
+  - guid: c79257fe-942d-4e16-adc8-9181d31fafa0
+    targetGuid: dd707d8e-ea53-4795-b46f-717c835cc96a
     portId: 7
   nodes:
-  - guid: c79257fe-942d-4e16-adc8-9181d31fafa0
-    characterSpr: {fileID: 0}
-    characterName: Goblin
-    dialogueText: "M-maeshtro...ggg...Eshtamosh aqu\xED."
-    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
-    startNode: 0
-    endNode: 0
-    choices: 1
-    choiceOptions:
-    - 
-    nodePosition:
-      serializedVersion: 2
-      x: -730
-      y: 326
-      width: 499
-      height: 305
-    soundEffect: {fileID: 0}
-    backgroundMusic: {fileID: 0}
-  - guid: fe543681-fecc-4d9e-9fdd-88791cdbc70d
-    characterSpr: {fileID: 0}
-    characterName: Goblin
-    dialogueText: N-nosh-shotrosh no... Maeshtro noshotrosh...
-    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
-    startNode: 0
-    endNode: 0
-    choices: 1
-    choiceOptions:
-    - 
-    nodePosition:
-      serializedVersion: 2
-      x: 1311
-      y: 326
-      width: 499
-      height: 305
-    soundEffect: {fileID: 0}
-    backgroundMusic: {fileID: 0}
   - guid: 9c77a70c-8584-4f5b-930b-d8672f978ea7
     characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
     characterName: Artem
@@ -96,7 +60,7 @@ MonoBehaviour:
     characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
     characterName: Artem
     dialogueText: "\xA1\xBFD\xF3nde est\xE1n los goblins?! Como me hagan esperar
-      m\xE1s les voy a..."
+      m\xE1s, les voy a..."
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 0
@@ -188,7 +152,7 @@ MonoBehaviour:
   - guid: 6c15396e-fdf6-4f7c-b238-8477df657efa
     characterSpr: {fileID: 21300000, guid: 7523d35462583a3448545affe432eca7, type: 3}
     characterName: Artem
-    dialogueText: Y arrancarla de cuajo.
+    dialogueText: y arrancarla de cuajo.
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0
     endNode: 1
@@ -198,6 +162,42 @@ MonoBehaviour:
     nodePosition:
       serializedVersion: 2
       x: 3490
+      y: 326
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: c79257fe-942d-4e16-adc8-9181d31fafa0
+    characterSpr: {fileID: 21300000, guid: 95cb76b7526a72f4a8c51dd5ae2dea25, type: 3}
+    characterName: Goblin
+    dialogueText: "M-maeshtro... ggg... Eshtamosh aqu\xED."
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: -730
+      y: 326
+      width: 499
+      height: 305
+    soundEffect: {fileID: 0}
+    backgroundMusic: {fileID: 0}
+  - guid: fe543681-fecc-4d9e-9fdd-88791cdbc70d
+    characterSpr: {fileID: 21300000, guid: 95cb76b7526a72f4a8c51dd5ae2dea25, type: 3}
+    characterName: Goblin
+    dialogueText: N-nosh-shotrosh no... Maeshtro, noshotrosh...
+    backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
+    startNode: 0
+    endNode: 0
+    choices: 1
+    choiceOptions:
+    - 
+    nodePosition:
+      serializedVersion: 2
+      x: 1311
       y: 326
       width: 499
       height: 305

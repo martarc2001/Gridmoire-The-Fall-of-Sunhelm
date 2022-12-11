@@ -87,7 +87,7 @@ MonoBehaviour:
   - guid: 990098aa-c2ca-4c3e-93bc-1b3f388211dc
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Raley
-    dialogueText: "Afortunadamente tengo lo necesario para hacer un picnic. \xBFTe
+    dialogueText: "Afortunadamente, tengo lo necesario para hacer un picnic. \xBFTe
       apetece?"
     backgroundSpr: {fileID: 21300000, guid: 4b1534e6079a01e44b120e58596261e6, type: 3}
     startNode: 0

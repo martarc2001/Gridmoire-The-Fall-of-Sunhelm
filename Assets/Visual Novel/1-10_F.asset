@@ -56,7 +56,7 @@ MonoBehaviour:
   - guid: b416b6e7-1f2a-4d1b-9531-b054cafd5fe8
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Raley
-    dialogueText: "No... No queda ningun monstruo m\xE1s en la capital..."
+    dialogueText: "No... No queda ning\xFAn monstruo m\xE1s en la capital..."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0
@@ -167,8 +167,8 @@ MonoBehaviour:
   - guid: b1bfabc9-1a55-4b0c-93d6-ba8068143682
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Raley
-    dialogueText: "Nuestro siguiente paso es ir al bosque de Thelia. All\xED es dondeviven
-      las hadas y duendes de Sunhelm."
+    dialogueText: "Nuestro siguiente paso es ir al bosque de Thelia. All\xED es donde
+      viven las hadas y duendes de Sunhelm."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Raley
     dialogueText: "Oh, \xA1venga! Piensa en que ser\xE1s la hero\xEDna tambi\xE9n
-      de las criaturas m\xE1gicas de Thelia"
+      de las criaturas m\xE1gicas de Thelia."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0

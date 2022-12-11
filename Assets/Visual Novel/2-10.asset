@@ -16,20 +16,20 @@ MonoBehaviour:
   - guid: f29c16b4-56ac-47ca-a72f-b85cce2cc1a4
     targetGuid: 64e05ce8-53e7-4894-bfd9-81e906884be2
     portId: 0
-  - guid: 97e0dfe9-e8b9-4a68-9b62-b44834cdeab9
-    targetGuid: e27133f9-9251-4552-9f14-6068cc34aa83
-    portId: 1
   - guid: e27133f9-9251-4552-9f14-6068cc34aa83
     targetGuid: 53fbed3f-8446-4032-b246-8902fed0e27e
-    portId: 2
+    portId: 1
   - guid: 96ad40ea-47ac-4a88-8a86-e799c4d4e56a
     targetGuid: 5cf662b0-5bc4-47c8-b1fc-0009589e1c79
-    portId: 3
+    portId: 2
   - guid: 5cf662b0-5bc4-47c8-b1fc-0009589e1c79
     targetGuid: f29c16b4-56ac-47ca-a72f-b85cce2cc1a4
-    portId: 4
+    portId: 3
   - guid: 64e05ce8-53e7-4894-bfd9-81e906884be2
     targetGuid: 97e0dfe9-e8b9-4a68-9b62-b44834cdeab9
+    portId: 4
+  - guid: 97e0dfe9-e8b9-4a68-9b62-b44834cdeab9
+    targetGuid: e27133f9-9251-4552-9f14-6068cc34aa83
     portId: 5
   nodes:
   - guid: f29c16b4-56ac-47ca-a72f-b85cce2cc1a4
@@ -110,7 +110,7 @@ MonoBehaviour:
   - guid: 64e05ce8-53e7-4894-bfd9-81e906884be2
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Raley
-    dialogueText: "Ogros no se, pero dicen que est\xE1 infestado de goblins."
+    dialogueText: "Ogros no s\xE9, pero dicen que est\xE1 infestado de goblins."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
   - guid: 53fbed3f-8446-4032-b246-8902fed0e27e
     characterSpr: {fileID: 21300000, guid: 6b6e702f412a5a547b88eef01866f699, type: 3}
     characterName: Raley
-    dialogueText: "Y ah\xED va de nuevo. Esto ya se empeiza a hacer costumbre..."
+    dialogueText: "Y ah\xED va de nuevo. Esto ya se empieza a hacer costumbre..."
     backgroundSpr: {fileID: 21300000, guid: 21f70992acfccab47a058af15248175c, type: 3}
     startNode: 0
     endNode: 1

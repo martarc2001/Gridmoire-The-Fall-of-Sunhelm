@@ -142,7 +142,7 @@ public class PlanificationManager : MonoBehaviour
                                 hit.gameObject.GetComponent<CeldaManager>().getCelda()
                                 .GetPersonaje().transform.SetParent(canvasParent.transform);
                                 hit.gameObject.GetComponent<CeldaManager>().getCelda()
-                                    .GetPersonaje().transform.localScale = new Vector3(3, 3, 3);
+                                    .GetPersonaje().transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
 
                                 hit.gameObject.GetComponent<CeldaManager>().getCelda()
                                 .GetPersonaje().gameObject.transform.Find("Ataque").gameObject.SetActive(true);
