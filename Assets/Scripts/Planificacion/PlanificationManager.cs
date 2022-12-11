@@ -23,6 +23,8 @@ public class PlanificationManager : MonoBehaviour
 
     private List<CeldaManager> celdasToRemove= new List<CeldaManager>();
 
+    [SerializeField] private Audio audioScript;
+    [SerializeField] private List<AudioClip> efectosSonido;
     void Start()
     {
         var obj = FindObjectOfType<NivelDataHandler>();
@@ -100,6 +102,7 @@ public class PlanificationManager : MonoBehaviour
                         if (hit.gameObject.transform.Find("Character").GetComponent<SeleccionableManager>().isSelectable())
                             playerSelected = hit.gameObject;
                     }
+                    audioScript.PlaySound(efectosSonido[0]);
                     
                 }
                 else if (hit.gameObject.CompareTag("Cell"))
@@ -122,6 +125,7 @@ public class PlanificationManager : MonoBehaviour
                             playerSelected = null;
                             personajesSeleccionados++;
                             dataBattle.addCelda(hit.gameObject.GetComponent<CeldaManager>());
+                            audioScript.PlaySound(efectosSonido[1]);
                         }
 
                     }
@@ -173,6 +177,7 @@ public class PlanificationManager : MonoBehaviour
                             playerSelected.gameObject.transform.Find("Nivel").gameObject.SetActive(false);
                             playerSelected.gameObject.transform.Find("TipoAtaque").gameObject.SetActive(false);
                             playerSelected.gameObject.transform.position = hit.gameObject.transform.position;
+                            audioScript.PlaySound(efectosSonido[1]);
                             nombres.Add(playerSelected.transform.Find("Character").GetComponent<PlayerController>().getPersonaje().GetNombre());
                             playerSelected = null;
                         }
@@ -184,6 +189,7 @@ public class PlanificationManager : MonoBehaviour
                             hit.gameObject.GetComponent<CeldaManager>().getCelda().ChangeOccupied();
                             dataBattle.removeCelda(hit.gameObject.GetComponent<CeldaManager>());
                             nombres.Remove(playerSelected.transform.Find("Character").GetComponent<PlayerController>().getPersonaje().GetNombre());
+                            audioScript.PlaySound(efectosSonido[0]);
                         }
 
                     }
