@@ -2861,7 +2861,7 @@ MonoBehaviour:
   previousBtn: {fileID: 966034294}
   saveBtn: {fileID: 0}
   menuButton: {fileID: 2078235042}
-  skipBtn: {fileID: 823498508}
+  skipBtn: {fileID: 0}
   choiceBtn1: {fileID: 1711734561}
   choiceBtn2: {fileID: 1588672136}
   choiceBtn3: {fileID: 505797634}
