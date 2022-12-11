@@ -49,21 +49,21 @@ public class Attack : MonoBehaviour
         {
             var enemigo = celda.GetPersonaje();
             var defEnemigo = enemigo.GetComponent<EnemigoController>().getEnemigo().GetDefensa();
-            var damageTotal = damage * Random.Range(0.75f, 1);
+            var damageTotal = damage * Random.Range(0.75f, 0.85f);
             if (damageTotal - defEnemigo > 0)
             {
                 if(enemigo.GetComponent<EnemigoController>().getEnemigo().GetTipoAtaque() == TipoAtaque.ROW)
                 {
-                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal+0.25f - defEnemigo);
+                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damage + 0.25f - defEnemigo / 2);
                 }
                 else
                 {
-                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal - defEnemigo);
+                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damage - defEnemigo / 2);
                 }
             }
             else
             {
-                enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal*2 / 5);
+                enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damage * 3 / 5);
             }
                 
 
@@ -82,21 +82,21 @@ public class Attack : MonoBehaviour
             {
                 var enemigo = celda.GetPersonaje();
                 var defEnemigo = enemigo.GetComponent<EnemigoController>().getEnemigo().GetDefensa();
-                var damageTotal = damage * Random.Range(0.5f, 0.75f);
+                var damageTotal = damage * Random.Range(0.65f, 0.75f);
                 if (damageTotal - defEnemigo > 0)
                 {
                     if (enemigo.GetComponent<EnemigoController>().getEnemigo().GetTipoAtaque() == TipoAtaque.GRID)
                     {
-                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal + 0.25f - defEnemigo);
+                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damage + 0.25f - defEnemigo / 2);
                     }
                     else
                     {
-                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal - defEnemigo);
+                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damage - defEnemigo / 2);
                     }
                 }
                 else
                 {
-                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal * 2 / 5);
+                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damage * 3 / 5);
                 }
                     
             }
@@ -114,21 +114,21 @@ public class Attack : MonoBehaviour
             {
                 var enemigo = celda.GetPersonaje();
                 var defEnemigo = enemigo.GetComponent<EnemigoController>().getEnemigo().GetDefensa();
-                var damageTotal = damage * Random.Range(0.5f, 0.75f);
+                var damageTotal = damage * Random.Range(0.65f, 0.75f);
                 if (damageTotal - defEnemigo > 0)
                 {
                     if (enemigo.GetComponent<EnemigoController>().getEnemigo().GetTipoAtaque() == TipoAtaque.COLUMN)
                     {
-                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal + 0.25f - defEnemigo);
+                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damage + 0.25f - defEnemigo / 2);
                     }
                     else
                     {
-                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal - defEnemigo);
+                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damage - defEnemigo / 2);
                     }
                 }
                 else
                 {
-                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal * 2 / 5);
+                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damage * 3 / 5);
                 }
             }
             
@@ -145,21 +145,21 @@ public class Attack : MonoBehaviour
             {
                 var enemigo = celda.GetPersonaje();
                 var defEnemigo = enemigo.GetComponent<EnemigoController>().getEnemigo().GetDefensa();
-                var damageTotal = damage * Random.Range(0.25f, 0.5f);
+                var damageTotal = damage * Random.Range(0.35f, 0.5f);
                 if (damageTotal - defEnemigo > 0)
                 {
                     if (enemigo.GetComponent<EnemigoController>().getEnemigo().GetTipoAtaque() == TipoAtaque.SINGLE)
                     {
-                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal + 0.25f - defEnemigo);
+                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damage + 0.25f - defEnemigo / 2);
                     }
                     else
                     {
-                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal - defEnemigo);
+                        enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damage - defEnemigo / 2);
                     }
                 }
                 else
                 {
-                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damageTotal * 2 / 5);
+                    enemigo.GetComponent<EnemigoController>().getEnemigo().takeDamage(damage * 3 / 5);
                 }
             }
             
@@ -173,7 +173,7 @@ public class Attack : MonoBehaviour
         if (celda.GetPersonaje() != null)
         {
             var aliado = celda.GetPersonaje();
-            var damageTotal = damage * Random.Range(0.5f, 0.25f);
+            var damageTotal = damage * Random.Range(0.35f, 0.5f);
             var particles = Instantiate(particulasCurar, aliado.transform.position, Quaternion.Euler(-90, 0, 0));
             particles.transform.parent = aliado.transform;
             particles.transform.localScale = Vector3.one;
