@@ -3766,6 +3766,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: menu opciones
       objectReference: {fileID: 0}
+    - target: {fileID: 3140715797626169013, guid: 68004a6ee563a9a408c5298805874ab7, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 576813520}
     - target: {fileID: 3140715797626169014, guid: 68004a6ee563a9a408c5298805874ab7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
