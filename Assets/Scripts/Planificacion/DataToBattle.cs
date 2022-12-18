@@ -15,10 +15,11 @@ public class DataToBattle : MonoBehaviour
 
     public void putGrid()
     {
-        fadeEffect.SetActive(true);
+        
 
         if (listCeldas.Count > 0)
         {
+            fadeEffect.SetActive(true);
             var i = 0;
             listaCeldas = new Celda[listCeldas.Count];
             foreach (var celda in listCeldas)
