@@ -640,6 +640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: menu opciones
       objectReference: {fileID: 0}
+    - target: {fileID: 3140715797626169013, guid: 68004a6ee563a9a408c5298805874ab7, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 576813520}
     - target: {fileID: 3140715797626169014, guid: 68004a6ee563a9a408c5298805874ab7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1621,7 +1625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textos:
   - {fileID: 1085529692}
-  - {fileID: 464877358}
+  - {fileID: 1685306863}
 --- !u!4 &825322317
 Transform:
   m_ObjectHideFlags: 0
@@ -3265,6 +3269,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7956711243964346917, guid: fa3b3ae0f5aef1747bfed825d8033f12, type: 3}
   m_PrefabInstance: {fileID: 1685306861}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1685306863 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2730184992469698620, guid: fa3b3ae0f5aef1747bfed825d8033f12, type: 3}
+  m_PrefabInstance: {fileID: 1685306861}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1705209800
 GameObject:
   m_ObjectHideFlags: 0
