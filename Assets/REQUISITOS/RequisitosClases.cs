@@ -22,6 +22,10 @@ public class SerializableAdmin
     public string nombre;
     public SerializableAdmin() { }
     public SerializableAdmin(string n) { this.nombre = n; }
+    override public string ToString()
+    {
+        return "Nombre: " + nombre + "\n";
+    }
 }
 
 //-------------------------------------------------------------------
