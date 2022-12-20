@@ -20,8 +20,12 @@ public class RequisitosClases : MonoBehaviour
 public class SerializableAdmin
 {
     public string nombre;
+    public string contraseña;
     public SerializableAdmin() { }
-    public SerializableAdmin(string n) { this.nombre = n; }
+    public SerializableAdmin(string n, string c) { 
+        this.nombre = n; 
+        this.contraseña = c;
+    }
     override public string ToString()
     {
         return "Nombre: " + nombre + "\n";
