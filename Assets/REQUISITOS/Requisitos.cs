@@ -94,10 +94,20 @@ public class Requisitos : MonoBehaviour
             var nombre = inputNombre.text;
             var contraseña = inputContraseña.text;
 
-            SerializableAdmin nuevoAdmin = new SerializableAdmin(nombre, contraseña);
+            bool valido = true;
+            int contador = 0;
 
-            if (!listaAdmin.list.Contains(nuevoAdmin)) // Esto en realidad no funciona, pero debería ser algo así. Yo creoque podemos ir 1 por 1 mirando, que nos saca del paso
+            while (contador < listaAdmin.list.Count && valido)
             {
+                valido = (nombre != listaAdmin.list[contador].nombre);
+                contador++;
+            }
+
+
+            if (valido)
+            {
+                Debug.Log("Creado");
+                SerializableAdmin nuevoAdmin = new SerializableAdmin(nombre, contraseña);
                 listaAdmin.list.Add(nuevoAdmin);
 
                 PlayerPrefs.SetString("Admins", JsonUtility.ToJson(listaAdmin));
@@ -107,7 +117,7 @@ public class Requisitos : MonoBehaviour
 
             } else
             {
-                invalidoCreacion.GetComponent<TextMeshProUGUI>().text = "Nombre de Usuario o contraseña no válidos, por favor, introduzcalos de nuevo.";
+                invalidoCreacion.GetComponent<TextMeshProUGUI>().text = "Ese nombre de usuario ya está en uso. Por favor, introduzca uno nuevo.";
                 invalidoCreacion.SetActive(true);
             }
         } else
