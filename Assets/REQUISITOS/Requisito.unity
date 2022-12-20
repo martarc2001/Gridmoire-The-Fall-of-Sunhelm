@@ -2679,6 +2679,7 @@ MonoBehaviour:
   menuCreacion: {fileID: 1047907020}
   inputNombre: {fileID: 2051465604}
   "inputContrase\xF1a": {fileID: 507520478}
+  invalidoCreacion: {fileID: 0}
   menuBorrado: {fileID: 1296356499}
   textoBoton: {fileID: 2985852381377486844, guid: 514b275a6c5447249aa554abd25108ef, type: 3}
   textoNoAdmins: {fileID: 1038502489}
@@ -4743,12 +4744,12 @@ GameObject:
   - component: {fileID: 1038502492}
   - component: {fileID: 1038502491}
   m_Layer: 5
-  m_Name: No Admins
+  m_Name: "Inv\xE1lido"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1038502490
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4766,7 +4767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.4, y: 163.88}
+  m_AnchoredPosition: {x: 15.4, y: -203}
   m_SizeDelta: {x: 561.66, y: 94.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1038502491
@@ -4789,7 +4790,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: No se han encontrado Administradores del sistema.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: db2f28f94d5978846913dd5a99116b63, type: 2}
   m_sharedMaterial: {fileID: -5118543241869315926, guid: db2f28f94d5978846913dd5a99116b63, type: 2}
