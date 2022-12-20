@@ -38,12 +38,14 @@ public class SerializableReporte
     public int id;
     public string motivo;
     public string comentario;
+    public bool perdonado;
 
     public SerializableReporte() { }
-    public SerializableReporte(int i, string m, string c)
+    public SerializableReporte(int i, string m, string c, bool p)
     {
         this.id = i;
         this.motivo = m;
         this.comentario = c;
+        this.perdonado = p;
     }
 }

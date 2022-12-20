@@ -12,11 +12,30 @@ public class Requisitos : MonoBehaviour
     [SerializeField] GameObject areaAEscribirAdmins;
     [SerializeField] GameObject textoModificableListarAdmins;
     public GameObject textoBoton;
+    public GameObject textoNoAdmins;
+
+
+    private void Awake()
+    {
+        if (!PlayerPrefs.HasKey("Admins"))
+        {
+            PlayerPrefs.SetString("Admins", AdminJson);
+        }
+
+        if (!PlayerPrefs.HasKey("Reportes"))
+        {
+            PlayerPrefs.SetString("Reportes", ReporteJson);
+        }
+    }
+
     public List<SerializableAdmin> ObtenerListaAdmin()
     {
-        if (!string.IsNullOrEmpty(AdminJson))
+        if (PlayerPrefs.HasKey("Admins"))
         {
-            listaAdmin = JsonUtility.FromJson<ListaAdminSerializable>(AdminJson);
+            listaAdmin = JsonUtility.FromJson<ListaAdminSerializable>(PlayerPrefs.GetString("Admins"));
+        } else
+        {
+            textoNoAdmins.SetActive(true);
         }
         return this.listaAdmin.list;
     }
@@ -46,6 +65,11 @@ public class Requisitos : MonoBehaviour
             n++;
         }
 
+    }
+
+    public void CierraAdmins()
+    {
+        areaListarAdmins.SetActive(false);
     }
 
     public void BorrarAdmin()
