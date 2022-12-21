@@ -12,6 +12,7 @@ public class Requisitos : MonoBehaviour
 
     static public ListaAdminSerializable listaAdmin = new ListaAdminSerializable();
     static public ListaReporteSerializable listaReporte = new ListaReporteSerializable();
+    static public ListaReporteSerializable listaTotalReportes = new ListaReporteSerializable();
 
     [Header("Mostrar Admins")]
     [SerializeField] GameObject areaListarAdmins;
@@ -31,7 +32,8 @@ public class Requisitos : MonoBehaviour
     [Header("Historial Reportes")]
     [SerializeField] GameObject menuHistorialReportes;
 
-
+    [Header("Gestion Reportes")]
+    [SerializeField] GameObject menuGestionReportes;
 
     private void Awake()
     {
@@ -47,6 +49,7 @@ public class Requisitos : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("Reportes"))
         {
+            
             PlayerPrefs.SetString("Reportes", ReporteJson);
         }
         else
@@ -54,6 +57,16 @@ public class Requisitos : MonoBehaviour
             ReporteJson = PlayerPrefs.GetString("Reportes");
 
             listaReporte = JsonUtility.FromJson<ListaReporteSerializable>(ReporteJson);
+        }
+
+        if (!PlayerPrefs.HasKey("ReportesTodos"))
+        {
+            PlayerPrefs.SetString("ReportesTodos", ReporteJson);
+        }
+        else
+        {
+
+            listaTotalReportes = JsonUtility.FromJson<ListaReporteSerializable>(PlayerPrefs.GetString("ReportesTodos"));
         }
     }
 
@@ -164,6 +177,17 @@ public class Requisitos : MonoBehaviour
     public void CerrarHistorialReportes()
     {
         menuHistorialReportes.SetActive(false);
+    }
+
+    public void AbrirGestionReportes()
+    {
+        listaReporte = JsonUtility.FromJson<ListaReporteSerializable>(PlayerPrefs.GetString("Reportes"));
+        menuGestionReportes.SetActive(true);
+    }
+
+    public void CerrarGestionReportes()
+    {
+        menuGestionReportes.SetActive(false);
     }
 }
 

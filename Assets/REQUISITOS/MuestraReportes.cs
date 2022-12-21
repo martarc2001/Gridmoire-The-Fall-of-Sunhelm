@@ -19,9 +19,9 @@ public class MuestraReportes : MonoBehaviour
             {
                 var nuevoReporte = Instantiate(prefabNombre, transform);
 
-                nuevoReporte.transform.Find("ID").GetComponent<TextMeshProUGUI>().text = "ID: " + reporte.id;
-                nuevoReporte.transform.Find("Descripcion").GetComponent<TextMeshProUGUI>().text = "Descripcion: " + reporte.motivo;
-                nuevoReporte.transform.Find("Comentario").GetComponent<TextMeshProUGUI>().text = "Comentario: " + reporte.comentario;
+                nuevoReporte.transform.Find("id").GetComponent<TextMeshProUGUI>().text = "ID: " + reporte.id;
+                nuevoReporte.transform.Find("com").GetComponent<TextMeshProUGUI>().text = "Descripcion: " + reporte.motivo;
+                nuevoReporte.transform.Find("mot").GetComponent<TextMeshProUGUI>().text = "Comentario: " + reporte.comentario;
                 if (reporte.perdonado)
                 {
                     nuevoReporte.transform.Find("Estado").GetComponent<TextMeshProUGUI>().text = "Estado: Perdonado";
