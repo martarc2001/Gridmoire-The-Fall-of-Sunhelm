@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Requisitos : MonoBehaviour
 {
     private string AdminJson = "{\"list\":[]}";
-    private string ReporteJson = "{\"list\":[]}";
+    private string ReporteJson = "{\"list\":[{\"id\": 1,\"motivo\":\"Imcumplimiento de la regla 420\",\"comentario\":\"Quitame el ban\"},{\"id\":2,\"motivo\":\"Spam en el chat\",\"comentario\":\"me lo merezco\"},{\"id\":3,\"motivo\":\"Lenguaje inapropiado\",\"comentario\":\"me llama a mi sin ser nada de eso yo\"}]}";
 
     static public ListaAdminSerializable listaAdmin = new ListaAdminSerializable();
     static public ListaReporteSerializable listaReporte = new ListaReporteSerializable();
@@ -22,14 +22,15 @@ public class Requisitos : MonoBehaviour
     [SerializeField] TMP_InputField inputNombre;
     [SerializeField] TMP_InputField inputContraseña;
     public GameObject invalidoCreacion;
-    
 
     [Header("Borrar Admin")]
     [SerializeField] GameObject menuBorrado;
-
     public GameObject textoBoton;
-
     public GameObject textoNoAdmins;
+
+    [Header("Historial Reportes")]
+    [SerializeField] GameObject menuHistorialReportes;
+
 
 
     private void Awake()
@@ -134,11 +135,6 @@ public class Requisitos : MonoBehaviour
         }
     }
 
-    public void BorrarCuenta()
-    {
-        // Hay que ver como cogemos el admin al que pulsamos y eliminarlo de la lista. Pero eso ya lo tenía hecho Dani para Gridmoire.
-    }
-
     public void AbrirCreacionCuenta()
     {
         menuCreacion.SetActive(true);
@@ -158,6 +154,16 @@ public class Requisitos : MonoBehaviour
     public void CerrarBorradoCuenta()
     {
         menuBorrado.SetActive(false);
+    }
+
+    public void AbrirHistorialReportes()
+    {
+        menuHistorialReportes.SetActive(true);
+    }
+
+    public void CerrarHistorialReportes()
+    {
+        menuHistorialReportes.SetActive(false);
     }
 }
 
