@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,13 +10,12 @@ public class Requisitos : MonoBehaviour
     private string AdminJson = "{\"list\":[]}";
     private string ReporteJson = "{\"list\":[]}";
 
-    private ListaAdminSerializable listaAdmin = new ListaAdminSerializable();
-    private ListaReporteSerializable listaReporte = new ListaReporteSerializable();
+    static public ListaAdminSerializable listaAdmin = new ListaAdminSerializable();
+    static public ListaReporteSerializable listaReporte = new ListaReporteSerializable();
 
     [Header("Mostrar Admins")]
     [SerializeField] GameObject areaListarAdmins;
     [SerializeField] GameObject areaAEscribirAdmins;
-    [SerializeField] GameObject textoModificableListarAdmins;
 
     [Header("Crear Admin")]
     [SerializeField] GameObject menuCreacion;
@@ -37,11 +37,22 @@ public class Requisitos : MonoBehaviour
         if (!PlayerPrefs.HasKey("Admins"))
         {
             PlayerPrefs.SetString("Admins", AdminJson);
+        } else
+        {
+            AdminJson = PlayerPrefs.GetString("Admins");
+
+            listaAdmin = JsonUtility.FromJson<ListaAdminSerializable>(AdminJson);
         }
 
         if (!PlayerPrefs.HasKey("Reportes"))
         {
             PlayerPrefs.SetString("Reportes", ReporteJson);
+        }
+        else
+        {
+            ReporteJson = PlayerPrefs.GetString("Reportes");
+
+            listaReporte = JsonUtility.FromJson<ListaReporteSerializable>(ReporteJson);
         }
     }
 
@@ -54,7 +65,7 @@ public class Requisitos : MonoBehaviour
         {
             textoNoAdmins.SetActive(true);
         }
-        return this.listaAdmin.list;
+        return Requisitos.listaAdmin.list;
     }
 
     public List<SerializableReporte> ObtenerListaReporte()
@@ -63,25 +74,17 @@ public class Requisitos : MonoBehaviour
         {
             listaReporte = JsonUtility.FromJson<ListaReporteSerializable>(ReporteJson);
         }
-        return this.listaReporte.list;
+        return Requisitos.listaReporte.list;
     }
 
-    public void MostrarAdmin()
+    public void AbrirMostrarAdmin()
     {
         areaListarAdmins.SetActive(true);
-        ObtenerListaAdmin();
-        int n = -1;
-        foreach (SerializableAdmin elemento in  listaAdmin.list)
-        {
-            //textoModificableListarAdmins.GetComponent<TMPro.TextMeshProUGUI>().text += elemento.ToString();
-            GameObject newButton = Instantiate(textoBoton) as GameObject;
-            newButton.transform.SetParent(areaAEscribirAdmins.transform, false);
-            newButton.GetComponent<RectTransform>().SetPositionAndRotation(new Vector3(0, -n, 0), new Quaternion(0, 0, 0,0));
-            newButton.GetComponent<TMPro.TextMeshProUGUI>().text += elemento.ToString();
-            //newButton.transform.FindChild("nameOfChildObject").GetComponentInChildren<TMPro.TextMeshProUGUI>().text += elemento.ToString();
-            n++;
-        }
+    }
 
+    public void CerrarMostrarAdmins()
+    {
+        areaListarAdmins.SetActive(false);
     }
 
     public void CrearCuenta()
@@ -106,6 +109,10 @@ public class Requisitos : MonoBehaviour
 
             if (valido)
             {
+                AdminJson = PlayerPrefs.GetString("Admins");
+
+                listaAdmin = JsonUtility.FromJson<ListaAdminSerializable>(AdminJson);
+
                 Debug.Log("Creado");
                 SerializableAdmin nuevoAdmin = new SerializableAdmin(nombre, contraseña);
                 listaAdmin.list.Add(nuevoAdmin);
@@ -139,6 +146,7 @@ public class Requisitos : MonoBehaviour
 
     public void CerrarCreacionCuenta()
     {
+        invalidoCreacion.SetActive(false);
         menuCreacion.SetActive(false);
     }
 
@@ -151,17 +159,6 @@ public class Requisitos : MonoBehaviour
     {
         menuBorrado.SetActive(false);
     }
-
-    public void CierraAdmins()
-    {
-        areaListarAdmins.SetActive(false);
-    }
-
-    public void BorrarAdmin()
-    {
-        Destroy(this.transform.parent.gameObject);
-    }
-
 }
 
 
