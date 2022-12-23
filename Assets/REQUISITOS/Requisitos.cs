@@ -171,22 +171,28 @@ public class Requisitos : MonoBehaviour
 
     public void AbrirHistorialReportes()
     {
+        listaTotalReportes = JsonUtility.FromJson<ListaReporteSerializable>(PlayerPrefs.GetString("ReportesTodos"));
+        Debug.Log(PlayerPrefs.GetString("ReportesTodos"));
         menuHistorialReportes.SetActive(true);
     }
 
     public void CerrarHistorialReportes()
     {
+        listaTotalReportes = JsonUtility.FromJson<ListaReporteSerializable>(PlayerPrefs.GetString("ReportesTodos"));
         menuHistorialReportes.SetActive(false);
     }
 
     public void AbrirGestionReportes()
     {
         listaReporte = JsonUtility.FromJson<ListaReporteSerializable>(PlayerPrefs.GetString("Reportes"));
+        listaTotalReportes = JsonUtility.FromJson<ListaReporteSerializable>(PlayerPrefs.GetString("ReportesTodos"));
         menuGestionReportes.SetActive(true);
     }
 
     public void CerrarGestionReportes()
     {
+        listaReporte = JsonUtility.FromJson<ListaReporteSerializable>(PlayerPrefs.GetString("Reportes"));
+        listaTotalReportes = JsonUtility.FromJson<ListaReporteSerializable>(PlayerPrefs.GetString("ReportesTodos"));
         menuGestionReportes.SetActive(false);
     }
 }
